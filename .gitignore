@@ -1,0 +1,20 @@
+# IntellijIDEA
+.idea/
+*.iws
+*.iml
+*.ipr
+
+
+### Java
+*.class
+*.jar
+*.war
+*.ear
+
+### Maven
+target/
+
+### Tests
+logs/
+*.log
+*.gz
