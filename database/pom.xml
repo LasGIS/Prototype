@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <parent>
         <groupId>com.lasgis.prototype</groupId>
         <artifactId>prototype-parent</artifactId>
@@ -11,6 +12,13 @@
     <packaging>jar</packaging>
     <name>Prototype Database</name>
 
+    <dependencies>
+        <dependency>
+            <groupId>org.postgresql</groupId>
+            <artifactId>postgresql</artifactId>
+        </dependency>
+    </dependencies>
+
     <build>
         <resources>
             <resource>
@@ -21,6 +29,25 @@
         <plugins>
             <plugin>
                 <artifactId>maven-release-plugin</artifactId>
+            </plugin>
+            <plugin>
+                <groupId>org.flywaydb</groupId>
+                <artifactId>flyway-maven-plugin</artifactId>
+                <goals>
+                    <goal>migrate</goal>
+<!--
+                    <goal>clean</goal>
+-->
+                </goals>
+                <configuration>
+                    <driver>org.postgresql.Driver</driver>
+                    <url>jdbc:postgresql://localhost:5432/postgres</url>
+                    <user>postgres</user>
+                    <password>postgres</password>
+                    <schemas>
+                        <schema>prototype</schema>
+                    </schemas>
+                </configuration>
             </plugin>
         </plugins>
     </build>
