@@ -1,0 +1,39 @@
+/*!
+ * Copyright 2018 Russian Post
+ *
+ * This source code is Russian Post Confidential Proprietary.
+ * This software is protected by copyright. All rights and titles are reserved.
+ * You shall not use, copy, distribute, modify, decompile, disassemble or reverse engineer the software.
+ * Otherwise this violation would be treated by law and would be subject to legal prosecution.
+ * Legal use of the software provides receipt of a license from the right holder only.
+ */
+
+@import "../../constants/constants";
+
+
+.new-app {
+  background: $body_bg_color;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  font-family: $Roboto;
+  width: 100%;
+}
+
+.new-app-body {
+  display: flex;
+  flex-direction: row;
+  flex-grow: 1;
+  width: 100%;
+
+  .main {
+    flex: 1;
+    min-width: 0;
+  }
+}
+
+.main-container {
+  width: 1100px;
+  margin: 0 auto;
+  padding-bottom: 75px;
+}
