@@ -1,0 +1,180 @@
+/*!
+ * Copyright 2018 Russian Post
+ *
+ * This source code is Russian Post Confidential Proprietary.
+ * This software is protected by copyright. All rights and titles are reserved.
+ * You shall not use, copy, distribute, modify, decompile, disassemble or reverse engineer the software.
+ * Otherwise this violation would be treated by law and would be subject to legal prosecution.
+ * Legal use of the software provides receipt of a license from the right holder only.
+ */
+@import "../../constants/constants";
+
+.icon {
+
+  &__accept {
+    background: url("svg/accept_icon.svg") no-repeat;
+    background-size: 25px;
+    width: 50px;
+    height: 50px;
+  }
+
+  &__printer {
+    background: url("svg/printer_icon.svg") no-repeat;
+    background-size: 25px;
+    width: 30px;
+    height: 30px;
+  }
+
+  &__printerGray {
+    background: url("svg/printer_icon_gray.svg") no-repeat;
+    background-size: 100% 100%;
+    width: 21px;
+    height: 22px;
+  }
+
+  &__question {
+    background: url("svg/question.svg") no-repeat;
+    background-size: 25px;
+    width: 30px;
+    height: 30px;
+  }
+
+  &__russianpost-ems {
+    background: url("svg/ems_russianpost_icon.svg") no-repeat;
+    width: 350px;
+    height: 60px;
+  }
+
+  &--transparent {
+    opacity: 0.5;
+  }
+
+  &__warning--red {
+    width: 25px;
+    height: 23px;
+    background: url("svg/warning-red.svg") no-repeat;
+  }
+
+  &__warning--white {
+    width: 20px;
+    height: 20px;
+    background: url("svg/warning-white.svg") no-repeat;
+  }
+
+  &__up {
+    width: 20px;
+    height: 20px;
+    background: url("svg/up.svg") no-repeat;
+    &--blue {
+      background: url("svg/arrow-up.svg") no-repeat center;
+    }
+  }
+
+  &__cancel {
+    width: 15px;
+    height: 15px;
+    background: url("svg/close-grey.svg") no-repeat center;
+    background-size: contain;
+    &--white {
+      width: 15px;
+      height: 15px;
+      background-size: contain;
+      background: url("svg/close-white.svg") no-repeat center;
+    }
+  }
+
+  &__down {
+    width: 20px;
+    height: 20px;
+    background: url("svg/arrow-down.svg") no-repeat center;
+  }
+
+  &__filter {
+    width: 20px;
+    height: 20px;
+    &--active {
+      background: #0055A6 url("svg/filter_active.svg") no-repeat center;
+      border-radius: 2px;
+      width: 20px;
+      height: 20px;
+    }
+    &--greyWithBorder {
+      background: url("svg/filter_grey_w_border.svg") no-repeat center;
+    }
+    &--grey {
+      width: 8.09px;
+      height: 9.26px;
+      background: #F7F7F7 url("svg/filter_grey.svg") no-repeat center;
+    }
+  }
+
+  &__sort {
+    width: 20px;
+    height: 20px;
+    &--asc {
+      background: url("svg/sort_down.svg") no-repeat center;
+      width: 8px;
+      height: 2.53px;
+    }
+    &--desc {
+      width: 8px;
+      height: 2.53px;
+      background: url("svg/sort.svg") no-repeat center;
+    }
+  }
+
+  &__green-check {
+    width: 20px;
+    height: 20px;
+    background: url("svg/green-check.svg") no-repeat;
+  }
+
+  &__oval {
+    background-color: $red;
+    border: 2px solid #FFFFFF;
+    border-radius: 100%;
+    width: 8px;
+    height: 8px;
+    color: #888A8C;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 17px;
+    text-align: right;
+  }
+
+  &__big-warning {
+    background: url("svg/big-red-warning.svg") no-repeat;
+    width: 570.98px;
+    height: 570.76px;
+  }
+
+  &__loupe {
+    background: url("svg/loupe.svg") no-repeat;
+    width: 18px;
+    height: 18px;
+  }
+
+  &__cross {
+    background: url("svg/cross-thin.svg") no-repeat;
+    width: 16px;
+    height: 16px;
+  }
+
+  &__cross-red {
+    background: url("svg/cross-thin-red.svg") no-repeat;
+    width: 16px;
+    height: 16px;
+  }
+}
+
+.oval-label {
+  display: flex;
+
+  &__oval {
+    margin-top: 8px;
+  }
+
+  &--green {
+    background-color: $green;
+  }
+}

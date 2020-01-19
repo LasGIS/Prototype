@@ -1,0 +1,34 @@
+/*
+ *
+ *  Copyright 2019 Russian Post
+ *
+ *  This source code is Russian Post Confidential Proprietary.
+ *  This software is protected by copyright. All rights and titles are reserved.
+ *  You shall not use, copy, distribute, modify, decompile, disassemble or reverse engineer the software.
+ *  Otherwise this violation would be treated by law and would be subject to legal prosecution.
+ *  Legal use of the software provides receipt of a license from the right holder only.
+ *
+ */
+
+import React from 'react';
+import { connect } from 'react-redux';
+import { Redirect } from 'react-router-dom';
+import { FRONT_AUTH_TOKEN } from '../constants/constants';
+
+const withAuthProtection = OriginalComponent => {
+  class WithAuthProtection extends React.Component {
+    render() {
+      const { ...rest } = this.props;
+      const authenticated = localStorage.getItem(FRONT_AUTH_TOKEN);
+      return authenticated ? <OriginalComponent {...rest} /> : <Redirect to={'/login'} />;
+    }
+  }
+
+  return connect(
+    state => ({
+      state,
+    }),
+    {},
+  )(WithAuthProtection);
+};
+export default withAuthProtection;

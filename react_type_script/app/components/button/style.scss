@@ -1,0 +1,82 @@
+/*!
+ * Copyright 2018 Russian Post
+ *
+ * This source code is Russian Post Confidential Proprietary.
+ * This software is protected by copyright. All rights and titles are reserved.
+ * You shall not use, copy, distribute, modify, decompile, disassemble or reverse engineer the software.
+ * Otherwise this violation would be treated by law and would be subject to legal prosecution.
+ * Legal use of the software provides receipt of a license from the right holder only.
+ */
+
+@import "../../constants/constants";
+
+.button {
+
+  border-radius: 3.82px;
+  height: 40.11px;
+  color: $white;
+  font-size: 15px;
+  font-weight: 400;
+  letter-spacing: 0.2px;
+  line-height: 17px;
+  padding: 11px;
+  text-align: center;
+
+  &:hover {
+    cursor: pointer;
+  }
+
+  &--primary-filled {
+    border: 0.96px solid $blue;
+    background-color: $blue;
+  }
+
+  &--primary-white {
+    background-color: $blue;
+    border: 0.96px solid $white;
+  }
+
+  &--primary {
+    color: $blue;
+    border: 0.96px solid $blue;
+    background-color: $white;
+  }
+
+  &--cancel {
+    background-color: $white;
+    border: 0.96px solid $red;
+    color: $red;
+  }
+
+  &--cancel-filled {
+    background-color: $red;
+    color: $white;
+  }
+
+  &--white {
+    background-color: transparent;
+    color: $white;
+    border: 0.96px solid $white;
+  }
+
+  &--white-grey-border {
+    background-color: #FFFFFF;
+    color: #0055A6;
+    border: 1px solid #EAEAEA;
+    box-shadow: inset -1px 1px 0 0 rgba(255, 255, 255, 0);
+  }
+
+  &--white-border {
+    border: 1.5px solid #FFFFFF;
+    border-radius: 4px;
+    width: 105px;
+    height: 42px;
+    background-color: transparent;
+  }
+
+  &--disabled {
+    opacity: 0.5;
+    cursor: cell;
+  }
+
+}

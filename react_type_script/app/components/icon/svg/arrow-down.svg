@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="11px" height="8px" viewBox="0 0 11 8" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 52 (66869) - http://www.bohemiancoding.com/sketch -->
+    <title>Arrow Down</title>
+    <desc>Created with Sketch.</desc>
+    <g id="UI-Kit" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g transform="translate(-585.000000, -5543.000000)" fill="#0055A6" id="Group-Copy-2">
+            <g transform="translate(276.000000, 5525.000000)">
+                <g id="Group-7" transform="translate(12.000000, 12.000000)">
+                    <polygon id="Arrow-Down" points="297 6 302.517937 13.2241993 308.035874 6"></polygon>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
