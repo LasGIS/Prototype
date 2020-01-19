@@ -1,3 +1,7 @@
+/*
+ * Copyright (c) 2020. Prototype
+ */
+
 import React from 'react';
 import Button from '../../components/button/Button';
 

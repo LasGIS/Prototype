@@ -1,3 +1,7 @@
+/*
+ * Copyright (c) 2020. Prototype
+ */
+
 const path = require('path');
 const BabelPluginTransformImports = require('babel-plugin-transform-imports');
 const autoprefixer = require('autoprefixer');

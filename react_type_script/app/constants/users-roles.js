@@ -1,3 +1,7 @@
+/*
+ * Copyright (c) 2020. Prototype
+ */
+
 export const ROLES = {
     OPERATOR: {name: 'OPERATOR', text: 'Оператор'},
     SUPERVISOR: {name: 'SUPERVISOR', text: 'Старший смены'},

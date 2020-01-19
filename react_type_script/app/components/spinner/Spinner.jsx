@@ -1,3 +1,7 @@
+/*
+ * Copyright (c) 2020. Prototype
+ */
+
 import Loader from 'react-loader-spinner';
 import React, { Component } from 'react';
 import { connect } from 'react-redux';

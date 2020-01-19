@@ -1,4 +1,8 @@
 
+/*
+ * Copyright (c) 2020. Prototype
+ */
+
 import { get } from './rest';
 
 export function fetchCurrentUser() {

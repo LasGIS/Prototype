@@ -1,3 +1,7 @@
+/*
+ * Copyright (c) 2020. Prototype
+ */
+
 export const FETCH = 'FETCH_';
 
 export const START = '_START';

@@ -1,3 +1,7 @@
+/*
+ * Copyright (c) 2020. Prototype
+ */
+
 import {fetchAppSettings, fetchAppVersion, fetchCurrentUser,} from './service';
 import {ALL, CLEAR, STATES} from '../constants/constants';
 import {push as routerPush, replace as routerReplace} from 'connected-react-router';

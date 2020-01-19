@@ -1,3 +1,7 @@
+/*
+ * Copyright (c) 2020. Prototype
+ */
+
 import React from 'react';
 import {render} from 'react-dom';
 import {Provider} from 'react-redux';

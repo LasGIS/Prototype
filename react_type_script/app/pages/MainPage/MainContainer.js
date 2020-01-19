@@ -1,4 +1,8 @@
 
+/*
+ * Copyright (c) 2020. Prototype
+ */
+
 import './style.scss';
 import React, { Component } from 'react';
 import cn from 'classnames';

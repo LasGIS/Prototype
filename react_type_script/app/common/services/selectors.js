@@ -1,3 +1,7 @@
+/*
+ * Copyright (c) 2020. Prototype
+ */
+
 import { createSelector } from 'reselect';
 
 export const globalRootKey = 'global';
