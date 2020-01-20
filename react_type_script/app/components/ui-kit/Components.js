@@ -11,6 +11,7 @@ import PrinterIcon from '../icon/PrinterIcon';
 import QuestionIcon from '../icon/QuestionIcon';
 import RussianPostEmsIcon from '../icon/RussianPostEmsIcon';
 import CheckboxViewer from './modules/CheckboxViewer/CheckboxViewer';
+import Link from "../label/Link";
 
 export default class Components extends Component {
     constructor() {

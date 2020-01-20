@@ -4,6 +4,7 @@
   "description": "This is demo project",
   "main": "index.js",
   "scripts": {
+    "start-local-dev": "cross-env HOST=http://localhost:8089 webpack-dev-server --open --config webpack.dev.js",
     "build": "webpack --config webpack.dev.js",
     "test": "node scripts/test.js --watchAll"
   },

@@ -9,7 +9,8 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const APP_DIR = path.join(__dirname, 'app');
-const BUILD_DIR = path.join(__dirname, '../../../target/classes/static');
+const BUILD_DIR = path.join(__dirname, '../kotlin_spring_mybatis/target/classes/static');
+//const BUILD_DIR = path.join(__dirname, './deploy');
 
 module.exports = {
   entry: [APP_DIR + '/Index.jsx'],

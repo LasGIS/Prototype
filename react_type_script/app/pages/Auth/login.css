@@ -1,0 +1,146 @@
+/*
+ * Copyright (c) 2020. Prototype
+ */
+
+/*body {*/
+    /*background-color: #1d53b1 !important;*/
+/*}*/
+.login {
+    width: 1280px;
+    height: 807px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    color: #fafafa;
+    font-family: 'Roboto', sans-serif;
+    background-color: #1d53b1;
+}
+
+.background {
+
+}
+.error {
+    background-color: #C54D41 !important;
+}
+
+.login h1.title {
+    font-size: 25px;
+    font-weight: 400;
+    width: 503px;
+    height: 298px;
+    margin: 0 auto;
+    padding: 189px 0 77px 0;
+    text-align: center;
+}
+
+.login h2.title {
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 20px;
+    width: 224px;
+    height: 40px;
+    margin: 0;
+    text-align: left;
+}
+
+.login .left-box {
+    float: left;
+    width: 632px;
+    height: 506px;
+    margin: 0;
+    padding: 4px 0 0 0;
+}
+
+.login .right-box {
+    border-left: 1px solid rgba(255,255,255,0.4);
+    float: right;
+    width: 648px;
+    height: 506px;
+    margin: 0 0 0 0;
+    padding: 4px 0 0 50px;
+}
+
+.login .left-box h2.title {
+    float: right;
+}
+
+.login .right-box h2.title {
+    float: left;
+    margin-right: 373px;
+    margin-bottom: 22px;
+}
+
+.login .right-box .form-field {
+    float: left;
+    margin-right: 360px;
+    margin-bottom: 22px;
+}
+
+.login .right-box .form-field > input {
+    background: transparent;
+    color: #e6e6e6;
+    border: 1px solid #ffffff;
+    font-size: 16px;
+    padding: 6px 8px;
+    width: 220px;
+}
+
+.login .right-box .form-field > input:hover {
+    box-shadow: inset 0 0 0 1px #e6e6e6;
+}
+
+.login .right-box .button-field {
+    float: left;
+    margin-right: 340px;
+    margin-top: 21px;
+}
+
+.login .right-box .button-field > div {
+    float: left;
+    border: 1px solid #FFFFFF;
+    border-radius: 3px;
+    background: transparent;
+    color: #e6e6e6;
+    width: 97px;
+    height: 40px;
+    cursor: pointer;
+}
+.login .right-box .button-field > button:hover {
+    box-shadow: inset 0 0 0 1px #e6e6e6;
+}
+
+.login .right-box .button-field > button > span {
+    font-size: 14px;
+}
+
+.login .right-box .button-field > a.reset_filter {
+    float: left;
+    background: transparent;
+    color: #e6e6e6;
+    font-size: 16px;
+    padding: 10px 0 10px 19px;
+    text-decoration: none;
+}
+
+.login .right-box .button-field > a.reset_filter:hover {
+    text-decoration: underline;
+}
+
+.login .wrong-password {
+    color: #FFFFFF;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 21px;
+    margin-left: 5px;
+}
+
+.login .wrong-password-icon {
+    background: url("./img/warning.svg") no-repeat;
+    width: 15px;
+    height: 15px;
+}
+
+.error-container {
+    display: flex;
+    float: left;
+}

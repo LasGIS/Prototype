@@ -1,5 +1,7 @@
 # название приложения
-app.name: hiber-check
+app:
+  name: Kotlin Spring Boot MyBatis
+  version: 0.0.1-SNAPSHOT
 # локальнй порт
 server.port: 8098
 

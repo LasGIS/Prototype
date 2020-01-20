@@ -14,3 +14,12 @@ export const globalUserSelector = createSelector(globalDataRootSelector, state =
 export const globalUserRolesSelector = createSelector(globalUserSelector, state => (state && state.roles) || []);
 
 export const globalVersionSelector = createSelector(globalDataRootSelector, state => (state && state.version) || '');
+
+/** 'connected-react-router' */
+export const globalDataConnectedRouterSelector = state => (state && state.router) || null;
+
+export const globalRouterLocationSelector = createSelector(
+  globalDataConnectedRouterSelector,
+  state => (state && state.location) || null,
+);
+

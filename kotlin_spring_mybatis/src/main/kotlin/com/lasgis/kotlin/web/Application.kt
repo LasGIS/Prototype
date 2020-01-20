@@ -1,3 +1,7 @@
+/*
+ * Copyright (c) 2020. Prototype
+ */
+
 package com.lasgis.kotlin.web
 
 import org.springframework.boot.Banner

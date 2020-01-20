@@ -19,3 +19,4 @@ logs/
 *.log
 *.gz
 /react_type_script/node_modules/
+/react_type_script/deploy/

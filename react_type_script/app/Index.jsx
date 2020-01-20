@@ -14,19 +14,20 @@ import {LastLocationProvider} from 'react-router-last-location';
 import history from './history';
 import configureStore from './redux/configureStore';
 import {MainPage} from "./pages/MainPage/MainPage";
-// import LoginForm from './pages/Auth/LoginForm';
+import LoginForm from './pages/Auth/LoginForm';
 
 const store = configureStore();
 
 render(
-    <Provider store={store}>
-        <ConnectedRouter history={history}>
-            <LastLocationProvider>
-                <Switch>
-                    <Route path={'/'} name="Home" component={MainPage}/>
-                </Switch>
-            </LastLocationProvider>
-        </ConnectedRouter>
-    </Provider>,
-    document.getElementById('app'),
+  <Provider store={store}>
+    <ConnectedRouter history={history}>
+      <LastLocationProvider>
+        <Switch>
+          <Route exact path="/login" name="LoginForm" component={LoginForm} />
+          <Route path={'/'} name="Home" component={MainPage}/>
+        </Switch>
+      </LastLocationProvider>
+    </ConnectedRouter>
+  </Provider>,
+  document.getElementById('app'),
 );

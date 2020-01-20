@@ -1,17 +1,17 @@
-
 /*
  * Copyright (c) 2020. Prototype
  */
 
 import './style.scss';
 
-import React, { Component } from 'react';
-import { Redirect, Route, Switch } from 'react-router-dom';
+import React, {Component} from 'react';
+import {Redirect, Switch, Route} from 'react-router-dom';
 import MainMenu from '../MainMenu/MainMenu';
 import Components from '../../components/ui-kit/Components';
 import ProtectedRoute from '../../components/protected-route/ProtectedRoute';
-import { FEATURE_EDIT_ROLES, ROLES } from '../../constants/users-roles';
+import {FEATURE_EDIT_ROLES, ROLES} from '../../constants/users-roles';
 import Footer from '../Footer/Footer';
+import {withCommonDataRequest} from "../../hoc/withCommonDataRequest";
 
 export class MainPage extends Component {
   constructor(props) {
@@ -37,9 +37,9 @@ export class MainPage extends Component {
             ]}
           />
           <ProtectedRoute
-              path="/user-management-table"
-              name="UserManagementTable"
-              component={Component}
+            path="/user-management-table"
+            name="UserManagementTable"
+            component={Component}
             availableRoles={FEATURE_EDIT_ROLES.USER_MANAGEMENT}
           />
           <ProtectedRoute
@@ -49,9 +49,14 @@ export class MainPage extends Component {
             component={Component}
             availableRoles={FEATURE_EDIT_ROLES.PERSON_MANAGEMENT}
           />
-          <Redirect from="/" to="/main-menu" />
+          <Route
+            path="/components"
+            name="Components"
+            component={Components}
+          />
+          <Redirect from="/" to="/main-menu"/>
         </Switch>
-        <Footer />
+        <Footer/>
       </div>
     );
   }

@@ -1,3 +1,7 @@
+/*
+ * Copyright (c) 2020. Prototype
+ */
+
 package com.lasgis.kotlin.web.mybatis.mapper
 
 import com.lasgis.kotlin.web.dao.User

@@ -29,8 +29,22 @@ class GreetingControllerTest(@Autowired val restTemplate: TestRestTemplate) {
 
     @Test
     fun greeting() {
-        val entity = restTemplate.getForEntity<String>("/greeting?name=Name")
+        val entity = restTemplate.getForEntity<String>("/app/greeting?name=Name")
         assertThat(entity.statusCode).isEqualTo(HttpStatus.OK)
         assertThat(entity.body).contains("Hello, Name")
     }
+
+    @Test
+    fun applicationName() {
+        val entity = restTemplate.getForEntity<String>("/app/name")
+        assertThat(entity.statusCode).isEqualTo(HttpStatus.OK)
+        assertThat(entity.body).contains("Kotlin Spring Boot MyBatis")
+    }
+    @Test
+    fun applicationVersion() {
+        val entity = restTemplate.getForEntity<String>("/app/version")
+        assertThat(entity.statusCode).isEqualTo(HttpStatus.OK)
+        assertThat(entity.body).contains("0.0.1-SNAPSHOT")
+    }
+
 }

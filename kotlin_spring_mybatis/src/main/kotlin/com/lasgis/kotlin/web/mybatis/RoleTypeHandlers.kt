@@ -1,3 +1,7 @@
+/*
+ * Copyright (c) 2020. Prototype
+ */
+
 package com.lasgis.kotlin.web.mybatis
 
 import com.lasgis.kotlin.web.dao.UserRole
