@@ -1,0 +1,93 @@
+/*!
+ * Copyright (c) 2020. Prototype
+ */
+
+@import "../../constants/constants";
+
+$root: 'checkbox-container';
+$classic: $root + '_classic';
+$internationalTicket: $root + '_internationalTicket';
+
+:export {
+  classic: #{$classic};
+  internationalTicket: #{$internationalTicket};
+}
+
+.#{$root} {
+
+  &__input {
+    background-color: #FFFFFF;
+    display: inline-block;
+    cursor: pointer;
+    border: 0.83px solid #231F20;
+    border-radius: 1.67px;
+    width: 16px;
+    height: 16px;
+    margin-bottom: 1px;
+
+    &_checked {
+      background-size: 12.66px 15px;
+      background: #0055A6 url("checkbox-icon.svg") no-repeat center;
+      border-radius: 2px;
+    }
+
+    &_read-only {
+      opacity: 0.4;
+      * {
+        cursor: not-allowed;
+      }
+    }
+
+    &_focused {
+      border: 0.5px solid #0055A6;
+      border-radius: 2px;
+    }
+
+    input[type="checkbox"] {
+      opacity: 0;
+      cursor: pointer;
+    }
+  }
+
+  &__text {
+    position: absolute;
+    margin-left: 10px;
+    margin-top: -1px;
+    color: $dark_grey;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 24px;
+    text-align: left;
+    display: inline-block;
+  }
+
+}
+
+.#{$root}.#{$internationalTicket} {
+
+  .#{$root}__input {
+    display: inline-block;
+    cursor: pointer;
+    border: 1.5px solid #4D4D4D;
+    box-sizing: border-box;
+    border-radius: 1px;
+    width: 16px;
+    height: 16px;
+    margin-bottom: 1px;
+
+    &_checked {
+      background-size: 12.66px 15px;
+      background: white url("black-cross-icon.svg") no-repeat center;
+      border-radius: 1px;
+    }
+
+    &_read-only {
+      opacity: 1;
+      border: 1.5px solid #E0E0E0;
+    }
+  }
+
+}
+
+
+

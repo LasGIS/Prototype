@@ -3,9 +3,7 @@
  */
 
 import React from 'react';
-import { formsCommonStyles } from '../../../../pages/UserManagement/forms/formsCommonData';
 import Checkbox from '../../../../components/checkbox/Checkbox';
-import '../../../../pages/UserManagement/forms/forms-common-style.scss';
 import cn from 'classnames';
 
 class CheckboxViewer extends React.Component {
@@ -42,7 +40,7 @@ class CheckboxViewer extends React.Component {
         <h5>Чекбокс (В Админке был изменен цвет для border в состоянии 'checked')</h5>
         {this.renderControls()}
         <div
-          className={formsCommonStyles.root}
+          className={'userManagementForm'}
           style={{
             display: 'block',
             background: 'transparent',
@@ -51,7 +49,7 @@ class CheckboxViewer extends React.Component {
           }}
         >
           <div
-            className={cn(formsCommonStyles.field, formsCommonStyles.fieldArchive)}
+            className={cn('userManagementForm__field', 'userManagementForm__fieldArchive')}
             style={{
               display: 'block',
               background: 'transparent',
@@ -60,7 +58,7 @@ class CheckboxViewer extends React.Component {
               opacity: isInputDisabled ? '0.5' : '1',
             }}
           >
-            <div className={formsCommonStyles.fieldInputWrap}>
+            <div className={'userManagementForm__fieldInputWrap'}>
               <Checkbox readOnly={isInputDisabled} checked={value} onChange={this.handleChangeInputValue} label={''} />
             </div>
           </div>

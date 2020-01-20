@@ -1,0 +1,58 @@
+/*!
+ * Copyright (c) 2020. Prototype
+ */
+
+$grey: #4D4D4D;
+$blue: #0055A6;
+$white: #FFFFFF;
+$yellow: #F5A623;
+$dotted_color: #979797;
+
+.label {
+  color: $grey;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 17px;
+  text-align: left;
+}
+
+.link {
+  color: $blue;
+  font-size: 15px;
+  font-weight: 500;
+  line-height: 18px;
+  text-align: left;
+
+  &--filled {
+    color: $white;
+    background-color: $yellow;
+    border-radius: 48px;
+    height: 24px;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 17px;
+    text-align: center;
+    padding-top: 2px;
+  }
+
+  &--dotted {
+    color: $grey;
+    font-size: 14px;
+    font-weight: 400;
+    text-align: left;
+    width: max-content;
+    border-bottom: 1px dotted $dotted_color;
+  }
+
+  &--white {
+    color: $white;
+  }
+}
+
+.link:hover {
+  cursor: pointer;
+}
+
+
+
+

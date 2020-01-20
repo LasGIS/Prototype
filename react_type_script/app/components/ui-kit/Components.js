@@ -10,16 +10,7 @@ import AcceptIcon from '../icon/AcceptIcon';
 import PrinterIcon from '../icon/PrinterIcon';
 import QuestionIcon from '../icon/QuestionIcon';
 import RussianPostEmsIcon from '../icon/RussianPostEmsIcon';
-import SelectBulkViewer from './modules/SelectBulkViewer/SelectBulkViewer';
-import TextInputViewer from './modules/TextInputViewer/TextInputViewer';
 import CheckboxViewer from './modules/CheckboxViewer/CheckboxViewer';
-import ButtonsViewer from './modules/ButtonsViewer/ButtonsViewer';
-import PaginationViewer from './modules/PaginationViewer/PaginationViewer';
-import ScanRpoBarcodeFormsViewer from './modules/ScanRpoBarcodeFormsViewer/ScanRpoBarcodeFormsViewer';
-import ModalWindowsContentViewer from './modules/ModalWindowsContentViewer/ModalWindowsContentViewer';
-import ContentItemViewer from './modules/ContentItemViewer/ContentItemViewer';
-import WeightFormViewer from './modules/WeightFormViewer/WeightFormViewer';
-import DatePickerViewer from './modules/DatePickerViewer/DatePickerViewer';
 
 export default class Components extends Component {
     constructor() {
@@ -42,52 +33,7 @@ export default class Components extends Component {
                 </Row>
                 <Row className="mt-5 mb-5">
                     <Col lg={12}>
-                        <SelectBulkViewer/>
-                    </Col>
-                </Row>
-                <Row className="mt-5 mb-5">
-                    <Col lg={12}>
-                        <TextInputViewer/>
-                    </Col>
-                </Row>
-                <Row className="mt-5 mb-5">
-                    <Col lg={12}>
                         <CheckboxViewer/>
-                    </Col>
-                </Row>
-                <Row className="mt-5 mb-5">
-                    <Col lg={12}>
-                        <ButtonsViewer/>
-                    </Col>
-                </Row>
-                <Row className="mt-5 mb-5">
-                    <Col lg={12}>
-                        <PaginationViewer/>
-                    </Col>
-                </Row>
-                <Row className="mt-5 mb-5">
-                    <Col lg={12}>
-                        <ScanRpoBarcodeFormsViewer/>
-                    </Col>
-                </Row>
-                <Row className="mt-5 mb-5">
-                    <Col lg={12}>
-                        <ModalWindowsContentViewer/>
-                    </Col>
-                </Row>
-                <Row className="mt-5 mb-5">
-                    <Col lg={12}>
-                        <ContentItemViewer/>
-                    </Col>
-                </Row>
-                <Row className="mt-5 mb-5">
-                    <Col lg={12}>
-                        <WeightFormViewer/>
-                    </Col>
-                </Row>
-                <Row className="mt-5 mb-5">
-                    <Col lg={12}>
-                        <DatePickerViewer/>
                     </Col>
                 </Row>
 
@@ -133,17 +79,7 @@ export default class Components extends Component {
                 </Row>
                 <Row className="mt-5">
                     <Col lg={12}>
-                        <BarcodeInput id="input1" value="1234567890" readOnly/>
-                    </Col>
-                </Row>
-                <Row className="mt-5">
-                    <Col lg={12}>
                         <Input id="input2" barcode blue value="1234567890" readOnly/>
-                    </Col>
-                </Row>
-                <Row className="mt-5">
-                    <Col lg={12}>
-                        <InputSuffix id="input3" barcode blue value="1234567" suffix="г" readOnly/>
                     </Col>
                 </Row>
                 <Row className="mt-5">
