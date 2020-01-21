@@ -9,7 +9,6 @@ import {Col, Container, Row} from 'reactstrap';
 import AcceptIcon from '../icon/AcceptIcon';
 import PrinterIcon from '../icon/PrinterIcon';
 import QuestionIcon from '../icon/QuestionIcon';
-import RussianPostEmsIcon from '../icon/RussianPostEmsIcon';
 import CheckboxViewer from './modules/CheckboxViewer/CheckboxViewer';
 import Link from "../label/Link";
 
@@ -106,9 +105,6 @@ export default class Components extends Component {
                     </Col>
                     <Col lg={3}>
                         <QuestionIcon/>
-                    </Col>
-                    <Col lg={2}>
-                        <RussianPostEmsIcon/>
                     </Col>
                 </Row>
             </Container>

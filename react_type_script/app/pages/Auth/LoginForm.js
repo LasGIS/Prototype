@@ -55,27 +55,24 @@ export class LoginForm extends React.Component {
     return (
       <div>
         <h1 className="title">Вход по пропуску или логину</h1>
-        <div className="left-box">
-          <h2 className="title">Отсканируйте штрих-код вашего пропуска</h2>
-        </div>
         <div className="right-box">
-          <h2 className="title">Или войдите используя логин и пароль</h2>
+          <h2 className="title">Войдите используя логин и пароль</h2>
           <div className="form-field">
             <Input
-              id={'usernameInput'}
-              name={'j_username'}
+              id='usernameInput'
+              name='j_username'
               value={this.state.login}
               onChange={this.onChangeLogin}
               onKeyDown={this.onKeyDown}
               placeholder={'Логин'}
-              autoComplete={'j_username'}
+              autoComplete='j_username'
             />
           </div>
           <div className="form-field">
             <Input
-              id={'passwordInput'}
-              name={'password'}
-              type={'password'}
+              id='passwordInput'
+              name='j_password'
+              type='password'
               value={this.state.password}
               onChange={this.onChangePassword}
               onKeyDown={this.onKeyDown}
@@ -85,12 +82,12 @@ export class LoginForm extends React.Component {
           </div>
           {this.state.wrongPassword && (
             <div className="error-container">
-              <div className="wrong-password-icon" />
+              <div className="wrong-password-icon"/>
               <span className="wrong-password">Неверный логин / пароль</span>
             </div>
           )}
           <div className="button-field">
-            <Button id="loginButton" name={'password'} key="loginButton" onClick={this.onSubmit}>
+            <Button id="loginButton" name={'check-password'} key="loginButton" onClick={this.onSubmit}>
               Вход
             </Button>
             <a id="forgetPassword" className="reset_filter" href="#">

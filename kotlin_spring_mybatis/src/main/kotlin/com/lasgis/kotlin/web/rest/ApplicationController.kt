@@ -43,19 +43,11 @@ class ApplicationController {
     @GetMapping("/app/version")
     fun applicationVersion() = applicationVersion
 
-/*
-    @RequestMapping(value = ["/login"], method = [RequestMethod.POST],
-        produces = ["application/x-www-form-urlencoded; charset=UTF-8"],
-        consumes = ["application/json; charset=UTF-8"]
-    )
-*/
     @PostMapping("/login")
     fun login(
         @RequestParam("j_username") username:String,
-        @RequestParam("password") password:String
+        @RequestParam("j_password") password:String
     ): User {
         return User(userId = null, login = username, name = "Пупкин Василий", password = null, roles = UserRole.values().asList(), archived = false)
     }
 }
-//Accept: application/json, text/javascript, */*; q=0.01
-//Content-Type: application/x-www-form-urlencoded; charset=UTF-8

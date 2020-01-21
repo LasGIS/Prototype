@@ -29,7 +29,7 @@ class GreetingControllerTest(@Autowired val restTemplate: TestRestTemplate) {
 
     @Test
     fun greeting() {
-        val entity = restTemplate.getForEntity<String>("/app/greeting?name=Name")
+        val entity = restTemplate.getForEntity<String>("/greeting?name=Name")
         assertThat(entity.statusCode).isEqualTo(HttpStatus.OK)
         assertThat(entity.body).contains("Hello, Name")
     }

@@ -33,6 +33,16 @@
                 <version>${project.version}</version>
             </dependency>
             <dependency>
+                <groupId>com.lasgis.prototype</groupId>
+                <artifactId>react_type_script</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.lasgis.prototype</groupId>
+                <artifactId>kotlin_spring_mybatis</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-starter-web</artifactId>
                 <version>2.2.2.RELEASE</version>

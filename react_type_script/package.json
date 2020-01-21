@@ -70,26 +70,6 @@
       "^.+\\.tsx?$": "ts-jest"
     }
   },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged"
-    }
-  },
-  "lint-staged": {
-    "*.{js,jsx}": [
-      "npm run lint-fix",
-      "npm run prettier",
-      "git add"
-    ],
-    "*.{ts,tsx}": [
-      "npm run ts-lint-fix",
-      "npm run prettier-ts",
-      "git add"
-    ],
-    "*.{js,jsx,ts,tsx}": [
-      "jest --bail --findRelatedTests"
-    ]
-  },
   "devDependencies": {
     "@babel/cli": "^7.0.0",
     "@babel/core": "^7.7.5",
