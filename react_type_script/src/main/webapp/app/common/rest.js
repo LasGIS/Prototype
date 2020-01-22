@@ -91,8 +91,8 @@ function requestWithHeaders(url, method, data, requestSettings) {
       simple: false,
     })
       .done((response, status, header) => {
-        const token = header.getResponseHeader(BACK_AUTH_TOKEN);
-        return resolve(token);
+//        const token = header.getResponseHeader(BACK_AUTH_TOKEN);
+        return resolve(response);
       })
       .fail(error => reject(error));
   });

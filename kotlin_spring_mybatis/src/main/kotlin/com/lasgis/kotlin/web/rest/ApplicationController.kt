@@ -43,11 +43,4 @@ class ApplicationController {
     @GetMapping("/app/version")
     fun applicationVersion() = applicationVersion
 
-    @PostMapping("/login")
-    fun login(
-        @RequestParam("j_username") username:String,
-        @RequestParam("j_password") password:String
-    ): User {
-        return User(userId = null, login = username, name = "Пупкин Василий", password = null, roles = UserRole.values().asList(), archived = false)
-    }
 }

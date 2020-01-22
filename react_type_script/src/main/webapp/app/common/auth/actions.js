@@ -9,10 +9,7 @@ export const login = (login, password) => dispatch => {
   if (login === '' || password === '') {
     return Promise.reject('wrong login data');
   }
-  return checkUser(
-    login,
-    password,
-  )(dispatch)
+  return checkUser(login, password)(dispatch)
     .then(response => {
       localStorage.setItem(FRONT_AUTH_TOKEN, response);
     })
