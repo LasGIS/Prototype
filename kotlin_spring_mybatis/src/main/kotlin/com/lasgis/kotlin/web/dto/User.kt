@@ -2,7 +2,7 @@
  * Copyright (c) 2020. Prototype
  */
 
-package com.lasgis.kotlin.web.dao
+package com.lasgis.kotlin.web.dto
 
 /**
  * <description>

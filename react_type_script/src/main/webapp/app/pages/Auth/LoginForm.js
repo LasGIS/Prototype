@@ -54,7 +54,7 @@ export class LoginForm extends React.Component {
     }
     return (
       <div>
-        <h1 className="title">Вход по пропуску или логину</h1>
+        <h1 className="title">Вход по логину</h1>
         <div className="right-box">
           <h2 className="title">Войдите используя логин и пароль</h2>
           <div className="form-field">

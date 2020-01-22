@@ -1,10 +1,14 @@
 <?xml version="1.0" encoding="UTF-8" ?>
+<!--
+  ~ Copyright (c) 2020. Prototype
+  -->
+
 <!DOCTYPE configuration
         PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
     <typeAliases>
-        <package name="com.lasgis.kotlin.web.dao"/>
+        <package name="com.lasgis.kotlin.web.dto"/>
     </typeAliases>
 <!--    <typeHandlers>-->
 <!--        <typeHandler handler="com.lasgis.kotlin.web.mybatis.RoleTypeHandlers"/>-->

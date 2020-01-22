@@ -1,7 +1,11 @@
+/*
+ * Copyright (c) 2020. Prototype
+ */
+
 package com.lasgis.kotlin.web.mybatis.mapper
 
-import com.lasgis.kotlin.web.dao.User
-import com.lasgis.kotlin.web.dao.UserRole
+import com.lasgis.kotlin.web.dto.User
+import com.lasgis.kotlin.web.dto.UserRole
 import org.assertj.core.api.Assertions.assertThat
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.assertThrows
