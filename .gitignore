@@ -18,5 +18,7 @@ target/
 logs/
 *.log
 *.gz
-/react_type_script/node_modules/
-/react_type_script/deploy/
+
+### npm (Node.js|https://nodejs.org/ru/)
+node_modules/
+deploy/

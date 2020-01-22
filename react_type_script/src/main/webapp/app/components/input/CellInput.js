@@ -5,7 +5,7 @@ import '../letter/universal/style.scss';
 import React, { Component } from 'react';
 import cn from 'classnames';
 import PropTypes from 'prop-types';
-import Input from '../input/Input';
+import Input from './Input';
 
 export default class CellInput extends Component {
   render() {

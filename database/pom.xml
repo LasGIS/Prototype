@@ -8,7 +8,7 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>prototype_database</artifactId>
+    <artifactId>prototype-database</artifactId>
     <packaging>jar</packaging>
     <name>Prototype Database</name>
 

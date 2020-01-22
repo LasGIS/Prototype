@@ -20,7 +20,7 @@
     <dependencies>
         <dependency>
             <groupId>com.lasgis.prototype</groupId>
-            <artifactId>prototype_database</artifactId>
+            <artifactId>prototype-database</artifactId>
         </dependency>
         <dependency>
             <groupId>com.lasgis.prototype</groupId>

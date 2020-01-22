@@ -3,7 +3,7 @@
  */
 
 import React from 'react';
-import Checkbox from '../../../../components/checkbox/Checkbox';
+import Checkbox from '../../../checkbox/Checkbox';
 import cn from 'classnames';
 
 class CheckboxViewer extends React.Component {

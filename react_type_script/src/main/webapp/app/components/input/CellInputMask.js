@@ -4,7 +4,7 @@
 import cn from 'classnames';
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
-import Input from '../input/Input';
+import Input from './Input';
 import '../letter/universal/style.scss';
 import InputMask from './InputMask';
 
