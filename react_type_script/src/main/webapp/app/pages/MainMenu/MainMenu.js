@@ -15,6 +15,8 @@ import MainMenuModal from './MainMenuModal';
 import { globalRouterLocationSelector, globalUserRolesSelector } from '../../common/services/selectors';
 import withRedirectProp from '../../hoc/withRedirectProp';
 import { ROUTES } from './constants';
+import { FEATURE_EDIT_ROLES, isGrantedRoles } from '../../constants/users-roles';
+import { APP_ROOT_SELECTOR } from '../../constants/constants';
 
 export class MainMenu extends Component {
   constructor(props) {
@@ -42,8 +44,8 @@ export class MainMenu extends Component {
     const { redirect, location, userRoles } = this.props;
     const authErrorMsg = location && location.state && location.state.roleNoAccessRedirect ? location.state.error : '';
     const { modalIsOpen } = this.state;
-    const canSeeUserManagement = true; // isGrantedRoles(userRoles, FEATURE_EDIT_ROLES.USER_MANAGEMENT);
-    const canSeePersonManagement = true; // isGrantedRoles(userRoles, FEATURE_EDIT_ROLES.PERSON_MANAGEMENT);
+    const canSeeUserManagement = isGrantedRoles(userRoles, FEATURE_EDIT_ROLES.USER_MANAGEMENT);
+    const canSeePersonManagement = isGrantedRoles(userRoles, FEATURE_EDIT_ROLES.PERSON_MANAGEMENT);
     const noOneMenu = !canSeeUserManagement && !canSeePersonManagement;
     return (
       <div className="main-menu-container">
@@ -63,7 +65,11 @@ export class MainMenu extends Component {
               onClick={() => redirect(`/${ROUTES.personListPage}`)}
             />
           )}
-
+          <Menu
+            id="routesComponents"
+            name="ROUTES.components"
+            onClick={() => redirect(`/${ROUTES.components}`)}
+          />
           {noOneMenu && (
             <div className="main-menu__no-one-menu-label">У вас нет прав на выполнение каких-либо действий</div>
           )}

@@ -29,21 +29,17 @@ export default class Components extends Component {
           </Col>
         </Row>
         <Row className="mt-5">
-          <Col lg={12}>Измененные UI - элементы</Col>
+          <Col lg={12}>UI - элементы</Col>
         </Row>
         <Row className="mt-5 mb-5">
           <Col lg={12}>
             <CheckboxViewer/>
           </Col>
         </Row>
-
         <Row className="mt-5">
           <Col lg={12}>
             <hr/>
           </Col>
-        </Row>
-        <Row className="mt-5">
-          <Col lg={12}>Старые UI - элементы -----------------------------------</Col>
         </Row>
         <Row className="mt-5">
           <Col lg={2}>
@@ -85,15 +81,15 @@ export default class Components extends Component {
         <Row className="mt-5">
           <Col lg={2}>
             <Link id="link1" onClick={() => {
-            }} text="1 новое задание" filled/>
+            }} text="filled ссылка " filled/>
           </Col>
           <Col lg={2}>
             <Link id="link2" onClick={() => {
-            }} text="Распечатать ярлык"/>
+            }} text="простая ссылка"/>
           </Col>
           <Col lg={2}>
             <Link id="link3" onClick={() => {
-            }} text="Показать список отправлений" dotted/>
+            }} text="dotted ссылка" dotted/>
           </Col>
         </Row>
         <Row className="mt-5">

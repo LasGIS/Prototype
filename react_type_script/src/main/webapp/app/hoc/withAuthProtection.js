@@ -12,7 +12,9 @@ const withAuthProtection = OriginalComponent => {
     render() {
       const { ...rest } = this.props;
       const authenticated = localStorage.getItem(FRONT_AUTH_USER);
-      return authenticated ? <OriginalComponent {...rest} /> : <Redirect to={'/login'}/>;
+      return authenticated ?
+        <OriginalComponent {...rest} /> :
+        <Redirect to={'/login'}/>;
     }
   }
 

@@ -13,7 +13,7 @@ export const login = (login, password) => dispatch => {
   return checkUser(login, password)(dispatch)
     .then(user => {
       localStorage.setItem(FRONT_AUTH_USER, JSON.stringify(user));
-      setUserInfo(user);
+      setUserInfo(user)(dispatch);
     })
     .catch(err => {
       localStorage.setItem(FRONT_AUTH_USER, '');

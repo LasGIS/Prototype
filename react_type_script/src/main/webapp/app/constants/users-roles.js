@@ -10,6 +10,7 @@ export const ROLES = {
 };
 
 export const FEATURE_EDIT_ROLES = {
+  ALL_ROLES: [ROLES.OPERATOR, ROLES.SUPERVISOR, ROLES.CHIEF, ROLES.ADMIN],
   USER_MANAGEMENT: [ROLES.CHIEF, ROLES.ADMIN],
   PERSON_MANAGEMENT: [ROLES.OPERATOR, ROLES.SUPERVISOR, ROLES.CHIEF],
 };
@@ -17,5 +18,5 @@ export const FEATURE_EDIT_ROLES = {
 /** Утилитарные функции */
 export const isGrantedRoles = (userRoles, grantedRoles) => {
   if (!userRoles) return true;
-  return Boolean(grantedRoles && userRoles.find(role => grantedRoles.map(r => r.name).includes(role.name)));
+  return Boolean(grantedRoles && userRoles.find(roleName => grantedRoles.map(r => r.name).includes(roleName)));
 };

@@ -41,7 +41,7 @@ export function getUserInfo() {
   return dispatch => {
     fetchCurrentUser()(dispatch)
       .then(user => {
-        setUserInfo(user);
+        setUserInfo(user)(dispatch);
       })
       .catch(error => errorHandler(error)(dispatch));
   };
