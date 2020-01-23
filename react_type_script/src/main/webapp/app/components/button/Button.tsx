@@ -27,6 +27,9 @@ type Props = {
 };
 
 export default class Button extends Component<Props> {
+  static propTypes: {};
+  static defaultProps: {};
+
   handleButtonClick() {
     this.props.onClick && !this.props.disabled && this.props.onClick();
   }
@@ -74,13 +77,10 @@ export default class Button extends Component<Props> {
         data-tip={tooltip}
       >
         {this.props.children}
-        {tooltip && <ReactTooltip type="light" border={true} effect="solid" />}
+        {tooltip && <ReactTooltip type="light" border={true} effect="solid"/>}
       </div>
     );
   }
-
-  static propTypes: {};
-  static defaultProps: {};
 }
 
 Button.propTypes = {

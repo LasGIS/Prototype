@@ -11,7 +11,7 @@ export default class UpIcon extends Component {
   render() {
     const { id, className, blue } = this.props;
     const currentClassName = cn('icon', className, { 'icon__up--blue': blue }, { icon__up: !blue });
-    return <div id={id} className={cn('icon icon__up', currentClassName)} />;
+    return <div id={id} className={cn('icon icon__up', currentClassName)}/>;
   }
 }
 

@@ -14,9 +14,9 @@ export default class DateInput extends Component {
     const { className, label } = this.props;
     return (
       <Inline id="" className={cn('date-input', className)} beforeLabel={label} bottomBorder>
-        <CellInput id="" size={2} value="" readOnly className="date-input__cell" />
-        <CellInput id="" size={2} value="" readOnly className="date-input__cell" />
-        <CellInput id="" size={2} value="" readOnly className="date-input__cell" />
+        <CellInput id="" size={2} value="" readOnly className="date-input__cell"/>
+        <CellInput id="" size={2} value="" readOnly className="date-input__cell"/>
+        <CellInput id="" size={2} value="" readOnly className="date-input__cell"/>
       </Inline>
     );
   }

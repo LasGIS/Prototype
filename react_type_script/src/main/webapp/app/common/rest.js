@@ -4,7 +4,6 @@
 
 import $ from 'jquery/dist/jquery';
 import { CLEAR_ERROR, HIDE_LOADER, SHOW_LOADER } from './actions';
-import { BACK_AUTH_TOKEN, FRONT_AUTH_TOKEN } from '../constants/constants';
 
 export const HTTP_METHODS = {
   GET: 'GET',
@@ -63,9 +62,9 @@ export function request(url, method, data = {}, requestSettings = {}) {
       contentType: contentType === 'false' ? false : contentType || 'application/json',
       dataType: dataType || 'json',
       data: getDataParam(method, data, requestSettingsDataParam),
-      headers: {
-        'auth-Token': localStorage.getItem(FRONT_AUTH_TOKEN) || undefined,
-      },
+      // headers: {
+      //   'auth-Token': localStorage.getItem(FRONT_AUTH_TOKEN) || undefined,
+      // },
     })
       .done(response => resolve(response))
       .fail(error => reject(error));
@@ -91,7 +90,6 @@ function requestWithHeaders(url, method, data, requestSettings) {
       simple: false,
     })
       .done((response, status, header) => {
-//        const token = header.getResponseHeader(BACK_AUTH_TOKEN);
         return resolve(response);
       })
       .fail(error => reject(error));

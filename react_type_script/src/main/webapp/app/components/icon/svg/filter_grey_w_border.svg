@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg width="20px" height="21px" viewBox="0 0 20 21" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<svg width="20px" height="21px" viewBox="0 0 20 21" version="1.1" xmlns="http://www.w3.org/2000/svg"
+>
     <!-- Generator: Sketch 52 (66869) - http://www.bohemiancoding.com/sketch -->
     <title>Group</title>
     <desc>Created with Sketch.</desc>
@@ -11,7 +12,8 @@
                         <g id="noun_filter_1051173-copy-2" transform="translate(497.000000, 14.000000)">
                             <g id="Group" transform="translate(0.000000, 0.094492)">
                                 <rect id="Rectangle" fill="#F7F7F7" x="0" y="0" width="20" height="20" rx="2"></rect>
-                                <path d="M6,6 L14.0857706,6 L14.0857706,6.66142793 L10.9235506,10.9904342 C10.8947818,11.030529 10.8791982,11.0785804 10.87896,11.127928 L10.87896,13.9259851 L9.20681081,15.2562727 L9.20681081,11.127928 C9.20657255,11.0785804 9.190989,11.030529 9.16222016,10.9904342 L6,6.66142793 L6,6 Z" id="Shape" fill="#D5D5D5"></path>
+                                <path d="M6,6 L14.0857706,6 L14.0857706,6.66142793 L10.9235506,10.9904342 C10.8947818,11.030529 10.8791982,11.0785804 10.87896,11.127928 L10.87896,13.9259851 L9.20681081,15.2562727 L9.20681081,11.127928 C9.20657255,11.0785804 9.190989,11.030529 9.16222016,10.9904342 L6,6.66142793 L6,6 Z"
+                                      id="Shape" fill="#D5D5D5"></path>
                             </g>
                         </g>
                     </g>

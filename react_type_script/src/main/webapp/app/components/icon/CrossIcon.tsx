@@ -14,7 +14,7 @@ type Props = {
 };
 
 const CrossIcon = ({ id, className, onClick }: Props) => (
-  <div id={id} className={cn('icon__cross', className)} onClick={() => onClick && onClick()} />
+  <div id={id} className={cn('icon__cross', className)} onClick={() => onClick && onClick()}/>
 );
 
 CrossIcon.propTypes = {

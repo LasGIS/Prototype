@@ -53,6 +53,7 @@
     width: 20px;
     height: 20px;
     background: url("svg/up.svg") no-repeat;
+
     &--blue {
       background: url("svg/arrow-up.svg") no-repeat center;
     }
@@ -63,6 +64,7 @@
     height: 15px;
     background: url("svg/close-grey.svg") no-repeat center;
     background-size: contain;
+
     &--white {
       width: 15px;
       height: 15px;
@@ -80,15 +82,18 @@
   &__filter {
     width: 20px;
     height: 20px;
+
     &--active {
       background: #0055A6 url("svg/filter_active.svg") no-repeat center;
       border-radius: 2px;
       width: 20px;
       height: 20px;
     }
+
     &--greyWithBorder {
       background: url("svg/filter_grey_w_border.svg") no-repeat center;
     }
+
     &--grey {
       width: 8.09px;
       height: 9.26px;
@@ -99,11 +104,13 @@
   &__sort {
     width: 20px;
     height: 20px;
+
     &--asc {
       background: url("svg/sort_down.svg") no-repeat center;
       width: 8px;
       height: 2.53px;
     }
+
     &--desc {
       width: 8px;
       height: 2.53px;

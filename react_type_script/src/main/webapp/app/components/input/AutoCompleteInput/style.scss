@@ -3,14 +3,14 @@
  */
 @import "../../../constants/constants";
 
-$autoCompleteInput : 'autoCompleteInput';
-$autoCompleteInputDisabled : $autoCompleteInput + '_disabled';
-$contentWrap : $autoCompleteInput + '__contentWrap';
-$autocompleteField : $autoCompleteInput + '__autocompleteField';
-$autocompletePlaceholder : $autoCompleteInput + '__autocompletePlaceholder';
-$autocompleteList : $autoCompleteInput + '__autocompleteList';
-$autocompleteListItem : $autocompleteList + 'Item';
-$autocompleteResetBtn : $autoCompleteInput + '__autocompleteResetBtn';
+$autoCompleteInput: 'autoCompleteInput';
+$autoCompleteInputDisabled: $autoCompleteInput + '_disabled';
+$contentWrap: $autoCompleteInput + '__contentWrap';
+$autocompleteField: $autoCompleteInput + '__autocompleteField';
+$autocompletePlaceholder: $autoCompleteInput + '__autocompletePlaceholder';
+$autocompleteList: $autoCompleteInput + '__autocompleteList';
+$autocompleteListItem: $autocompleteList + 'Item';
+$autocompleteResetBtn: $autoCompleteInput + '__autocompleteResetBtn';
 
 :export {
   root: #{$autoCompleteInput};
@@ -136,8 +136,10 @@ $autocompleteResetBtn : $autoCompleteInput + '__autocompleteResetBtn';
 
 #{$autoCompleteInput}#{$autoCompleteInput}_disabled {
   cursor: not-allowed;
+
   .#{$autocompleteField} {
     opacity: 0.5;
+
     input {
       cursor: not-allowed;
       pointer-events: none;

@@ -1,4 +1,3 @@
-
 /*
  * Copyright (c) 2020. Prototype
  */
@@ -48,7 +47,7 @@ class Header extends Component {
     return (
       <div className={'pageHeaderWrapper'}>
         <div className={cn('header', className, typeClass)}>
-{/*
+          {/*
           <div className="spinner right">
             <Spinner white={!whiteStyle} />
           </div>
@@ -66,10 +65,10 @@ class Header extends Component {
                   {user.name}
                 </div>
                 {!isConnectedToWeighter && showWeightSignal && (
-                  <OvalLabel id="weightOff" className="rpo-header__weight-signal" label="весы не подключены" />
+                  <OvalLabel id="weightOff" className="rpo-header__weight-signal" label="весы не подключены"/>
                 )}
                 {isConnectedToWeighter && showWeightSignal && (
-                  <OvalLabel id="weightOn" className="rpo-header__weight-signal" green label="весы подключены" />
+                  <OvalLabel id="weightOn" className="rpo-header__weight-signal" green label="весы подключены"/>
                 )}
               </div>
             )}
@@ -84,11 +83,11 @@ class Header extends Component {
           <div className="header__error">
             <div className="header__error-text">
               <span>{error.text}</span>
-              <div className="header__error-clear" onClick={clearErrors} />
+              <div className="header__error-clear" onClick={clearErrors}/>
             </div>
           </div>
         )}
-        {ReactDOM.createPortal(<Footer typeClass={typeClass} />, document.body)}
+        {ReactDOM.createPortal(<Footer typeClass={typeClass}/>, document.body)}
       </div>
     );
   }

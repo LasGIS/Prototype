@@ -5,14 +5,14 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom';
-import { FRONT_AUTH_TOKEN } from '../constants/constants';
+import { FRONT_AUTH_USER } from '../constants/constants';
 
 const withAuthProtection = OriginalComponent => {
   class WithAuthProtection extends React.Component {
     render() {
       const { ...rest } = this.props;
-      const authenticated = localStorage.getItem(FRONT_AUTH_TOKEN);
-      return authenticated ? <OriginalComponent {...rest} /> : <Redirect to={'/login'} />;
+      const authenticated = localStorage.getItem(FRONT_AUTH_USER);
+      return authenticated ? <OriginalComponent {...rest} /> : <Redirect to={'/login'}/>;
     }
   }
 

@@ -1,11 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg width="18px" height="18px" viewBox="0 0 18 18" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<svg width="18px" height="18px" viewBox="0 0 18 18" version="1.1" xmlns="http://www.w3.org/2000/svg"
+>
     <!-- Generator: sketchtool 52 (66869) - http://www.bohemiancoding.com/sketch -->
     <title>8640A335-E5E8-48FE-901D-E5ACDE434ADC</title>
     <desc>Created with sketchtool.</desc>
     <g id="5.-Выпуск-курьера-на-маршрут" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
         <g id="5.2.1.-Ошибка-сканирования" transform="translate(-161.000000, -118.000000)" fill="#FFFFFF">
-            <path d="M170,118 L179,136 L161,136 L170,118 Z M170.894737,129.684211 L170.894737,124 L169,124 L169,129.684211 L170.894737,129.684211 Z M170.894737,132.894737 L170.894737,131 L169,131 L169,132.894737 L170.894737,132.894737 Z" id="Icon-Copy"></path>
+            <path d="M170,118 L179,136 L161,136 L170,118 Z M170.894737,129.684211 L170.894737,124 L169,124 L169,129.684211 L170.894737,129.684211 Z M170.894737,132.894737 L170.894737,131 L169,131 L169,132.894737 L170.894737,132.894737 Z"
+                  id="Icon-Copy"></path>
         </g>
     </g>
 </svg>

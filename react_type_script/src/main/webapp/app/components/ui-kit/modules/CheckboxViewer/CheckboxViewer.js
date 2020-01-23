@@ -59,7 +59,7 @@ class CheckboxViewer extends React.Component {
             }}
           >
             <div className={'userManagementForm__fieldInputWrap'}>
-              <Checkbox readOnly={isInputDisabled} checked={value} onChange={this.handleChangeInputValue} label={''} />
+              <Checkbox readOnly={isInputDisabled} checked={value} onChange={this.handleChangeInputValue} label={''}/>
             </div>
           </div>
         </div>
@@ -84,14 +84,14 @@ class CheckboxViewer extends React.Component {
 
         <div>
           <label>
-            <input name="hasInvalidValue" type="checkbox" checked={false} onChange={() => ({})} />
+            <input name="hasInvalidValue" type="checkbox" checked={false} onChange={() => ({})}/>
             Содержит невалидное значение (нет реализации)
           </label>
         </div>
 
         <div>
           <label>
-            <input name="hasValidValue" type="checkbox" checked={false} onChange={() => ({})} />
+            <input name="hasValidValue" type="checkbox" checked={false} onChange={() => ({})}/>
             Содержит валидное значение (нет реализации)
           </label>
         </div>

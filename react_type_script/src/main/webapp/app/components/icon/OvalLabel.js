@@ -10,7 +10,7 @@ import cn from 'classnames';
 
 const OvalLabel = ({ id, className, label, green }) => (
   <div id={id} className={cn('oval-label', className)}>
-    <Oval className={cn('oval-label__oval', { 'oval-label--green': green })} />
+    <Oval className={cn('oval-label__oval', { 'oval-label--green': green })}/>
     <div>{label}</div>
   </div>
 );

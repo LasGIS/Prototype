@@ -7,7 +7,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
 
-const Oval = ({ className }) => <div className={cn('icon icon__oval', className)} />;
+const Oval = ({ className }) => <div className={cn('icon icon__oval', className)}/>;
 
 export default Oval;
 

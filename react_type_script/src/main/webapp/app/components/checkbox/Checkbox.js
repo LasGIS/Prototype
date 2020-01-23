@@ -31,6 +31,7 @@ export default class Checkbox extends Component {
   onFocus() {
     this.setState({ hasFocus: true });
   }
+
   onBlur() {
     this.setState({ hasFocus: false });
   }
@@ -56,7 +57,8 @@ export default class Checkbox extends Component {
             tabIndex={readOnly ? -1 : tabIndex}
             type="checkbox"
             checked={checked}
-            onChange={() => {}}
+            onChange={() => {
+            }}
             onKeyPress={this.onKeyPress.bind(this)}
           />
         </div>

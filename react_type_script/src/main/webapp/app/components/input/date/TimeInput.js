@@ -14,8 +14,8 @@ export default class TimeInput extends Component {
     const { className, label } = this.props;
     return (
       <Inline id="" className={cn('time-input', className)} beforeLabel={label} bottomBorder>
-        <CellInput id="" value="" size={2} readOnly className="time-input__cell" />
-        <CellInput id="" value="" size={2} readOnly className="time-input__cell" />
+        <CellInput id="" value="" size={2} readOnly className="time-input__cell"/>
+        <CellInput id="" value="" size={2} readOnly className="time-input__cell"/>
       </Inline>
     );
   }
