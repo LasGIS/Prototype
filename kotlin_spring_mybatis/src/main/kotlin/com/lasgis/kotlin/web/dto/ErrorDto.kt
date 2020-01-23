@@ -6,7 +6,7 @@ package com.lasgis.kotlin.web.dto
 /**
  * Express delivery json
  */
-class ErrorDto(
-    private val code: Int? = null,
-    private val text: String? = null
+data class ErrorDto(
+    val code: Int? = null,
+    val text: String? = null
 )
