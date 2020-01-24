@@ -4,12 +4,10 @@
 
 import { createSelector } from 'reselect';
 
-export const globalRootKey = 'global';
-export const userRootKey = 'user';
-export const globalDataRootSelector = state => state[globalRootKey];
+export const globalDataRootSelector = state => state.global;
 
 /** Текущий пользователь приложения */
-export const globalUserSelector = createSelector(globalDataRootSelector, state => state && state[userRootKey]);
+export const globalUserSelector = createSelector(globalDataRootSelector, state => state && state.user);
 
 export const globalUserRolesSelector = createSelector(globalUserSelector, state => (state && state.roles) || []);
 

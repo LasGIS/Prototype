@@ -5,7 +5,6 @@
 import './style.scss';
 import React, { Component, KeyboardEvent, ReactNode } from 'react';
 import cn from 'classnames';
-import PropTypes from 'prop-types';
 import ReactTooltip from 'react-tooltip';
 
 type Props = {
@@ -24,6 +23,7 @@ type Props = {
   tabIndex?: number;
   tooltip?: string;
   children?: ReactNode;
+  name?: string,
 };
 
 export default class Button extends Component<Props> {
@@ -82,23 +82,6 @@ export default class Button extends Component<Props> {
     );
   }
 }
-
-Button.propTypes = {
-  id: PropTypes.string,
-  className: PropTypes.string,
-  onClick: PropTypes.func,
-  disabled: PropTypes.bool,
-  primary: PropTypes.bool,
-  primaryFilled: PropTypes.bool,
-  cancel: PropTypes.bool,
-  whiteGreyBorder: PropTypes.bool,
-  whiteBorder: PropTypes.bool,
-  white: PropTypes.bool,
-  cancelFilled: PropTypes.bool,
-  primaryWhite: PropTypes.bool,
-  tabIndex: PropTypes.number,
-  tooltip: PropTypes.string,
-};
 
 Button.defaultProps = {
   id: '',
