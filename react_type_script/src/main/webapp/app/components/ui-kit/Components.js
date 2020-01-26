@@ -5,12 +5,12 @@
 import React, { Component } from 'react';
 import Button from '../button/Button';
 import Input from '../input/Input';
-import { Col, Container, Row } from 'reactstrap';
 import AcceptIcon from '../icon/AcceptIcon';
 import PrinterIcon from '../icon/PrinterIcon';
 import QuestionIcon from '../icon/QuestionIcon';
 import CheckboxViewer from './modules/CheckboxViewer/CheckboxViewer';
 import Link from '../label/Link';
+import MainContainer from "../../pages/MainPage/MainContainer";
 
 export default class Components extends Component {
   constructor() {
@@ -22,12 +22,8 @@ export default class Components extends Component {
 
   render() {
     return (
-      <Container>
-        <Row className="mt-5">
-          <Col lg={12}>
-            <hr/>
-          </Col>
-        </Row>
+      <MainContainer>
+
         <Row className="mt-5">
           <Col lg={12}>UI - элементы</Col>
         </Row>
@@ -103,7 +99,7 @@ export default class Components extends Component {
             <QuestionIcon/>
           </Col>
         </Row>
-      </Container>
+      </MainContainer>
     );
   }
 }
