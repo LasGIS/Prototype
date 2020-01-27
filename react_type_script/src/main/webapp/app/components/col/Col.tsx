@@ -13,16 +13,16 @@ type Props = {
   children?: ReactNode;
 };
 
-const Row = (props: Props) => {
+const Col = (props: Props) => {
   const { id, className, disabled, children } = props;
   return (
     <div
       id={id}
-      className={cn('row', className, { 'row--disabled': disabled })}
+      className={cn('col', className, { 'col--disabled': disabled })}
     >
       {children}
     </div>
   );
 };
 
-export default Row;
+export default Col;

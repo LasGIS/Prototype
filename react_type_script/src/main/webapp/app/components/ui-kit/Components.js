@@ -10,7 +10,9 @@ import PrinterIcon from '../icon/PrinterIcon';
 import QuestionIcon from '../icon/QuestionIcon';
 import CheckboxViewer from './modules/CheckboxViewer/CheckboxViewer';
 import Link from '../label/Link';
-import MainContainer from "../../pages/MainPage/MainContainer";
+import MainContainer from '../../pages/MainPage/MainContainer';
+import Row from '../row/Row';
+import Col from '../col/Col';
 
 export default class Components extends Component {
   constructor() {
@@ -23,11 +25,11 @@ export default class Components extends Component {
   render() {
     return (
       <MainContainer>
-
-        <Row className="mt-5">
+        flex
+        <Row>
           <Col lg={12}>UI - элементы</Col>
         </Row>
-        <Row className="mt-5 mb-5">
+        <Row>
           <Col lg={12}>
             <CheckboxViewer/>
           </Col>

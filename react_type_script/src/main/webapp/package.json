@@ -176,7 +176,6 @@
     "@types/redux-mock-store": "^1.0.1",
     "@types/underscore": "^1.9.4",
     "body-parser": "^1.18.3",
-    "bootstrap": "^4.4.1",
     "chart.js": "2.6.0",
     "classnames": "^2.2.5",
     "connected-react-router": "^6.6.1",
