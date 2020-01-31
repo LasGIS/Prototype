@@ -27,79 +27,73 @@ export default class Components extends Component {
       <MainContainer>
         flex
         <Row>
-          <Col lg={12}>UI - элементы</Col>
+          <Col>UI - элементы</Col>
         </Row>
         <Row>
-          <Col lg={12}>
+          <Col>
             <CheckboxViewer/>
           </Col>
         </Row>
-        <Row className="mt-5">
-          <Col lg={12}>
+        <Row>
+          <Col>
             <hr/>
           </Col>
         </Row>
-        <Row className="mt-5">
-          <Col lg={2}>
+        <Row>
+          <Col>
             <Button id="button1" primary>
               Кнопка 1
             </Button>
           </Col>
-          <Col lg={2}>
+          <Col>
             <Button id="button2" primaryFilled>
               Кнопка 2
             </Button>
           </Col>
-          <Col lg={2}>
+          <Col>
             <Button id="button3" cancel>
               Кнопка 3
             </Button>
           </Col>
-          <Col lg={2}>
+          <Col>
             <Button id="button4" cancelFilled>
               Кнопка 4
             </Button>
           </Col>
-          <Col lg={2}>
+          <Col>
             <Button id="button4" cancelFilled disabled>
               Кнопка 5
             </Button>
           </Col>
-          <Col lg={2}>
+          <Col>
             <Button id="button5" whiteGreyBorder>
               Кнопка 6
             </Button>
           </Col>
         </Row>
-        <Row className="mt-5">
-          <Col lg={12}>
+        <Row>
+          <Col>
             <Input id="input2" barcode blue value="1234567890" readOnly/>
           </Col>
         </Row>
-        <Row className="mt-5">
-          <Col lg={2}>
+        <Row>
+          <Col>
             <Link id="link1" onClick={() => {
             }} text="filled ссылка " filled/>
           </Col>
-          <Col lg={2}>
+          <Col>
             <Link id="link2" onClick={() => {
             }} text="простая ссылка"/>
           </Col>
-          <Col lg={2}>
+          <Col>
             <Link id="link3" onClick={() => {
             }} text="dotted ссылка" dotted/>
           </Col>
         </Row>
-        <Row className="mt-5">
-          <Col lg={1}>
-            <PrinterIcon/>
-          </Col>
-          <Col lg={1}>
-            <AcceptIcon/>
-          </Col>
-          <Col lg={3}>
-            <QuestionIcon/>
-          </Col>
+        <Row>
+          <Col> <PrinterIcon/> </Col>
+          <Col> <AcceptIcon/> </Col>
+          <Col> <QuestionIcon/> </Col>
         </Row>
       </MainContainer>
     );

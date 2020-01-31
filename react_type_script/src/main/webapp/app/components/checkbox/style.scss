@@ -20,15 +20,13 @@ $internationalTicket: $root + '_internationalTicket';
     display: inline-block;
     cursor: pointer;
     border: 0.83px solid #231F20;
-    border-radius: 1.67px;
+    border-radius: 2px;
     width: 16px;
     height: 16px;
     margin-bottom: 1px;
 
     &_checked {
-      background-size: 12.66px 15px;
       background: #0055A6 url("checkbox-icon.svg") no-repeat center;
-      border-radius: 2px;
     }
 
     &_read-only {
@@ -40,8 +38,7 @@ $internationalTicket: $root + '_internationalTicket';
     }
 
     &_focused {
-      border: 0.5px solid #0055A6;
-      border-radius: 2px;
+      border: 0.83px solid #0055A6;
     }
 
     input[type="checkbox"] {
@@ -53,11 +50,10 @@ $internationalTicket: $root + '_internationalTicket';
   &__text {
     position: absolute;
     margin-left: 10px;
-    margin-top: -1px;
     color: $dark_grey;
     font-size: 18px;
     font-weight: 400;
-    line-height: 24px;
+    line-height: 18px;
     text-align: left;
     display: inline-block;
   }
