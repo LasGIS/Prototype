@@ -4,14 +4,15 @@
 
 import './style.scss';
 
-import React, {Component} from 'react';
-import {Redirect, Switch, Route} from 'react-router-dom';
+import React, { Component } from 'react';
+import { Redirect, Route, Switch } from 'react-router-dom';
 import MainMenu from '../MainMenu/MainMenu';
 import Components from '../../components/ui-kit/Components';
 import ProtectedRoute from '../../components/protected-route/ProtectedRoute';
-import {FEATURE_EDIT_ROLES, ROLES} from '../../constants/users-roles';
+import { FEATURE_EDIT_ROLES } from '../../constants/users-roles';
 import Footer from '../Footer/Footer';
-import {withCommonDataRequest} from "../../hoc/withCommonDataRequest";
+import { withCommonDataRequest } from '../../hoc/withCommonDataRequest';
+import { ROUTES } from '../MainMenu/constants';
 
 export class MainPage extends Component {
   constructor(props) {
@@ -29,28 +30,23 @@ export class MainPage extends Component {
             path="/main-menu"
             name="MainMenu"
             component={MainMenu}
-            availableRoles={[
-              ROLES.SUPERVISOR, // Старший смены
-              ROLES.OPERATOR, // Оператор
-              ROLES.ADMIN, // Администратор
-              ROLES.CHIEF, // Начальник
-            ]}
+            availableRoles={FEATURE_EDIT_ROLES.ALL_ROLES}
           />
           <ProtectedRoute
-            path="/user-management-table"
+            path={`/${ROUTES.userListPage}`}
             name="UserManagementTable"
-            component={Component}
+            component={Components}
             availableRoles={FEATURE_EDIT_ROLES.USER_MANAGEMENT}
           />
           <ProtectedRoute
             exact
-            path="/person-management-table"
+            path={`/${ROUTES.personListPage}`}
             name="PersonManagementTable"
-            component={Component}
+            component={Components}
             availableRoles={FEATURE_EDIT_ROLES.PERSON_MANAGEMENT}
           />
           <Route
-            path="/components"
+            path={`/${ROUTES.components}`}
             name="Components"
             component={Components}
           />

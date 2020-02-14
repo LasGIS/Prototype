@@ -38,7 +38,7 @@ const BarcodeInput = (props: Props) => {
         onChange={(val: string) => onChange && onChange(val.toUpperCase())}
         onEnter={(val: string) => onEnter && onEnter(val.toUpperCase())}
       />
-      <div className="input2__barcode_icon" />
+      <div className="input2__barcode_icon"/>
     </div>
   );
 };
@@ -62,9 +62,12 @@ BarcodeInput.propTypes = {
 
 BarcodeInput.defaultProps = {
   type: 'text',
-  onChange: () => {},
-  onChangeDelay: () => {},
-  onEnter: () => {},
+  onChange: () => {
+  },
+  onChangeDelay: () => {
+  },
+  onEnter: () => {
+  },
   size: 14,
   value: '',
   placeholder: '',

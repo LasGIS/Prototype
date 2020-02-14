@@ -1,12 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg width="20px" height="14px" viewBox="0 0 20 14" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<svg width="20px" height="14px" viewBox="0 0 20 14" version="1.1" xmlns="http://www.w3.org/2000/svg"
+>
     <!-- Generator: sketchtool 51.2 (57519) - http://www.bohemiancoding.com/sketch -->
     <title>4F8D1C35-B743-4CBC-BC72-38E047F6C9B0</title>
     <desc>Created with sketchtool.</desc>
     <defs></defs>
     <g id="Прием-с-магистрали" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
         <g id="Введен-ШПИ-EMS" transform="translate(-1106.000000, -119.000000)" fill="#81C926" stroke="#7CBC32">
-            <polygon id="Icon" points="1123.56818 119 1112.72727 130.074627 1108.43182 125.686567 1107 127.149254 1112.72727 133 1125 120.462687"></polygon>
+            <polygon id="Icon"
+                     points="1123.56818 119 1112.72727 130.074627 1108.43182 125.686567 1107 127.149254 1112.72727 133 1125 120.462687"></polygon>
         </g>
     </g>
 </svg>

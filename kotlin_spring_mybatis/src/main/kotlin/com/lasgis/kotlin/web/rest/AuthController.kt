@@ -4,8 +4,7 @@
 
 package com.lasgis.kotlin.web.rest
 
-import com.lasgis.kotlin.web.dao.User
-import com.lasgis.kotlin.web.dao.UserRole
+import com.lasgis.kotlin.web.dto.User
 import com.lasgis.kotlin.web.exception.WebException
 import com.lasgis.kotlin.web.exception.WebExceptionType
 import com.lasgis.kotlin.web.mybatis.mapper.UserMapper

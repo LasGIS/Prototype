@@ -4,7 +4,7 @@
   "description": "This is demo project",
   "main": "index.js",
   "scripts": {
-    "start-local-dev": "cross-env HOST=http://localhost:8099 webpack-dev-server --open --config webpack.dev.js",
+    "start-local-dev": "cross-env HOST=http://localhost:8899 webpack-dev-server --open --config webpack.dev.js",
     "build": "webpack --config webpack.dev.js",
     "test": "node scripts/test.js --watchAll"
   },
@@ -176,7 +176,6 @@
     "@types/redux-mock-store": "^1.0.1",
     "@types/underscore": "^1.9.4",
     "body-parser": "^1.18.3",
-    "bootstrap": "^4.4.1",
     "chart.js": "2.6.0",
     "classnames": "^2.2.5",
     "connected-react-router": "^6.6.1",
@@ -194,8 +193,6 @@
     "query-string": "^6.2.0",
     "react": "^16.7.0",
     "react-autocomplete": "^1.8.1",
-    "react-bootstrap": "^0.31.3",
-    "react-bootstrap-typeahead": "^3.0.3",
     "react-chartjs-2": "2.6.1",
     "react-day-picker": "^7.2.4",
     "react-dom": "^16.7.0",
@@ -208,7 +205,6 @@
     "react-text-mask": "^5.4.3",
     "react-tooltip": "^3.9.0",
     "react-transition-group": "^1.2.0",
-    "reactstrap": "6.3.1",
     "redux": "^4.0.1",
     "redux-thunk": "^2.3.0",
     "reselect": "^4.0.0",

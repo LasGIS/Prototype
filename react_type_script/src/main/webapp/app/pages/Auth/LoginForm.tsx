@@ -4,14 +4,33 @@
 
 import { login } from '../../common/auth/actions';
 import './login.css';
-import * as React from 'react';
+import React, { Component } from 'react';
 import Button from '../../components/button/Button';
 import { connect } from 'react-redux';
 import Input from '../../components/input/Input';
 import withRedirectProp from '../../hoc/withRedirectProp';
+import { RootStoreData } from '../../common/types/redux-types';
+import { globalRouterLocationSelector } from '../../common/services/selectors';
 
-export class LoginForm extends React.Component {
-  constructor(props) {
+type Props = {
+  id?: string;
+  className?: string;
+  text: string;
+  login: (login: string, password: string) => Promise<any>;
+  redirect: (url: string) => void;
+};
+
+type State = {
+  login: string;
+  password: string;
+  wrongPassword: boolean;
+  errors: {[key: string]: string};
+  isLoading: boolean;
+};
+
+export class LoginForm extends Component<Props, State> {
+
+  constructor(props: Props) {
     super(props);
     this.state = {
       login: '',
@@ -26,17 +45,16 @@ export class LoginForm extends React.Component {
     this.onChangePassword = this.onChangePassword.bind(this);
   }
 
-  onChangeLogin(login) {
+  onChangeLogin(login: string) {
     this.setState({ login });
   }
 
-  onChangePassword(password) {
+  onChangePassword(password: string) {
     this.setState({ password });
   }
 
   onSubmit() {
-    this.props
-      .login(this.state.login, this.state.password)
+    this.props.login(this.state.login, this.state.password)
       .then(() => this.props.redirect('/main-menu'))
       .catch(error => this.setState({ wrongPassword: true }));
   }
@@ -54,7 +72,7 @@ export class LoginForm extends React.Component {
     }
     return (
       <div>
-        <h1 className="title">Вход по пропуску или логину</h1>
+        <h1 className="title">Вход по логину</h1>
         <div className="right-box">
           <h2 className="title">Войдите используя логин и пароль</h2>
           <div className="form-field">
@@ -63,7 +81,6 @@ export class LoginForm extends React.Component {
               name='j_username'
               value={this.state.login}
               onChange={this.onChangeLogin}
-              onKeyDown={this.onKeyDown}
               placeholder={'Логин'}
               autoComplete='j_username'
             />
@@ -75,7 +92,6 @@ export class LoginForm extends React.Component {
               type='password'
               value={this.state.password}
               onChange={this.onChangePassword}
-              onKeyDown={this.onKeyDown}
               placeholder={'Пароль'}
               onEnter={this.onSubmit.bind(this)}
             />
@@ -100,6 +116,8 @@ export class LoginForm extends React.Component {
   }
 }
 
-export default connect(state => ({ location: state.router.location }), {
+export default connect((state: RootStoreData) => ({
+  location: globalRouterLocationSelector(state),
+}), {
   login,
 })(withRedirectProp(LoginForm));

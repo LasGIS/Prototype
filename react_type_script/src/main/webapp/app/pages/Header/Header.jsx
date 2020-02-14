@@ -1,20 +1,16 @@
-
 /*
  * Copyright (c) 2020. Prototype
  */
 
 import './style.scss';
-
-import ReactDOM from 'react-dom';
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
-//import Spinner from '../../components/spinner/Spinner';
+import Spinner from '../../components/spinner/Spinner';
 import { clearErrors } from '../../common/actions';
 import OvalLabel from '../../components/icon/OvalLabel';
 import { globalUserSelector } from '../../common/services/selectors';
-import Footer from '../Footer/Footer';
 
 class Header extends Component {
 
@@ -48,11 +44,9 @@ class Header extends Component {
     return (
       <div className={'pageHeaderWrapper'}>
         <div className={cn('header', className, typeClass)}>
-{/*
           <div className="spinner right">
             <Spinner white={!whiteStyle} />
           </div>
-*/}
           <div className="header__container">
             {children}
             {hasAccount && (
@@ -66,10 +60,10 @@ class Header extends Component {
                   {user.name}
                 </div>
                 {!isConnectedToWeighter && showWeightSignal && (
-                  <OvalLabel id="weightOff" className="rpo-header__weight-signal" label="весы не подключены" />
+                  <OvalLabel id="weightOff" className="rpo-header__weight-signal" label="весы не подключены"/>
                 )}
                 {isConnectedToWeighter && showWeightSignal && (
-                  <OvalLabel id="weightOn" className="rpo-header__weight-signal" green label="весы подключены" />
+                  <OvalLabel id="weightOn" className="rpo-header__weight-signal" green label="весы подключены"/>
                 )}
               </div>
             )}
@@ -84,11 +78,10 @@ class Header extends Component {
           <div className="header__error">
             <div className="header__error-text">
               <span>{error.text}</span>
-              <div className="header__error-clear" onClick={clearErrors} />
+              <div className="header__error-clear" onClick={clearErrors}/>
             </div>
           </div>
         )}
-        {ReactDOM.createPortal(<Footer typeClass={typeClass} />, document.body)}
       </div>
     );
   }

@@ -4,47 +4,48 @@
 
 import './style.scss';
 
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import Menu from './Menu';
-import {connect} from 'react-redux';
+import { connect } from 'react-redux';
 import MainContainer from '../MainPage/MainContainer';
 import MainMenuHeader from './MainMenuHeader';
-import {clearAllStates} from '../../common/actions';
+import { clearAllStates } from '../../common/actions';
 import ReactModal from 'react-modal';
 import MainMenuModal from './MainMenuModal';
-import {FEATURE_EDIT_ROLES, isGrantedRoles} from '../../constants/users-roles';
-import {globalRouterLocationSelector, globalUserRolesSelector} from '../../common/services/selectors';
+import { globalRouterLocationSelector, globalUserRolesSelector } from '../../common/services/selectors';
 import withRedirectProp from '../../hoc/withRedirectProp';
-import {ROUTES} from "./constants";
+import { ROUTES } from './constants';
+import { FEATURE_EDIT_ROLES, isGrantedRoles } from '../../constants/users-roles';
+import { APP_ROOT_SELECTOR } from '../../constants/constants';
 
 export class MainMenu extends Component {
   constructor(props) {
     super(props);
-    this.state = {modalIsOpen: false};
+    this.state = { modalIsOpen: false };
     this.closeModal = this.closeModal.bind(this);
   }
 
   closeModal() {
-    this.setState({modalIsOpen: false});
+    this.setState({ modalIsOpen: false });
   }
 
   componentDidMount() {
-    const {location, clearAllStates} = this.props;
+    const { location, clearAllStates } = this.props;
 
     if (location && location.state && location.state.roleNoAccessRedirect) {
       ReactModal.setAppElement(APP_ROOT_SELECTOR);
-      this.setState({modalIsOpen: true});
+      this.setState({ modalIsOpen: true });
     } else {
       clearAllStates();
     }
   }
 
   render() {
-    const {redirect, location, userRoles} = this.props;
+    const { redirect, location, userRoles } = this.props;
     const authErrorMsg = location && location.state && location.state.roleNoAccessRedirect ? location.state.error : '';
-    const {modalIsOpen} = this.state;
-    const canSeeUserManagement = true; // isGrantedRoles(userRoles, FEATURE_EDIT_ROLES.USER_MANAGEMENT);
-    const canSeePersonManagement = true; // isGrantedRoles(userRoles, FEATURE_EDIT_ROLES.PERSON_MANAGEMENT);
+    const { modalIsOpen } = this.state;
+    const canSeeUserManagement = isGrantedRoles(userRoles, FEATURE_EDIT_ROLES.USER_MANAGEMENT);
+    const canSeePersonManagement = isGrantedRoles(userRoles, FEATURE_EDIT_ROLES.PERSON_MANAGEMENT);
     const noOneMenu = !canSeeUserManagement && !canSeePersonManagement;
     return (
       <div className="main-menu-container">
@@ -64,7 +65,11 @@ export class MainMenu extends Component {
               onClick={() => redirect(`/${ROUTES.personListPage}`)}
             />
           )}
-
+          <Menu
+            id="routesComponents"
+            name="ROUTES.components"
+            onClick={() => redirect(`/${ROUTES.components}`)}
+          />
           {noOneMenu && (
             <div className="main-menu__no-one-menu-label">У вас нет прав на выполнение каких-либо действий</div>
           )}

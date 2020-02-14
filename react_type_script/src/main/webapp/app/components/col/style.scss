@@ -1,0 +1,17 @@
+/*!
+ * Copyright (c) 2020. Prototype
+ */
+
+@import "../../constants/constants";
+.col {
+  flex: 0.3;
+  color: $black;
+  font-size: 20px;
+  line-height: 24px;
+  text-align: left;
+
+  &--disabled {
+    opacity: 0.5;
+  }
+}
+

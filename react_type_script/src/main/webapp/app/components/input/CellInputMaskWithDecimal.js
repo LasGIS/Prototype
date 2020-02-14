@@ -49,6 +49,18 @@ export default class CellInputMaskWithDecimal extends Component {
     return value !== undefined && value !== null && !isNaN(value);
   }
 
+  static getJustifyValue(type, value, props) {
+    if (type === 'floor') {
+      if (props.sizeFloor && value !== 'undefined' && props.sizeFloor - value.toString().trim().length > 0)
+        return ' '.repeat(props.sizeFloor - value.toString().trim().length);
+      return '';
+    } else {
+      if (props.sizeDecimal && value !== 'undefined' && props.sizeDecimal - value.toString().trim().length > 0)
+        return '0'.repeat(props.sizeDecimal - value.toString().trim().length);
+      return '';
+    }
+  }
+
   getActualValue(type) {
     return type === 'floor' ? this.state.actualFloor : this.state.actualDecimal;
   }
@@ -116,18 +128,6 @@ export default class CellInputMaskWithDecimal extends Component {
 
   onFocusDecimal() {
     this.setState({ justifyValueDecimal: '' });
-  }
-
-  static getJustifyValue(type, value, props) {
-    if (type === 'floor') {
-      if (props.sizeFloor && value !== 'undefined' && props.sizeFloor - value.toString().trim().length > 0)
-        return ' '.repeat(props.sizeFloor - value.toString().trim().length);
-      return '';
-    } else {
-      if (props.sizeDecimal && value !== 'undefined' && props.sizeDecimal - value.toString().trim().length > 0)
-        return '0'.repeat(props.sizeDecimal - value.toString().trim().length);
-      return '';
-    }
   }
 
   focusDecimal() {

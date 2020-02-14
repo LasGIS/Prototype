@@ -28,6 +28,9 @@ type AutoCompleteItem = {
 };
 
 class AutoCompleteInput extends React.Component<AutoCompleteInputProps, State> {
+  static propTypes: {};
+  static defaultProps: {};
+
   constructor(props: AutoCompleteInputProps) {
     super(props);
 
@@ -41,41 +44,41 @@ class AutoCompleteInput extends React.Component<AutoCompleteInputProps, State> {
   }
 
   clearValue() {
-    const {onAutocompleteSelect, disabled} = this.props;
+    const { onAutocompleteSelect, disabled } = this.props;
 
     if (disabled) return false;
 
-    this.setState({value: ''}, () => {
+    this.setState({ value: '' }, () => {
       onAutocompleteSelect('');
     });
   }
 
   handleAutocompleteChange(e: ChangeEvent<HTMLInputElement>) {
-    const {autocompleteItems, disabled, onAutocompleteSelect} = this.props;
+    const { autocompleteItems, disabled, onAutocompleteSelect } = this.props;
 
     if (disabled || !autocompleteItems.length) return false;
 
     const value: string = e.target.value;
     const isBecameEmpty: boolean = Boolean(this.state.value.length && !value);
 
-    this.setState({value}, () => {
+    this.setState({ value }, () => {
       if (isBecameEmpty) onAutocompleteSelect(value);
     });
   }
 
   handleAutocompleteSelect(value: string) {
-    const {autocompleteItems, disabled, onAutocompleteSelect} = this.props;
+    const { autocompleteItems, disabled, onAutocompleteSelect } = this.props;
 
     if (disabled || !autocompleteItems.length) return false;
 
-    this.setState({value}, () => {
+    this.setState({ value }, () => {
       onAutocompleteSelect(value);
     });
   }
 
   render() {
-    const {value} = this.state;
-    const {id, autoFocus, showResetBtn, autocompleteItems, placeholder, disabled} = this.props;
+    const { value } = this.state;
+    const { id, autoFocus, showResetBtn, autocompleteItems, placeholder, disabled } = this.props;
     const uniqueItems: AutoCompleteItem[] = Array.from(new Set([...autocompleteItems])).map(i => ({
       id: i,
       label: i,
@@ -128,15 +131,12 @@ class AutoCompleteInput extends React.Component<AutoCompleteInputProps, State> {
       <div
         key={item.id}
         className={styles.autocompleteListItem}
-        style={{backgroundColor: highlighted ? '#eee' : 'transparent'}}
+        style={{ backgroundColor: highlighted ? '#eee' : 'transparent' }}
       >
         {item.label}
       </div>
     );
   }
-
-  static propTypes: {};
-  static defaultProps: {};
 }
 
 export default AutoCompleteInput;

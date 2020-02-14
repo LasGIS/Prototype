@@ -10,7 +10,7 @@ import PropTypes from 'prop-types';
 export default class BigWarningIcon extends Component {
   render() {
     const { id, className } = this.props;
-    return <div id={id} className={cn('icon icon__big-warning', className)} />;
+    return <div id={id} className={cn('icon icon__big-warning', className)}/>;
   }
 }
 

@@ -10,7 +10,7 @@ import Header from '../Header/Header';
 import { connect } from 'react-redux';
 import { logoutAction } from '../../common/actions';
 import withRedirectProp from '../../hoc/withRedirectProp';
-import { FRONT_AUTH_TOKEN } from '../../constants/constants';
+import { FRONT_AUTH_USER } from '../../constants/constants';
 
 export class MainMenuHeader extends Component {
   constructor(props) {
@@ -19,7 +19,7 @@ export class MainMenuHeader extends Component {
   }
 
   logout() {
-    localStorage.setItem(FRONT_AUTH_TOKEN, '');
+    localStorage.setItem(FRONT_AUTH_USER, '');
     this.props.redirect('login');
   }
 

@@ -14,10 +14,10 @@ const RemoveFileSvgIcon = ({ className, width, height }) => (
     viewBox={`0 0 ${width} ${height}`}
     xmlns="http://www.w3.org/2000/svg"
   >
-    <rect width={width} height={height} fill="url(#pattern0)" />
+    <rect width={width} height={height} fill="url(#pattern0)"/>
     <defs>
       <pattern id="pattern0" patternContentUnits="objectBoundingBox" width="1" height="1">
-        <use href="#image0" transform="scale(0.00961538)" />
+        <use href="#image0" transform="scale(0.00961538)"/>
       </pattern>
       <image
         id="image0"

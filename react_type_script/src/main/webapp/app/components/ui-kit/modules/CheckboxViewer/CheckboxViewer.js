@@ -37,7 +37,7 @@ class CheckboxViewer extends React.Component {
 
     return (
       <div>
-        <h5>Чекбокс (В Админке был изменен цвет для border в состоянии 'checked')</h5>
+        <h5>Чекбокс</h5>
         {this.renderControls()}
         <div
           className={'userManagementForm'}
@@ -59,7 +59,7 @@ class CheckboxViewer extends React.Component {
             }}
           >
             <div className={'userManagementForm__fieldInputWrap'}>
-              <Checkbox readOnly={isInputDisabled} checked={value} onChange={this.handleChangeInputValue} label={''} />
+              <Checkbox readOnly={isInputDisabled} checked={value} onChange={this.handleChangeInputValue} label={'текст для пояснения'}/>
             </div>
           </div>
         </div>
@@ -79,20 +79,6 @@ class CheckboxViewer extends React.Component {
               onChange={this.handleSettingChange}
             />
             Неактивный
-          </label>
-        </div>
-
-        <div>
-          <label>
-            <input name="hasInvalidValue" type="checkbox" checked={false} onChange={() => ({})} />
-            Содержит невалидное значение (нет реализации)
-          </label>
-        </div>
-
-        <div>
-          <label>
-            <input name="hasValidValue" type="checkbox" checked={false} onChange={() => ({})} />
-            Содержит валидное значение (нет реализации)
           </label>
         </div>
       </React.Fragment>

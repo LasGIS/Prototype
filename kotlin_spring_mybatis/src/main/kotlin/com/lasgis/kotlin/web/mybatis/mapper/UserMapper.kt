@@ -4,7 +4,7 @@
 
 package com.lasgis.kotlin.web.mybatis.mapper
 
-import com.lasgis.kotlin.web.dao.User
+import com.lasgis.kotlin.web.dto.User
 import org.apache.ibatis.annotations.Insert
 import org.apache.ibatis.annotations.Mapper
 import org.apache.ibatis.annotations.Options

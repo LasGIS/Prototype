@@ -5,15 +5,15 @@
 @import "../../constants/constants";
 
 .button {
-
-  border-radius: 3.82px;
-  height: 40.11px;
+  border: 1px solid #FFFFFF;
+  border-radius: 5px;
   color: $white;
-  font-size: 15px;
+  font-size: 16px;
   font-weight: 400;
   letter-spacing: 0.2px;
   line-height: 17px;
-  padding: 11px;
+  padding: 10px;
+  margin: 0 6px;
   text-align: center;
 
   &:hover {

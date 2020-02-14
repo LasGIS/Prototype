@@ -3,12 +3,40 @@
  */
 
 import styles from './style.scss';
-import React, { Component } from 'react';
+import React, { Component, KeyboardEvent } from 'react';
 import cn from 'classnames';
-import PropTypes from 'prop-types';
 
-export default class Checkbox extends Component {
-  constructor(props) {
+enum Checkbox_STYLES {
+  classic = 'classic',
+  international = 'international'
+}
+
+type Props = {
+  id: string;
+  className?: string;
+  style: Checkbox_STYLES;
+  checked: boolean;
+  label: string;
+  readOnly?: boolean;
+  onChange: () => void;
+  tabIndex?: number;
+};
+
+type State = {
+  hasFocus: boolean;
+};
+
+export default class Checkbox extends Component<Props, State> {
+
+  static defaultProps: {
+    style: Checkbox_STYLES.classic,
+    id: '',
+    checked: false,
+    label: false,
+    onChange: () => undefined,
+  };
+
+  constructor(props: Props) {
     super(props);
     this.onFocus = this.onFocus.bind(this);
     this.onBlur = this.onBlur.bind(this);
@@ -22,7 +50,7 @@ export default class Checkbox extends Component {
     !this.props.readOnly && this.props.onChange();
   }
 
-  onKeyPress(event) {
+  onKeyPress(event: KeyboardEvent<HTMLDivElement>) {
     if (event.key === 'Enter') {
       this.handleCheckboxClick();
     }
@@ -31,6 +59,7 @@ export default class Checkbox extends Component {
   onFocus() {
     this.setState({ hasFocus: true });
   }
+
   onBlur() {
     this.setState({ hasFocus: false });
   }
@@ -56,7 +85,8 @@ export default class Checkbox extends Component {
             tabIndex={readOnly ? -1 : tabIndex}
             type="checkbox"
             checked={checked}
-            onChange={() => {}}
+            onChange={() => {
+            }}
             onKeyPress={this.onKeyPress.bind(this)}
           />
         </div>
@@ -65,27 +95,3 @@ export default class Checkbox extends Component {
     );
   }
 }
-
-Checkbox.STYLES = {
-  classic: 'classic',
-  internationalTicket: 'internationalTicket',
-};
-
-Checkbox.propTypes = {
-  style: PropTypes.oneOf(Object.values(Checkbox.STYLES)),
-  id: PropTypes.string.isRequired,
-  className: PropTypes.string,
-  checked: PropTypes.bool.isRequired,
-  label: PropTypes.string.isRequired,
-  readOnly: PropTypes.bool,
-  onChange: PropTypes.func.isRequired,
-  tabIndex: PropTypes.number,
-};
-
-Checkbox.defaultProps = {
-  style: Checkbox.STYLES.classic,
-  id: '',
-  checked: false,
-  label: false,
-  onChange: () => undefined,
-};

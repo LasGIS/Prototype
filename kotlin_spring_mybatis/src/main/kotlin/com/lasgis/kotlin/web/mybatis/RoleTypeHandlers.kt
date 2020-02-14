@@ -4,7 +4,7 @@
 
 package com.lasgis.kotlin.web.mybatis
 
-import com.lasgis.kotlin.web.dao.UserRole
+import com.lasgis.kotlin.web.dto.UserRole
 import org.apache.ibatis.type.JdbcType
 import org.apache.ibatis.type.TypeHandler
 import java.sql.CallableStatement

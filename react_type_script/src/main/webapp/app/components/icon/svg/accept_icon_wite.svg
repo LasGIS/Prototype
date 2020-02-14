@@ -6,7 +6,8 @@
     <defs></defs>
     <g id="Прием-с-магистрали" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
         <g id="Введен-ШПИ-EMS" transform="translate(-1106.000000, -119.000000)" fill="#FFFFFF" stroke="#FFFFFF">
-            <polygon id="Icon" points="1123.56818 119 1112.72727 130.074627 1108.43182 125.686567 1107 127.149254 1112.72727 133 1125 120.462687"></polygon>
+            <polygon id="Icon"
+                     points="1123.56818 119 1112.72727 130.074627 1108.43182 125.686567 1107 127.149254 1112.72727 133 1125 120.462687"></polygon>
         </g>
     </g>
 </svg>

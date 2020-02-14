@@ -22,3 +22,4 @@ logs/
 ### npm (Node.js|https://nodejs.org/ru/)
 node_modules/
 deploy/
+node_js/

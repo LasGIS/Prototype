@@ -8,6 +8,7 @@ import { Redirect, Route } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { isGrantedRoles } from '../../constants/users-roles';
 import withAuthProtection from '../../hoc/withAuthProtection';
+import { globalRouterLocationSelector, globalUserRolesSelector } from '../../common/services/selectors';
 
 class ProtectedRoute extends Component {
   render() {
@@ -34,8 +35,8 @@ class ProtectedRoute extends Component {
 
 export default connect(state => {
   return {
-    userRoles: state.global.user.roles,
-    location: state.router.location,
+    userRoles: globalUserRolesSelector(state),
+    location: globalRouterLocationSelector(state),
   };
 }, {})(withAuthProtection(ProtectedRoute));
 

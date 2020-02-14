@@ -1,12 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg width="11px" height="6px" viewBox="0 0 11 6" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<svg width="11px" height="6px" viewBox="0 0 11 6" version="1.1" xmlns="http://www.w3.org/2000/svg"
+>
     <!-- Generator: Sketch 52 (66869) - http://www.bohemiancoding.com/sketch -->
     <title>Combined Shape Copy 4</title>
     <desc>Created with Sketch.</desc>
-    <g id="3.-Регистрация-отправлений" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" stroke-linecap="round" stroke-linejoin="round">
+    <g id="3.-Регистрация-отправлений" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"
+       stroke-linecap="round" stroke-linejoin="round">
         <g id="Показать-список-отправлений" transform="translate(-784.000000, -692.000000)" stroke="#FFFFFF">
             <g id="Group" transform="translate(485.000000, 686.000000)">
-                <path d="M306.448716,8.64285714 L302.13677,4.40341202 L302,4.26894135 L302.273541,4 L302.410311,4.13447067 L306.722257,8.37391579 L306.726459,8.36978361 L307,8.63872496 L306.995797,8.64285714 L307,8.64698933 L306.726459,8.91593068 L306.722257,8.91179849 L302.410311,13.1512436 L302.273541,13.2857143 L302,13.0167729 L302.13677,12.8823023 L306.448716,8.64285714 Z" id="Combined-Shape-Copy-4" transform="translate(304.500000, 8.642857) rotate(270.000000) translate(-304.500000, -8.642857) "></path>
+                <path d="M306.448716,8.64285714 L302.13677,4.40341202 L302,4.26894135 L302.273541,4 L302.410311,4.13447067 L306.722257,8.37391579 L306.726459,8.36978361 L307,8.63872496 L306.995797,8.64285714 L307,8.64698933 L306.726459,8.91593068 L306.722257,8.91179849 L302.410311,13.1512436 L302.273541,13.2857143 L302,13.0167729 L302.13677,12.8823023 L306.448716,8.64285714 Z"
+                      id="Combined-Shape-Copy-4"
+                      transform="translate(304.500000, 8.642857) rotate(270.000000) translate(-304.500000, -8.642857) "></path>
             </g>
         </g>
     </g>

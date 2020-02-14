@@ -19,7 +19,7 @@ export default class SortIcon extends Component {
     const { id, className, onClick, type } = this.props;
 
     return (
-      <div id={id} onClick={onClick} className={cn(className, 'icon', 'icon__sort--'.concat(!!type ? type : 'asc'))} />
+      <div id={id} onClick={onClick} className={cn(className, 'icon', 'icon__sort--'.concat(!!type ? type : 'asc'))}/>
     );
   }
 }
