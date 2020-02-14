@@ -25,18 +25,12 @@ export default class Components extends Component {
   render() {
     return (
       <MainContainer>
-        flex
         <Row>
           <Col>UI - элементы</Col>
         </Row>
         <Row>
           <Col>
             <CheckboxViewer/>
-          </Col>
-        </Row>
-        <Row>
-          <Col>
-            <hr/>
           </Col>
         </Row>
         <Row>

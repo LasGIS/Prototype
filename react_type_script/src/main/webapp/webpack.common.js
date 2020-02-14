@@ -131,6 +131,7 @@ module.exports = {
     new CopyWebpackPlugin(
       [
         { from: './public/img', to: 'img' },
+        { from: './public/favicon.ico', to: 'favicon.ico' },
       ],
       {
         copyUnmodified: false,

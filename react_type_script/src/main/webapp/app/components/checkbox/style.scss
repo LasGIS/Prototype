@@ -6,11 +6,11 @@
 
 $root: 'checkbox-container';
 $classic: $root + '_classic';
-$internationalTicket: $root + '_internationalTicket';
+$international: $root + '_international';
 
 :export {
   classic: #{$classic};
-  internationalTicket: #{$internationalTicket};
+  international: #{$international};
 }
 
 .#{$root} {
@@ -60,7 +60,7 @@ $internationalTicket: $root + '_internationalTicket';
 
 }
 
-.#{$root}.#{$internationalTicket} {
+.#{$root}.#{$international} {
 
   .#{$root}__input {
     display: inline-block;

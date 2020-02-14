@@ -3,8 +3,6 @@
  */
 
 import './style.scss';
-
-import ReactDOM from 'react-dom';
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
@@ -13,7 +11,6 @@ import Spinner from '../../components/spinner/Spinner';
 import { clearErrors } from '../../common/actions';
 import OvalLabel from '../../components/icon/OvalLabel';
 import { globalUserSelector } from '../../common/services/selectors';
-import Footer from '../Footer/Footer';
 
 class Header extends Component {
 
