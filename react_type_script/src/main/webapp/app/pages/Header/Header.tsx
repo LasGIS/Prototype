@@ -3,18 +3,42 @@
  */
 
 import './style.scss';
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import PropTypes from 'prop-types';
+import React, { Component, ReactNode } from 'react';
+import { connect, ConnectedProps } from 'react-redux';
 import cn from 'classnames';
 import Spinner from '../../components/spinner/Spinner';
 import { clearErrors } from '../../common/actions';
-import OvalLabel from '../../components/icon/OvalLabel';
 import { globalUserSelector } from '../../common/services/selectors';
+import { RootStoreData } from '../../common/types/redux-types';
+import withRedirectProp from '../../hoc/withRedirectProp';
 
-class Header extends Component {
+type Props = PropsFromRedux & {
+  className?: string;
+  user?: { code: number, name: string };
+  hasAccount?: boolean;
+  fontFioSize?: number;
+  whiteStyle?: boolean;
+  redStyle?: boolean;
+  blueStyle?: boolean;
+  error?: { code: number, text: string };
+  bottomContent?: ReactNode;
+};
 
-  constructor(props) {
+type State = {
+  login: string;
+  password: string;
+  wrongPassword: boolean;
+  errors: { [key: string]: string };
+  isLoading: boolean;
+};
+
+class Header extends Component<Props, State> {
+
+  static defaultProps: { bottomContent: null };
+
+  private readonly userNameRef: React.RefObject<HTMLDivElement>;
+
+  constructor(props: Props) {
     super(props);
     this.userNameRef = React.createRef();
   }
@@ -29,12 +53,11 @@ class Header extends Component {
       redStyle,
       fontFioSize,
       hasAccount,
-      isConnectedToWeighter,
-      showWeightSignal,
       error,
       clearErrors,
       bottomContent,
     } = this.props;
+
     const calcFontFioSize = !fontFioSize ? 18 : fontFioSize;
     const typeClass = {
       'blue-header': blueStyle,
@@ -45,7 +68,7 @@ class Header extends Component {
       <div className={'pageHeaderWrapper'}>
         <div className={cn('header', className, typeClass)}>
           <div className="spinner right">
-            <Spinner white={!whiteStyle} />
+            <Spinner white={!whiteStyle}/>
           </div>
           <div className="header__container">
             {children}
@@ -57,14 +80,8 @@ class Header extends Component {
                   ref={this.userNameRef}
                   style={{ fontSize: calcFontFioSize + 'px' }}
                 >
-                  {user.name}
+                  {user?.name}
                 </div>
-                {!isConnectedToWeighter && showWeightSignal && (
-                  <OvalLabel id="weightOff" className="rpo-header__weight-signal" label="весы не подключены"/>
-                )}
-                {isConnectedToWeighter && showWeightSignal && (
-                  <OvalLabel id="weightOn" className="rpo-header__weight-signal" green label="весы подключены"/>
-                )}
               </div>
             )}
           </div>
@@ -87,28 +104,19 @@ class Header extends Component {
   }
 }
 
-Header.propTypes = {
-  className: PropTypes.string,
-  hasAccount: PropTypes.bool,
-  showWeightSignal: PropTypes.bool,
-  isConnectedToWeighter: PropTypes.bool,
-  fontFioSize: PropTypes.number,
-  whiteStyle: PropTypes.bool,
-  redStyle: PropTypes.bool,
-  blueStyle: PropTypes.bool,
-  bottomContent: PropTypes.node,
-};
-
-Header.defaultProps = {
-  bottomContent: null,
-};
-
-export default connect(
-  state => ({
+const mapState = (state: RootStoreData) => {
+  return {
     error: state.global.error,
     user: globalUserSelector(state),
-  }),
-  {
-    clearErrors,
-  },
-)(Header);
+  };
+};
+
+const mapDispatch = {
+  clearErrors,
+};
+
+const connector = connect(mapState, mapDispatch);
+
+type PropsFromRedux = ConnectedProps<typeof connector>;
+
+export default connector(withRedirectProp(Header));

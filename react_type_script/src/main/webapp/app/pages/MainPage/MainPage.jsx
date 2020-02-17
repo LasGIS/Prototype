@@ -13,6 +13,7 @@ import { FEATURE_EDIT_ROLES } from '../../constants/users-roles';
 import Footer from '../Footer/Footer';
 import { withCommonDataRequest } from '../../hoc/withCommonDataRequest';
 import { ROUTES } from '../MainMenu/constants';
+import { MainMenuHeader } from '../MainMenu/MainMenuHeader';
 
 export class MainPage extends Component {
   constructor(props) {
@@ -24,7 +25,8 @@ export class MainPage extends Component {
 
   render() {
     return (
-      <div className="new-app">
+      <div className="proto">
+        <MainMenuHeader/>
         <Switch>
           <ProtectedRoute
             path="/main-menu"

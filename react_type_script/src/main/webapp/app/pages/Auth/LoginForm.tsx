@@ -73,7 +73,7 @@ export class LoginForm extends Component<Props, State> {
     return (
       <div>
         <h1 className="title">Вход по логину</h1>
-        <div className="right-box">
+        <div className="form-box">
           <h2 className="title">Войдите используя логин и пароль</h2>
           <div className="form-field">
             <Input

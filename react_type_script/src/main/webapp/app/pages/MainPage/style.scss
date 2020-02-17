@@ -5,7 +5,7 @@
 @import "../../constants/constants";
 
 
-.new-app {
+.proto {
   background: $body_bg_color;
   display: flex;
   flex-direction: column;
@@ -14,7 +14,7 @@
   width: 100%;
 }
 
-.new-app-body {
+.proto-body {
   display: flex;
   flex-direction: row;
   flex-grow: 1;

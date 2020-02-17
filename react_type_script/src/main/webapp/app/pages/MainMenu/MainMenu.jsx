@@ -8,7 +8,6 @@ import React, { Component } from 'react';
 import Menu from './Menu';
 import { connect } from 'react-redux';
 import MainContainer from '../MainPage/MainContainer';
-import MainMenuHeader from './MainMenuHeader';
 import { clearAllStates } from '../../common/actions';
 import ReactModal from 'react-modal';
 import MainMenuModal from './MainMenuModal';
@@ -49,7 +48,6 @@ export class MainMenu extends Component {
     const noOneMenu = !canSeeUserManagement && !canSeePersonManagement;
     return (
       <div className="main-menu-container">
-        <MainMenuHeader/>
         <MainContainer className="main-menu">
           {canSeeUserManagement && (
             <Menu
