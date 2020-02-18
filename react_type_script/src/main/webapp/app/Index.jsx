@@ -13,7 +13,7 @@ import 'simple-line-icons/css/simple-line-icons.css';
 import { LastLocationProvider } from 'react-router-last-location';
 import history from './history';
 import configureStore from './redux/configureStore';
-import { MainPage } from './pages/MainPage/MainPage';
+import MainPage from './pages/MainPage/MainPage';
 import LoginForm from './pages/Auth/LoginForm';
 
 const store = configureStore();

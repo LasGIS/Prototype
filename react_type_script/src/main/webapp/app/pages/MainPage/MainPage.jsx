@@ -13,9 +13,11 @@ import { FEATURE_EDIT_ROLES } from '../../constants/users-roles';
 import Footer from '../Footer/Footer';
 import { withCommonDataRequest } from '../../hoc/withCommonDataRequest';
 import { ROUTES } from '../MainMenu/constants';
-import { MainMenuHeader } from '../MainMenu/MainMenuHeader';
+import MainMenuHeader from '../MainMenu/MainMenuHeader';
+import withRedirectProp from '../../hoc/withRedirectProp';
 
 export class MainPage extends Component {
+
   constructor(props) {
     super(props);
     this.state = {
@@ -60,4 +62,4 @@ export class MainPage extends Component {
   }
 }
 
-export default withCommonDataRequest(MainPage);
+export default withRedirectProp(withCommonDataRequest(MainPage));
