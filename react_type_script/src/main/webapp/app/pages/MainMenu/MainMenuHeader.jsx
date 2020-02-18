@@ -26,8 +26,8 @@ export class MainMenuHeader extends Component {
   render() {
     const { logout } = this.props;
     return (
-      <Header blueStyle hasAccount>
-        <Button id="logoutButton" className="button-header right" onClick={this.logout} white>
+      <Header whiteStyle hasAccount>
+        <Button id="logoutButton" className="button-header right" onClick={this.logout} primaryFilled>
           Выйти
         </Button>
       </Header>
