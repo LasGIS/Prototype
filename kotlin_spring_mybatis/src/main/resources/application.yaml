@@ -1,12 +1,13 @@
-# название приложения
+# Общие настройки приложения:
 app:
   name: Kotlin Spring Boot MyBatis
   version: 0.0.1-SNAPSHOT
+  printLocale: true
+
 # локальнй порт
 server.port: 8899
 
 spring:
-
 # flyway migration
   flyway:
 #    locations: classpath:/db/migration,classpath:/dev/db/migration

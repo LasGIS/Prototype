@@ -2,7 +2,7 @@
  * Copyright (c) 2020. Prototype
  */
 
-import { fetchAppSettings, fetchAppVersion, fetchCurrentUser } from './service';
+import { fetchAppSettings, fetchCurrentUser } from './service';
 import { ALL, CLEAR, STATES } from '../constants/constants';
 import { push as routerPush, replace as routerReplace } from 'connected-react-router';
 
@@ -12,7 +12,6 @@ export const PUSH_ERROR = 'PUSH_ERROR';
 export const CLEAR_ERROR = 'CLEAR_ERROR';
 export const SET_USER_INFO = 'SET_USER_INFO';
 export const GET_SYSTEM_SETTINGS = 'GET_SYSTEM_SETTINGS';
-export const GET_VERSION = 'GET_VERSION';
 
 const initialState = {
   loading: false,
@@ -60,16 +59,6 @@ export function getAppSettings() {
   };
 }
 
-export function getVersion() {
-  return dispatch => {
-    fetchAppVersion()(dispatch)
-      .then(data => {
-        dispatch({ type: GET_VERSION, data: data });
-      })
-      .catch(error => errorHandler(error)(dispatch));
-  };
-}
-
 export function logoutAction() {
   window.location = '/logout';
 }
@@ -102,8 +91,6 @@ export function globalReducer(state = initialState, action) {
       return { ...state, loading: true };
     case HIDE_LOADER:
       return { ...state, loading: false };
-    case GET_VERSION:
-      return { ...state, version: action.data };
     case PUSH_ERROR:
       return { ...state, error: action.error };
     case CLEAR_ERROR:

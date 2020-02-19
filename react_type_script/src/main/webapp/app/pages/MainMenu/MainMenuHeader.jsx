@@ -8,7 +8,6 @@ import React, { Component } from 'react';
 import Button from '../../components/button/Button';
 import Header from '../Header/Header';
 import { connect } from 'react-redux';
-import { logoutAction } from '../../common/actions';
 import withRedirectProp from '../../hoc/withRedirectProp';
 import { FRONT_AUTH_USER } from '../../constants/constants';
 
@@ -24,7 +23,6 @@ export class MainMenuHeader extends Component {
   }
 
   render() {
-    const { logout } = this.props;
     return (
       <Header whiteStyle hasAccount>
         <Button id="logoutButton" className="button-header right" onClick={this.logout} primaryFilled>
@@ -35,6 +33,4 @@ export class MainMenuHeader extends Component {
   }
 }
 
-export default connect(state => ({}), {
-  logout: logoutAction,
-})(withRedirectProp(MainMenuHeader));
+export default connect(state => ({}), {})(withRedirectProp(MainMenuHeader));
