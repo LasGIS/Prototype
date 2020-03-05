@@ -8,7 +8,6 @@ import React, { Component } from 'react';
 import Menu from './Menu';
 import { connect } from 'react-redux';
 import MainContainer from '../MainPage/MainContainer';
-import { clearAllStates } from '../../common/actions';
 import ReactModal from 'react-modal';
 import MainMenuModal from './MainMenuModal';
 import { globalRouterLocationSelector, globalUserRolesSelector } from '../../common/services/selectors';
@@ -16,6 +15,7 @@ import withRedirectProp from '../../hoc/withRedirectProp';
 import { ROUTES } from './constants';
 import { FEATURE_EDIT_ROLES, isGrantedRoles } from '../../constants/users-roles';
 import { APP_ROOT_SELECTOR } from '../../constants/constants';
+import { clearAllStates } from '../Global/services/action-creators';
 
 export class MainMenu extends Component {
   constructor(props) {

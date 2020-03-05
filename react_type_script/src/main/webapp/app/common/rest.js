@@ -3,7 +3,7 @@
  */
 
 import $ from 'jquery/dist/jquery';
-import { CLEAR_ERROR, HIDE_LOADER, SHOW_LOADER } from './actions';
+import { clearErrors, globalHideLoader, globalShowLoader } from '../pages/Global/services/action-creators';
 
 export const HTTP_METHODS = {
   GET: 'GET',
@@ -25,29 +25,29 @@ export const put = (url, data) => dispatch => requestDecorator(url, HTTP_METHODS
 export const del = (url, data) => dispatch => requestDecorator(url, HTTP_METHODS.DELETE, data)(dispatch);
 
 const requestDecorator = (url, method, data, requestSettings = {}) => dispatch => {
-  dispatch({ type: SHOW_LOADER });
+  dispatch(globalShowLoader());
   return request(url, method, data, requestSettings)
     .then(response => {
-      dispatch({ type: HIDE_LOADER });
-      dispatch({ type: CLEAR_ERROR });
+      dispatch(globalHideLoader());
+      dispatch(clearErrors());
       return response;
     })
     .catch(error => {
-      dispatch({ type: HIDE_LOADER });
+      dispatch(globalHideLoader());
       return error;
     });
 };
 
 const requestDecoratorWithHeaders = (url, method, data, requestSettings = {}) => dispatch => {
-  dispatch({ type: SHOW_LOADER });
+  dispatch(globalShowLoader());
   return requestWithHeaders(url, method, data, requestSettings)
     .then(header => {
-      dispatch({ type: HIDE_LOADER });
-      dispatch({ type: CLEAR_ERROR });
+      dispatch(globalHideLoader());
+      dispatch(clearErrors());
       return header;
     })
     .catch(error => {
-      dispatch({ type: HIDE_LOADER });
+      dispatch(globalHideLoader());
       return error;
     });
 };
@@ -71,7 +71,7 @@ export function request(url, method, data = {}, requestSettings = {}) {
   });
 
   function getDataParam(method, data = {}, requestSettingsDataParam = 'json') {
-    const defaultValue = method === 'GET' ? data : JSON.stringify(data);
+    const defaultValue = method === HTTP_METHODS.GET ? data : JSON.stringify(data);
     return requestSettingsDataParam === 'json' ? defaultValue : data;
   }
 }
@@ -89,7 +89,7 @@ function requestWithHeaders(url, method, data, requestSettings) {
       resolveWithFullResponse: true,
       simple: false,
     })
-      .done((response, status, header) => {
+      .done((response) => {
         return resolve(response);
       })
       .fail(error => reject(error));

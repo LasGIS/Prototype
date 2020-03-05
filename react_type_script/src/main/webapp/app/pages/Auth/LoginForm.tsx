@@ -11,14 +11,15 @@ import Input from '../../components/input/Input';
 import withRedirectProp from '../../hoc/withRedirectProp';
 import { RootStoreData } from '../../common/types/redux-types';
 import { globalRouterLocationSelector } from '../../common/services/selectors';
+import { WithRedirectHocProps } from '../../common/types/hocs-injected-prop-types';
+import { redirect } from '../Global/services/reducer';
 
 type Props = {
   id?: string;
   className?: string;
   text: string;
   login: (login: string, password: string) => Promise<any>;
-  redirect: (url: string) => void;
-};
+} & WithRedirectHocProps;
 
 type State = {
   login: string;
@@ -55,7 +56,9 @@ export class LoginForm extends Component<Props, State> {
 
   onSubmit() {
     this.props.login(this.state.login, this.state.password)
-      .then(() => this.props.redirect('/main-menu'))
+      .then(() => {
+        this.props.redirect('/main-menu');
+      })
       .catch(error => this.setState({ wrongPassword: true }));
   }
 
@@ -120,4 +123,5 @@ export default connect((state: RootStoreData) => ({
   location: globalRouterLocationSelector(state),
 }), {
   login,
+  redirect,
 })(withRedirectProp(LoginForm));

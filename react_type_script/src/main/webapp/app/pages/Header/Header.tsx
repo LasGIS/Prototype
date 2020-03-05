@@ -7,10 +7,10 @@ import React, { Component, ReactNode } from 'react';
 import { connect, ConnectedProps } from 'react-redux';
 import cn from 'classnames';
 import Spinner from '../../components/spinner/Spinner';
-import { clearErrors } from '../../common/actions';
 import { globalUserSelector } from '../../common/services/selectors';
 import { RootStoreData } from '../../common/types/redux-types';
 import withRedirectProp from '../../hoc/withRedirectProp';
+import { clearErrors } from '../Global/services/action-creators';
 
 type Props = PropsFromRedux & {
   className?: string;
