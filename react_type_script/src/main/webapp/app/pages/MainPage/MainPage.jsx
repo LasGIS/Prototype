@@ -15,6 +15,7 @@ import { withCommonDataRequest } from '../../hoc/withCommonDataRequest';
 import { ROUTES } from '../MainMenu/constants';
 import MainMenuHeader from '../MainMenu/MainMenuHeader';
 import withRedirectProp from '../../hoc/withRedirectProp';
+import { ColorStyle } from '../Global/global-redux-types';
 
 export class MainPage extends Component {
 
@@ -26,23 +27,27 @@ export class MainPage extends Component {
   }
 
   render() {
+    const isMainMenu = this.props.location.pathname === '/main-menu';
     return (
       <div className="proto">
-        <MainMenuHeader/>
+        <MainMenuHeader isMain={isMainMenu}/>
         <Switch>
           <ProtectedRoute
+            colorStyle={ColorStyle.blue}
             path="/main-menu"
             name="MainMenu"
             component={MainMenu}
             availableRoles={FEATURE_EDIT_ROLES.ALL_ROLES}
           />
           <ProtectedRoute
+            colorStyle={ColorStyle.white}
             path={`/${ROUTES.userListPage}`}
             name="UserManagementTable"
             component={Components}
             availableRoles={FEATURE_EDIT_ROLES.USER_MANAGEMENT}
           />
           <ProtectedRoute
+            colorStyle={ColorStyle.red}
             exact
             path={`/${ROUTES.personListPage}`}
             name="PersonManagementTable"

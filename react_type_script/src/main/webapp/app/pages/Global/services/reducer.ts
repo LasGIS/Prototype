@@ -10,18 +10,19 @@ import {
   GLOBAL_GET_SYSTEM_SETTINGS,
   GLOBAL_HIDE_LOADER,
   GLOBAL_PUSH_ERROR,
+  GLOBAL_SET_COLOR_STYLE,
   GLOBAL_SET_USER_INFO,
   GLOBAL_SHOW_LOADER,
 } from './action-constants';
-import { GlobalActions, GlobalStoreData } from '../global-redux-types';
+import { ColorStyle, GlobalActions, GlobalStoreData } from '../global-redux-types';
 
 const initialState: GlobalStoreData = {
   loading: false,
   error: null,
   authorized: false,
   user: {},
-  settings: {},
-  version: '',
+  settings: undefined,
+  colorStyle: ColorStyle.white
 };
 
 export function redirect(routePath: Path) {
@@ -49,6 +50,8 @@ export function globalReducer(state: GlobalStoreData = initialState, action: Glo
       return { ...state, user: action.user };
     case GLOBAL_GET_SYSTEM_SETTINGS:
       return { ...state, settings: action.settings };
+    case GLOBAL_SET_COLOR_STYLE:
+      return { ...state, colorStyle: action.colorStyle };
     case GLOBAL_SHOW_LOADER:
       return { ...state, loading: true };
     case GLOBAL_HIDE_LOADER:

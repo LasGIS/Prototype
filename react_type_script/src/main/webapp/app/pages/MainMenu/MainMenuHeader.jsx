@@ -18,13 +18,22 @@ export class MainMenuHeader extends Component {
   }
 
   logout() {
+    const { redirect } = this.props;
     localStorage.setItem(FRONT_AUTH_USER, '');
-    this.props.redirect('login');
+    redirect('login');
   }
 
   render() {
+    const { isMain, redirect } = this.props;
     return (
-      <Header whiteStyle hasAccount>
+      <Header hasAccount>
+        {!isMain &&
+        <Button id="backButton" className="button-header left"
+                onClick={() => redirect && redirect('/main-menu')}
+                primary>
+          Выход в меню
+        </Button>
+        }
         <Button id="logoutButton" className="button-header right" onClick={this.logout} primaryFilled>
           Выйти
         </Button>

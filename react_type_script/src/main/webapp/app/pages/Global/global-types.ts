@@ -2,7 +2,8 @@
  * Copyright (c) 2020. Prototype
  */
 
-export type UkdPassportParamsForUkdChange = {
-  ukdId: string;
-  noZones: boolean;
+export type AppSettingsConfig = {
+  printLocale?: boolean;
+  name?: string;
+  version?: string;
 };

@@ -9,8 +9,21 @@ import PropTypes from 'prop-types';
 import { isGrantedRoles } from '../../constants/users-roles';
 import withAuthProtection from '../../hoc/withAuthProtection';
 import { globalRouterLocationSelector, globalUserRolesSelector } from '../../common/services/selectors';
+import { setColorStyle } from '../../pages/Global/services/action-creators';
+import { ColorStyle } from '../../pages/Global/global-redux-types';
 
 class ProtectedRoute extends Component {
+  constructor(props) {
+    super(props);
+  }
+
+  componentDidUpdate(prevProps, prevState, snapshot) {
+    const { setColorStyle, colorStyle } = this.props;
+    if (prevProps.colorStyle !== colorStyle) {
+      setColorStyle(colorStyle);
+    }
+  }
+
   render() {
     const { availableRoles, userRoles, location, ...rest } = this.props;
     const userCanSeePage = isGrantedRoles(userRoles, availableRoles);
@@ -38,10 +51,13 @@ export default connect(state => {
     userRoles: globalUserRolesSelector(state),
     location: globalRouterLocationSelector(state),
   };
-}, {})(withAuthProtection(ProtectedRoute));
+}, {
+  setColorStyle,
+})(withAuthProtection(ProtectedRoute));
 
 ProtectedRoute.propTypes = {
   availableRoles: PropTypes.array,
   userRoles: PropTypes.array,
   location: PropTypes.object,
+  colorStyle: PropTypes.objectOf(ColorStyle) || ColorStyle.red,
 };
