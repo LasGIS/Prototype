@@ -11,6 +11,7 @@ import withAuthProtection from '../../hoc/withAuthProtection';
 import { globalRouterLocationSelector, globalUserRolesSelector } from '../../common/services/selectors';
 import { setColorStyle } from '../../pages/Global/services/action-creators';
 import { ColorStyle } from '../../pages/Global/global-redux-types';
+import { enumToMap } from './utils';
 
 class ProtectedRoute extends Component {
   constructor(props) {
@@ -59,5 +60,5 @@ ProtectedRoute.propTypes = {
   availableRoles: PropTypes.array,
   userRoles: PropTypes.array,
   location: PropTypes.object,
-  colorStyle: PropTypes.objectOf(ColorStyle) || ColorStyle.red,
+  colorStyle: PropTypes.oneOf(enumToMap(ColorStyle)) || ColorStyle.red,
 };
