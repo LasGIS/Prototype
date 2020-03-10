@@ -54,7 +54,7 @@ export class MainPage extends Component {
             component={Components}
             availableRoles={FEATURE_EDIT_ROLES.PERSON_MANAGEMENT}
           />
-          <Route
+          <Route  location={}
             path={`/${ROUTES.components}`}
             name="Components"
             component={Components}

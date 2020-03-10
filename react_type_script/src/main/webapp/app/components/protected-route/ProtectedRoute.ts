@@ -2,22 +2,31 @@
  * Copyright (c) 2020. Prototype
  */
 
-import React, { Component } from 'react';
+import { Component } from 'react';
 import { connect } from 'react-redux';
 import { Redirect, Route } from 'react-router-dom';
-import PropTypes from 'prop-types';
 import { isGrantedRoles } from '../../constants/users-roles';
 import withAuthProtection from '../../hoc/withAuthProtection';
 import { globalRouterLocationSelector, globalUserRolesSelector } from '../../common/services/selectors';
 import { setColorStyle } from '../../pages/Global/services/action-creators';
 import { ColorStyle } from '../../pages/Global/global-redux-types';
+import { UserRoleEnum } from '../../common/types/server-api-dtos';
+import { RouteProps } from 'react-router';
 
-class ProtectedRoute extends Component {
-  constructor(props) {
+type Props = {
+  availableRoles: UserRoleEnum[];
+  userRoles: UserRoleEnum[];
+//  location: Location;
+  setColorStyle: (colorStyle: ColorStyle) => void;
+  colorStyle: ColorStyle;
+} & RouteProps;
+
+class ProtectedRoute extends Component<Props> {
+  constructor(props: Props) {
     super(props);
   }
 
-  componentDidUpdate(prevProps, prevState, snapshot) {
+  componentDidUpdate(prevProps: Readonly<Props>, prevState: Readonly<any>) {
     const { setColorStyle, colorStyle } = this.props;
     if (prevProps.colorStyle !== colorStyle) {
       setColorStyle(colorStyle);
@@ -30,19 +39,27 @@ class ProtectedRoute extends Component {
     const error = `Недостаточно прав для посещения страницы - ${location.pathname}`;
 
     return userCanSeePage ? (
+      // @ts-ignore
       <Route {...rest} />
     ) : (
-      <Redirect
-        to={{
-          pathname: '/login',
-          state: {
-            roleNoAccessRedirect: true,
-            forbiddenPath: location.pathname,
-            error,
-          },
-        }}
-      />
-    );
+      <Redirect to = {
+    {
+      pathname: '/login',
+        state;
+    :
+      {
+        roleNoAccessRedirect: true,
+          forbiddenPath;
+      :
+        location.pathname,
+          error,
+      }
+    ,
+    }
+  }
+    />;
+  )
+    ;
   }
 }
 
@@ -55,9 +72,11 @@ export default connect(state => {
   setColorStyle,
 })(withAuthProtection(ProtectedRoute));
 
+/*
 ProtectedRoute.propTypes = {
   availableRoles: PropTypes.array,
   userRoles: PropTypes.array,
   location: PropTypes.object,
   colorStyle: PropTypes.objectOf(ColorStyle) || ColorStyle.red,
 };
+*/

@@ -11,7 +11,7 @@ export type ResponseJSON = {
   responseJSON: ErrorDto;
 };
 
-enum UserRoleEnum {
+export enum UserRoleEnum {
   ADMIN = 'ADMIN',
   CHIEF = 'CHIEF',
   OPERATOR = 'OPERATOR',
