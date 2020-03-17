@@ -12,12 +12,10 @@ import { setColorStyle } from '../../pages/Global/services/action-creators';
 import { ColorStyle } from '../../pages/Global/global-redux-types';
 import { UserRoleEnum } from '../../common/types/server-api-dtos';
 import { RouteProps } from 'react-router';
-import { enumToMap } from './utils';
 
 type Props = {
   availableRoles: UserRoleEnum[];
   userRoles: UserRoleEnum[];
-//  location: Location;
   setColorStyle: (colorStyle: ColorStyle) => void;
   colorStyle: ColorStyle;
 } & RouteProps;
@@ -37,10 +35,9 @@ class ProtectedRoute extends Component<Props> {
   render() {
     const { availableRoles, userRoles, location, ...rest } = this.props;
     const userCanSeePage = isGrantedRoles(userRoles, availableRoles);
-    const error = `Недостаточно прав для посещения страницы - ${location.pathname}`;
+    const error = `Недостаточно прав для посещения страницы - ${location?.pathname}`;
 
     return userCanSeePage ? (
-      // @ts-ignore
       <Route {...rest} />
     ) : (
       <Redirect
@@ -48,7 +45,7 @@ class ProtectedRoute extends Component<Props> {
           pathname: '/login',
           state: {
             roleNoAccessRedirect: true,
-            forbiddenPath: location.pathname,
+            forbiddenPath: location?.pathname,
             error,
           },
         }}
