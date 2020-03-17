@@ -2,7 +2,7 @@
  * Copyright (c) 2020. Prototype
  */
 
-import { Component } from 'react';
+import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Redirect, Route } from 'react-router-dom';
 import { isGrantedRoles } from '../../constants/users-roles';
@@ -12,6 +12,7 @@ import { setColorStyle } from '../../pages/Global/services/action-creators';
 import { ColorStyle } from '../../pages/Global/global-redux-types';
 import { UserRoleEnum } from '../../common/types/server-api-dtos';
 import { RouteProps } from 'react-router';
+import { enumToMap } from './utils';
 
 type Props = {
   availableRoles: UserRoleEnum[];
@@ -42,24 +43,17 @@ class ProtectedRoute extends Component<Props> {
       // @ts-ignore
       <Route {...rest} />
     ) : (
-      <Redirect to = {
-    {
-      pathname: '/login',
-        state;
-    :
-      {
-        roleNoAccessRedirect: true,
-          forbiddenPath;
-      :
-        location.pathname,
-          error,
-      }
-    ,
-    }
-  }
-    />;
-  )
-    ;
+      <Redirect
+        to={{
+          pathname: '/login',
+          state: {
+            roleNoAccessRedirect: true,
+            forbiddenPath: location.pathname,
+            error,
+          },
+        }}
+      />
+    );
   }
 }
 
@@ -77,6 +71,6 @@ ProtectedRoute.propTypes = {
   availableRoles: PropTypes.array,
   userRoles: PropTypes.array,
   location: PropTypes.object,
-  colorStyle: PropTypes.objectOf(ColorStyle) || ColorStyle.red,
+  colorStyle: PropTypes.oneOf(enumToMap(ColorStyle)) || ColorStyle.red,
 };
 */

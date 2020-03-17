@@ -16,6 +16,7 @@ import { ROUTES } from '../MainMenu/constants';
 import MainMenuHeader from '../MainMenu/MainMenuHeader';
 import withRedirectProp from '../../hoc/withRedirectProp';
 import { ColorStyle } from '../Global/global-redux-types';
+import { RechartsDiagram } from '../Diagram/RechartsDiagram';
 
 export class MainPage extends Component {
 
@@ -54,7 +55,12 @@ export class MainPage extends Component {
             component={Components}
             availableRoles={FEATURE_EDIT_ROLES.PERSON_MANAGEMENT}
           />
-          <Route  location={}
+          <Route
+            path={`/${ROUTES.recharts}`}
+            name="RechartsDiagram"
+            component={RechartsDiagram}
+          />
+          <Route
             path={`/${ROUTES.components}`}
             name="Components"
             component={Components}

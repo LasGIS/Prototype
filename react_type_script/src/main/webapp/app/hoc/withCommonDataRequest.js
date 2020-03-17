@@ -14,7 +14,6 @@ export const withCommonDataRequest = OriginalComponent => {
       const { getAppSettings } = this.props;
       const frontAuthUser = localStorage.getItem(FRONT_AUTH_USER);
       if (frontAuthUser) {
-        console.log(FRONT_AUTH_USER, ' :=', JSON.parse(frontAuthUser));
         getAppSettings();
       }
     }

@@ -65,6 +65,11 @@ export class MainMenu extends Component {
           )}
           <Menu
             id="routesComponents"
+            name="ReCharts диаграмма"
+            onClick={() => redirect(`/${ROUTES.recharts}`)}
+          />
+          <Menu
+            id="routesComponents"
             name="ROUTES.components"
             onClick={() => redirect(`/${ROUTES.components}`)}
           />
