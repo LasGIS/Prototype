@@ -5,14 +5,20 @@
 import React from 'react';
 import Button from '../../components/button/Button';
 
-const MainMenuModal = props => {
+type Props = {
+  id: string;
+  closeModal: () => void;
+  text?: string;
+};
+
+const MainMenuModal = (props: Props) => {
   return (
     <div className={'auth-error-modal'}>
       <div className={'auth-error-modal__content'}>
         <div className={'auth-error-modal__header'}>Ошибка авторизации</div>
         <div className={'auth-error-modal__body'}>{props.text}</div>
         <div className={'auth-error-modal__footer'}>
-          <Button primaryFilled onClick={props.closeModal}>
+          <Button id={props.id} primaryFilled onClick={props.closeModal}>
             Закрыть
           </Button>
         </div>

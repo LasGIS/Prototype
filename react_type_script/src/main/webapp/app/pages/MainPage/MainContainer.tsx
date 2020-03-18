@@ -5,9 +5,12 @@
 import './style.scss';
 import React, { Component } from 'react';
 import cn from 'classnames';
-import PropTypes from 'prop-types';
 
-export default class MainContainer extends Component {
+type Props = {
+  className?: string;
+}
+
+export default class MainContainer extends Component<Props> {
   render() {
     const { className, children } = this.props;
     return (
@@ -17,7 +20,3 @@ export default class MainContainer extends Component {
     );
   }
 }
-
-MainContainer.propTypes = {
-  className: PropTypes.string,
-};

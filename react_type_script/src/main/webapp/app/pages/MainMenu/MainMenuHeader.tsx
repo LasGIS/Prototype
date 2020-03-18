@@ -10,9 +10,15 @@ import Header from '../Header/Header';
 import { connect } from 'react-redux';
 import withRedirectProp from '../../hoc/withRedirectProp';
 import { FRONT_AUTH_USER } from '../../constants/constants';
+import { WithRedirectHocProps } from '../../common/types/hocs-injected-prop-types';
 
-export class MainMenuHeader extends Component {
-  constructor(props) {
+type Props = {
+  isMain: boolean;
+  className?: string;
+} & WithRedirectHocProps;
+
+export class MainMenuHeader extends Component<Props> {
+  constructor(props: Props) {
     super(props);
     this.logout = this.logout.bind(this);
   }
