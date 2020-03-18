@@ -62,12 +62,3 @@ export default connect(state => {
 }, {
   setColorStyle,
 })(withAuthProtection(ProtectedRoute));
-
-/*
-ProtectedRoute.propTypes = {
-  availableRoles: PropTypes.array,
-  userRoles: PropTypes.array,
-  location: PropTypes.object,
-  colorStyle: PropTypes.oneOf(enumToMap(ColorStyle)) || ColorStyle.red,
-};
-*/

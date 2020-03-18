@@ -16,9 +16,26 @@ import { ROUTES } from './constants';
 import { FEATURE_EDIT_ROLES, isGrantedRoles } from '../../constants/users-roles';
 import { APP_ROOT_SELECTOR } from '../../constants/constants';
 import { clearAllStates } from '../Global/services/action-creators';
+import { WithRedirectHocProps } from '../../common/types/hocs-injected-prop-types';
+import { UserRoleEnum } from '../../common/types/server-api-dtos';
+import { LocationDescriptorObject } from 'history';
 
-export class MainMenu extends Component {
-  constructor(props) {
+type Props = {
+  location: LocationDescriptorObject<{
+    roleNoAccessRedirect: boolean;
+    error?: string
+  }>;
+  clearAllStates: () => void;
+  className?: string;
+  userRoles: UserRoleEnum[];
+} & WithRedirectHocProps;
+
+type State = {
+  modalIsOpen: boolean;
+};
+
+export class MainMenu extends Component<Props, State> {
+  constructor(props: Props) {
     super(props);
     this.state = { modalIsOpen: false };
     this.closeModal = this.closeModal.bind(this);
@@ -78,14 +95,14 @@ export class MainMenu extends Component {
           )}
         </MainContainer>
         <ReactModal
-          id={'auth-error-message'}
+          id='auth-error-message'
           className="modal-form modal-form_auth-error-modal"
           isOpen={modalIsOpen}
           overlayClassName="modal-form__overlay"
           ariaHideApp={false}
           onRequestClose={this.closeModal}
         >
-          <MainMenuModal text={authErrorMsg} closeModal={this.closeModal}/>
+          <MainMenuModal id='auth-error-message-main-menu' text={authErrorMsg} closeModal={this.closeModal}/>
         </ReactModal>
       </div>
     );
