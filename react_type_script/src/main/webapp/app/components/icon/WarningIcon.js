@@ -9,7 +9,7 @@ import PropTypes from 'prop-types';
 
 const WarningIcon = ({ className, white, tooltip }) => (
   <div
-    data-tip={tooltip}
+    title={tooltip}
     className={cn('icon', { 'icon__warning--white': white, 'icon__warning--red': !white }, className)}
   />
 );

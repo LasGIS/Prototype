@@ -28,10 +28,20 @@ type Props = {
 
 export default class Button extends Component<Props> {
   static propTypes: {};
-  static defaultProps: {};
+  static defaultProps: {
+    id: '',
+    onClick: () => any,
+    disabled: false,
+    primary: false,
+    primaryFilled: false,
+    cancel: false,
+    cancelFilled: false,
+    tabIndex: 0,
+  };
 
   handleButtonClick() {
-    this.props.onClick && !this.props.disabled && this.props.onClick();
+    const {onClick, disabled} = this.props;
+    onClick && !disabled && onClick();
   }
 
   onKeyPress(event: KeyboardEvent<HTMLDivElement>) {
@@ -74,7 +84,7 @@ export default class Button extends Component<Props> {
         tabIndex={tabIndex}
         onClick={this.handleButtonClick.bind(this)}
         onKeyPress={this.onKeyPress.bind(this)}
-        data-tip={tooltip}
+        title={tooltip}
       >
         {this.props.children}
         {tooltip && <ReactTooltip type="light" border={true} effect="solid"/>}
@@ -82,14 +92,3 @@ export default class Button extends Component<Props> {
     );
   }
 }
-
-Button.defaultProps = {
-  id: '',
-  onClick: () => undefined,
-  disabled: false,
-  primary: false,
-  primaryFilled: false,
-  cancel: false,
-  cancelFilled: false,
-  tabIndex: 0,
-};

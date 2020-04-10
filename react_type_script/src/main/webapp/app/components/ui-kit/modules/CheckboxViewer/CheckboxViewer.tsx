@@ -2,12 +2,19 @@
  * Copyright (c) 2020. Prototype
  */
 
-import React from 'react';
+import React, { ChangeEvent } from 'react';
 import Checkbox from '../../../checkbox/Checkbox';
 import cn from 'classnames';
 
-class CheckboxViewer extends React.Component {
-  constructor(props) {
+type Props = {};
+
+type State = {
+  value: boolean,
+  isInputDisabled: boolean,
+};
+
+class CheckboxViewer extends React.Component<Props, State> {
+  constructor(props: Props) {
     super(props);
 
     this.state = {
@@ -23,13 +30,12 @@ class CheckboxViewer extends React.Component {
     this.setState({ value: !this.state.value });
   }
 
-  handleSettingChange(event) {
+  handleSettingChange(event: ChangeEvent<HTMLInputElement>) {
     const target = event.target;
-    const value = target.type === 'checkbox' ? target.checked : target.value;
     const name = target.name;
-    const newState = { [name]: value };
-
-    this.setState(newState);
+    if (name === 'isInputDisabled') {
+      this.setState({ isInputDisabled: target.checked });
+    }
   }
 
   render() {
@@ -59,7 +65,8 @@ class CheckboxViewer extends React.Component {
             }}
           >
             <div className={'userManagementForm__fieldInputWrap'}>
-              <Checkbox readOnly={isInputDisabled} checked={value} onChange={this.handleChangeInputValue} label={'текст для пояснения'}/>
+              <Checkbox readOnly={isInputDisabled} checked={value} onChange={this.handleChangeInputValue}
+                        label={'текст для пояснения'}/>
             </div>
           </div>
         </div>

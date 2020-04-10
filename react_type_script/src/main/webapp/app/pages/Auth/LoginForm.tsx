@@ -85,6 +85,7 @@ export class LoginForm extends Component<Props, State> {
               value={this.state.login}
               onChange={this.onChangeLogin}
               placeholder={'Логин'}
+              tooltip='tooltip'
               autoComplete='j_username'
             />
           </div>

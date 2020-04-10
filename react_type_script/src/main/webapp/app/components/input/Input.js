@@ -79,7 +79,7 @@ export default class Input extends Component {
       <input
         id={id}
         name={name}
-        data-tip={tooltip}
+        title={tooltip}
         className={classNames}
         readOnly={readOnly}
         onChange={this.onChange.bind(this)}

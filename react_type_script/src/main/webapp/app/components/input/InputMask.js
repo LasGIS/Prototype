@@ -197,7 +197,7 @@ export default class InputMask extends Component {
           id={id}
           type={type}
           className={classNames}
-          data-tip={tooltip}
+          title={tooltip}
           style={style}
           value={value}
           showMask={showMask}
