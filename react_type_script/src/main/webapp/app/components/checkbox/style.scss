@@ -26,7 +26,7 @@ $international: $root + '_international';
     margin-bottom: 1px;
 
     &_checked {
-      background: #0055A6 url("checkbox-icon.svg") no-repeat center;
+      background: #0055A6 url("./checkbox-icon.svg") no-repeat center;
     }
 
     &_read-only {
@@ -74,7 +74,7 @@ $international: $root + '_international';
 
     &_checked {
       background-size: 12.66px 15px;
-      background: white url("black-cross-icon.svg") no-repeat center;
+      background: white url("./black-cross-icon.svg") no-repeat center;
       border-radius: 1px;
     }
 

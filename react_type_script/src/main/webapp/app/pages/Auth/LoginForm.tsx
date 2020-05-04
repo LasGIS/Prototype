@@ -2,8 +2,8 @@
  * Copyright (c) 2020. Prototype
  */
 
+import styles from './login.scss';
 import { login } from '../../common/auth/actions';
-import './login.css';
 import React, { Component } from 'react';
 import Button from '../../components/button/Button';
 import { connect } from 'react-redux';
@@ -25,13 +25,14 @@ type State = {
   login: string;
   password: string;
   wrongPassword: boolean;
-  errors: {[key: string]: string};
+  errors: { [key: string]: string };
   isLoading: boolean;
 };
 
 export class LoginForm extends Component<Props, State> {
 
   constructor(props: Props) {
+    console.log('styles = ', styles);
     super(props);
     this.state = {
       login: '',

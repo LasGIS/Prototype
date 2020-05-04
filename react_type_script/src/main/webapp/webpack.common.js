@@ -73,11 +73,19 @@ module.exports = {
           'css-hot-loader',
           {
             loader: 'css-loader',
-            options: { alias: { '../img': '../public/img' } },
+            options: {
+              // module: true,
+              // localIdentName: "[name]__[local]___[hash:base64:5]",
+              alias: { '../img': '../public/img' },
+            },
           },
           {
             loader: 'postcss-loader',
-            options: { plugins: [autoprefixer({ browsers: ['ie >= 10', 'last 4 version'] })] },
+            options: {
+              plugins: [
+                autoprefixer({ browsers: ['ie >= 10', 'last 4 version'] }),
+              ],
+            },
           },
           {
             loader: 'sass-loader',
