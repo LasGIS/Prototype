@@ -18,8 +18,6 @@ import { ColorStyle } from '../Global/global-redux-types';
 import { RechartsDiagram } from '../Diagram/RechartsDiagram';
 import { WithRedirectHocProps } from '../../common/types/hocs-injected-prop-types';
 
-console.log('MainPage styles', styles);
-
 type Props = {
   location: Location;
   className?: string;

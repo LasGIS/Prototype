@@ -3,9 +3,6 @@
  */
 
 import styles from './style.scss';
-import modalStyles from '../modal/style.scss';
-import errorModalStyles from '../MainMenuModal/style.scss';
-
 import React, { Component } from 'react';
 import Menu from './Menu';
 import { connect } from 'react-redux';
@@ -22,6 +19,8 @@ import { WithRedirectHocProps } from '../../common/types/hocs-injected-prop-type
 import { UserRoleEnum } from '../../common/types/server-api-dtos';
 import { LocationDescriptorObject } from 'history';
 import cn from 'classnames';
+//import modalStyles from '../modal/style.scss';
+//import errorModalStyles from '../MainMenuModal/style.scss';
 
 type Props = {
   location: LocationDescriptorObject<{
@@ -65,7 +64,7 @@ export class MainMenu extends Component<Props, State> {
     const { modalIsOpen } = this.state;
     const canSeeUserManagement = isGrantedRoles(userRoles, FEATURE_EDIT_ROLES.USER_MANAGEMENT);
     const canSeePersonManagement = isGrantedRoles(userRoles, FEATURE_EDIT_ROLES.PERSON_MANAGEMENT);
-    const noOneMenu = true; //!canSeeUserManagement && !canSeePersonManagement;
+    const noOneMenu = !canSeeUserManagement && !canSeePersonManagement;
     return (
       <div className={styles.mainMenuContainer}>
         <MainContainer className={styles.mainMenu}>
@@ -99,9 +98,9 @@ export class MainMenu extends Component<Props, State> {
         </MainContainer>
         <ReactModal
           id='auth-error-message'
-          className={cn(modalStyles.modalForm, errorModalStyles.authErrorModal)}
+          className={cn(styles.modalForm, styles.authErrorModal)}
           isOpen={modalIsOpen}
-          overlayClassName={modalStyles.overlay}
+          overlayClassName={styles.overlay}
           ariaHideApp={false}
           onRequestClose={this.closeModal}
         >

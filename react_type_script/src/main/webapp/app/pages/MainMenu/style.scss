@@ -3,6 +3,8 @@
  */
 
 @import "../../constants/constants";
+@import "../modal/style.scss";
+@import "../MainMenuModal/style.scss";
 
 .mainMenu {
   background-color: $blue_bg_color;
@@ -41,12 +43,3 @@
   flex-grow: 1;
   justify-content: space-around;
 }
-
-.authErrorModal {
-  composes: authErrorModal from "../MainMenuModal/style.scss"
-}
-
-.overlay {
-  composes: overlay from "../MainMenuModal/style.scss"
-}
-

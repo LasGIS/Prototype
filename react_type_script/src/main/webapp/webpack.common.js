@@ -74,6 +74,7 @@ module.exports = {
           {
             loader: 'css-loader',
             options: {
+              sourceMap: true,
               module: true,
               localIdentName: "[name]__[local]___[hash:base64:5]",
               alias: { '../img': '../public/img' },

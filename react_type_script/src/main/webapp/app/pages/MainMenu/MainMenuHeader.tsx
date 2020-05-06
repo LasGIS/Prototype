@@ -12,8 +12,6 @@ import withRedirectProp from '../../hoc/withRedirectProp';
 import { FRONT_AUTH_USER } from '../../constants/constants';
 import { WithRedirectHocProps } from '../../common/types/hocs-injected-prop-types';
 
-console.log('MainMenuHeader styles', styles);
-
 type Props = {
   isMain: boolean;
   className?: string;
