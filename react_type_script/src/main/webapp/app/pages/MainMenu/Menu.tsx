@@ -2,8 +2,7 @@
  * Copyright (c) 2020. Prototype
  */
 
-import './style.scss';
-
+import styles from './style.scss';
 import React, { Component } from 'react';
 
 type Props = {
@@ -17,7 +16,7 @@ export default class Menu extends Component<Props> {
   render() {
     const { id, onClick, name } = this.props;
     return (
-      <div id={id} className="menu-button" onClick={onClick}>
+      <div id={id} className={styles.menuButton} onClick={onClick}>
         {name}
       </div>
     );

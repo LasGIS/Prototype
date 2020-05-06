@@ -4,7 +4,7 @@
 
 import React, { ChangeEvent, Component } from 'react';
 import Button from '../button/Button';
-import Input from '../input/Input';
+import Input from '../input2/Input';
 import AcceptIcon from '../icon/AcceptIcon';
 import PrinterIcon from '../icon/PrinterIcon';
 import QuestionIcon from '../icon/QuestionIcon';

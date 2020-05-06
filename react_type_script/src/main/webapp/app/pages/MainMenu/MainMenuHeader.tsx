@@ -2,15 +2,17 @@
  * Copyright (c) 2020. Prototype
  */
 
-import './style.scss';
-
+import styles from '../Header/style.scss';
 import React, { Component } from 'react';
 import Button from '../../components/button/Button';
 import Header from '../Header/Header';
+import cn from 'classnames';
 import { connect } from 'react-redux';
 import withRedirectProp from '../../hoc/withRedirectProp';
 import { FRONT_AUTH_USER } from '../../constants/constants';
 import { WithRedirectHocProps } from '../../common/types/hocs-injected-prop-types';
+
+console.log('MainMenuHeader styles', styles);
 
 type Props = {
   isMain: boolean;
@@ -34,13 +36,15 @@ export class MainMenuHeader extends Component<Props> {
     return (
       <Header hasAccount>
         {!isMain &&
-        <Button id="backButton" className="button-header left"
+        <Button id="backButton" className={cn(styles.buttonHeader, styles.left)}
                 onClick={() => redirect && redirect('/main-menu')}
                 primary>
           Выход в меню
         </Button>
         }
-        <Button id="logoutButton" className="button-header right" onClick={this.logout} primaryFilled>
+        <Button id="logoutButton" className={cn(styles.buttonHeader, styles.right)}
+                onClick={this.logout}
+                primaryFilled>
           Выйти
         </Button>
       </Header>

@@ -2,12 +2,14 @@
  * Copyright (c) 2020. Prototype
  */
 
-import './style.scss';
+import styles from './style.scss';
 import { connect } from 'react-redux';
 import React, { Component } from 'react';
 import cn from 'classnames';
 import { RootStoreData } from '../../common/types/redux-types';
 import { ColorStyle } from '../Global/global-redux-types';
+
+console.log('Footer', styles);
 
 type Props = {
   colorStyle: ColorStyle;
@@ -19,16 +21,16 @@ class Footer extends Component<Props> {
   render() {
     const { colorStyle, name, version } = this.props;
     const typeClass = {
-      'blue-footer': colorStyle === ColorStyle.blue ,
-      'white-footer': colorStyle === ColorStyle.white,
-      'red-footer': colorStyle === ColorStyle.red
+      [styles.blueFooter]: colorStyle === ColorStyle.blue ,
+      [styles.whiteFooter]: colorStyle === ColorStyle.white,
+      [styles.redFooter]: colorStyle === ColorStyle.red
     };
     return (
       <div
-        className={cn('footer', typeClass)}>
-        <div className="footer-container ">
-          <div className="label">{name}</div>
-          <div className="label right">{version}</div>
+        className={cn(styles.footer, typeClass)}>
+        <div className={styles.footerContainer}>
+          <div className={cn(styles.label)}>{name}</div>
+          <div className={cn(styles.label, styles.right)}>{version}</div>
         </div>
       </div>
     );

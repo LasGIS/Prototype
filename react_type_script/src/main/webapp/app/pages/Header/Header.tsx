@@ -2,7 +2,7 @@
  * Copyright (c) 2020. Prototype
  */
 
-import './style.scss';
+import styles from './style.scss';
 import React, { Component, ReactNode } from 'react';
 import { connect, ConnectedProps } from 'react-redux';
 import cn from 'classnames';
@@ -60,23 +60,23 @@ class Header extends Component<Props, State> {
 
     const calcFontFioSize = !fontFioSize ? 18 : fontFioSize;
     const typeClass = {
-      'blue-header': blueStyle,
-      'white-header': whiteStyle,
-      'red-header': redStyle,
+      [styles.blueHeader]: blueStyle,
+      [styles.whiteHeader]: whiteStyle,
+      [styles.redHeader]: redStyle,
     };
     return (
-      <div className={'pageHeaderWrapper'}>
-        <div className={cn('header', className, typeClass)}>
-          <div className="spinner right">
+      <div className={styles.pageHeaderWrapper}>
+        <div className={cn(styles.header, className, typeClass)}>
+          <div className={cn(styles.spinner, styles.right)}>
             <Spinner white={!whiteStyle}/>
           </div>
-          <div className="header__container">
+          <div className={styles.container}>
             {children}
             {hasAccount && (
-              <div className="right">
+              <div className={styles.right}>
                 <div
                   id="userName"
-                  className="label"
+                  className={styles.label}
                   ref={this.userNameRef}
                   style={{ fontSize: calcFontFioSize + 'px' }}
                 >
@@ -87,15 +87,15 @@ class Header extends Component<Props, State> {
           </div>
         </div>
         {bottomContent && (
-          <div className="header__bottomContentWrapper">
-            <div className="header__bottomContent">{bottomContent}</div>
+          <div className={styles.bottomContentWrapper}>
+            <div className={styles.bottomContent}>{bottomContent}</div>
           </div>
         )}
         {error && (
-          <div className="header__error">
-            <div className="header__error-text">
+          <div className={styles.error}>
+            <div className={styles.errorText}>
               <span>{error.text}</span>
-              <div className="header__error-clear" onClick={clearErrors}/>
+              <div className={styles.errorClear} onClick={clearErrors}/>
             </div>
           </div>
         )}

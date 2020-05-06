@@ -4,7 +4,7 @@
 
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
-import InputMask from './InputMask';
+import InputMask from '../input2/InputMask';
 import './style.scss';
 
 export default class WeightInput extends Component {

@@ -2,8 +2,7 @@
  * Copyright (c) 2020. Prototype
  */
 
-export const APP_ROOT_ID: string = 'app';
-export const APP_ROOT_SELECTOR: string = `#${APP_ROOT_ID}`;
+export const APP_ROOT_SELECTOR: string = 'app';
 
 export const FRONT_AUTH_USER: string = 'FRONT_AUTH_USER';
 

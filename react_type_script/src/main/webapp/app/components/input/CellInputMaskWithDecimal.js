@@ -7,7 +7,7 @@ import React, { Component } from 'react';
 import { decimalPart } from '../../common/utils/NumberUtil';
 import CellInputMask from './CellInputMask';
 import Inline from './Inline';
-import InputMask from './InputMask';
+import InputMask from '../input2/InputMask';
 
 export default class CellInputMaskWithDecimal extends Component {
   constructor(props) {

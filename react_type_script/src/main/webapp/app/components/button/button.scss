@@ -1,0 +1,76 @@
+/*!
+ * Copyright (c) 2020. Prototype
+ */
+
+@import "../../constants/constants";
+
+.button {
+  border: 1px solid #FFFFFF;
+  border-radius: 5px;
+  color: $white;
+  font-size: 16px;
+  font-weight: 400;
+  letter-spacing: 0.2px;
+  line-height: 17px;
+  padding: 10px;
+  margin: 0 6px;
+  text-align: center;
+
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.primaryFilled {
+  border: 0.96px solid $blue;
+  background-color: $blue;
+}
+
+.primaryWhite {
+  background-color: $blue;
+  border: 0.96px solid $white;
+}
+
+.primary {
+  color: $blue;
+  border: 0.96px solid $blue;
+  background-color: $white;
+}
+
+.cancel {
+  background-color: $white;
+  border: 0.96px solid $red;
+  color: $red;
+}
+
+.cancelFilled {
+  background-color: $red;
+  color: $white;
+}
+
+.white {
+  background-color: transparent;
+  color: $white;
+  border: 0.96px solid $white;
+}
+
+.whiteGreyBorder {
+  background-color: #FFFFFF;
+  color: #0055A6;
+  border: 1px solid #EAEAEA;
+  box-shadow: inset -1px 1px 0 0 rgba(255, 255, 255, 0);
+}
+
+.whiteBorder {
+  border: 1.5px solid #FFFFFF;
+  border-radius: 4px;
+  width: 105px;
+  height: 42px;
+  background-color: transparent;
+}
+
+.disabled {
+  opacity: 0.5;
+  cursor: cell;
+}
+

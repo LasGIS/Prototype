@@ -1,7 +1,7 @@
 /*
  * Copyright (c) 2020. Prototype
  */
-
+import styles from './input2.scss';
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
@@ -66,14 +66,14 @@ export default class Input extends Component {
       autoComplete,
     } = this.props;
     const classes = {
-      'input2--blue': blue,
-      'input2--bottom-border': bottomBorder,
-      'input2--no-border': noBorder,
-      'input2--empty': !readOnly && this.isEmpty(value) && !required,
-      'input2--valid': (validation && isValid) || (!validation && !readOnly && !this.isEmpty(value)),
-      'input2--invalid': validation && !isValid,
+      [styles.blue]: blue,
+      [styles.bottomBorder]: bottomBorder,
+      [styles.noBorder]: noBorder,
+      [styles.empty]: !readOnly && this.isEmpty(value) && !required,
+      [styles.valid]: (validation && isValid) || (!validation && !readOnly && !this.isEmpty(value)),
+      [styles.invalid]: validation && !isValid,
     };
-    const classNames = cn('input2', classes, className);
+    const classNames = cn(styles.input, classes, className);
     return (
       <input
         id={id}

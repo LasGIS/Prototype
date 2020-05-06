@@ -7,7 +7,7 @@ import { login } from '../../common/auth/actions';
 import React, { Component } from 'react';
 import Button from '../../components/button/Button';
 import { connect } from 'react-redux';
-import Input from '../../components/input/Input';
+import Input from '../../components/input2/Input';
 import withRedirectProp from '../../hoc/withRedirectProp';
 import { RootStoreData } from '../../common/types/redux-types';
 import { globalRouterLocationSelector } from '../../common/services/selectors';
@@ -32,7 +32,6 @@ type State = {
 export class LoginForm extends Component<Props, State> {
 
   constructor(props: Props) {
-    console.log('styles = ', styles);
     super(props);
     this.state = {
       login: '',
@@ -64,22 +63,22 @@ export class LoginForm extends Component<Props, State> {
   }
 
   componentWillUnmount() {
-    document.body.classList.remove('error');
-    document.body.classList.remove('login');
+    document.body.classList.remove(styles.error);
+    document.body.classList.remove(styles.login);
   }
 
   render() {
     if (this.state.wrongPassword) {
-      document.body.classList.add('error');
+      document.body.classList.add(styles.error);
     } else {
-      document.body.classList.add('login');
+      document.body.classList.add(styles.login);
     }
     return (
       <div>
-        <h1 className="title">Вход по логину</h1>
-        <div className="form-box">
-          <h2 className="title">Войдите используя логин и пароль</h2>
-          <div className="form-field">
+        <h1 className={styles.titleH1}>Вход по логину</h1>
+        <div className={styles.formBox}>
+          <h2 className={styles.titleH2}>Войдите используя логин и пароль</h2>
+          <div className={styles.formField}>
             <Input
               id='usernameInput'
               name='j_username'
@@ -90,7 +89,7 @@ export class LoginForm extends Component<Props, State> {
               autoComplete='j_username'
             />
           </div>
-          <div className="form-field">
+          <div className={styles.formField}>
             <Input
               id='passwordInput'
               name='j_password'
@@ -102,16 +101,16 @@ export class LoginForm extends Component<Props, State> {
             />
           </div>
           {this.state.wrongPassword && (
-            <div className="error-container">
-              <div className="wrong-password-icon"/>
-              <span className="wrong-password">Неверный логин / пароль</span>
+            <div className={styles.errorContainer}>
+              <div className={styles.wrongPasswordIcon}/>
+              <span className={styles.wrongPassword}>Неверный логин / пароль</span>
             </div>
           )}
-          <div className="button-field">
+          <div className={styles.buttonField}>
             <Button id="loginButton" name={'check-password'} key="loginButton" onClick={this.onSubmit}>
               Вход
             </Button>
-            <a id="forgetPassword" className="reset_filter" href="#">
+            <a id="forgetPassword" className={styles.resetFilter} href="#">
               Забыли пароль?
             </a>
           </div>

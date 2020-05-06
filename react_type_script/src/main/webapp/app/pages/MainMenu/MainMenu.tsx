@@ -2,14 +2,16 @@
  * Copyright (c) 2020. Prototype
  */
 
-import './style.scss';
+import styles from './style.scss';
+import modalStyles from '../modal/style.scss';
+import errorModalStyles from '../MainMenuModal/style.scss';
 
 import React, { Component } from 'react';
 import Menu from './Menu';
 import { connect } from 'react-redux';
 import MainContainer from '../MainPage/MainContainer';
 import ReactModal from 'react-modal';
-import MainMenuModal from './MainMenuModal';
+import MainMenuModal from '../MainMenuModal/MainMenuModal';
 import { globalRouterLocationSelector, globalUserRolesSelector } from '../../common/services/selectors';
 import withRedirectProp from '../../hoc/withRedirectProp';
 import { ROUTES } from './constants';
@@ -19,6 +21,7 @@ import { clearAllStates } from '../Global/services/action-creators';
 import { WithRedirectHocProps } from '../../common/types/hocs-injected-prop-types';
 import { UserRoleEnum } from '../../common/types/server-api-dtos';
 import { LocationDescriptorObject } from 'history';
+import cn from 'classnames';
 
 type Props = {
   location: LocationDescriptorObject<{
@@ -37,7 +40,7 @@ type State = {
 export class MainMenu extends Component<Props, State> {
   constructor(props: Props) {
     super(props);
-    this.state = { modalIsOpen: false };
+    this.state = { modalIsOpen: true };
     this.closeModal = this.closeModal.bind(this);
   }
 
@@ -62,10 +65,10 @@ export class MainMenu extends Component<Props, State> {
     const { modalIsOpen } = this.state;
     const canSeeUserManagement = isGrantedRoles(userRoles, FEATURE_EDIT_ROLES.USER_MANAGEMENT);
     const canSeePersonManagement = isGrantedRoles(userRoles, FEATURE_EDIT_ROLES.PERSON_MANAGEMENT);
-    const noOneMenu = !canSeeUserManagement && !canSeePersonManagement;
+    const noOneMenu = true; //!canSeeUserManagement && !canSeePersonManagement;
     return (
-      <div className="main-menu-container">
-        <MainContainer className="main-menu">
+      <div className={styles.mainMenuContainer}>
+        <MainContainer className={styles.mainMenu}>
           {canSeeUserManagement && (
             <Menu
               id="canSeeUserManagementList"
@@ -91,14 +94,14 @@ export class MainMenu extends Component<Props, State> {
             onClick={() => redirect(`/${ROUTES.components}`)}
           />
           {noOneMenu && (
-            <div className="main-menu__no-one-menu-label">У вас нет прав на выполнение каких-либо действий</div>
+            <div className={styles.noOneMenuLabel}>У вас нет прав на выполнение каких-либо действий</div>
           )}
         </MainContainer>
         <ReactModal
           id='auth-error-message'
-          className="modal-form modal-form_auth-error-modal"
+          className={cn(modalStyles.modalForm, errorModalStyles.authErrorModal)}
           isOpen={modalIsOpen}
-          overlayClassName="modal-form__overlay"
+          overlayClassName={modalStyles.overlay}
           ariaHideApp={false}
           onRequestClose={this.closeModal}
         >

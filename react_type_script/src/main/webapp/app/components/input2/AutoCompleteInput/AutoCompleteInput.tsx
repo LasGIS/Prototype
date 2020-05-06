@@ -3,7 +3,6 @@
  */
 
 import React, { ChangeEvent, ReactNode } from 'react';
-import PropTypes from 'prop-types';
 import ReactAutocomplete from 'react-autocomplete';
 import styles from './style.scss';
 import cn from 'classnames';
@@ -29,7 +28,15 @@ type AutoCompleteItem = {
 
 class AutoCompleteInput extends React.Component<AutoCompleteInputProps, State> {
   static propTypes: {};
-  static defaultProps: {};
+  static defaultProps: {
+    id: 'autoCompleteInput',
+    placeholder: 'Введите текст',
+    showResetBtn: true,
+    autocompleteItems: [],
+    onAutocompleteSelect: () => ({}),
+    autoFocus: true,
+    disabled: false,
+  };
 
   constructor(props: AutoCompleteInputProps) {
     super(props);
@@ -141,22 +148,3 @@ class AutoCompleteInput extends React.Component<AutoCompleteInputProps, State> {
 
 export default AutoCompleteInput;
 
-AutoCompleteInput.propTypes = {
-  id: PropTypes.string,
-  placeholder: PropTypes.string,
-  showResetBtn: PropTypes.bool,
-  autocompleteItems: PropTypes.arrayOf(PropTypes.string),
-  onAutocompleteSelect: PropTypes.func,
-  autoFocus: PropTypes.bool,
-  disabled: PropTypes.bool,
-};
-
-AutoCompleteInput.defaultProps = {
-  id: 'autoCompleteInput',
-  placeholder: 'Введите текст',
-  showResetBtn: true,
-  autocompleteItems: [],
-  onAutocompleteSelect: () => ({}),
-  autoFocus: true,
-  disabled: false,
-};

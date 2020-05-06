@@ -1,14 +1,15 @@
 /*
  * Copyright (c) 2020. Prototype
  */
+
+import '../input/style.scss';
 import cn from 'classnames';
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import MaskedInput from 'react-text-mask';
 import { createNumberMask } from 'text-mask-addons';
 import _ from 'underscore';
-import { removeSpacesFromString } from '../../common/utils/StringUtil.js';
-import './style.scss';
+import { removeSpacesFromString } from '../../common/utils/StringUtil';
 import { foreignPhoneMaskFunction, internalPhoneMaskFunction } from './util';
 
 export default class InputMask extends Component {

@@ -6,7 +6,7 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import _ from 'underscore';
 import InputMask from './InputMask';
-import './style.scss';
+import '../input/style.scss';
 
 type Props = {
   className?: string;
@@ -38,7 +38,7 @@ const BarcodeInput = (props: Props) => {
         onChange={(val: string) => onChange && onChange(val.toUpperCase())}
         onEnter={(val: string) => onEnter && onEnter(val.toUpperCase())}
       />
-      <div className="input2__barcode_icon"/>
+      <div className="barcodeIcon"/>
     </div>
   );
 };

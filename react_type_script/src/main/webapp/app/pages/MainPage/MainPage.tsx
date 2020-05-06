@@ -2,8 +2,7 @@
  * Copyright (c) 2020. Prototype
  */
 
-import './style.scss';
-
+import styles from './style.scss';
 import React, { Component } from 'react';
 import { Redirect, Route, Switch } from 'react-router-dom';
 import MainMenu from '../MainMenu/MainMenu';
@@ -19,6 +18,8 @@ import { ColorStyle } from '../Global/global-redux-types';
 import { RechartsDiagram } from '../Diagram/RechartsDiagram';
 import { WithRedirectHocProps } from '../../common/types/hocs-injected-prop-types';
 
+console.log('MainPage styles', styles);
+
 type Props = {
   location: Location;
   className?: string;
@@ -26,7 +27,7 @@ type Props = {
 
 export class MainPage extends Component<Props> {
 
-  constructor(props:Props) {
+  constructor(props: Props) {
     super(props);
     this.state = {
       isAuth: false,
@@ -36,7 +37,7 @@ export class MainPage extends Component<Props> {
   render() {
     const isMainMenu = this.props.location.pathname === '/main-menu';
     return (
-      <div className="proto">
+      <div className={styles.proto}>
         <MainMenuHeader isMain={isMainMenu}/>
         <Switch>
           <ProtectedRoute

@@ -2,7 +2,7 @@
  * Copyright (c) 2020. Prototype
  */
 
-import './style.scss';
+import styles from './button.scss';
 import React, { Component, KeyboardEvent, ReactNode } from 'react';
 import cn from 'classnames';
 import ReactTooltip from 'react-tooltip';
@@ -67,16 +67,16 @@ export default class Button extends Component<Props> {
       tooltip,
     } = this.props;
     const typeClass = {
-      'button--primary': primary,
-      'button--primary-filled': primaryFilled,
-      'button--cancel': cancel,
-      'button--cancel-filled': cancelFilled,
-      'button--white': white,
-      'button--primary-white': primaryWhite,
-      'button--white-grey-border': whiteGreyBorder,
-      'button--white-border': whiteBorder,
+      [styles.primary]: primary,
+      [styles.primaryFilled]: primaryFilled,
+      [styles.cancel]: cancel,
+      [styles.cancelFilled]: cancelFilled,
+      [styles.white]: white,
+      [styles.primaryWhite]: primaryWhite,
+      [styles.whiteGreyBorder]: whiteGreyBorder,
+      [styles.whiteBorder]: whiteBorder,
     };
-    const classNames = cn('button', typeClass, { 'button--disabled': disabled }, className);
+    const classNames = cn(styles.button, typeClass, { [styles.disabled]: disabled }, className);
     return (
       <div
         id={id}
