@@ -2,6 +2,7 @@
  * Copyright (c) 2020. Prototype
  */
 
+import styles from './UserManagementForm.scss';
 import React, { ChangeEvent } from 'react';
 import Checkbox from '../../../checkbox/Checkbox';
 import cn from 'classnames';
@@ -43,10 +44,10 @@ class CheckboxViewer extends React.Component<Props, State> {
 
     return (
       <div>
-        <h5>Чекбокс</h5>
+        <h3>Чекбокс</h3>
         {this.renderControls()}
         <div
-          className={'userManagementForm'}
+          className={styles.userManagementForm}
           style={{
             display: 'block',
             background: 'transparent',
@@ -55,7 +56,7 @@ class CheckboxViewer extends React.Component<Props, State> {
           }}
         >
           <div
-            className={cn('userManagementForm__field', 'userManagementForm__fieldArchive')}
+            className={cn(styles.field, styles.archive)}
             style={{
               display: 'block',
               background: 'transparent',
@@ -64,7 +65,7 @@ class CheckboxViewer extends React.Component<Props, State> {
               opacity: isInputDisabled ? '0.5' : '1',
             }}
           >
-            <div className={'userManagementForm__fieldInputWrap'}>
+            <div className={styles.fieldInputWrap}>
               <Checkbox readOnly={isInputDisabled} checked={value} onChange={this.handleChangeInputValue}
                         label={'текст для пояснения'}/>
             </div>
@@ -76,8 +77,8 @@ class CheckboxViewer extends React.Component<Props, State> {
 
   renderControls() {
     return (
-      <React.Fragment>
-        <div>
+      <>
+        <div className={styles.controls}>
           <label>
             <input
               name="isInputDisabled"
@@ -85,10 +86,10 @@ class CheckboxViewer extends React.Component<Props, State> {
               checked={this.state.isInputDisabled}
               onChange={this.handleSettingChange}
             />
-            Неактивный
+            <span className='icon-diamond icons'/>&nbsp;Неактивный
           </label>
         </div>
-      </React.Fragment>
+      </>
     );
   }
 }

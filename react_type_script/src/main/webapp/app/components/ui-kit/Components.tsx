@@ -2,7 +2,8 @@
  * Copyright (c) 2020. Prototype
  */
 
-import React, { ChangeEvent, Component } from 'react';
+
+import React, { Component, MouseEvent } from 'react';
 import Button from '../button/Button';
 import Input from '../input2/Input';
 import AcceptIcon from '../icon/AcceptIcon';
@@ -35,8 +36,8 @@ export default class Components extends Component<Props, State> {
     this.setState({ eventText: `Press button "${name}"` });
   }
 
-  onPressLabel(event: ChangeEvent<HTMLInputElement>) {
-    const target = event.target;
+  onPressLabel(event: MouseEvent) {
+    const target = event.target as HTMLElement;
     this.setState({ eventText: `Press label "${target.textContent}"` });
   }
 
@@ -46,13 +47,21 @@ export default class Components extends Component<Props, State> {
       <div>
         <MainContainer>
           <Row>
-            <h4>UI - элементы</h4>
+            <h2>UI - элементы</h2>
             <Label text={eventText}/>
           </Row>
           <Row>
-            {/*            <Col>*/}
+            <div>
+              <h1>Заголовок 1</h1>
+              <h2>Заголовок 2</h2>
+              <h3>Заголовок 3</h3>
+              <h4>Заголовок 4</h4>
+              <h5>Заголовок 5</h5>
+              <h6>Заголовок 6</h6>
+            </div>
+          </Row>
+          <Row>
             <CheckboxViewer/>
-            {/*            </Col>*/}
           </Row>
           <Row>
             <Col>

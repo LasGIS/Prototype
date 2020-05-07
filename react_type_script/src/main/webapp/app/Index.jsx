@@ -7,7 +7,7 @@ import { render } from 'react-dom';
 import { Provider } from 'react-redux';
 import { Route, Switch } from 'react-router-dom';
 import { ConnectedRouter } from 'connected-react-router';
-import './scss/style.scss';
+import './css/style.css';
 import 'font-awesome/css/font-awesome.min.css';
 import 'simple-line-icons/css/simple-line-icons.css';
 import { LastLocationProvider } from 'react-router-last-location';

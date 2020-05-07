@@ -4,18 +4,9 @@
 
 @import "../../constants/constants";
 
-$root: 'checkbox-container';
-$classic: $root + '_classic';
-$international: $root + '_international';
+.checkboxContainer {
 
-:export {
-  classic: #{$classic};
-  international: #{$international};
-}
-
-.#{$root} {
-
-  &__input {
+  & .input {
     background-color: #FFFFFF;
     display: inline-block;
     cursor: pointer;
@@ -25,11 +16,11 @@ $international: $root + '_international';
     height: 16px;
     margin-bottom: 1px;
 
-    &_checked {
-      background: #0055A6 url("./checkbox-icon.svg") no-repeat center;
+    &Checked {
+      background: #0055A6 url("./svg/checkbox-icon.svg") no-repeat center;
     }
 
-    &_read-only {
+    &ReadOnly {
       opacity: 0.4;
 
       * {
@@ -37,7 +28,7 @@ $international: $root + '_international';
       }
     }
 
-    &_focused {
+    &Focused {
       border: 0.83px solid #0055A6;
     }
 
@@ -47,7 +38,7 @@ $international: $root + '_international';
     }
   }
 
-  &__text {
+  .text {
     position: absolute;
     margin-left: 10px;
     color: $dark_grey;
@@ -60,9 +51,10 @@ $international: $root + '_international';
 
 }
 
-.#{$root}.#{$international} {
 
-  .#{$root}__input {
+.checkboxContainerInternational {
+
+  .input {
     display: inline-block;
     cursor: pointer;
     border: 1.5px solid #4D4D4D;
@@ -72,13 +64,13 @@ $international: $root + '_international';
     height: 16px;
     margin-bottom: 1px;
 
-    &_checked {
+    &Checked {
       background-size: 12.66px 15px;
-      background: white url("./black-cross-icon.svg") no-repeat center;
+      background: white url("./svg/black-cross-icon.svg") no-repeat center;
       border-radius: 1px;
     }
 
-    &_read-only {
+    &ReadOnly {
       opacity: 1;
       border: 1.5px solid #E0E0E0;
     }

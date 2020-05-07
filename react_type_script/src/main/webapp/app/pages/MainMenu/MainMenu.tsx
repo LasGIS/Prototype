@@ -19,8 +19,6 @@ import { WithRedirectHocProps } from '../../common/types/hocs-injected-prop-type
 import { UserRoleEnum } from '../../common/types/server-api-dtos';
 import { LocationDescriptorObject } from 'history';
 import cn from 'classnames';
-//import modalStyles from '../modal/style.scss';
-//import errorModalStyles from '../MainMenuModal/style.scss';
 
 type Props = {
   location: LocationDescriptorObject<{
@@ -39,7 +37,7 @@ type State = {
 export class MainMenu extends Component<Props, State> {
   constructor(props: Props) {
     super(props);
-    this.state = { modalIsOpen: true };
+    this.state = { modalIsOpen: false };
     this.closeModal = this.closeModal.bind(this);
   }
 
