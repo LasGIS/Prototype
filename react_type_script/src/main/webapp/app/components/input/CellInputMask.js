@@ -4,9 +4,9 @@
 import cn from 'classnames';
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
-import Input from './Input';
+import Input from '../input2/Input';
 import '../letter/universal/style.scss';
-import InputMask from './InputMask';
+import InputMask from '../input2/InputMask';
 
 export default class CellInputMask extends Component {
   constructor(props) {

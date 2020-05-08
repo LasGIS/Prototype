@@ -2,7 +2,7 @@
  * Copyright (c) 2020. Prototype
  */
 
-import './style.scss';
+import styles from './style.scss';
 import React, { ReactNode } from 'react';
 import cn from 'classnames';
 
@@ -18,7 +18,7 @@ const Col = (props: Props) => {
   return (
     <div
       id={id}
-      className={cn('col', className, { 'col--disabled': disabled })}
+      className={cn(styles.col, className, { [styles.disabled]: disabled })}
     >
       {children}
     </div>

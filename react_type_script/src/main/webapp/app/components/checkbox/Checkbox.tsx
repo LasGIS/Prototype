@@ -6,6 +6,8 @@ import styles from './style.scss';
 import React, { Component, KeyboardEvent } from 'react';
 import cn from 'classnames';
 
+console.log('Checkbox', styles);
+
 enum Checkbox_STYLES {
   classic = 'classic',
   international = 'international'
@@ -67,10 +69,10 @@ export default class Checkbox extends Component<Props, State> {
   render() {
     const { style, id, checked, label, className, readOnly, tabIndex } = this.props;
     const classes = cn(
-      'checkbox-container__input',
-      { 'checkbox-container__input_checked': checked },
-      { 'checkbox-container__input_focused': this.state.hasFocus },
-      { 'checkbox-container__input_read-only': readOnly },
+      styles.input,
+      { [styles.inputChecked]: checked },
+      { [styles.inputFocused]: this.state.hasFocus },
+      { [styles.inputReadOnly]: readOnly },
     );
 
     return (
@@ -78,19 +80,18 @@ export default class Checkbox extends Component<Props, State> {
         id={id}
         onFocus={this.onFocus}
         onBlur={this.onBlur}
-        className={cn('checkbox-container', styles[style], className)}
+        className={cn(styles.checkboxContainer, styles[style], className)}
       >
         <div className={classes} onClick={this.handleCheckboxClick.bind(this)}>
           <input
             tabIndex={readOnly ? -1 : tabIndex}
             type="checkbox"
             checked={checked}
-            onChange={() => {
-            }}
+            onChange={() => {}}
             onKeyPress={this.onKeyPress.bind(this)}
           />
         </div>
-        <label className="checkbox-container__text">{label}</label>
+        <label className={styles.text}>{label}</label>
       </div>
     );
   }

@@ -2,7 +2,7 @@
  * Copyright (c) 2020. Prototype
  */
 
-import './style.scss';
+import styles from './button.scss';
 import React, { Component, KeyboardEvent, ReactNode } from 'react';
 import cn from 'classnames';
 import ReactTooltip from 'react-tooltip';
@@ -28,10 +28,20 @@ type Props = {
 
 export default class Button extends Component<Props> {
   static propTypes: {};
-  static defaultProps: {};
+  static defaultProps: {
+    id: '',
+    onClick: () => any,
+    disabled: false,
+    primary: false,
+    primaryFilled: false,
+    cancel: false,
+    cancelFilled: false,
+    tabIndex: 0,
+  };
 
   handleButtonClick() {
-    this.props.onClick && !this.props.disabled && this.props.onClick();
+    const {onClick, disabled} = this.props;
+    onClick && !disabled && onClick();
   }
 
   onKeyPress(event: KeyboardEvent<HTMLDivElement>) {
@@ -57,16 +67,16 @@ export default class Button extends Component<Props> {
       tooltip,
     } = this.props;
     const typeClass = {
-      'button--primary': primary,
-      'button--primary-filled': primaryFilled,
-      'button--cancel': cancel,
-      'button--cancel-filled': cancelFilled,
-      'button--white': white,
-      'button--primary-white': primaryWhite,
-      'button--white-grey-border': whiteGreyBorder,
-      'button--white-border': whiteBorder,
+      [styles.primary]: primary,
+      [styles.primaryFilled]: primaryFilled,
+      [styles.cancel]: cancel,
+      [styles.cancelFilled]: cancelFilled,
+      [styles.white]: white,
+      [styles.primaryWhite]: primaryWhite,
+      [styles.whiteGreyBorder]: whiteGreyBorder,
+      [styles.whiteBorder]: whiteBorder,
     };
-    const classNames = cn('button', typeClass, { 'button--disabled': disabled }, className);
+    const classNames = cn(styles.button, typeClass, { [styles.disabled]: disabled }, className);
     return (
       <div
         id={id}
@@ -74,7 +84,7 @@ export default class Button extends Component<Props> {
         tabIndex={tabIndex}
         onClick={this.handleButtonClick.bind(this)}
         onKeyPress={this.onKeyPress.bind(this)}
-        data-tip={tooltip}
+        title={tooltip}
       >
         {this.props.children}
         {tooltip && <ReactTooltip type="light" border={true} effect="solid"/>}
@@ -82,14 +92,3 @@ export default class Button extends Component<Props> {
     );
   }
 }
-
-Button.defaultProps = {
-  id: '',
-  onClick: () => undefined,
-  disabled: false,
-  primary: false,
-  primaryFilled: false,
-  cancel: false,
-  cancelFilled: false,
-  tabIndex: 0,
-};

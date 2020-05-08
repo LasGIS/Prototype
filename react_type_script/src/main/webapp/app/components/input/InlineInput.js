@@ -7,7 +7,7 @@ import React, { Component } from 'react';
 import cn from 'classnames';
 import PropTypes from 'prop-types';
 import Inline from './Inline';
-import Input from './Input';
+import Input from '../input2/Input';
 
 export default class InlineInput extends Component {
   render() {

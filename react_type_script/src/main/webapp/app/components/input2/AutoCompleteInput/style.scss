@@ -1,0 +1,148 @@
+/*!
+ * Copyright (c) 2020. Prototype
+ */
+@import "app/constants/constants";
+
+$autoCompleteInput: 'autoCompleteInput';
+$autoCompleteInputDisabled: $autoCompleteInput + '_disabled';
+$contentWrap: $autoCompleteInput + '__contentWrap';
+$autocompleteField: $autoCompleteInput + '__autocompleteField';
+$autocompletePlaceholder: $autoCompleteInput + '__autocompletePlaceholder';
+$autocompleteList: $autoCompleteInput + '__autocompleteList';
+$autocompleteListItem: $autocompleteList + 'Item';
+$autocompleteResetBtn: $autoCompleteInput + '__autocompleteResetBtn';
+
+:export {
+  root: #{$autoCompleteInput};
+  rootDisabled: #{$autoCompleteInputDisabled};
+  contentWrap: #{$contentWrap};
+  autocompleteField: #{$autocompleteField};
+  autocompletePlaceholder: #{$autocompletePlaceholder};
+  autocompleteList: #{$autocompleteList};
+  autocompleteListItem: #{$autocompleteListItem};
+  autocompleteResetBtn: #{$autocompleteResetBtn};
+}
+
+.#{$autoCompleteInput} {
+  display: block;
+  width: 100%;
+
+  .#{$contentWrap} {
+    display: block;
+    width: 100%;
+    height: 40px;
+  }
+
+  .#{$autocompleteField} {
+    display: block;
+    position: relative;
+    width: 100%;
+    height: 40px;
+    background: #FFFFFF;
+    border: 2px solid $gray_border_color;
+    border-radius: 4px;
+    outline: none;
+    box-shadow: none;
+
+    input {
+      display: block;
+      position: relative;
+      z-index: 10;
+      width: 100%;
+      height: calc(40px - 4px);
+      margin: 0;
+      padding: 0 36px 0 12px;
+      background: transparent;
+      border-width: 0;
+      border-radius: 4px;
+      outline: none;
+      box-shadow: none;
+    }
+  }
+
+  .#{$autocompletePlaceholder} {
+    display: block;
+    position: absolute;
+    left: 13px;
+    top: calc(50% - 7px);
+    color: #C4C4C4;
+    font-size: 14px;
+    font-style: italic;
+    font-weight: 400;
+    line-height: 16px;
+  }
+
+  .#{$autocompleteList} {
+    display: block;
+    border-radius: 3px;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
+    background: rgba(255, 255, 255, 0.9);
+    margin: 0;
+    padding: 0;
+    font-size: 16px;
+    top: 100%;
+    left: 0;
+    position: absolute;
+    overflow: auto;
+    height: auto;
+    width: calc(100% - 3px);
+    max-height: 500px;
+  }
+
+  .#{$autocompleteListItem} {
+    display: block;
+    width: 100%;
+    cursor: pointer;
+    padding: 2px 12px;
+  }
+
+  .#{$autocompleteResetBtn} {
+    display: block;
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    right: 12px;
+    top: calc(50% - 8px);
+    cursor: pointer;
+    z-index: 15;
+
+    &:before {
+      content: '';
+      display: block;
+      position: absolute;
+      width: 14px;
+      height: 2px;
+      background: #9f9f9f;
+      border-radius: 4px;
+      left: calc(50% - 6px);
+      top: calc(50% - 1px);
+      transform: rotate(45deg);
+    }
+
+    &:after {
+      content: '';
+      display: block;
+      position: absolute;
+      width: 14px;
+      height: 2px;
+      background: #9f9f9f;
+      border-radius: 4px;
+      left: calc(50% - 6px);
+      top: calc(50% - 1px);
+      transform: rotate(-45deg);
+    }
+  }
+}
+
+#{$autoCompleteInput}#{$autoCompleteInput}_disabled {
+  cursor: not-allowed;
+
+  .#{$autocompleteField} {
+    opacity: 0.5;
+
+    input {
+      cursor: not-allowed;
+      pointer-events: none;
+    }
+  }
+}

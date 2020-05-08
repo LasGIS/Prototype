@@ -7,13 +7,13 @@ import { render } from 'react-dom';
 import { Provider } from 'react-redux';
 import { Route, Switch } from 'react-router-dom';
 import { ConnectedRouter } from 'connected-react-router';
-import './scss/style.scss';
+import './css/style.css';
 import 'font-awesome/css/font-awesome.min.css';
 import 'simple-line-icons/css/simple-line-icons.css';
 import { LastLocationProvider } from 'react-router-last-location';
 import history from './history';
 import configureStore from './redux/configureStore';
-import { MainPage } from './pages/MainPage/MainPage';
+import MainPage from './pages/MainPage/MainPage';
 import LoginForm from './pages/Auth/LoginForm';
 
 const store = configureStore();

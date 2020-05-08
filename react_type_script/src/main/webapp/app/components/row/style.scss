@@ -15,9 +15,9 @@ $row_box_shadow_color: #AEB0B2;
   font-size: 20px;
   line-height: 24px;
   text-align: left;
+}
 
-  &--disabled {
-    opacity: 0.5;
-  }
+.disabled {
+  opacity: 0.5;
 }
 

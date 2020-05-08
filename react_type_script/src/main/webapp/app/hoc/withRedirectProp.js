@@ -4,7 +4,7 @@
 
 import React from 'react';
 import { connect } from 'react-redux';
-import { redirect } from '../common/actions';
+import { redirect } from '../pages/Global/services/reducer';
 
 const withRedirectProp = WrappedComponent => {
   const withRedirectProp = props => <WrappedComponent {...props} />;

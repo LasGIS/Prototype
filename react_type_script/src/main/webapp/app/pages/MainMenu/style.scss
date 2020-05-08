@@ -3,20 +3,22 @@
  */
 
 @import "../../constants/constants";
+@import "../modal/style.scss";
+@import "../MainMenuModal/style.scss";
 
-.main-menu {
+.mainMenu {
   background-color: $blue_bg_color;
   color: $blue;
-
-  &__no-one-menu-label {
-    color: white;
-    font-size: 22px;
-    text-align: center;
-    margin-top: 60px;
-  }
 }
 
-.menu-button {
+.noOneMenuLabel {
+  color: white;
+  font-size: 22px;
+  text-align: center;
+  margin-top: 60px;
+}
+
+.menuButton {
   background-color: $white;
   cursor: pointer;
   width: 100%;
@@ -35,49 +37,9 @@
   }
 }
 
-.main-menu-container {
+.mainMenuContainer {
   display: flex;
   flex-direction: column;
   flex-grow: 1;
   justify-content: space-around;
 }
-
-// Auth error modal
-
-.modal-form_auth-error-modal {
-  height: auto !important;
-}
-
-.auth-error-modal {
-  display: block;
-  max-width: 600px;
-  min-width: 300px;
-  height: auto;
-
-  &__content {
-    display: block;
-    width: 100%;
-    padding: 25px;
-    text-align: center;
-  }
-
-  &__header {
-    margin: 0 0 5px 0;
-    color: #000000;
-    font-size: 20px;
-    font-weight: 500;
-  }
-
-  &__body {
-    margin: 0 0 15px 0;
-  }
-
-  &__footer {
-    margin: 0 auto;
-    display: flex;
-    flex-flow: row wrap;
-    align-items: center;
-    justify-content: center;
-  }
-}
-

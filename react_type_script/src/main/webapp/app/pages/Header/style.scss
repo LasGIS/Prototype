@@ -7,7 +7,7 @@
 $headerContentWidth: 1100px;
 
 /* голубая цветовая гамма */
-.blue-header {
+.blueHeader {
   background-color: $blue_bg_color;
   box-shadow: inset 0 -1px 0 0 $blue_bg_shadow;
 
@@ -17,7 +17,7 @@ $headerContentWidth: 1100px;
 }
 
 /* белая цветовая гамма */
-.white-header {
+.whiteHeader {
   background-color: $white;
   box-shadow: inset 0 -1px 0 0 $white_bg_shadow;
 
@@ -26,7 +26,7 @@ $headerContentWidth: 1100px;
   }
 }
 
-.red-header {
+.redHeader {
   background-color: #C54D41;
   box-shadow: inset 0 -1px 0 0 #CD7269;
 
@@ -48,106 +48,106 @@ $headerContentWidth: 1100px;
   min-height: $header-height;
   padding: 0;
   margin: 0;
-
-  .left {
-    float: left;
-    margin-right: 19px;
-  }
-
-  .right {
-    float: right;
-    margin-left: 19px;
-  }
-
-  .button-header {
-    padding-left: 30px;
-    padding-right: 30px;
-    margin-top: 13px;
-  }
-
-  .label {
-    font-size: 18px;
-    font-weight: 400;
-    line-height: 24px;
-    text-align: right;
-    margin-top: 22px;
-  }
-
-  .label-big {
-    font-size: 20px;
-    font-weight: 500;
-    line-height: 24px;
-  }
-
-  .label-header {
-    color: $black;
-    font-size: 20px;
-    font-weight: 600;
-  }
-
-  .link-header {
-    margin-top: 25px;
-
-    &__printer {
-      background: url("../../components/icon/svg/printer_icon.svg") no-repeat;
-      background-size: 20px;
-      padding-left: 25px;
-    }
-  }
-
-  .spinner {
-    margin-top: 13px;
-    margin-right: 20px;
-    float: right;
-  }
-
-  &__container {
-    width: $headerContentWidth;
-    margin-left: auto;
-    margin-right: auto;
-  }
-
-  &__bottomContentWrapper {
-    background-color: $white;
-    box-shadow: 0 2px 2px rgba(0, 0, 0, 0.15);
-  }
-
-  &__bottomContent {
-    display: block;
-    width: $headerContentWidth;
-    margin: 0 auto;
-    padding: 0;
-  }
-
-  &__error {
-    position: relative;
-    background-color: #FAE1DB;
-    box-shadow: 0 1px 1px 0 #AEB0B2;
-    width: 100%;
-    min-height: 45px;
-    color: #A64F37;
-    font-size: 16px;
-    font-weight: 400;
-    line-height: 19px;
-    text-align: left;
-    padding: 13px;
-    margin: 0 auto;
-    z-index: 100;
-  }
-
-  &__error-text {
-    width: $headerContentWidth;
-    margin-left: auto;
-    margin-right: auto;
-  }
-
-  &__error-clear {
-    float: right;
-    background: url("svg/close-icon.svg") no-repeat;
-    height: 12px;
-    width: 12px;
-    margin-top: 3px;
-    cursor: pointer;
-  }
-
 }
+
+.left {
+  float: left;
+  margin-right: 19px;
+}
+
+.right {
+  float: right;
+  margin-left: 19px;
+}
+
+.buttonHeader {
+  padding-left: 30px;
+  padding-right: 30px;
+  margin-top: 13px;
+}
+
+.label {
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 24px;
+  text-align: right;
+  margin-top: 22px;
+}
+
+.label-big {
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 24px;
+}
+
+.label-header {
+  color: $black;
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.link-header {
+  margin-top: 25px;
+
+  &__printer {
+    background: url("../../components/icon/svg/printer_icon.svg") no-repeat;
+    background-size: 20px;
+    padding-left: 25px;
+  }
+}
+
+.spinner {
+  margin-top: 13px;
+  margin-right: 20px;
+  float: right;
+}
+
+.container {
+  width: $headerContentWidth;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.bottomContentWrapper {
+  background-color: $white;
+  box-shadow: 0 2px 2px rgba(0, 0, 0, 0.15);
+}
+
+.bottomContent {
+  display: block;
+  width: $headerContentWidth;
+  margin: 0 auto;
+  padding: 0;
+}
+
+.error {
+  position: relative;
+  background-color: #FAE1DB;
+  box-shadow: 0 1px 1px 0 #AEB0B2;
+  width: 100%;
+  color: #A64F37;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 19px;
+  text-align: left;
+  padding: 13px;
+  margin: 0 auto;
+  z-index: 100;
+}
+
+.errorText {
+  width: $headerContentWidth;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.errorClear {
+  float: right;
+  background: url("./svg/close-icon.svg") no-repeat;
+  height: 12px;
+  width: 12px;
+  margin-top: 3px;
+  cursor: pointer;
+}
+
+
