@@ -1,3 +1,7 @@
+/*
+ * Copyright (c) 2020. Prototype
+ */
+
 package com.lasgis.kotlin.web.rest
 
 import org.assertj.core.api.Assertions.assertThat
@@ -44,7 +48,7 @@ class GreetingControllerTest(@Autowired val restTemplate: TestRestTemplate) {
     fun applicationVersion() {
         val entity = restTemplate.getForEntity<String>("/app/version")
         assertThat(entity.statusCode).isEqualTo(HttpStatus.OK)
-        assertThat(entity.body).contains("0.0.1-SNAPSHOT")
+        assertThat(entity.body).contains("0.1.1-SNAPSHOT")
     }
 
 }

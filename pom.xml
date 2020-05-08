@@ -15,7 +15,7 @@
 
     <groupId>com.lasgis.prototype</groupId>
     <artifactId>prototype-parent</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+    <version>0.1.1-SNAPSHOT</version>
     <name>Prototype Parent</name>
     <description>Prototype Parent</description>
     <packaging>pom</packaging>

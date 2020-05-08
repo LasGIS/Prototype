@@ -1,7 +1,7 @@
 # Общие настройки приложения:
 app:
   name: Kotlin Spring Boot MyBatis
-  version: 0.0.1-SNAPSHOT
+  version: 0.1.1-SNAPSHOT
   printLocale: true
 
 # локальнй порт
