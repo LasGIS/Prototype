@@ -11,7 +11,8 @@
   flex-direction: column;
   min-height: 100vh;
   font-family: $Roboto;
-  width: 100%;
+  min-width: 1300px;
+  width: 100vw;
 }
 
 .protoBody {
@@ -26,8 +27,23 @@
   }
 }
 
-.mainContainer {
-  width: 1100px;
-  margin: 0 auto;
+.commonPane {
+  padding-top: 10px;
   padding-bottom: 75px;
+  min-width: 1300px;
+}
+
+.leftPane {
+  position: fixed;
+  background-color: #CD7269;
+  top: 70px;
+  left: 0;
+  width: 200px;
+  height: 100vh;
+  z-index: 1;
+}
+
+.rightPane {
+  padding-left: 200px;
+  width: 1100px;
 }

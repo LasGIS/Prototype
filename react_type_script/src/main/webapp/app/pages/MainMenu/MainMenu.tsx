@@ -6,7 +6,6 @@ import styles from './style.scss';
 import React, { Component } from 'react';
 import Menu from './Menu';
 import { connect } from 'react-redux';
-import MainContainer from '../MainPage/MainContainer';
 import ReactModal from 'react-modal';
 import MainMenuModal from '../MainMenuModal/MainMenuModal';
 import { globalRouterLocationSelector, globalUserRolesSelector } from '../../common/services/selectors';
@@ -62,38 +61,32 @@ export class MainMenu extends Component<Props, State> {
     const { modalIsOpen } = this.state;
     const canSeeUserManagement = isGrantedRoles(userRoles, FEATURE_EDIT_ROLES.USER_MANAGEMENT);
     const canSeePersonManagement = isGrantedRoles(userRoles, FEATURE_EDIT_ROLES.PERSON_MANAGEMENT);
-    const noOneMenu = !canSeeUserManagement && !canSeePersonManagement;
     return (
       <div className={styles.mainMenuContainer}>
-        <MainContainer className={styles.mainMenu}>
-          {canSeeUserManagement && (
-            <Menu
-              id="canSeeUserManagementList"
-              name="Первое меню (User Management)"
-              onClick={() => redirect(`/${ROUTES.userListPage}`)}
-            />
-          )}
-          {canSeePersonManagement && (
-            <Menu
-              id="canSeePersonManagementList"
-              name="Второе меню (Person Management)"
-              onClick={() => redirect(`/${ROUTES.personListPage}`)}
-            />
-          )}
+        {canSeeUserManagement && (
           <Menu
-            id="routesComponents"
-            name="ReCharts диаграмма"
-            onClick={() => redirect(`/${ROUTES.recharts}`)}
+            id="canSeeUserManagementList"
+            name="Первое меню (User Management)"
+            onClick={() => redirect(`/${ROUTES.userListPage}`)}
           />
+        )}
+        {canSeePersonManagement && (
           <Menu
-            id="routesComponents"
-            name="ROUTES.components"
-            onClick={() => redirect(`/${ROUTES.components}`)}
+            id="canSeePersonManagementList"
+            name="Второе меню (Person Management)"
+            onClick={() => redirect(`/${ROUTES.personListPage}`)}
           />
-          {noOneMenu && (
-            <div className={styles.noOneMenuLabel}>У вас нет прав на выполнение каких-либо действий</div>
-          )}
-        </MainContainer>
+        )}
+        <Menu
+          id="routesComponents"
+          name="ReCharts диаграмма"
+          onClick={() => redirect(`/${ROUTES.recharts}`)}
+        />
+        <Menu
+          id="routesComponents"
+          name="ROUTES.components"
+          onClick={() => redirect(`/${ROUTES.components}`)}
+        />
         <ReactModal
           id='auth-error-message'
           className={cn(styles.modalForm, styles.authErrorModal)}
@@ -113,8 +106,7 @@ export default connect(
   state => ({
     location: globalRouterLocationSelector(state),
     userRoles: globalUserRolesSelector(state),
-  }),
-  {
+  }), {
     clearAllStates,
   },
 )(withRedirectProp(MainMenu));

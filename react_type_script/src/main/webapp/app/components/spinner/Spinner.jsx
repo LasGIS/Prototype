@@ -12,7 +12,7 @@ class Spinner extends Component {
     const { white } = this.props;
     return (
       <div>
-        {this.props.loading && <Loader type="Oval" color={white ? '#FFFFFF' : '#1D53B1'} height={40} width={40}/>}
+        {this.props.loading && <Loader type="Oval" color={white ? '#FFFFFF' : '#1D53B1'} height={30} width={30}/>}
       </div>
     );
   }

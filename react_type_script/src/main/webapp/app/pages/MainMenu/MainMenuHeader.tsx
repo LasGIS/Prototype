@@ -32,7 +32,7 @@ export class MainMenuHeader extends Component<Props> {
   render() {
     const { isMain, redirect } = this.props;
     return (
-      <Header hasAccount>
+      <Header whiteStyle hasAccount >
         {!isMain &&
         <Button id="backButton" className={cn(styles.buttonHeader, styles.left)}
                 onClick={() => redirect && redirect('/main-menu')}

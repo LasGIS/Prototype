@@ -67,7 +67,7 @@ class Header extends Component<Props, State> {
     return (
       <div className={styles.pageHeaderWrapper}>
         <div className={cn(styles.header, className, typeClass)}>
-          <div className={cn(styles.spinner, styles.right)}>
+          <div className={cn(styles.spinner)}>
             <Spinner white={!whiteStyle}/>
           </div>
           <div className={styles.container}>

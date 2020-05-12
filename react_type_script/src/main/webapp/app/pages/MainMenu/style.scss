@@ -11,13 +11,6 @@
   color: $blue;
 }
 
-.noOneMenuLabel {
-  color: white;
-  font-size: 22px;
-  text-align: center;
-  margin-top: 60px;
-}
-
 .menuButton {
   background-color: $white;
   cursor: pointer;
@@ -38,6 +31,7 @@
 }
 
 .mainMenuContainer {
+  composes: mainMenu;
   display: flex;
   flex-direction: column;
   flex-grow: 1;
