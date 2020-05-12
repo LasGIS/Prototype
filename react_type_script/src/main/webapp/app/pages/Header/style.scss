@@ -4,7 +4,7 @@
 
 @import "../../constants/constants";
 
-$headerContentWidth: 1100px;
+$main-container-width: $main-container-width;
 
 /* голубая цветовая гамма */
 .blueHeader {
@@ -38,9 +38,8 @@ $headerContentWidth: 1100px;
 .pageHeaderWrapper {
   display: block;
   position: sticky;
-//  width: 100%;
   top: 0;
-  padding-left: 200px;
+  padding-left: $left-menu-width;
   z-index: $z-index-sticky;
 }
 
@@ -65,6 +64,13 @@ $headerContentWidth: 1100px;
   padding-left: 30px;
   padding-right: 30px;
   margin-top: 13px;
+}
+
+.topic {
+  font-size: 26px;
+  color: #d93025;
+  font-weight: 400;
+  margin: 19px 10px 0px 30px;
 }
 
 .label {
@@ -101,10 +107,11 @@ $headerContentWidth: 1100px;
   width: 30px;
   margin-top: 17px;
   margin-right: 5px;
-  float: right;}
+  float: right;
+}
 
 .container {
-  min-width: $headerContentWidth;
+  min-width: $main-container-width;
   margin-left: auto;
   margin-right: auto;
 }
@@ -116,7 +123,7 @@ $headerContentWidth: 1100px;
 
 .bottomContent {
   display: block;
-  min-width: $headerContentWidth;
+  min-width: $main-container-width;
   margin: 0 auto;
   padding: 0;
 }
@@ -137,7 +144,7 @@ $headerContentWidth: 1100px;
 }
 
 .errorText {
-  min-width: $headerContentWidth;
+  min-width: $main-container-width;
   margin-left: auto;
   margin-right: auto;
 }

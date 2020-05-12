@@ -13,11 +13,14 @@ import { FRONT_AUTH_USER } from '../../constants/constants';
 import { WithRedirectHocProps } from '../../common/types/hocs-injected-prop-types';
 
 type Props = {
-  isMain: boolean;
+  topic: string;
   className?: string;
 } & WithRedirectHocProps;
 
 export class MainMenuHeader extends Component<Props> {
+
+  static defaultProps: {};
+
   constructor(props: Props) {
     super(props);
     this.logout = this.logout.bind(this);
@@ -30,16 +33,15 @@ export class MainMenuHeader extends Component<Props> {
   }
 
   render() {
-    const { isMain, redirect } = this.props;
+    const { topic } = this.props;
     return (
-      <Header whiteStyle hasAccount >
-        {!isMain &&
-        <Button id="backButton" className={cn(styles.buttonHeader, styles.left)}
-                onClick={() => redirect && redirect('/main-menu')}
-                primary>
-          Выход в меню
-        </Button>
-        }
+      <Header whiteStyle hasAccount>
+        <div className={styles.left}>
+          <div id="menuTopic" className={styles.topic}>
+            {topic}
+          </div>
+        </div>
+
         <Button id="logoutButton" className={cn(styles.buttonHeader, styles.right)}
                 onClick={this.logout}
                 primaryFilled>
@@ -50,4 +52,5 @@ export class MainMenuHeader extends Component<Props> {
   }
 }
 
+MainMenuHeader.defaultProps = { topic: 'Некоторый текст' };
 export default connect(state => ({}), {})(withRedirectProp(MainMenuHeader));

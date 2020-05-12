@@ -9,10 +9,10 @@
   background: $body_bg_color;
   display: flex;
   flex-direction: column;
-  min-height: 100vh;
-  font-family: $Roboto;
-  min-width: 1300px;
   width: 100vw;
+  min-height: 100vh;
+  min-width: $common-width;
+  font-family: $Roboto;
 }
 
 .protoBody {
@@ -35,15 +35,15 @@
 
 .leftPane {
   position: fixed;
-  background-color: #CD7269;
+  background: $body_bg_color;
   top: 70px;
   left: 0;
-  width: 200px;
+  width: $left-menu-width;
   height: 100vh;
   z-index: 1;
 }
 
 .rightPane {
-  padding-left: 200px;
+  padding-left: $left-menu-width;
   width: 1100px;
 }

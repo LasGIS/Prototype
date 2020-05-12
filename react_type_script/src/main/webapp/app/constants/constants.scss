@@ -11,6 +11,9 @@ $body_bg_color: #F5F5F5;
 
 $header-height: 70px;
 $main-container-bottom: 90px;
+$left-menu-width: 300px;
+$main-container-width: 1100px;
+$common-width: $left-menu-width + $main-container-width + 20px;
 
 $z-index-sticky: 1020 !default;
 $Roboto: 'Roboto', sans-serif;
