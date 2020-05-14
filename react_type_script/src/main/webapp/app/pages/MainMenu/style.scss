@@ -7,7 +7,7 @@
 @import "../MainMenuModal/style.scss";
 
 .mainMenuContainer {
-  margin: 10px;
+  margin: 10px 2px;
   display: flex;
   flex-direction: column;
   flex-grow: 1;
@@ -16,16 +16,12 @@
 
 .menuButton {
   cursor: pointer;
-  background-color: #f0f0f0;
-  width: 100%;
-  padding: 5px 0;
+  padding: 6px 12px;
 
-  color: #0055A6;
-  font-size: 18px;
+  color: $topic-color;
+  font-size: 22px;
   font-weight: 400;
-  line-height: 16px;
   text-align: left;
-  margin-top: 5px;
 
   &:hover {
     background-color: $white;

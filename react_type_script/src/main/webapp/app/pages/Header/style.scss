@@ -4,8 +4,6 @@
 
 @import "../../constants/constants";
 
-$main-container-width: $main-container-width;
-
 /* голубая цветовая гамма */
 .blueHeader {
   background-color: $blue_bg_color;
@@ -39,12 +37,13 @@ $main-container-width: $main-container-width;
   display: block;
   position: sticky;
   top: 0;
+  background-color: $body_bg_color;
   padding-left: $left-menu-width;
   z-index: $z-index-sticky;
 }
 
 .header {
-  width: 1100px;
+  width: $main-container-width;
   min-height: $header-height;
   padding: 0;
   margin: 0;
@@ -68,7 +67,7 @@ $main-container-width: $main-container-width;
 
 .topic {
   font-size: 26px;
-  color: #d93025;
+  color: $topic-color;
   font-weight: 400;
   margin: 19px 10px 0px 30px;
 }
