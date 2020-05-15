@@ -5,7 +5,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { FRONT_AUTH_USER } from '../constants/constants';
-import { getAppSettings } from '../pages/Global/services/async-actions';
+import { getAppSettings } from '../common/services/async-actions';
 
 export const withCommonDataRequest = OriginalComponent => {
 

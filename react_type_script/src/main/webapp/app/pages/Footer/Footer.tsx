@@ -7,7 +7,7 @@ import { connect } from 'react-redux';
 import React, { Component } from 'react';
 import cn from 'classnames';
 import { RootStoreData } from '../../common/types/redux-types';
-import { ColorStyle } from '../Global/global-redux-types';
+import { ColorStyle } from '../../common/global/global-redux-types';
 
 console.log('Footer', styles);
 

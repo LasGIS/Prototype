@@ -14,13 +14,13 @@ import {
   GLOBAL_SET_USER_INFO,
   GLOBAL_SHOW_LOADER,
 } from './action-constants';
-import { ColorStyle, GlobalActions, GlobalStoreData } from '../global-redux-types';
+import { ColorStyle, GlobalActions, GlobalStoreData } from '../global/global-redux-types';
 
 const initialState: GlobalStoreData = {
   loading: false,
-  error: null,
+  error: undefined,
   authorized: false,
-  user: {},
+  user: undefined,
   settings: undefined,
   colorStyle: ColorStyle.white
 };
@@ -60,7 +60,7 @@ export function globalReducer(state: GlobalStoreData = initialState, action: Glo
       return { ...state, error: action.error };
     case GLOBAL_CLEAR_ERROR:
     case CLEAR_ALL_STATES:
-      return { ...state, error: null };
+      return { ...state, error: undefined };
     default:
       return state;
   }

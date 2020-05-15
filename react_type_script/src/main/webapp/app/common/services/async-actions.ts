@@ -2,10 +2,10 @@
  * Copyright (c) 2020. Prototype
  */
 
-import { GlobalActions } from '../global-redux-types';
+import { GlobalActions } from '../global/global-redux-types';
 import { fetchAppSettings, fetchCurrentUser } from './service';
 import { errorHandler, getSystemSettings, setUserInfo } from './action-creators';
-import { ResponseJSON, UserDto } from '../../../common/types/server-api-dtos';
+import { ResponseJSON, UserDto } from '../types/server-api-dtos';
 
 export type GlobalDispatch = (arg: GlobalActions) => GlobalActions;
 

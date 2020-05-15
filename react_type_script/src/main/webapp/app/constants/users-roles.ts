@@ -2,16 +2,14 @@
  * Copyright (c) 2020. Prototype
  */
 
-/*
-export const ROLES = {
-  OPERATOR: { name: 'OPERATOR', text: 'Оператор' },
-  SUPERVISOR: { name: 'SUPERVISOR', text: 'Старший смены' },
-  CHIEF: { name: 'CHIEF', text: 'Начальник' },
-  ADMIN: { name: 'ADMIN', text: 'Администратор' },
-};
-*/
-
 import { UserRoleEnum } from '../common/types/server-api-dtos';
+
+export const ROLES: { [key: string]: { name: string, text: string } } = {
+  [UserRoleEnum.OPERATOR]: { name: UserRoleEnum.OPERATOR, text: 'Оператор' },
+  [UserRoleEnum.SUPERVISOR]: { name: UserRoleEnum.SUPERVISOR, text: 'Старший смены' },
+  [UserRoleEnum.CHIEF]: { name: UserRoleEnum.CHIEF, text: 'Начальник' },
+  [UserRoleEnum.ADMIN]: { name: UserRoleEnum.ADMIN, text: 'Администратор' },
+};
 
 export const FEATURE_EDIT_ROLES = {
   ALL_ROLES: [UserRoleEnum.OPERATOR, UserRoleEnum.SUPERVISOR, UserRoleEnum.CHIEF, UserRoleEnum.ADMIN],

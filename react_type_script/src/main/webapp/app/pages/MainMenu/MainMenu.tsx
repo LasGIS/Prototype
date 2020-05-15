@@ -12,10 +12,11 @@ import withRedirectProp from '../../hoc/withRedirectProp';
 import { ROUTES } from './constants';
 import { FEATURE_EDIT_ROLES, isGrantedRoles } from '../../constants/users-roles';
 import { APP_ROOT_SELECTOR } from '../../constants/constants';
-import { clearAllStates } from '../Global/services/action-creators';
+import { clearAllStates } from '../../common/services/action-creators';
 import { WithRedirectHocProps } from '../../common/types/hocs-injected-prop-types';
 import { UserRoleEnum } from '../../common/types/server-api-dtos';
 import { LocationDescriptorObject } from 'history';
+import { RootStoreData } from '../../common/types/redux-types';
 
 type Props = {
   location: LocationDescriptorObject<{
@@ -55,7 +56,7 @@ export class MainMenu extends Component<Props, State> {
 
   render() {
     const { redirect, location, userRoles } = this.props;
-    const authErrorMsg = location && location.state && location.state.roleNoAccessRedirect ? location.state.error : '';
+    const authErrorMsg = location?.state?.roleNoAccessRedirect ? location.state.error : '';
     const { modalIsOpen } = this.state;
     const canSeeUserManagement = isGrantedRoles(userRoles, FEATURE_EDIT_ROLES.USER_MANAGEMENT);
     const canSeePersonManagement = isGrantedRoles(userRoles, FEATURE_EDIT_ROLES.PERSON_MANAGEMENT);
@@ -103,7 +104,7 @@ export class MainMenu extends Component<Props, State> {
 }
 
 export default connect(
-  state => ({
+  (state: RootStoreData) => ({
     location: globalRouterLocationSelector(state),
     userRoles: globalUserRolesSelector(state),
   }), {

@@ -12,9 +12,9 @@ import {
   GLOBAL_SET_USER_INFO,
   GLOBAL_SHOW_LOADER,
 } from './action-constants';
-import { ResponseJSON, UserDto } from '../../../common/types/server-api-dtos';
-import { AppSettingsConfig } from '../global-types';
-import { ColorStyle } from '../global-redux-types';
+import { ResponseJSON, UserDto } from '../types/server-api-dtos';
+import { AppSettingsConfig } from '../global/global-types';
+import { ColorStyle } from '../global/global-redux-types';
 
 export const setUserInfo = (user: UserDto) => ({ type: GLOBAL_SET_USER_INFO, user } as const);
 

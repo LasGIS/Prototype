@@ -8,10 +8,11 @@ import { Redirect, Route } from 'react-router-dom';
 import { isGrantedRoles } from '../../constants/users-roles';
 import withAuthProtection from '../../hoc/withAuthProtection';
 import { globalRouterLocationSelector, globalUserRolesSelector } from '../../common/services/selectors';
-import { setColorStyle } from '../../pages/Global/services/action-creators';
-import { ColorStyle } from '../../pages/Global/global-redux-types';
+import { setColorStyle } from '../../common/services/action-creators';
+import { ColorStyle } from '../../common/global/global-redux-types';
 import { UserRoleEnum } from '../../common/types/server-api-dtos';
 import { RouteProps } from 'react-router';
+import { RootStoreData } from '../../common/types/redux-types';
 
 type Props = {
   availableRoles: UserRoleEnum[];
@@ -54,7 +55,7 @@ class ProtectedRoute extends Component<Props> {
   }
 }
 
-export default connect(state => {
+export default connect((state: RootStoreData) => {
   return {
     userRoles: globalUserRolesSelector(state),
     location: globalRouterLocationSelector(state),

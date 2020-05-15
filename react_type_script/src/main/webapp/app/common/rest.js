@@ -3,7 +3,7 @@
  */
 
 import $ from 'jquery/dist/jquery';
-import { clearErrors, globalHideLoader, globalShowLoader } from '../pages/Global/services/action-creators';
+import { clearErrors, globalHideLoader, globalShowLoader } from './services/action-creators';
 
 export const HTTP_METHODS = {
   GET: 'GET',

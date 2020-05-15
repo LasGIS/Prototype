@@ -1,0 +1,35 @@
+/*!
+ * Copyright (c) 2020. Prototype
+ */
+
+@import "../../../constants/constants";
+
+.root {
+  * {
+    font-family: $Roboto;
+    box-sizing: border-box;
+  }
+
+  .routeTitleCell {
+    width: 148px;
+    min-width: 148px;
+  }
+
+  .plannedRposCountCell {
+    width: 152px;
+    min-width: 152px;
+  }
+
+  .pendingRposCountCell {
+    width: 152px;
+    min-width: 152px;
+  }
+
+  .assignedRposCountCell {
+    width: 100px;
+    min-width: 100px;
+  }
+
+}
+
+

@@ -12,7 +12,7 @@ import withRedirectProp from '../../hoc/withRedirectProp';
 import { RootStoreData } from '../../common/types/redux-types';
 import { globalRouterLocationSelector } from '../../common/services/selectors';
 import { WithRedirectHocProps } from '../../common/types/hocs-injected-prop-types';
-import { redirect } from '../Global/services/reducer';
+import { redirect } from '../../common/services/reducer';
 
 type Props = {
   id?: string;

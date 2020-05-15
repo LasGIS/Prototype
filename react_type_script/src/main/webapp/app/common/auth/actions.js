@@ -4,7 +4,7 @@
 
 import { checkUser } from './service';
 import { FRONT_AUTH_USER } from '../../constants/constants';
-import { setUserInfo } from '../../pages/Global/services/action-creators';
+import { setUserInfo } from '../services/action-creators';
 
 export const login = (login, password) => dispatch => {
   if (login === '' || password === '') {

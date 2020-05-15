@@ -2,7 +2,7 @@
  * Copyright (c) 2020. Prototype
  */
 
-import { get } from '../../../common/rest';
+import { get } from '../rest';
 
 export function fetchCurrentUser() {
   return get(`/v1.0/user/currentuser`);

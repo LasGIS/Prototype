@@ -14,7 +14,7 @@ import { withCommonDataRequest } from '../../hoc/withCommonDataRequest';
 import { ROUTES } from '../MainMenu/constants';
 import MainMenuHeader from '../MainMenu/MainMenuHeader';
 import withRedirectProp from '../../hoc/withRedirectProp';
-import { ColorStyle } from '../Global/global-redux-types';
+import { ColorStyle } from '../../common/global/global-redux-types';
 import { RechartsDiagram } from '../Diagram/RechartsDiagram';
 import { WithRedirectHocProps } from '../../common/types/hocs-injected-prop-types';
 

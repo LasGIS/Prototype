@@ -4,7 +4,7 @@
 
 import { combineReducers } from 'redux';
 import { connectRouter } from 'connected-react-router';
-import { globalReducer } from '../pages/Global/services/reducer';
+import { globalReducer } from '../common/services/reducer';
 
 export default (history: any) =>
   combineReducers({

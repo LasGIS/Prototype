@@ -2,9 +2,9 @@
  * Copyright (c) 2020. Prototype
  */
 
-import { GetAllActionTypes } from '../../common/types/redux-types';
-import * as actions from './services/action-creators';
-import { ErrorDto, UserDto } from '../../common/types/server-api-dtos';
+import { GetAllActionTypes } from '../types/redux-types';
+import * as actions from '../services/action-creators';
+import { ErrorDto, UserDto } from '../types/server-api-dtos';
 import { AppSettingsConfig } from './global-types';
 
 export enum ColorStyle {
@@ -13,9 +13,9 @@ export enum ColorStyle {
 
 export type GlobalStoreData = {
   loading?: boolean;
-  error: ErrorDto | null;
+  error?: ErrorDto;
   authorized: boolean;
-  user: UserDto | {};
+  user?: UserDto;
   settings?: AppSettingsConfig;
   colorStyle: ColorStyle;
 };

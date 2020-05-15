@@ -7,9 +7,9 @@ import React, { ReactNode } from 'react';
 import cn from 'classnames';
 
 type Props = {
-  id?: string,
-  className?: string,
-  disabled?: boolean,
+  id?: string;
+  className?: string;
+  disabled?: boolean;
   children?: ReactNode;
 };
 
