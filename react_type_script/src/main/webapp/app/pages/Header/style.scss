@@ -4,8 +4,6 @@
 
 @import "../../constants/constants";
 
-$headerContentWidth: 1100px;
-
 /* голубая цветовая гамма */
 .blueHeader {
   background-color: $blue_bg_color;
@@ -38,13 +36,14 @@ $headerContentWidth: 1100px;
 .pageHeaderWrapper {
   display: block;
   position: sticky;
-  width: 100%;
   top: 0;
+  background-color: $body_bg_color;
+  padding-left: $left-menu-width;
   z-index: $z-index-sticky;
 }
 
 .header {
-  width: 100%;
+  width: $main-container-width;
   min-height: $header-height;
   padding: 0;
   margin: 0;
@@ -64,6 +63,13 @@ $headerContentWidth: 1100px;
   padding-left: 30px;
   padding-right: 30px;
   margin-top: 13px;
+}
+
+.topic {
+  font-size: 26px;
+  color: $topic-color;
+  font-weight: 400;
+  margin: 19px 10px 0px 30px;
 }
 
 .label {
@@ -97,13 +103,14 @@ $headerContentWidth: 1100px;
 }
 
 .spinner {
-  margin-top: 13px;
-  margin-right: 20px;
+  width: 30px;
+  margin-top: 17px;
+  margin-right: 5px;
   float: right;
 }
 
 .container {
-  width: $headerContentWidth;
+  min-width: $main-container-width;
   margin-left: auto;
   margin-right: auto;
 }
@@ -115,7 +122,7 @@ $headerContentWidth: 1100px;
 
 .bottomContent {
   display: block;
-  width: $headerContentWidth;
+  min-width: $main-container-width;
   margin: 0 auto;
   padding: 0;
 }
@@ -136,7 +143,7 @@ $headerContentWidth: 1100px;
 }
 
 .errorText {
-  width: $headerContentWidth;
+  min-width: $main-container-width;
   margin-left: auto;
   margin-right: auto;
 }

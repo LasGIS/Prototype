@@ -32,47 +32,59 @@ export class MainPage extends Component<Props> {
     };
   }
 
+  static pathName2topic = (pathname: string) => {
+    for (const key in ROUTES) {
+      const { url, topic } = ROUTES[key];
+      if (url === pathname) {
+        return topic;
+      }
+    }
+    return 'topic не найден';
+  };
+
   render() {
-    const isMainMenu = this.props.location.pathname === '/main-menu';
+    const { pathname } = this.props.location;
+    const topic = MainPage.pathName2topic(pathname);
     return (
-      <div className={styles.proto}>
-        <MainMenuHeader isMain={isMainMenu}/>
-        <Switch>
-          <ProtectedRoute
-            colorStyle={ColorStyle.blue}
-            path="/main-menu"
-            name="MainMenu"
-            component={MainMenu}
-            availableRoles={FEATURE_EDIT_ROLES.ALL_ROLES}
-          />
-          <ProtectedRoute
-            colorStyle={ColorStyle.white}
-            path={`/${ROUTES.userListPage}`}
-            name="UserManagementTable"
-            component={Components}
-            availableRoles={FEATURE_EDIT_ROLES.USER_MANAGEMENT}
-          />
-          <ProtectedRoute
-            colorStyle={ColorStyle.red}
-            exact
-            path={`/${ROUTES.personListPage}`}
-            name="PersonManagementTable"
-            component={Components}
-            availableRoles={FEATURE_EDIT_ROLES.PERSON_MANAGEMENT}
-          />
-          <Route
-            path={`/${ROUTES.recharts}`}
-            name="RechartsDiagram"
-            component={RechartsDiagram}
-          />
-          <Route
-            path={`/${ROUTES.components}`}
-            name="Components"
-            component={Components}
-          />
-          <Redirect from="/" to="/main-menu"/>
-        </Switch>
-        <Footer/>
+      <div className={styles.app}>
+        <div className={styles.proto}>
+          <MainMenuHeader topic={topic}/>
+          <div className={styles.commonPane}>
+            <div className={styles.leftPane}>
+              <MainMenu/>
+            </div>
+            <div className={styles.mainPane}>
+              <Switch>
+                <ProtectedRoute
+                  colorStyle={ColorStyle.white}
+                  path={ROUTES.userListPage.url}
+                  component={Components}
+                  availableRoles={FEATURE_EDIT_ROLES.USER_MANAGEMENT}
+                />
+                <ProtectedRoute
+                  colorStyle={ColorStyle.red}
+                  exact
+                  path={ROUTES.personListPage.url}
+                  component={Components}
+                  availableRoles={FEATURE_EDIT_ROLES.PERSON_MANAGEMENT}
+                />
+                <Route
+                  path={ROUTES.recharts.url}
+                  component={RechartsDiagram}
+                />
+                <Route
+                  path={ROUTES.components.url}
+                  component={Components}
+                />
+                <Redirect from="/" to={ROUTES.components.url}/>
+              </Switch>
+            </div>
+            <div className={styles.rightPane}>
+              <p>правая панель</p>
+            </div>
+          </div>
+          <Footer/>
+        </div>
       </div>
     );
   }

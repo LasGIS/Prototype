@@ -4,30 +4,43 @@
 
 @import "../../constants/constants";
 
+.app {
+  background: $body_bg_color;
+  width: 100vw;
+}
 
 .proto {
-  background: $body_bg_color;
   display: flex;
   flex-direction: column;
+  width: $common-width;
   min-height: 100vh;
+  margin: 0 auto;
   font-family: $Roboto;
-  width: 100%;
 }
 
-.protoBody {
+.commonPane {
   display: flex;
   flex-direction: row;
-  flex-grow: 1;
-  width: 100%;
-
-  .main {
-    flex: 1;
-    min-width: 0;
-  }
+  padding-bottom: 75px;
 }
 
-.mainContainer {
-  width: 1100px;
-  margin: 0 auto;
-  padding-bottom: 75px;
+.leftPane {
+  //  background: red;
+  width: $left-menu-width;
+  z-index: 1;
+}
+
+.mainPane {
+  display: flex;
+  flex-direction: column;
+  background: $white_color;
+  width: $main-container-width;
+  padding-top: 20px;
+}
+
+.rightPane {
+  //  background: $yellow;
+  display: flex;
+  flex-direction: column;
+  width: $right-pane-width;
 }

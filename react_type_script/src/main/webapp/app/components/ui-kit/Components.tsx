@@ -12,7 +12,6 @@ import QuestionIcon from '../icon/QuestionIcon';
 import CheckboxViewer from './modules/CheckboxViewer/CheckboxViewer';
 import Link from '../label/Link';
 import Label from '../label/Label';
-import MainContainer from '../../pages/MainPage/MainContainer';
 import Row from '../row/Row';
 import Col from '../col/Col';
 
@@ -44,8 +43,7 @@ export default class Components extends Component<Props, State> {
   render() {
     const { eventText } = this.state;
     return (
-      <div>
-        <MainContainer>
+        <>
           <Row>
             <h2>UI - элементы</h2>
             <Label text={eventText}/>
@@ -116,8 +114,7 @@ export default class Components extends Component<Props, State> {
             <Col> <AcceptIcon/> </Col>
             <Col> <QuestionIcon/> </Col>
           </Row>
-        </MainContainer>
-      </div>
+        </>
     );
   }
 }
