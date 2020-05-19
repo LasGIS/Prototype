@@ -3,13 +3,13 @@
  */
 
 import { del, get, post, put } from '../../../common/rest';
-import { PasswordData } from './types';
-import { UserDto } from '../../../common/types/server-api-dtos';
+import { PasswordData } from '../common/types';
+import { RequestParams, UserDto } from '../../../common/types/server-api-dtos';
 
 /** Получение списка пользователей */
 export const usersListRequestUrl = `/v1.0/user`;
 
-export function requestUsersList(params: any) {
+export function requestUsersList(params: RequestParams) {
   return get(usersListRequestUrl, params);
 }
 
@@ -36,9 +36,4 @@ export function requestChangeUser(user: UserDto) {
 /** Удаление пользователя */
 export function requestDeleteUser(userId: number) {
   return del(`${usersListRequestUrl}/${userId}`);
-}
-
-/** Получение данных для автокомплита */
-export function requestAutocompleteDataSource() {
-  return get(`/v1.0/prefilleduserinfo`);
 }

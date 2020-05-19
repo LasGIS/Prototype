@@ -46,9 +46,11 @@ export function prepareAutocompleteData(initData: AutocompleteData) {
   };
   const itemsMap = result.itemsMap;
 
+  // @ts-ignore
   result.items = [...names, ...logins, ...Object.values(roles)];
 
   for (const name of names) {
+    // @ts-ignore
     itemsMap[name] = {
       type: 'names',
       id: '',
@@ -56,6 +58,7 @@ export function prepareAutocompleteData(initData: AutocompleteData) {
   }
 
   for (const login of logins) {
+    // @ts-ignore
     itemsMap[login] = {
       type: 'logins',
       id: '',
@@ -63,6 +66,7 @@ export function prepareAutocompleteData(initData: AutocompleteData) {
   }
 
   for (const roleEntry of Object.entries(roles)) {
+    // @ts-ignore
     itemsMap[roleEntry[1]] = {
       type: 'roles',
       id: roleEntry[0],

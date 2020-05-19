@@ -2,7 +2,7 @@
  * Copyright (c) 2020. Prototype
  */
 
-export const API_ERROR: { [key: string]: number } = {
+export const API_ERROR = {
   /** ошибка вызова DC */
   CONNECTION_DC: 101,
   /** ошибка вызова Тарификатора */

@@ -13,8 +13,12 @@ import TableHeadCell from '../../../components/table/TableHeadCell';
 import TableCell from '../../../components/table/TableCell';
 
 type Props = {
-  currentUser: UserDto;
-  users: [UserDto];
+  id: string;
+  className?: string;
+  currentUser?: UserDto;
+  users: UserDto[];
+  onEditUser: (id: number) => void;
+  addUser: () => void;
 };
 
 export class UserManagementTable extends React.Component<Props> {

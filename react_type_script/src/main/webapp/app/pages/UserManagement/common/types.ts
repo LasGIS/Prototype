@@ -2,7 +2,10 @@
  * Copyright (c) 2020. Prototype
  */
 
-import { UserRoleEnum } from '../../../common/types/server-api-dtos';
+import { Pagination, UserDto, UserRoleEnum } from '../../../common/types/server-api-dtos';
+import { GetAllActionTypes } from '../../../common/types/redux-types';
+import * as UserManagementActionMaps from '../services/action-creators';
+import * as GlobalActionMaps from '../../../common/services/action-creators';
 
 export type AutocompleteData = {
   names: string[];
@@ -13,3 +16,34 @@ export type AutocompleteData = {
 export type PasswordData = {
   userId: string;
 };
+
+export type UserManagementState = {
+  users: UserDto[];
+  usersPagination: Pagination;
+  usersPageUrl: string;
+  // editing user
+  editingUser: UserDto,
+  // create new user
+  userCreationIsLoading: boolean,
+  userCreated: boolean,
+  createdUserData?: UserDto,
+  // login error
+  showLoginExistsError: boolean,
+  // edit user
+  userEditingIsLoading: boolean,
+  userEdited: boolean,
+  // delete user
+  userDeletingIsLoading: boolean,
+  userDeleted: boolean,
+  // password
+  passwordChangingIsLoading: boolean,
+  passwordChanged: boolean,
+};
+
+const userManagementActions = {
+  ...UserManagementActionMaps,
+  ...GlobalActionMaps,
+} as const;
+
+export type UserManagementActions = ReturnType<GetAllActionTypes<typeof userManagementActions>>;
+
