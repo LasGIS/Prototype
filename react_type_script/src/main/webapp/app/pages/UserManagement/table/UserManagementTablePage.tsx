@@ -2,7 +2,6 @@
  * Copyright (c) 2020. Prototype
  */
 
-import './table-page.scss';
 import React from 'react';
 import { connect, ConnectedProps } from 'react-redux';
 import * as queryString from 'query-string';

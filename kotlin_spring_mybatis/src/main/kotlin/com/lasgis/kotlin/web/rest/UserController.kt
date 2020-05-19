@@ -21,6 +21,8 @@ import org.springframework.web.bind.annotation.RestController
 class UserController(private val userMapper: UserMapper) {
 
     @GetMapping
-    fun user(@RequestParam(value = "login", defaultValue = "VPupkin") login: String) =
-        userMapper.findByLogin(login)
+    fun user(
+        @RequestParam(value = "login", defaultValue = "VPupkin") login: String,
+        @RequestParam(value = "password", required = false, defaultValue = "123") password: String
+    ) = userMapper.findByLogin(login)
 }

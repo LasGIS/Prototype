@@ -4,13 +4,13 @@
 
 import styles from './style.scss';
 import React from 'react';
-import './table.scss';
 import TableRow from '../../../components/table/TableRow';
 import TableEmptyRow from '../../../components/table/TableEmptyRow';
 import { getRolesString } from './utils';
 import { UserDto } from '../../../common/types/server-api-dtos';
 import TableHeadCell from '../../../components/table/TableHeadCell';
 import TableCell from '../../../components/table/TableCell';
+import Table from '../../../components/table/Table';
 
 type Props = {
   id: string;
@@ -28,12 +28,12 @@ export class UserManagementTable extends React.Component<Props> {
     const { users } = this.props;
 
     return (
-      <div className={'user-management-table'}>
-        {this.renderHeaderRow}
+      <Table className={'user-management-table'}>
+        {this.renderHeaderRow()}
         <div className="user-management-table__rows">
-          {users && users.length ? this.renderUsers() : <TableEmptyRow/>}
+          {users && users.length ? this.renderUsers(users) : <TableEmptyRow>По указанному критерию поиска ничего не найдено</TableEmptyRow>}
         </div>
-      </div>
+      </Table>
     );
   }
 
@@ -62,14 +62,13 @@ export class UserManagementTable extends React.Component<Props> {
     );
   }
 
-  renderUsers() {
-    const { users } = this.props;
+  renderUsers(users: UserDto[]) {
     return (
-      <>
+      <div className='rrrrrrrrrrrrrrrrrrrr'>
         {users.map((user, index) => {
           this.renderRow(user, index);
         })}
-      </>
+      </div>
     );
   }
 }

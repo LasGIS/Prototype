@@ -17,6 +17,7 @@ import withRedirectProp from '../../hoc/withRedirectProp';
 import { ColorStyle } from '../../common/global/global-redux-types';
 import { RechartsDiagram } from '../Diagram/RechartsDiagram';
 import { WithRedirectHocProps } from '../../common/types/hocs-injected-prop-types';
+import UserManagementTablePage from '../UserManagement/table/UserManagementTablePage';
 
 type Props = {
   location: Location;
@@ -58,7 +59,7 @@ export class MainPage extends Component<Props> {
                 <ProtectedRoute
                   colorStyle={ColorStyle.white}
                   path={ROUTES.userListPage.url}
-                  component={Components}
+                  component={UserManagementTablePage}
                   availableRoles={FEATURE_EDIT_ROLES.USER_MANAGEMENT}
                 />
                 <ProtectedRoute
