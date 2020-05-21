@@ -4,32 +4,43 @@
 
 @import "../../../constants/constants";
 
-.root {
-  * {
-    font-family: $Roboto;
-    box-sizing: border-box;
-  }
+$userIdWidth: 50px;
+$loginWidth: 200px;
+$fioWidth: 300px;
+$rolesWidth: 440px;
+$archivedWidth: 100px;
 
-  .routeTitleCell {
-    width: 148px;
-    min-width: 148px;
-  }
-
-  .plannedRposCountCell {
-    width: 152px;
-    min-width: 152px;
-  }
-
-  .pendingRposCountCell {
-    width: 152px;
-    min-width: 152px;
-  }
-
-  .assignedRposCountCell {
-    width: 100px;
-    min-width: 100px;
-  }
-
+.tablePage {
+//  background-color: #CD7269;
 }
 
+.table {
+  background: #FFFFFF;
+  box-shadow: 1px 1px 2px 2px $box_shadow_color;
+  margin: 4px;
+}
 
+.userId {
+  width: $userIdWidth;
+  min-width: $userIdWidth;
+}
+
+.login {
+  width: $loginWidth;
+  min-width: $loginWidth;
+}
+
+.fio {
+  width: $fioWidth;
+  min-width: $fioWidth;
+}
+
+.roles {
+  width: $rolesWidth;
+  min-width: $rolesWidth;
+}
+
+.archived {
+  width: $archivedWidth;
+  min-width: $archivedWidth;
+}

@@ -14,8 +14,8 @@ export enum ColorStyle {
 export type GlobalStoreData = {
   loading?: boolean;
   error?: ErrorDto;
-  authorized: boolean;
   user?: UserDto;
+  isUserDataLoaded: boolean;
   settings?: AppSettingsConfig;
   colorStyle: ColorStyle;
 };

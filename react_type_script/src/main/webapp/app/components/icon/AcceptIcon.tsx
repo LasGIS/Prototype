@@ -3,13 +3,13 @@
  */
 
 import React from 'react';
-import './style.scss';
+import styles from './style.scss';
 import cn from 'classnames';
 
 type Props = {
   className?: string;
 };
 
-const AcceptIcon = ({ className }: Props) => <div className={cn('icon icon__accept', className)}/>;
+const AcceptIcon = ({ className }: Props) => <div className={cn(styles.iconAccept, className)}/>;
 
 export default AcceptIcon;

@@ -4,17 +4,29 @@
 
 import { GlobalActions } from '../global/global-redux-types';
 import { fetchAppSettings, fetchCurrentUser } from './service';
-import { errorHandler, getSystemSettings, setUserInfo } from './action-creators';
+import {
+  errorHandler,
+  getSystemSettings,
+  getUserInfo,
+  getUserInfoFail,
+  getUserInfoStart,
+  getUserInfoSuccess,
+} from './action-creators';
 import { ResponseJSON, UserDto } from '../types/server-api-dtos';
 
 export type GlobalDispatch = (arg: GlobalActions) => GlobalActions;
 
-export const getUserInfo = () => (dispatch: GlobalDispatch) => {
+export const getCurrentUserInfo = () => (dispatch: GlobalDispatch) => {
+  dispatch(getUserInfoStart());
   return fetchCurrentUser()(dispatch)
     .then((user: UserDto) => {
-      dispatch(setUserInfo(user));
+      dispatch(getUserInfo(user));
+      dispatch(getUserInfoSuccess());
     })
-    .catch((error: ResponseJSON) => dispatch(errorHandler(error)));
+    .catch((error: ResponseJSON) => {
+      dispatch(getUserInfoFail());
+      dispatch(errorHandler(error))
+    });
 };
 
 export const getAppSettings = () => (dispatch: GlobalDispatch) => {

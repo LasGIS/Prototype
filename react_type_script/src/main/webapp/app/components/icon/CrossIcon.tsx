@@ -2,19 +2,20 @@
  * Copyright (c) 2020. Prototype
  */
 
-import './style.scss';
+import styles from './style.scss';
 import React from 'react';
 import cn from 'classnames';
 
 type Props = {
   id: string;
   className?: string;
+  red?: boolean;
   onClick?: () => void;
 };
 
-const CrossIcon = ({ id, className, onClick }: Props) => (
-  <div id={id} className={cn('icon__cross', className)} onClick={() => onClick && onClick()}/>
-);
+const CrossIcon = ({ id, className, red, onClick }: Props) =>
+  <div id={id} className={cn((red ? styles.iconCrossRed : styles.iconCross), className)}
+       onClick={() => onClick && onClick()}/>;
 
 CrossIcon.defaultProps = {
   id: 'crossIcon',

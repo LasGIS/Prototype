@@ -3,9 +3,9 @@
  */
 
 import React from 'react';
-import './style.scss';
+import styles from './style.scss';
 import cn from 'classnames';
 
-const PrinterIconGray = ({ className }) => <div className={cn('icon icon__printerGray', className)}/>;
+const PrinterIconGray = ({ className }) => <div className={cn(styles.iconPrinterGray, className)}/>;
 
 export default PrinterIconGray;

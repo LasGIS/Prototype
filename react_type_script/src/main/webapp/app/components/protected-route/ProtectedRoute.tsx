@@ -7,7 +7,11 @@ import { connect } from 'react-redux';
 import { Redirect, Route } from 'react-router-dom';
 import { isGrantedRoles } from '../../constants/users-roles';
 import withAuthProtection from '../../hoc/withAuthProtection';
-import { globalRouterLocationSelector, globalUserRolesSelector } from '../../common/services/selectors';
+import {
+  globalRouterLocationSelector,
+  globalUserDataIdLoadedSelector,
+  globalUserRolesSelector,
+} from '../../common/services/selectors';
 import { setColorStyle } from '../../common/services/action-creators';
 import { ColorStyle } from '../../common/global/global-redux-types';
 import { UserRoleEnum } from '../../common/types/server-api-dtos';
@@ -17,6 +21,7 @@ import { RootStoreData } from '../../common/types/redux-types';
 type Props = {
   availableRoles: UserRoleEnum[];
   userRoles: UserRoleEnum[];
+  userDataIsLoaded: boolean;
   setColorStyle: (colorStyle: ColorStyle) => void;
   colorStyle: ColorStyle;
 } & RouteProps;
@@ -34,11 +39,11 @@ class ProtectedRoute extends Component<Props> {
   }
 
   render() {
-    const { availableRoles, userRoles, location, ...rest } = this.props;
+    const { availableRoles, userRoles, location, userDataIsLoaded, ...rest } = this.props;
     const userCanSeePage = isGrantedRoles(userRoles, availableRoles);
     const error = `Недостаточно прав для посещения страницы - ${location?.pathname}`;
 
-    return userCanSeePage ? (
+    return (!userDataIsLoaded || userCanSeePage) ? (
       <Route {...rest} />
     ) : (
       <Redirect
@@ -59,6 +64,7 @@ export default connect((state: RootStoreData) => {
   return {
     userRoles: globalUserRolesSelector(state),
     location: globalRouterLocationSelector(state),
+    userDataIsLoaded: globalUserDataIdLoadedSelector(state),
   };
 }, {
   setColorStyle,

@@ -14,7 +14,6 @@ import Table from '../../../components/table/Table';
 
 type Props = {
   id: string;
-  className?: string;
   currentUser?: UserDto;
   users: UserDto[];
   onEditUser: (id: number) => void;
@@ -28,11 +27,11 @@ export class UserManagementTable extends React.Component<Props> {
     const { users } = this.props;
 
     return (
-      <Table className={'user-management-table'}>
+      <Table className={styles.table}>
         {this.renderHeaderRow()}
-        <div className="user-management-table__rows">
-          {users && users.length ? this.renderUsers(users) : <TableEmptyRow>По указанному критерию поиска ничего не найдено</TableEmptyRow>}
-        </div>
+        {users && users.length ? this.renderUsers(users) :
+          <TableEmptyRow>По указанному критерию поиска ничего не найдено</TableEmptyRow>
+        }
       </Table>
     );
   }
@@ -64,11 +63,11 @@ export class UserManagementTable extends React.Component<Props> {
 
   renderUsers(users: UserDto[]) {
     return (
-      <div className='rrrrrrrrrrrrrrrrrrrr'>
+      <>
         {users.map((user, index) => {
-          this.renderRow(user, index);
+          return this.renderRow(user, index);
         })}
-      </div>
+      </>
     );
   }
 }

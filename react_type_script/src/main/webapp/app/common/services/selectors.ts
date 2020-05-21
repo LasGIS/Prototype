@@ -24,3 +24,7 @@ export const globalRouterLocationSelector = createSelector(
   router => (router && router.location) || null,
 );
 
+export const globalUserDataIdLoadedSelector = createSelector(
+  globalDataRootSelector,
+  global => Boolean(global && global.isUserDataLoaded),
+);

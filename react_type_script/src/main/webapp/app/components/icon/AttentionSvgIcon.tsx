@@ -4,9 +4,15 @@
 
 import React from 'react';
 import cn from 'classnames';
-import PropTypes from 'prop-types';
 
-const AttentionSvgIcon = ({ className, width, height, color }) => (
+type Props = {
+  className?: string;
+  width?: number;
+  height?: number;
+  color?: string;
+}
+
+const AttentionSvgIcon = ({ className, width, height, color }: Props) => (
   <svg
     className={cn(className)}
     xmlns="http://www.w3.org/2000/svg"
@@ -36,18 +42,11 @@ const AttentionSvgIcon = ({ className, width, height, color }) => (
   </svg>
 );
 
-export default AttentionSvgIcon;
-
-AttentionSvgIcon.propTypes = {
-  className: PropTypes.string,
-  width: PropTypes.number,
-  height: PropTypes.number,
-  color: PropTypes.string,
-};
-
 AttentionSvgIcon.defaultProps = {
   className: '',
   width: 18,
   height: 17,
   color: '#F88901',
 };
+
+export default AttentionSvgIcon;

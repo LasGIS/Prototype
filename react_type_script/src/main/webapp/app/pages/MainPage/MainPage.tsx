@@ -81,7 +81,7 @@ export class MainPage extends Component<Props> {
               </Switch>
             </div>
             <div className={styles.rightPane}>
-              <p>правая панель</p>
+              {/*<p>правая панель</p>*/}
             </div>
           </div>
           <Footer/>

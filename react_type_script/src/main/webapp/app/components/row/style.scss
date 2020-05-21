@@ -7,7 +7,7 @@
 $row_box_shadow_color: #AEB0B2;
 .row {
   display: flex;
-  background-color: $white;
+  background-color: $lightGreyBorderComponent;
   box-shadow: 0 1px 1px 0 $row_box_shadow_color;
   padding: 20px;
   margin-bottom: 10px;

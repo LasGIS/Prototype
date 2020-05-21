@@ -6,6 +6,7 @@ type RouteType = {
   url: string;
   topic: string
 }
+
 export const ROUTES: { [any: string]: RouteType } = {
   userListPage: { url: '/user-list', topic: 'User Management' },
   personListPage: { url: '/person-list', topic: 'Person Management' },

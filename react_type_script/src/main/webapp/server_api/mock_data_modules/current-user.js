@@ -6,7 +6,7 @@
 const currentUser = {
   userId: '777',
   login: 'frontend-app-user',
-  name: 'Демченко Марина Викторовна',
+  name: 'Тестовый Юзер Юзерович',
   roles: ['CHIEF', 'ADMIN', 'OPERATOR', 'SUPERVISOR'],
   archived: false,
 };

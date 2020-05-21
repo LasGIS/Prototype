@@ -5,15 +5,16 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { FRONT_AUTH_USER } from '../constants/constants';
-import { getAppSettings } from '../common/services/async-actions';
+import { getAppSettings, getCurrentUserInfo } from '../common/services/async-actions';
 
 export const withCommonDataRequest = OriginalComponent => {
 
   class WithCommonDataRequest extends React.Component {
     componentDidMount() {
-      const { getAppSettings } = this.props;
+      const { getUserInfo, getAppSettings } = this.props;
       const frontAuthUser = localStorage.getItem(FRONT_AUTH_USER);
       if (frontAuthUser) {
+        getUserInfo();
         getAppSettings();
       }
     }
@@ -25,6 +26,7 @@ export const withCommonDataRequest = OriginalComponent => {
   }
 
   return connect(() => ({}), {
+    getUserInfo: getCurrentUserInfo,
     getAppSettings,
   })(WithCommonDataRequest);
 };

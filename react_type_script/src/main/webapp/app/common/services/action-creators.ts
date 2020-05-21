@@ -6,17 +6,23 @@ import {
   CLEAR_ALL_STATES,
   GLOBAL_CLEAR_ERROR,
   GLOBAL_GET_SYSTEM_SETTINGS,
+  GLOBAL_GET_USER_INFO,
+  GLOBAL_GET_USER_INFO_FAIL,
+  GLOBAL_GET_USER_INFO_START,
+  GLOBAL_GET_USER_INFO_SUCCESS,
   GLOBAL_HIDE_LOADER,
   GLOBAL_PUSH_ERROR,
   GLOBAL_SET_COLOR_STYLE,
-  GLOBAL_SET_USER_INFO,
   GLOBAL_SHOW_LOADER,
 } from './action-constants';
 import { ResponseJSON, UserDto } from '../types/server-api-dtos';
 import { AppSettingsConfig } from '../global/global-types';
 import { ColorStyle } from '../global/global-redux-types';
 
-export const setUserInfo = (user: UserDto) => ({ type: GLOBAL_SET_USER_INFO, user } as const);
+export const getUserInfo = (user: UserDto) => ({ type: GLOBAL_GET_USER_INFO, user } as const);
+export const getUserInfoStart = () => ({ type: GLOBAL_GET_USER_INFO_START } as const);
+export const getUserInfoSuccess = () => ({ type: GLOBAL_GET_USER_INFO_SUCCESS } as const);
+export const getUserInfoFail = () => ({ type: GLOBAL_GET_USER_INFO_FAIL } as const);
 
 export const clearErrors = () => ({ type: GLOBAL_CLEAR_ERROR } as const);
 

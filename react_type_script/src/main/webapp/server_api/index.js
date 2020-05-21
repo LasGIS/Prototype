@@ -28,7 +28,7 @@ router.post('/login', function(req, res, next) {
   res.json(mockData['current-user-info']);
 });
 
-router.get(apiVersion + '/user/currentuser', function(req, res, next) {
+router.get(apiVersion + '/user/current', function(req, res, next) {
   res.json(mockData['current-user-info']);
 });
 

@@ -3,13 +3,13 @@
  */
 
 import React from 'react';
-import './style.scss';
+import styles from './style.scss';
 import cn from 'classnames';
 
 type Props = {
   className?: string;
 };
 
-const QuestionIcon = ({ className }: Props) => <div className={cn('icon icon__question', className)}/>;
+const QuestionIcon = ({ className }: Props) => <div className={cn(styles.icon, styles.iconQuestion, className)}/>;
 
 export default QuestionIcon;

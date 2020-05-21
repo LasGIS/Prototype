@@ -2,12 +2,23 @@
  * Copyright (c) 2020. Prototype
  */
 
-import './style.scss';
 import React, { Component } from 'react';
 import cn from 'classnames';
-import PropTypes from 'prop-types';
 
-export default class FilterIcon extends Component {
+type Props = {
+  id: string;
+  className: string;
+  active: boolean;
+  greyWithBorder: boolean;
+  grey: boolean;
+  onClick: () => any;
+  type: string;
+};
+
+export default class FilterIcon extends Component<Props> {
+  static defaultProps = {
+    id: 'FilterIcon',
+  };
   render() {
     const { id, className, onClick, type } = this.props;
 
@@ -27,16 +38,3 @@ export default class FilterIcon extends Component {
   }
 }
 
-FilterIcon.propTypes = {
-  id: PropTypes.string.isRequired,
-  className: PropTypes.string,
-  active: PropTypes.bool,
-  greyWithBorder: PropTypes.bool,
-  grey: PropTypes.bool,
-  onClick: PropTypes.func,
-  type: PropTypes.string,
-};
-
-FilterIcon.defaultProps = {
-  id: '',
-};

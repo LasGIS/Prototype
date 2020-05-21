@@ -2,7 +2,6 @@
  * Copyright (c) 2020. Prototype
  */
 
-import './style.scss';
 import React from 'react';
 import cn from 'classnames';
 import PropTypes from 'prop-types';

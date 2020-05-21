@@ -4,7 +4,7 @@
 
 import { checkUser } from './service';
 import { FRONT_AUTH_USER } from '../../constants/constants';
-import { setUserInfo } from '../services/action-creators';
+import { getUserInfo } from '../services/action-creators';
 
 export const login = (login, password) => dispatch => {
   if (login === '' || password === '') {
@@ -13,7 +13,7 @@ export const login = (login, password) => dispatch => {
   return checkUser(login, password)(dispatch)
     .then(user => {
       localStorage.setItem(FRONT_AUTH_USER, JSON.stringify(user));
-      dispatch(setUserInfo(user));
+      dispatch(getUserInfo(user));
     })
     .catch(err => {
       localStorage.setItem(FRONT_AUTH_USER, '');

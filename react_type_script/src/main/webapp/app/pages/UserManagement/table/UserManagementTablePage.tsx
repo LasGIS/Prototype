@@ -2,6 +2,7 @@
  * Copyright (c) 2020. Prototype
  */
 
+import styles from './style.scss';
 import React from 'react';
 import { connect, ConnectedProps } from 'react-redux';
 import * as queryString from 'query-string';
@@ -99,12 +100,11 @@ class UserManagementTablePage extends React.Component<Props> {
   render() {
     const { currentUser, users, redirect, usersPagination } = this.props;
     return (
-      <div className={'user-management-table-page'}>
+      <div className={styles.tablePage}>
         <UserManagementTable
           id="user-management-table"
           currentUser={currentUser}
           users={users}
-          className="user-management-table"
           onEditUser={(id: number) => redirect(`/user-management-form/${id}`)}
           addUser={() => redirect(`/user-management-form`)}
         />

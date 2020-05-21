@@ -8,10 +8,13 @@ import {
   CLEAR_ALL_STATES,
   GLOBAL_CLEAR_ERROR,
   GLOBAL_GET_SYSTEM_SETTINGS,
+  GLOBAL_GET_USER_INFO,
+  GLOBAL_GET_USER_INFO_FAIL,
+  GLOBAL_GET_USER_INFO_START,
+  GLOBAL_GET_USER_INFO_SUCCESS,
   GLOBAL_HIDE_LOADER,
   GLOBAL_PUSH_ERROR,
   GLOBAL_SET_COLOR_STYLE,
-  GLOBAL_SET_USER_INFO,
   GLOBAL_SHOW_LOADER,
 } from './action-constants';
 import { ColorStyle, GlobalActions, GlobalStoreData } from '../global/global-redux-types';
@@ -19,10 +22,10 @@ import { ColorStyle, GlobalActions, GlobalStoreData } from '../global/global-red
 const initialState: GlobalStoreData = {
   loading: false,
   error: undefined,
-  authorized: false,
   user: undefined,
+  isUserDataLoaded: false,
   settings: undefined,
-  colorStyle: ColorStyle.white
+  colorStyle: ColorStyle.white,
 };
 
 export function redirect(routePath: Path) {
@@ -46,8 +49,14 @@ export function logoutAction() {
 
 export function globalReducer(state: GlobalStoreData = initialState, action: GlobalActions): GlobalStoreData {
   switch (action.type) {
-    case GLOBAL_SET_USER_INFO:
+    case GLOBAL_GET_USER_INFO:
       return { ...state, user: action.user };
+    case GLOBAL_GET_USER_INFO_START:
+      return { ...state, isUserDataLoaded: false };
+    case GLOBAL_GET_USER_INFO_SUCCESS:
+      return { ...state, isUserDataLoaded: true };
+    case GLOBAL_GET_USER_INFO_FAIL:
+      return { ...state, isUserDataLoaded: false };
     case GLOBAL_GET_SYSTEM_SETTINGS:
       return { ...state, settings: action.settings };
     case GLOBAL_SET_COLOR_STYLE:
