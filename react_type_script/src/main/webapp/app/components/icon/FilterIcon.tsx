@@ -2,23 +2,25 @@
  * Copyright (c) 2020. Prototype
  */
 
+import styles from './style.scss';
 import React, { Component } from 'react';
 import cn from 'classnames';
 
+export enum FilterIconType { active, greyWithBorder, grey}
+
 type Props = {
   id: string;
-  className: string;
-  active: boolean;
-  greyWithBorder: boolean;
-  grey: boolean;
-  onClick: () => any;
-  type: string;
+  className?: string;
+  type: FilterIconType;
+  onClick?: () => any;
 };
 
 export default class FilterIcon extends Component<Props> {
   static defaultProps = {
     id: 'FilterIcon',
+    type: FilterIconType.active,
   };
+
   render() {
     const { id, className, onClick, type } = this.props;
 
@@ -28,13 +30,11 @@ export default class FilterIcon extends Component<Props> {
         onClick={onClick}
         className={cn(
           className,
-          'icon',
-          { 'icon__filter--active': type === 'active' },
-          { 'icon__filter--grey-with-border': type === 'greyWithBorder' },
-          { 'icon__filter--grey': type === 'grey' },
+          { [styles.iconFilterActive]: type === FilterIconType.active },
+          { [styles.iconFilterGreyWithBorder]: type === FilterIconType.greyWithBorder },
+          { [styles.iconFilterGrey]: type === FilterIconType.grey },
         )}
       />
     );
   }
 }
-

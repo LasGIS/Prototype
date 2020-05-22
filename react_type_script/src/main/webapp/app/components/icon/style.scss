@@ -147,14 +147,14 @@
   height: 16px;
 }
 
-.oval-label {
+.ovalLabel {
   display: flex;
+}
 
-  &__oval {
-    margin-top: 8px;
-  }
+.ovalLabelOval {
+  margin-top: 8px;
+}
 
-  &--green {
-    background-color: $green;
-  }
+.ovalLabelGreen {
+  background-color: $green;
 }

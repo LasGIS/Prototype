@@ -4,9 +4,14 @@
 
 import React from 'react';
 import cn from 'classnames';
-import PropTypes from 'prop-types';
 
-const RemoveFileSvgIcon = ({ className, width, height }) => (
+type Props = {
+  className?: string;
+  width?: number;
+  height?: number;
+};
+
+const RemoveFileSvgIcon = ({ className, width, height }: Props) => (
   <svg
     className={cn(className)}
     width={width}
@@ -29,16 +34,10 @@ const RemoveFileSvgIcon = ({ className, width, height }) => (
   </svg>
 );
 
-export default RemoveFileSvgIcon;
-
-RemoveFileSvgIcon.propTypes = {
-  className: PropTypes.string,
-  width: PropTypes.number,
-  height: PropTypes.number,
-};
-
 RemoveFileSvgIcon.defaultProps = {
   className: '',
   width: 18,
   height: 18,
 };
+
+export default RemoveFileSvgIcon;

@@ -2,14 +2,6 @@
  * Copyright (c) 2020. Prototype
  */
 
-$body_bg_color: #F5F5F5;
-$blue_bg_color: #1D53B1;
-$blue_bg_shadow: #336BCD;
-$blue_color: #0055A6;
-$white_bg_shadow: #E6E6E6;
-$white_color: #FFFFFF;
-$topic-color: #D93025;
-
 $header-height: 70px;
 $main-container-bottom: 90px;
 $left-menu-width: 300px;
@@ -38,6 +30,18 @@ $light_border_color: #D9D9D9;
 $gray_border_color: #C4C4C4;
 $route_green: #20A217;
 $route_yellow: #F5A623;
+
+$body_bg_color: #F5F5F5;
+
+$blue_bg_color: #1D53B1;
+$blue_bg_shadow: #336BCD;
+
+$white_bg_color: $white;
+$white_bg_shadow: #E6E6E6;
+
+$blue_color: #0055A6;
+$white_color: #FFFFFF;
+$topic-color: #D93025;
 
 $dotted_color: #979797;
 $disabled_color: #AEB0B2;

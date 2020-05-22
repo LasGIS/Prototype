@@ -12,13 +12,14 @@ import QuestionIcon from '../icon/QuestionIcon';
 import CheckboxViewer from './modules/CheckboxViewer/CheckboxViewer';
 import Link from '../label/Link';
 import Label from '../label/Label';
-import Row from '../row/Row';
+import Row, { RowType } from '../row/Row';
 import Col from '../col/Col';
 import CancelIcon from '../icon/CancelIcon';
 import Check from '../icon/Check';
 import CrossIcon from '../icon/CrossIcon';
 import DownIcon from '../icon/DownIcon';
 import UpIcon from '../icon/UpIcon';
+import FilterIcon, { FilterIconType } from '../icon/FilterIcon';
 
 type Props = {};
 
@@ -98,7 +99,7 @@ export default class Components extends Component<Props, State> {
             </Button>
           </Col>
         </Row>
-        <Row>
+        <Row type={RowType.blue}>
           <Col>
             <Input id="input2" barcode blue value="1234567890" readOnly/>
           </Col>
@@ -114,7 +115,7 @@ export default class Components extends Component<Props, State> {
             <Link id="link3" onClick={this.onPressLabel} text="dotted ссылка" dotted/>
           </Col>
         </Row>
-        <Row>
+        <Row type={RowType.grey}>
           <PrinterIcon/>
           <AcceptIcon/>
           <QuestionIcon/>
@@ -126,7 +127,9 @@ export default class Components extends Component<Props, State> {
           <DownIcon/>
           <UpIcon/>
           <UpIcon blue />
-          <Check/>
+          <FilterIcon/>
+          <FilterIcon type={FilterIconType.grey} />
+          <FilterIcon type={FilterIconType.greyWithBorder} />
         </Row>
       </>
     );
