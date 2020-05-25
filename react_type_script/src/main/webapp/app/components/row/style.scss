@@ -4,7 +4,6 @@
 
 @import "../../constants/constants";
 
-$row_box_shadow_color: #AEB0B2;
 .row {
   display: flex;
   padding: 20px;
@@ -21,8 +20,8 @@ $row_box_shadow_color: #AEB0B2;
 }
 
 .grey {
-  background-color: $lightGreyBorderComponent;
-  box-shadow: 1px 1px 3px 1px $row_box_shadow_color;
+  background-color: $grey_bg_color;
+  box-shadow: 1px 1px 3px 1px $grey_shadow_color;
   color: $black;
 }
 

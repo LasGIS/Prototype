@@ -7,8 +7,15 @@ export type ErrorDto = {
   text: string;
 };
 
+export type SystemErrorDto = {
+  error: string;
+  message: string;
+  path: string;
+  status: number;
+};
+
 export type ResponseJSON = {
-  responseJSON: ErrorDto;
+  responseJSON: ErrorDto & SystemErrorDto;
 };
 
 export enum UserRoleEnum {

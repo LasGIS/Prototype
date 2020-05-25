@@ -57,7 +57,7 @@ export class LoginForm extends Component<Props, State> {
   onSubmit() {
     this.props.login(this.state.login, this.state.password)
       .then(() => {
-        this.props.redirect('/main-menu');
+        this.props.redirect('/');
       })
       .catch(error => this.setState({ wrongPassword: true }));
   }

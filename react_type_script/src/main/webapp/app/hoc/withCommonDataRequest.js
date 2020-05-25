@@ -11,10 +11,11 @@ export const withCommonDataRequest = OriginalComponent => {
 
   class WithCommonDataRequest extends React.Component {
     componentDidMount() {
-      const { getUserInfo, getAppSettings } = this.props;
-      const frontAuthUser = localStorage.getItem(FRONT_AUTH_USER);
-      if (frontAuthUser) {
-        getUserInfo();
+      const { getCurrentUserInfo, getAppSettings } = this.props;
+      const authUserStr = localStorage.getItem(FRONT_AUTH_USER);
+      if (authUserStr) {
+        const authUser = JSON.parse(authUserStr);
+        getCurrentUserInfo(authUser.login);
         getAppSettings();
       }
     }
@@ -26,7 +27,7 @@ export const withCommonDataRequest = OriginalComponent => {
   }
 
   return connect(() => ({}), {
-    getUserInfo: getCurrentUserInfo,
+    getCurrentUserInfo,
     getAppSettings,
   })(WithCommonDataRequest);
 };

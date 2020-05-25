@@ -40,10 +40,7 @@ export const setColorStyle = (colorStyle: ColorStyle) => ({
 
 export const errorHandler = (error: ResponseJSON) => ({
   type: GLOBAL_PUSH_ERROR,
-  error: error.responseJSON || {
-    code: -1,
-    text: 'Системная ошибка. Обратитесь к разработчикам.',
-  },
+  error: error.responseJSON
 } as const);
 
 export const clearAllStates = () => ({ type: CLEAR_ALL_STATES } as const);

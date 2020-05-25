@@ -7,7 +7,7 @@ import React, { Component, ReactNode } from 'react';
 import { connect, ConnectedProps } from 'react-redux';
 import cn from 'classnames';
 import Spinner from '../../components/spinner/Spinner';
-import { globalUserSelector } from '../../common/services/selectors';
+import { globalErrorTextSelector, globalUserSelector } from '../../common/services/selectors';
 import { RootStoreData } from '../../common/types/redux-types';
 import withRedirectProp from '../../hoc/withRedirectProp';
 import { clearErrors } from '../../common/services/action-creators';
@@ -53,7 +53,7 @@ class Header extends Component<Props, State> {
       redStyle,
       fontFioSize,
       hasAccount,
-      error,
+      errorText,
       clearErrors,
       bottomContent,
     } = this.props;
@@ -91,10 +91,10 @@ class Header extends Component<Props, State> {
             <div className={styles.bottomContent}>{bottomContent}</div>
           </div>
         )}
-        {error && (
+        {errorText && (
           <div className={styles.error}>
             <div className={styles.errorText}>
-              <span>{error.text}</span>
+              <span>{errorText}</span>
               <div className={styles.errorClear} onClick={clearErrors}/>
             </div>
           </div>
@@ -106,7 +106,7 @@ class Header extends Component<Props, State> {
 
 const mapState = (state: RootStoreData) => {
   return {
-    error: state.global.error,
+    errorText: globalErrorTextSelector(state),
     user: globalUserSelector(state),
   };
 };

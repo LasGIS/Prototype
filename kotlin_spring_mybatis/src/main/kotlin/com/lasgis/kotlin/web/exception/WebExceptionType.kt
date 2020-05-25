@@ -19,5 +19,6 @@ enum class WebExceptionType(
     val httpStatus: HttpStatus = INTERNAL_SERVER_ERROR
 ) {
     /** Пользователь не найден */
-    USER_NOT_FOUND(101, "Пользователь не найден", HttpStatus.NOT_FOUND)
+    USER_NOT_FOUND(101, "Пользователь не найден", HttpStatus.NOT_FOUND),
+    USER_LOGIN_NOT_FOUND(102, "Пользователь не найден {0}", HttpStatus.NOT_FOUND)
 }

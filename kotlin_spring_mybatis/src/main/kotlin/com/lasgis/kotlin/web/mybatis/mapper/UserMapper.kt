@@ -40,4 +40,6 @@ interface UserMapper {
     fun findById(@Param("id") id: Long): User?
 
     fun findByLogin(@Param("login") login: String): User?
+
+    fun findUsers(): List<User>
 }

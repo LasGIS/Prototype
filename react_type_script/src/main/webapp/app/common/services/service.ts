@@ -4,8 +4,8 @@
 
 import { get } from '../rest';
 
-export function fetchCurrentUser() {
-  return get(`/v1.0/user/current`);
+export function fetchCurrentUser(login: string) {
+  return get(`/v1.0/user/current`, { login: login });
 }
 
 export function fetchAppSettings() {

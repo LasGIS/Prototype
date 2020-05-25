@@ -131,21 +131,22 @@
   position: relative;
   background-color: #FAE1DB;
   box-shadow: 0 1px 1px 0 #AEB0B2;
-  width: 100%;
+  width: $main-container-width;
+  min-height: 18px;
   color: #A64F37;
   font-size: 16px;
   font-weight: 400;
   line-height: 19px;
   text-align: left;
-  padding: 13px;
-  margin: 0 auto;
+  padding: 0;
+  margin: 0;
   z-index: 100;
 }
 
 .errorText {
-  min-width: $main-container-width;
-  margin-left: auto;
-  margin-right: auto;
+  min-height: 18px;
+  padding: 13px;
+  margin: 0 auto;
 }
 
 .errorClear {

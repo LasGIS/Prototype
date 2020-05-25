@@ -1,4 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" ?>
+<!--
+  ~ Copyright (c) 2020. Prototype
+  -->
+
 <!DOCTYPE mapper
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
@@ -27,6 +31,18 @@
         FROM um_user usr
             LEFT OUTER JOIN um_user_role url on usr.umusr_user_id = url.umusr_user_id
          WHERE usr.umusr_login = #{login}
+    </select>
+
+    <select id="findUsers" resultMap="userResultMap">
+        SELECT
+            usr.umusr_user_id,
+            usr.umusr_name,
+            usr.umusr_login,
+            usr.umusr_password,
+            usr.umusr_archived,
+            url.umrle_role_id
+          FROM um_user usr
+              LEFT OUTER JOIN um_user_role url on usr.umusr_user_id = url.umusr_user_id
     </select>
 
 <!--

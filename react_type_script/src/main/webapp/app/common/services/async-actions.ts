@@ -16,9 +16,9 @@ import { ResponseJSON, UserDto } from '../types/server-api-dtos';
 
 export type GlobalDispatch = (arg: GlobalActions) => GlobalActions;
 
-export const getCurrentUserInfo = () => (dispatch: GlobalDispatch) => {
+export const getCurrentUserInfo = (login:string) => (dispatch: GlobalDispatch) => {
   dispatch(getUserInfoStart());
-  return fetchCurrentUser()(dispatch)
+  return fetchCurrentUser(login)(dispatch)
     .then((user: UserDto) => {
       dispatch(getUserInfo(user));
       dispatch(getUserInfoSuccess());

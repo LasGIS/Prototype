@@ -4,7 +4,7 @@
 
 import { GetAllActionTypes } from '../types/redux-types';
 import * as actions from '../services/action-creators';
-import { ErrorDto, UserDto } from '../types/server-api-dtos';
+import { ErrorDto, SystemErrorDto, UserDto } from '../types/server-api-dtos';
 import { AppSettingsConfig } from './global-types';
 
 export enum ColorStyle {
@@ -13,7 +13,7 @@ export enum ColorStyle {
 
 export type GlobalStoreData = {
   loading?: boolean;
-  error?: ErrorDto;
+  error?: ErrorDto & SystemErrorDto;
   user?: UserDto;
   isUserDataLoaded: boolean;
   settings?: AppSettingsConfig;

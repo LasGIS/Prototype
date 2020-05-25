@@ -3,7 +3,7 @@
  */
 
 import $ from 'jquery/dist/jquery';
-import { clearErrors, globalHideLoader, globalShowLoader } from './services/action-creators';
+import { globalHideLoader, globalShowLoader } from './services/action-creators';
 
 export const HTTP_METHODS = {
   GET: 'GET',
@@ -29,7 +29,6 @@ const requestDecorator = (url, method, data, requestSettings = {}) => dispatch =
   return request(url, method, data, requestSettings)
     .then(response => {
       dispatch(globalHideLoader());
-      dispatch(clearErrors());
       return response;
     })
     .catch(error => {
@@ -43,7 +42,6 @@ const requestDecoratorWithHeaders = (url, method, data, requestSettings = {}) =>
   return requestWithHeaders(url, method, data, requestSettings)
     .then(header => {
       dispatch(globalHideLoader());
-      dispatch(clearErrors());
       return header;
     })
     .catch(error => {
@@ -61,7 +59,7 @@ export function request(url, method, data = {}, requestSettings = {}) {
       type: method,
       contentType: contentType === 'false' ? false : contentType || 'application/json',
       dataType: dataType || 'json',
-      data: getDataParam(method, data, requestSettingsDataParam),
+      data: getDataParam(),
       // headers: {
       //   'auth-Token': localStorage.getItem(FRONT_AUTH_TOKEN) || undefined,
       // },
@@ -70,7 +68,7 @@ export function request(url, method, data = {}, requestSettings = {}) {
       .fail(error => reject(error));
   });
 
-  function getDataParam(method, data = {}, requestSettingsDataParam = 'json') {
+  function getDataParam() {
     const defaultValue = method === HTTP_METHODS.GET ? data : JSON.stringify(data);
     return requestSettingsDataParam === 'json' ? defaultValue : data;
   }
@@ -85,7 +83,7 @@ function requestWithHeaders(url, method, data, requestSettings) {
       type: method,
       contentType: contentType === 'false' ? false : contentType || 'application/json',
       dataType: dataType || 'json',
-      data: getDataParam(method, data, requestSettingsDataParam),
+      data: getDataParam(),
       resolveWithFullResponse: true,
       simple: false,
     })
@@ -95,7 +93,7 @@ function requestWithHeaders(url, method, data, requestSettings) {
       .fail(error => reject(error));
   });
 
-  function getDataParam(method, data = {}, requestSettingsDataParam = 'json') {
+  function getDataParam() {
     const defaultValue = method === HTTP_METHODS.GET ? data : JSON.stringify(data);
     return requestSettingsDataParam === 'json' ? defaultValue : data;
   }
