@@ -58,7 +58,7 @@ const mockData = {
     empty: false,
     first: true,
     last: false,
-    number: 0, // pageCurrent (номер текущей страницы)
+    number: 0, // page (номер текущей страницы)
     numberOfElements: 2,
     pageable: {
       offset: 0,
@@ -79,7 +79,7 @@ const mockData = {
       unsorted: true,
     },
     totalElements: 14,
-    totalPages: 7, // pagesCount (всего страниц)
+    totalPages: 7, // pages (всего страниц)
     // список пользователей
     content: [
       {

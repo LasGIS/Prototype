@@ -27,8 +27,6 @@ export type UserManagementState = {
   userCreationIsLoading: boolean,
   userCreated: boolean,
   createdUserData?: UserDto,
-  // login error
-  showLoginExistsError: boolean,
   // edit user
   userEditingIsLoading: boolean,
   userEdited: boolean,

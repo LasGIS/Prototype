@@ -27,7 +27,7 @@ internal class UserControllerTest(@Autowired val restTemplate: TestRestTemplate)
 
     @Test
     fun `Получаем пользователя по login = LasGIS`() {
-        val response: ResponseEntity<User> = restTemplate.getForEntity<User>("/v1.0/user/current?login=LasGIS", User::javaClass)
+        val response: ResponseEntity<User> = restTemplate.getForEntity<User>("/v1.0/users/current?login=LasGIS", User::javaClass)
         assertThat(response.statusCode).isEqualTo(HttpStatus.OK)
         val user: User? = response.body
         assertNotNull(user)

@@ -4,8 +4,6 @@
 
 import {
   USER_MANAGEMENT_CLEAR_STATE,
-  USER_MANAGEMENT_LOGIN_EXISTS_ERROR_HIDE,
-  USER_MANAGEMENT_LOGIN_EXISTS_ERROR_SHOW,
   USER_MANAGEMENT_REQUEST_CHANGE_PASSWORD_FAIL,
   USER_MANAGEMENT_REQUEST_CHANGE_PASSWORD_RESET,
   USER_MANAGEMENT_REQUEST_CHANGE_PASSWORD_START,
@@ -34,8 +32,8 @@ import { UserDto } from '../../../common/types/server-api-dtos';
 export const initialState: UserManagementState = {
   users: [],
   usersPagination: {
-    pageCurrent: 0,
-    pagesCount: 0,
+    page: 0,
+    pages: 0,
   },
   usersPageUrl: '',
   // editing user
@@ -51,8 +49,6 @@ export const initialState: UserManagementState = {
   userCreationIsLoading: false,
   userCreated: false,
   createdUserData: undefined,
-  // login error
-  showLoginExistsError: false,
   // edit user
   userEditingIsLoading: false,
   userEdited: false,
@@ -79,8 +75,8 @@ export function userManagementReducer(state: UserManagementState = initialState,
           };
         }),
         usersPagination: {
-          pageCurrent: action.usersData.pageCurrent,
-          pagesCount: action.usersData.pagesCount,
+          page: action.usersData.page,
+          pages: action.usersData.pages,
         },
       };
     }
@@ -131,18 +127,6 @@ export function userManagementReducer(state: UserManagementState = initialState,
         userCreationIsLoading: false,
         userCreated: false,
         createdUserData: {},
-      };
-    }
-    case USER_MANAGEMENT_LOGIN_EXISTS_ERROR_SHOW: {
-      return {
-        ...state,
-        showLoginExistsError: true,
-      };
-    }
-    case USER_MANAGEMENT_LOGIN_EXISTS_ERROR_HIDE: {
-      return {
-        ...state,
-        showLoginExistsError: false,
       };
     }
     case USER_MANAGEMENT_REQUEST_EDIT_USER_START: {

@@ -7,33 +7,31 @@ import { PasswordData } from '../common/types';
 import { RequestParams, UserDto } from '../../../common/types/server-api-dtos';
 
 /** Получение списка пользователей */
-export const usersListRequestUrl = `/v1.0/user`;
-
 export function requestUsersList(params: RequestParams) {
-  return get(usersListRequestUrl, params);
+  return get(`/v1.0/users/`, params);
 }
 
 /** Получение одного пользователя */
 export function requestUser(userId: string) {
-  return get(`${usersListRequestUrl}/${userId}`);
+  return get(`/v1.0/users/${userId}`);
 }
 
 /** Добавление пользователя */
 export function requestCreateUser(user: UserDto) {
-  return post(usersListRequestUrl, user);
+  return post(`/v1.0/users/`, user);
 }
 
 /** Изменение пароля */
 export function requestChangeUserPassword(passwordData: PasswordData) {
-  return put(`${usersListRequestUrl}/${passwordData.userId}/password`, passwordData);
+  return put(`/v1.0/users/${passwordData.userId}/password`, passwordData);
 }
 
 /** Изменение пользователя */
 export function requestChangeUser(user: UserDto) {
-  return put(`${usersListRequestUrl}/${user.userId}`, user);
+  return put(`/v1.0/users/${user.userId}`, user);
 }
 
 /** Удаление пользователя */
 export function requestDeleteUser(userId: number) {
-  return del(`${usersListRequestUrl}/${userId}`);
+  return del(`/v1.0/users/${userId}`);
 }

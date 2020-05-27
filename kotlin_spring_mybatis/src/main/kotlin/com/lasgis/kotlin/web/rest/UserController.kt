@@ -4,16 +4,20 @@
 
 package com.lasgis.kotlin.web.rest
 
+import com.lasgis.kotlin.web.dto.RequestUsers
 import com.lasgis.kotlin.web.dto.User
 import com.lasgis.kotlin.web.dto.UsersData
 import com.lasgis.kotlin.web.exception.WebException
 import com.lasgis.kotlin.web.exception.WebExceptionType
 import com.lasgis.kotlin.web.mybatis.mapper.UserMapper
+import mu.KotlinLogging
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.bind.annotation.RequestParam
 import org.springframework.web.bind.annotation.RestController
 import javax.servlet.http.HttpServletRequest
+
+private val log = KotlinLogging.logger {}
 
 /**
  * <description>
@@ -22,7 +26,7 @@ import javax.servlet.http.HttpServletRequest
  * @since <pre>26.12.2019</pre>
  */
 @RestController
-@RequestMapping("/v1.0/user")
+@RequestMapping("/v1.0/users")
 class UserController(private val userMapper: UserMapper) {
 
     /**
@@ -39,14 +43,19 @@ class UserController(private val userMapper: UserMapper) {
     }
 
     /**
-     * здесь нужно вынести текущего user`а
+     * здесь нужно вынести всех ползователей
      */
     @GetMapping
-    fun users(
-        request: HttpServletRequest,
-        @RequestParam(value = "page", defaultValue = "0") page: Int,
-        @RequestParam(value = "size", defaultValue = "20") size: Int
-    ): UsersData {
-        return UsersData(userMapper.findUsers(), page, size)
+    fun users(req: RequestUsers): UsersData {
+        log.info("RequestUsers = $req")
+        val user: List<User> = userMapper.findUsers()
+//        val pag = Pagination(0, 0)
+        return UsersData(user, req.pagination)
     }
 }
+
+/*
+        request: HttpServletRequest,
+        @RequestParam(value = "pagination.page", defaultValue = "0") page: Int,
+        @RequestParam(value = "pagination.pages", defaultValue = "20") pages: Int
+*/

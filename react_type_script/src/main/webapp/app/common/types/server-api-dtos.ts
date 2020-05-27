@@ -36,20 +36,22 @@ export type UserDto = {
 
 export type UsersData = {
   content: UserDto[];
-  pageCurrent: number;
-  pagesCount: number;
+  page: number;
+  pages: number;
 };
 
 export type RequestParams<> = {
-  page: number;
-  size: number;
+  pagination: Pagination;
 };
 
 export interface IRequestParamsUsers extends RequestParams {
   login: string;
 }
 
+/** объект для отображения пагинации */
 export type Pagination = {
-  pageCurrent: number;
-  pagesCount: number;
+  /** номер текущей страницы */
+  page: number;
+  /** число страниц */
+  pages: number;
 };

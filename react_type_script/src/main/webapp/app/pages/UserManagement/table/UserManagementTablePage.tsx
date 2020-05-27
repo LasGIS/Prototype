@@ -24,7 +24,7 @@ class UserManagementTablePage extends React.Component<Props> {
     super(props);
 
     this.pageBasicUrl = '/user-management-table';
-    this.pageSize = 20;
+    this.pageSize = 40;
 
     this.getRequestParamsFromLocation = this.getRequestParamsFromLocation.bind(this);
     this.urlSerialize = this.urlSerialize.bind(this);
@@ -86,12 +86,13 @@ class UserManagementTablePage extends React.Component<Props> {
       this.props.location.search.replace(/"/g, ''),
       { arrayFormat: 'index' },
     );
-    const page = Number(params.page) || 0;
-    const result = {
-      page,
-      size: this.pageSize,
+    const page = Number(params.page) || 30;
+    const result: RequestParams = {
+      pagination: {
+        page,
+        pages: this.pageSize,
+      }
     };
-
 //    if (filterParam && filterValue) result[filterParam] = filterValue;
 
     return result;
@@ -112,8 +113,8 @@ class UserManagementTablePage extends React.Component<Props> {
           {users && users.length > 0 && (
             <Pagination
               id={'userManagementPagination'}
-              pageTotalCount={usersPagination.pagesCount}
-              pageCurrent={usersPagination.pageCurrent}
+              pageTotalCount={usersPagination.pages}
+              page={usersPagination.page}
               onPageChange={this.handlePaginationChange}
             />
           )}

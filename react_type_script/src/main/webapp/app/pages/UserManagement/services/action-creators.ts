@@ -4,8 +4,6 @@
 
 import {
   USER_MANAGEMENT_CLEAR_STATE,
-  USER_MANAGEMENT_LOGIN_EXISTS_ERROR_HIDE,
-  USER_MANAGEMENT_LOGIN_EXISTS_ERROR_SHOW,
   USER_MANAGEMENT_REQUEST_CHANGE_PASSWORD_FAIL,
   USER_MANAGEMENT_REQUEST_CHANGE_PASSWORD_RESET,
   USER_MANAGEMENT_REQUEST_CHANGE_PASSWORD_START,
@@ -31,8 +29,6 @@ import {
 import { UserDto, UsersData } from '../../../common/types/server-api-dtos';
 
 export const userClearState = () => ({ type: USER_MANAGEMENT_CLEAR_STATE } as const);
-export const userLoginErrorHide = () => ({ type: USER_MANAGEMENT_LOGIN_EXISTS_ERROR_HIDE } as const);
-export const userLoginErrorShow = () => ({ type: USER_MANAGEMENT_LOGIN_EXISTS_ERROR_SHOW } as const);
 
 export const userChangePasswordFail = () => ({ type: USER_MANAGEMENT_REQUEST_CHANGE_PASSWORD_FAIL } as const);
 export const userChangePasswordReset = () => ({ type: USER_MANAGEMENT_REQUEST_CHANGE_PASSWORD_RESET } as const);

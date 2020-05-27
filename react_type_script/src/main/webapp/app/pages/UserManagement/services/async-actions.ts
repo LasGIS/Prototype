@@ -12,7 +12,6 @@ import {
 } from './services';
 import { errorHandler } from '../../../common/services/action-creators';
 import { RequestParams, ResponseJSON, UserDto, UsersData } from '../../../common/types/server-api-dtos';
-import { API_ERROR } from '../../../common/errors/error-map';
 import { PasswordData, UserManagementActions } from '../common/types';
 import {
   createUserFail,
@@ -30,8 +29,6 @@ import {
   userChangePasswordFail,
   userChangePasswordStart,
   userChangePasswordSuccess,
-  userLoginErrorHide,
-  userLoginErrorShow,
 } from './action-creators';
 
 type UserManagementServiceDispatch = (arg: UserManagementActions) => UserManagementActions;
@@ -58,16 +55,10 @@ export const createNewUser = (user: UserDto) => (dispatch: UserManagementService
   return requestCreateUser(user)(dispatch)
     .then((createdUser: UserDto) => {
       dispatch(createUserSuccess(createdUser));
-      dispatch(userLoginErrorHide());
     })
     .catch((error: ResponseJSON) => {
       dispatch(createUserFail());
-      dispatch(userLoginErrorHide());
-      if (error.responseJSON && error.responseJSON.code === API_ERROR.RUNTIME_USER_DUPLICATE) {
-        dispatch(userLoginErrorShow());
-      } else {
-        dispatch(errorHandler(error));
-      }
+      dispatch(errorHandler(error));
     });
 };
 
