@@ -7,6 +7,7 @@ package com.lasgis.kotlin.web.rest
 import com.lasgis.kotlin.web.dto.RequestUsers
 import com.lasgis.kotlin.web.dto.User
 import com.lasgis.kotlin.web.dto.UsersData
+import com.lasgis.kotlin.web.dto.table.Pagination
 import com.lasgis.kotlin.web.exception.WebException
 import com.lasgis.kotlin.web.exception.WebExceptionType
 import com.lasgis.kotlin.web.mybatis.mapper.UserMapper
@@ -49,8 +50,9 @@ class UserController(private val userMapper: UserMapper) {
     fun users(req: RequestUsers): UsersData {
         log.info("RequestUsers = $req")
         val user: List<User> = userMapper.findUsers()
-//        val pag = Pagination(0, 0)
-        return UsersData(user, req.pagination)
+        val pagination: Pagination = req.pagination ?: Pagination(0, 0)
+        return UsersData(user, pagination)
+//        ? req.pagination : Pagination(1,1)
     }
 }
 

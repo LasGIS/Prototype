@@ -2,6 +2,7 @@
  * Copyright (c) 2020. Prototype
  */
 
+
 export type ErrorDto = {
   code: number;
   text: string;

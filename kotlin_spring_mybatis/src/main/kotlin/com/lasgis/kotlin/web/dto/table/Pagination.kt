@@ -11,11 +11,6 @@ package com.lasgis.kotlin.web.dto.table
  * @since <pre>27.05.2020</pre>
  */
 data class Pagination(
-    var page: Int? = null,
-    var pages: Int? = null
-) {
-    init {
-//        this.page = 1
-//        this.pages = 33
-    }
-}
+    var page: Int = 0,
+    var pages: Int = 0
+)

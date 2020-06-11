@@ -28,7 +28,7 @@ router.post('/login', function(req, res, next) {
   res.json(mockData['current-user-info']);
 });
 
-router.get(apiVersion + '/user/current', function(req, res, next) {
+router.get(apiVersion + '/users/current', function(req, res, next) {
   res.json(mockData['current-user-info']);
 });
 
@@ -41,7 +41,7 @@ router.get(apiVersion + '/prefilleduserinfo', function(req, res, next) {
   res.json(mockData.prefilledUserInfo);
 });
 
-router.get(apiVersion + '/user', function(req, res, next) {
+router.get(apiVersion + '/users', function(req, res, next) {
   const usersData = { ...mockData['get-all-users'] };
   const allUsers = mockData['get-all-users'][['content']];
   let preparedUsers = allUsers;
@@ -77,7 +77,7 @@ router.get(apiVersion + '/user', function(req, res, next) {
   }
 });
 
-router.get(apiVersion + '/user/:id', function(req, res, next) {
+router.get(apiVersion + '/users/:id', function(req, res, next) {
   const allUsers = mockData['get-all-users']['content'];
   const userId = req.params.id;
   let user = {};
@@ -90,15 +90,15 @@ router.get(apiVersion + '/user/:id', function(req, res, next) {
   res.json(user);
 });
 
-router.put(apiVersion + '/user/:id', function(req, res, next) {
+router.put(apiVersion + '/users/:id', function(req, res, next) {
   res.json(mockData['get-user']);
 });
 
-router.delete(apiVersion + '/user/:id', function(req, res, next) {
+router.delete(apiVersion + '/users/:id', function(req, res, next) {
   res.json(mockData['delete-user']);
 });
 
-router.post(apiVersion + '/user', function(req, res, next) {
+router.post(apiVersion + '/users', function(req, res, next) {
   res.json(mockData['add-user']);
 });
 
@@ -106,11 +106,11 @@ router.get(apiVersion + '/role', function(req, res, next) {
   res.json(mockData['get-all-roles']);
 });
 
-router.put(apiVersion + '/user/:userId/password', function(req, res, next) {
+router.put(apiVersion + '/users/:userId/password', function(req, res, next) {
   res.json(mockData['set-password']);
 });
 
-router.get(apiVersion + '/user/:id/ukd', function(req, res, next) {
+router.get(apiVersion + '/users/:id/ukd', function(req, res, next) {
   res.json(mockData['ukd-list-by-user-id']);
 });
 

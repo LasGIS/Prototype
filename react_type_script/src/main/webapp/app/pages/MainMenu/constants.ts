@@ -7,7 +7,8 @@ type RouteType = {
   topic: string
 }
 
-export const ROUTES: { [any: string]: RouteType } = {
+export const ROUTES: { [anny: string]: RouteType } = {
+  mainMenu: { url: '/main-menu', topic: 'Main Menu' },
   userListPage: { url: '/user-list', topic: 'User Management' },
   personListPage: { url: '/person-list', topic: 'Person Management' },
   recharts: { url: '/recharts-diagram', topic: 'ReCharts диаграмма' },

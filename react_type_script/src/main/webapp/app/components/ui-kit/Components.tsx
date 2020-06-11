@@ -126,10 +126,10 @@ export default class Components extends Component<Props, State> {
           <CrossIcon red/>
           <DownIcon/>
           <UpIcon/>
-          <UpIcon blue />
+          <UpIcon blue/>
           <FilterIcon/>
-          <FilterIcon type={FilterIconType.grey} />
-          <FilterIcon type={FilterIconType.greyWithBorder} />
+          <FilterIcon type={FilterIconType.grey}/>
+          <FilterIcon type={FilterIconType.greyWithBorder}/>
         </Row>
       </>
     );

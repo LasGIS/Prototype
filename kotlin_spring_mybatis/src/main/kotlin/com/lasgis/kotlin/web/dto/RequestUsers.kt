@@ -13,5 +13,5 @@ import com.lasgis.kotlin.web.dto.table.Pagination
  * @since <pre>26.05.2020</pre>
  */
 data class RequestUsers(
-    var pagination: Pagination = Pagination(1,11)
+    var pagination: Pagination? = null
 )

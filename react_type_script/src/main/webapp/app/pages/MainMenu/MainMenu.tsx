@@ -86,6 +86,11 @@ export class MainMenu extends Component<Props, State> {
           name={ROUTES.components.topic}
           onClick={() => redirect(ROUTES.components.url)}
         />
+        <Menu
+          id="mainMenuPage"
+          name={ROUTES.mainMenu.topic}
+          onClick={() => redirect(ROUTES.mainMenu.url)}
+        />
 {/*
         <ReactModal
           id='auth-error-message'
