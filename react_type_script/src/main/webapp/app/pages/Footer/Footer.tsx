@@ -9,8 +9,6 @@ import cn from 'classnames';
 import { RootStoreData } from '../../common/types/redux-types';
 import { ColorStyle } from '../../common/global/global-redux-types';
 
-console.log('Footer', styles);
-
 type Props = {
   colorStyle: ColorStyle;
   name?: string;

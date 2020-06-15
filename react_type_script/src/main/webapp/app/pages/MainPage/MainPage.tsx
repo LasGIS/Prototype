@@ -56,8 +56,8 @@ export class MainPage extends Component<Props> {
             <div className={styles.leftPane}>
               <MainMenu/>
             </div>
-            <div className={styles.mainPane}>
-              <Suspense fallback={<div>Загрузка...</div>}>
+            <Suspense fallback={<div>Загрузка...</div>}>
+              <div className={styles.mainPane}>
                 <Switch>
                   <ProtectedRoute
                     colorStyle={ColorStyle.white}
@@ -86,8 +86,8 @@ export class MainPage extends Component<Props> {
                   />
                   <Redirect from="/" to={ROUTES.mainMenu.url}/>
                 </Switch>
-              </Suspense>
-            </div>
+              </div>
+            </Suspense>
             <div className={styles.rightPane}>
               {/*<p>правая панель</p>*/}
             </div>

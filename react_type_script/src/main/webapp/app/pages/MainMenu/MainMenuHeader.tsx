@@ -41,12 +41,13 @@ export class MainMenuHeader extends Component<Props> {
             {topic}
           </div>
         </div>
-
-        <Button id="logoutButton" className={cn(styles.buttonHeader, styles.right)}
-                onClick={this.logout}
-                primaryFilled>
-          Выйти
-        </Button>
+        <div className={cn(styles.buttonHeader, styles.right)}>
+          <Button id="logoutButton"
+                  onClick={this.logout}
+                  primaryFilled>
+            Выйти
+          </Button>
+        </div>
       </Header>
     );
   }

@@ -235,7 +235,6 @@ export var InputLineMasked = createReactClass({
   deleteSelection: function(caretPos, endSelection, maskedValue) {
     var str = this.fillRangeByMask(this.props.mask, maskedValue.replace(/./g, ' '), caretPos, endSelection);
     var result = this.replaceSubstr(maskedValue, str, caretPos);
-    // console.log('deleteSelection', caretPos, endSelection, maskedValue, str, result);
     return result;
   },
 
@@ -342,7 +341,6 @@ export var InputLineMasked = createReactClass({
 
   onValidate: function(value) {
     if (this.props.onValidate) {
-      // console.log('InputLineMasked.validate', value);
       return this.props.onValidate(_.isString(value) ? this.removeMask(value).trim() : value)
     }
     return true;

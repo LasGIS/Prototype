@@ -6,8 +6,6 @@ import styles from './style.scss';
 import React, { Component, KeyboardEvent } from 'react';
 import cn from 'classnames';
 
-console.log('Checkbox', styles);
-
 enum Checkbox_STYLES {
   classic = 'classic',
   international = 'international'
