@@ -17,8 +17,9 @@
     <description>React Redux TypeScript prototype frontend</description>
 
     <profiles>
+        <!-- запускаем npm на создание node_js -->
         <profile>
-            <id>full_node_js</id>
+            <id>install_node_js</id>
             <build>
                 <plugins>
                     <plugin>
@@ -50,25 +51,14 @@
                                     <npmInheritsProxyConfigFromMaven>false</npmInheritsProxyConfigFromMaven>
                                 </configuration>
                             </execution>
-                            <execution>
-                                <id>webpack build</id>
-                                <goals>
-                                    <goal>webpack</goal>
-                                </goals>
-                                <phase>generate-resources</phase>
-                                <configuration>
-                                    <installDirectory>node_js</installDirectory>
-                                    <arguments>--config webpack.dev.js</arguments>
-                                    <workingDirectory>src/main/webapp</workingDirectory>
-                                </configuration>
-                            </execution>
                         </executions>
                     </plugin>
                 </plugins>
             </build>
         </profile>
+        <!-- запускаем npm на создание образа frontend -->
         <profile>
-            <id>node_js</id>
+            <id>node_js_build</id>
             <build>
                 <plugins>
                     <plugin>
