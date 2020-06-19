@@ -5,14 +5,20 @@
 package com.lasgis.kotlin.web.rest
 
 import com.lasgis.kotlin.web.dto.RequestUsers
+import com.lasgis.kotlin.web.dto.TableUsersRequest
 import com.lasgis.kotlin.web.dto.User
 import com.lasgis.kotlin.web.dto.UsersData
+import com.lasgis.kotlin.web.dto.table.DataTableOrder
+import com.lasgis.kotlin.web.dto.table.DataTableRequest
+import com.lasgis.kotlin.web.dto.table.EmptyCriteria
 import com.lasgis.kotlin.web.dto.table.Pagination
 import com.lasgis.kotlin.web.exception.WebException
 import com.lasgis.kotlin.web.exception.WebExceptionType
 import com.lasgis.kotlin.web.mybatis.mapper.UserMapper
 import mu.KotlinLogging
 import org.springframework.web.bind.annotation.GetMapping
+import org.springframework.web.bind.annotation.PostMapping
+import org.springframework.web.bind.annotation.RequestBody
 import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.bind.annotation.RequestParam
 import org.springframework.web.bind.annotation.RestController
@@ -49,15 +55,23 @@ class UserController(private val userMapper: UserMapper) {
     @GetMapping
     fun users(req: RequestUsers): UsersData {
         log.info("RequestUsers = $req")
-        val user: List<User> = userMapper.findUsers()
+        val user: List<User> = userMapper.findAllUsers()
         val pagination: Pagination = req.pagination ?: Pagination(0, 0)
         return UsersData(user, pagination)
 //        ? req.pagination : Pagination(1,1)
     }
-}
 
-/*
-        request: HttpServletRequest,
-        @RequestParam(value = "pagination.page", defaultValue = "0") page: Int,
-        @RequestParam(value = "pagination.pages", defaultValue = "20") pages: Int
-*/
+    /**
+     * здесь нужно вынести всех ползователей
+     */
+    @PostMapping
+    fun postUsers(
+        @RequestBody(required = true) request: DataTableRequest<EmptyCriteria>
+    ): TableUsersRequest {
+        log.info("RequestUsers = $request")
+        val orders: List<DataTableOrder>? = request.orders?.map { DataTableOrder(it.dbId, it.dir) }
+
+        val user: List<User> = userMapper.findUsers(null, null, orders)
+        return TableUsersRequest(user, request)
+    }
+}

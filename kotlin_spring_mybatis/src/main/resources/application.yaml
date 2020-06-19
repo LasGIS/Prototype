@@ -24,6 +24,10 @@ spring:
       maximum-pool-size: 10
       schema: prototype
 
+  devtools:
+    restart:
+      log-condition-evaluation-delta: false
+
 # mybatis configuration
 mybatis:
   config-location: classpath:mybatis/mybatis-config.xml

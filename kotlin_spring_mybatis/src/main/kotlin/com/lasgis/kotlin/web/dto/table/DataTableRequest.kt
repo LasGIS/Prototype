@@ -4,42 +4,31 @@
 
 package com.lasgis.kotlin.web.dto.table
 
+open class EmptyCriteria()
+
 /**
- * The Class DataTableRequest
- *
- *    var
- *       settings   = this.context[0],
- *       start      = settings._iDisplayStart,
- *       len        = settings.oFeatures.bPaginate ? settings._iDisplayLength : -1,
- *       visRecords = settings.fnRecordsDisplay(),
- *       all        = len === -1;
- *
- *    return {
- *       "page":           all ? 0 : Math.floor( start / len ),
- *       "pages":          all ? 1 : Math.ceil( visRecords / len ),
- *       "start":          start,
- *       "end":            settings.fnDisplayEnd(),
- *       "length":         len,
- *       "recordsTotal":   settings.fnRecordsTotal(),
- *       "recordsDisplay": visRecords,
- *       "serverSide":     _fnDataSource( settings ) === 'ssp'
- *    };
+ * Запрос на получение данных от UI на backend.
+ * @param start     номер первой записи на этой странице (начиная с 0)
+ * @param perPage   сколько строк размещается на странице
+ * @param page      номер текущей страницы (начиная с 0)
+ * @param pages     количество страниц
+ * @param columns   описание колонок для
+ * @param orders    порядок сортировки колонок
+ * @param criteria: дополнительные критерии поиска
  *
  * @author VLaskin
  * @since 10.06.2020
  */
-data class DataTableRequest<Criteria>(
-    /** количество запросов от сервера (внутренняя переменная) */
-    var draw: Int = 0,
-    /** номер первой записи, начиная с <0> */
+open class DataTableRequest<Criteria>(
     val start: Int = 0,
-    /** солько строк размещается на странице */
-    val length: Int = 0,
-    /** описание колонок */
+    val perPages: Int = 20,
+    val page: Int = 0,
+    val pages: Int = 0,
     val columns: List<DataTableColumn>? = null,
-    /** порядок сортировки колонок */
-    val order: List<DataTableOrder>? = null,
-    /** порядок сортировки колонок */
-    val search: DataTableSearch? = null,
+    val orders: List<DataTableOrder>? = null,
     val criteria: Criteria? = null
-)
+) {
+    override fun toString(): String {
+        return "DataTableRequest(start=$start, perPages=$perPages, page=$page, pages=$pages, columns=$columns, order=$orders, criteria=$criteria)"
+    }
+}

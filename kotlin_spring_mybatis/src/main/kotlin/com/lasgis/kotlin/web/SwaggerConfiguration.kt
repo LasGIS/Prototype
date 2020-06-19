@@ -2,7 +2,7 @@
  * Copyright (c) 2020. Prototype
  */
 
-package com.lasgis.kotlin.web.rest
+package com.lasgis.kotlin.web
 
 import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
@@ -13,7 +13,7 @@ import springfox.documentation.spring.web.plugins.Docket
 import springfox.documentation.swagger2.annotations.EnableSwagger2
 
 /**
- * <description>
+ * Настройка Swagger Configuration
  *
  * @author VLaskin
  * @since <pre>19.06.2020</pre>
