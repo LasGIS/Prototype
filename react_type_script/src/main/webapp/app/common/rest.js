@@ -24,7 +24,10 @@ export const put = (url, data) => dispatch => requestDecorator(url, HTTP_METHODS
 
 export const del = (url, data) => dispatch => requestDecorator(url, HTTP_METHODS.DELETE, data)(dispatch);
 
-const requestDecorator = (url, method, data, requestSettings = {}) => dispatch => {
+const requestDecorator = (
+  url, method, data,
+  requestSettings = { requestSettingsDataParam: 'json' },
+) => dispatch => {
   dispatch(globalShowLoader());
   return request(url, method, data, requestSettings)
     .then(response => {

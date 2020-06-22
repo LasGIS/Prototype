@@ -2,7 +2,7 @@
  * Copyright (c) 2020. Prototype
  */
 
-import { Pagination, UserDto, UserRoleEnum } from '../../../common/types/server-api-dtos';
+import { TableUsersRequest, UserDto, UserRoleEnum } from '../../../common/types/server-api-dtos';
 import { GetAllActionTypes } from '../../../common/types/redux-types';
 import * as UserManagementActionMaps from '../services/action-creators';
 import * as GlobalActionMaps from '../../../common/services/action-creators';
@@ -19,7 +19,7 @@ export type PasswordData = {
 
 export type UserManagementState = {
   users: UserDto[];
-  usersPagination: Pagination;
+  usersRequest: TableUsersRequest;
   usersPageUrl: string;
   // editing user
   editingUser: UserDto,

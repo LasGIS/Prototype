@@ -26,7 +26,7 @@ import {
   USER_MANAGEMENT_USERS_PAGE_URL_RESET,
   USER_MANAGEMENT_USERS_PAGE_URL_SAVE,
 } from './action-constants';
-import { UserDto, UsersData } from '../../../common/types/server-api-dtos';
+import { TableUsersResponse, UserDto } from '../../../common/types/server-api-dtos';
 
 export const userClearState = () => ({ type: USER_MANAGEMENT_CLEAR_STATE } as const);
 
@@ -56,7 +56,7 @@ export const editUserSuccess = () => ({ type: USER_MANAGEMENT_REQUEST_EDIT_USER_
 export const getUserStart = () => ({ type: USER_MANAGEMENT_REQUEST_USER_START } as const);
 export const getUserSuccess = (editingUser: UserDto) => ({ type: USER_MANAGEMENT_REQUEST_USER_SUCCESS, editingUser } as const);
 
-export const getUsersList = (usersData: UsersData) => ({
+export const getUsersList = (usersData: TableUsersResponse) => ({
   type: USER_MANAGEMENT_REQUEST_USERS_LIST_SUCCESS,
   usersData,
 } as const);

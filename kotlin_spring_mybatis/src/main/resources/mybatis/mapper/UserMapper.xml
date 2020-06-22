@@ -46,8 +46,8 @@
          WHERE 1=1
             <if test="login != null">AND url.umusr_login = #{login}</if>
             <if test="name != null">AND url.umusr_name Like #{name}</if>
-         ORDER BY
         <if test="orders != null">
+         ORDER BY
            <foreach item="order" index="index" collection="orders" separator=",">
                ${order.dbId} ${order.dir}
            </foreach>

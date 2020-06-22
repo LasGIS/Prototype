@@ -4,11 +4,11 @@
 
 import { del, get, post, put } from '../../../common/rest';
 import { PasswordData } from '../common/types';
-import { RequestParams, UserDto } from '../../../common/types/server-api-dtos';
+import { TableUsersRequest, UserDto } from '../../../common/types/server-api-dtos';
 
 /** Получение списка пользователей */
-export function requestUsersList(params: RequestParams) {
-  return get(`/v1.0/users/`, params);
+export function requestUsersList(params: TableUsersRequest) {
+  return post(`/v1.0/users/`, params);
 }
 
 /** Получение одного пользователя */

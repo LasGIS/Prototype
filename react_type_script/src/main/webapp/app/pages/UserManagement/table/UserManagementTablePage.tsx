@@ -12,7 +12,7 @@ import UserManagementTable from './UserManagementTable';
 import { RootStoreData } from '../../../common/types/redux-types';
 import { WithRedirectHocProps, WithReplaceUrlHocProps } from '../../../common/types/hocs-injected-prop-types';
 import { globalRouterLocationSelector } from '../../../common/services/selectors';
-import { RequestParams } from '../../../common/types/server-api-dtos';
+import { TableUsersRequest } from '../../../common/types/server-api-dtos';
 
 type Props = PropsFromRedux & WithRedirectHocProps & WithReplaceUrlHocProps;
 
@@ -26,7 +26,7 @@ class UserManagementTablePage extends React.Component<Props> {
     this.pageBasicUrl = '/user-management-table';
     this.pageSize = 40;
 
-    this.getRequestParamsFromLocation = this.getRequestParamsFromLocation.bind(this);
+    this.getTableRequest = this.getTableRequest.bind(this);
     this.urlSerialize = this.urlSerialize.bind(this);
     this.handlePaginationChange = this.handlePaginationChange.bind(this);
     this.prepareSetUrl = this.prepareSetUrl.bind(this);
@@ -34,7 +34,7 @@ class UserManagementTablePage extends React.Component<Props> {
 
   componentDidMount() {
     const { getUsers } = this.props;
-    const requestParams = this.getRequestParamsFromLocation();
+    const requestParams = this.getTableRequest();
 
     getUsers(requestParams);
   }
@@ -43,7 +43,7 @@ class UserManagementTablePage extends React.Component<Props> {
     const { usersPageUrl, getUsers } = this.props;
 
     if (prevProps.usersPageUrl !== usersPageUrl) {
-      const requestParams = this.getRequestParamsFromLocation();
+      const requestParams = this.getTableRequest();
       getUsers(requestParams);
     }
   }
@@ -64,7 +64,7 @@ class UserManagementTablePage extends React.Component<Props> {
       location.search.replace(/"/g, ''),
       { arrayFormat: 'index' },
     );
-    const pageCurrent:number = !page ? 0 : page || Number(params.page);
+    const pageCurrent: number = !page ? 0 : page || Number(params.page);
     const urlCreated = this.urlSerialize(pageCurrent);
 
     saveUsersPageUrl(urlCreated);
@@ -81,25 +81,21 @@ class UserManagementTablePage extends React.Component<Props> {
     );
   }
 
-  getRequestParamsFromLocation(filterParam = '', filterValue = ''): RequestParams {
-    const params = queryString.parse(
-      this.props.location.search.replace(/"/g, ''),
-      { arrayFormat: 'index' },
-    );
-    const page = Number(params.page) || 30;
-    const result: RequestParams = {
-      pagination: {
-        page,
-        pages: this.pageSize,
-      }
+  getTableRequest(request?: TableUsersRequest): TableUsersRequest {
+    const result: TableUsersRequest = request ? request : {
+      start: 0,
+      perPages: 10,
+      page: 1,
+      pages: 1,
     };
+
 //    if (filterParam && filterValue) result[filterParam] = filterValue;
 
     return result;
   }
 
   render() {
-    const { currentUser, users, redirect, usersPagination } = this.props;
+    const { currentUser, users, redirect, usersRequest } = this.props;
     return (
       <div className={styles.tablePage}>
         <UserManagementTable
@@ -109,12 +105,12 @@ class UserManagementTablePage extends React.Component<Props> {
           onEditUser={(id: number) => redirect(`/user-management-form/${id}`)}
           addUser={() => redirect(`/user-management-form`)}
         />
-        {/*
+{/*
           {users && users.length > 0 && (
             <Pagination
               id={'userManagementPagination'}
-              pageTotalCount={usersPagination.pages}
-              page={usersPagination.page}
+              pageTotalCount={usersRequest.pages}
+              page={usersRequest.page}
               onPageChange={this.handlePaginationChange}
             />
           )}
@@ -125,13 +121,13 @@ class UserManagementTablePage extends React.Component<Props> {
 }
 
 const mapState = (state: RootStoreData) => {
-  const { users, usersPagination, usersPageUrl } = state.userManagement;
+  const { users, usersRequest, usersPageUrl } = state.userManagement;
   return {
     location: globalRouterLocationSelector(state),
 //    currentUser: globalUserSelector(state),
     currentUser: state.global.user,
     users,
-    usersPagination,
+    usersRequest,
     usersPageUrl,
   };
 

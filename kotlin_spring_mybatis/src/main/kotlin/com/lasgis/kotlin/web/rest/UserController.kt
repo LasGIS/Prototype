@@ -5,7 +5,7 @@
 package com.lasgis.kotlin.web.rest
 
 import com.lasgis.kotlin.web.dto.RequestUsers
-import com.lasgis.kotlin.web.dto.TableUsersRequest
+import com.lasgis.kotlin.web.dto.TableUsersResponse
 import com.lasgis.kotlin.web.dto.User
 import com.lasgis.kotlin.web.dto.UsersData
 import com.lasgis.kotlin.web.dto.table.DataTableOrder
@@ -44,9 +44,8 @@ class UserController(private val userMapper: UserMapper) {
         request: HttpServletRequest,
         @RequestParam(value = "login") login: String
     ): User {
-        val user = userMapper.findByLogin(login)
-        user?.let { return it }
-        throw WebException(WebExceptionType.USER_LOGIN_NOT_FOUND, login)
+        return userMapper.findByLogin(login)
+            ?: throw WebException(WebExceptionType.USER_LOGIN_NOT_FOUND, login)
     }
 
     /**
@@ -67,11 +66,11 @@ class UserController(private val userMapper: UserMapper) {
     @PostMapping
     fun postUsers(
         @RequestBody(required = true) request: DataTableRequest<EmptyCriteria>
-    ): TableUsersRequest {
-        log.info("RequestUsers = $request")
+    ): TableUsersResponse {
+        log.info("DataTableRequest = $request")
         val orders: List<DataTableOrder>? = request.orders?.map { DataTableOrder(it.dbId, it.dir) }
 
         val user: List<User> = userMapper.findUsers(null, null, orders)
-        return TableUsersRequest(user, request)
+        return TableUsersResponse(user, request)
     }
 }

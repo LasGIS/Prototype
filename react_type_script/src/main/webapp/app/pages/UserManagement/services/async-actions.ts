@@ -11,7 +11,7 @@ import {
   requestUsersList,
 } from './services';
 import { errorHandler } from '../../../common/services/action-creators';
-import { RequestParams, ResponseJSON, UserDto, UsersData } from '../../../common/types/server-api-dtos';
+import { ResponseJSON, TableUsersRequest, TableUsersResponse, UserDto } from '../../../common/types/server-api-dtos';
 import { PasswordData, UserManagementActions } from '../common/types';
 import {
   createUserFail,
@@ -33,9 +33,9 @@ import {
 
 type UserManagementServiceDispatch = (arg: UserManagementActions) => UserManagementActions;
 
-export const getUsers = (params: RequestParams) => (dispatch: UserManagementServiceDispatch) => {
+export const getUsers = (params: TableUsersRequest) => (dispatch: UserManagementServiceDispatch) => {
   return requestUsersList(params)(dispatch)
-    .then((usersData: UsersData) => {
+    .then((usersData: TableUsersResponse) => {
       dispatch(getUsersList(usersData));
     })
     .catch((error: ResponseJSON) => dispatch(errorHandler(error)));

@@ -8,6 +8,7 @@ import com.lasgis.kotlin.web.dto.User
 import com.lasgis.kotlin.web.exception.WebException
 import com.lasgis.kotlin.web.exception.WebExceptionType
 import com.lasgis.kotlin.web.mybatis.mapper.UserMapper
+import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.web.bind.annotation.PostMapping
 import org.springframework.web.bind.annotation.RequestParam
 import org.springframework.web.bind.annotation.RestController
@@ -19,15 +20,17 @@ import org.springframework.web.bind.annotation.RestController
  * @since <pre>04.01.2020</pre>
  */
 @RestController
-class AuthController(private val userMapper: UserMapper) {
+class AuthController {
+
+    @Autowired
+    private lateinit var userMapper: UserMapper
 
     @PostMapping("/login")
     fun login(
         @RequestParam("j_username") login: String,
         @RequestParam("j_password") password: String
     ): User {
-        val user = userMapper.findByLogin(login)
-        user?.let { return it }
-        throw WebException(WebExceptionType.USER_NOT_FOUND)
+        return userMapper.findByLogin(login)
+            ?: throw WebException(WebExceptionType.USER_NOT_FOUND)
     }
 }

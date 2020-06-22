@@ -13,7 +13,7 @@ import com.lasgis.kotlin.web.dto.table.EmptyCriteria
  * @author VLaskin
  * @since <pre>26.05.2020</pre>
  */
-data class TableUsersRequest(
+data class TableUsersResponse(
     var content: List<User>,
     var request: DataTableRequest<EmptyCriteria>
 )

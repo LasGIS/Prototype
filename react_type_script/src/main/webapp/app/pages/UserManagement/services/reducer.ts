@@ -31,9 +31,11 @@ import { UserDto } from '../../../common/types/server-api-dtos';
 
 export const initialState: UserManagementState = {
   users: [],
-  usersPagination: {
-    page: 0,
-    pages: 0,
+  usersRequest: {
+    start: 0,
+    perPages: 10,
+    page: 1,
+    pages: 1
   },
   usersPageUrl: '',
   // editing user
@@ -74,10 +76,7 @@ export function userManagementReducer(state: UserManagementState = initialState,
             fio: user.name,
           };
         }),
-        usersPagination: {
-          page: action.usersData.page,
-          pages: action.usersData.pages,
-        },
+        usersRequest: action.usersData.request,
       };
     }
     case USER_MANAGEMENT_USERS_PAGE_URL_SAVE: {

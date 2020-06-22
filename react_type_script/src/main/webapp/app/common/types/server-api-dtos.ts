@@ -41,11 +41,41 @@ export type UsersData = {
   pages: number;
 };
 
-export type RequestParams<> = {
-  pagination: Pagination;
+export enum DirType {
+  ASC = 'ASC', DESC = 'DESC'
+}
+
+export type DataTableOrder = {
+  dbId: string;
+  dir: DirType;
 };
 
-export interface IRequestParamsUsers extends RequestParams {
+export type DataTableColumn = {
+  dbId: string;
+  name: string;
+  orderAble: boolean;
+  searchable: boolean;
+  search?: string;
+};
+
+//export type UsersCriteria = {};
+
+export type TableUsersRequest = {
+  start: number;
+  perPages: number;
+  page: number;
+  pages: number;
+  columns?: DataTableColumn[];
+  orders?: DataTableOrder[];
+//  criteria?: UsersCriteria;
+};
+
+export type TableUsersResponse = {
+  content: UserDto[];
+  request: TableUsersRequest;
+}
+
+export interface IRequestParamsUsers extends TableUsersRequest {
   login: string;
 }
 
