@@ -12,7 +12,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 module.exports = {
   entry: [path.resolve(__dirname, 'app/Index.jsx')],
   output: {
-    path: path.resolve(__dirname, './../../../deploy'),
+    path: path.resolve(__dirname, './../../build/static'),
     filename: 'js/bundle.[hash].js',
     publicPath: '/',
   },

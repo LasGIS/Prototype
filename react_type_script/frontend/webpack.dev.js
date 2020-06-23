@@ -6,7 +6,6 @@ const path = require('path');
 const webpack = require('webpack');
 const merge = require('webpack-merge');
 const common = require('./webpack.common.js');
-const BUILD_DIR = path.join(__dirname, './../../../deploy');
 
 const host = process.env.HOST || 'http://localhost:3001';
 
@@ -15,7 +14,7 @@ module.exports = merge(common, {
   devtool: 'sourcemap',
   devServer: {
     inline: true,
-    contentBase: BUILD_DIR,
+    contentBase: path.resolve(__dirname, './../../build/static'),
     port: 5555,
     proxy: [
       {

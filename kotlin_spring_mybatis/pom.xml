@@ -123,7 +123,7 @@
                 </includes>
             </resource>
             <resource>
-                <directory>${basedir}/../react_type_script/deploy/</directory>
+                <directory>${basedir}/../build/static</directory>
                 <targetPath>static/</targetPath>
                 <includes>
                     <include>**/*.*</include>
