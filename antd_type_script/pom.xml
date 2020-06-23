@@ -12,9 +12,9 @@
         <version>0.1.1-SNAPSHOT</version>
     </parent>
 
-    <artifactId>react_type_script</artifactId>
-    <name>React Redux TypeScript</name>
-    <description>React Redux TypeScript prototype frontend</description>
+    <artifactId>antd_type_script</artifactId>
+    <name>Ant Design TypeScript</name>
+    <description>Ant Design with React TypeScript prototype frontend</description>
 
     <profiles>
         <!-- запускаем npm на создание node_js -->
@@ -27,9 +27,9 @@
                         <artifactId>frontend-maven-plugin</artifactId>
                         <version>${frontend-plugin.version}</version>
                         <configuration>
-                            <workingDirectory>src/main/webapp</workingDirectory>
                             <nodeVersion>${node.version}</nodeVersion>
                             <npmVersion>${npm.version}</npmVersion>
+                            <workingDirectory>frontend</workingDirectory>
                             <installDirectory>./../node_js</installDirectory>
                         </configuration>
                         <executions>
@@ -47,7 +47,6 @@
                                 </goals>
                                 <configuration>
                                     <arguments>install</arguments>
-                                    <installDirectory>./../node_js</installDirectory>
                                     <npmInheritsProxyConfigFromMaven>false</npmInheritsProxyConfigFromMaven>
                                 </configuration>
                             </execution>
@@ -66,22 +65,20 @@
                         <artifactId>frontend-maven-plugin</artifactId>
                         <version>${frontend-plugin.version}</version>
                         <configuration>
-                            <workingDirectory>src/main/webapp</workingDirectory>
                             <nodeVersion>${node.version}</nodeVersion>
                             <npmVersion>${npm.version}</npmVersion>
+                            <workingDirectory>frontend</workingDirectory>
                             <installDirectory>./../node_js</installDirectory>
                         </configuration>
                         <executions>
                             <execution>
-                                <id>webpack build</id>
+                                <id>frontend build</id>
                                 <goals>
-                                    <goal>webpack</goal>
+                                    <goal>npm</goal>
                                 </goals>
                                 <phase>generate-resources</phase>
                                 <configuration>
-                                    <installDirectory>./../node_js</installDirectory>
-                                    <arguments>--config webpack.dev.js</arguments>
-                                    <workingDirectory>src/main/webapp</workingDirectory>
+                                    <arguments>run build</arguments>
                                 </configuration>
                             </execution>
                         </executions>
