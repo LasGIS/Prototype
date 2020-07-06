@@ -2,32 +2,38 @@
  * Copyright (c) 2020. Prototype
  */
 
-import $ from 'jquery/dist/jquery';
+import $ from 'jquery';
 import { globalHideLoader, globalShowLoader } from './services/action-creators';
 
-export const HTTP_METHODS = {
-  GET: 'GET',
-  POST: 'POST',
-  PUT: 'PUT',
-  DELETE: 'DELETE',
+export enum HTTP_METHODS {
+  GET = 'GET',
+  POST = 'POST',
+  PUT = 'PUT',
+  DELETE = 'DELETE'
+}
+
+type RequestSettings = {
+  contentType?: string;
+  dataType?: string;
+  requestSettingsDataParam?: string;
 };
 
-export const get = (url, data, requestSettings) => dispatch =>
+export const get = (url: string, data?: any, requestSettings?: RequestSettings) => (dispatch: any) =>
   requestDecorator(url, HTTP_METHODS.GET, data, requestSettings)(dispatch);
 
-export const post = (url, data) => dispatch => requestDecorator(url, HTTP_METHODS.POST, data)(dispatch);
+export const post = (url: string, data: any, requestSettings?: RequestSettings) => (dispatch: any) =>
+  requestDecorator(url, HTTP_METHODS.POST, data, requestSettings)(dispatch);
 
-export const postWithHeaders = (url, data, requestSettings) => dispatch =>
-  requestDecoratorWithHeaders(url, HTTP_METHODS.POST, data, requestSettings)(dispatch);
+export const put = (url: string, data?: any, requestSettings?: RequestSettings) => (dispatch: any) =>
+  requestDecorator(url, HTTP_METHODS.PUT, data, requestSettings)(dispatch);
 
-export const put = (url, data) => dispatch => requestDecorator(url, HTTP_METHODS.PUT, data)(dispatch);
-
-export const del = (url, data) => dispatch => requestDecorator(url, HTTP_METHODS.DELETE, data)(dispatch);
+export const del = (url: string, data?: any, requestSettings?: RequestSettings) => (dispatch: any) =>
+  requestDecorator(url, HTTP_METHODS.DELETE, data, requestSettings)(dispatch);
 
 const requestDecorator = (
-  url, method, data,
-  requestSettings = { requestSettingsDataParam: 'json' },
-) => dispatch => {
+  url: string, method: HTTP_METHODS, data?: any,
+  requestSettings: any = { requestSettingsDataParam: 'json' },
+) => (dispatch: any) => {
   dispatch(globalShowLoader());
   return request(url, method, data, requestSettings)
     .then(response => {
@@ -40,23 +46,10 @@ const requestDecorator = (
     });
 };
 
-const requestDecoratorWithHeaders = (url, method, data, requestSettings = {}) => dispatch => {
-  dispatch(globalShowLoader());
-  return requestWithHeaders(url, method, data, requestSettings)
-    .then(header => {
-      dispatch(globalHideLoader());
-      return header;
-    })
-    .catch(error => {
-      dispatch(globalHideLoader());
-      return error;
-    });
-};
-
-export function request(url, method, data = {}, requestSettings = {}) {
+export function request(url: string, method: HTTP_METHODS, data: any = {}, requestSettings: RequestSettings = {}) {
   const { contentType, dataType, requestSettingsDataParam } = requestSettings;
 
-  return new Promise((resolve, reject) => {
+  return new Promise<any>((resolve, reject) => {
     $.ajax({
       url: url,
       type: method,
@@ -67,8 +60,8 @@ export function request(url, method, data = {}, requestSettings = {}) {
       //   'auth-Token': localStorage.getItem(FRONT_AUTH_TOKEN) || undefined,
       // },
     })
-      .done(response => resolve(response))
-      .fail(error => reject(error));
+      .done((response: any) => resolve(response))
+      .fail((error: any) => reject(error));
   });
 
   function getDataParam() {
@@ -77,23 +70,23 @@ export function request(url, method, data = {}, requestSettings = {}) {
   }
 }
 
-function requestWithHeaders(url, method, data, requestSettings) {
+function requestWithHeaders(url: string, method: HTTP_METHODS, data: any, requestSettings: RequestSettings = {}) {
   const { contentType, dataType, requestSettingsDataParam } = requestSettings;
 
-  return new Promise((resolve, reject) => {
+  return new Promise<any>((resolve, reject) => {
     $.ajax({
       url: url,
       type: method,
       contentType: contentType === 'false' ? false : contentType || 'application/json',
       dataType: dataType || 'json',
       data: getDataParam(),
-      resolveWithFullResponse: true,
-      simple: false,
+//      resolveWithFullResponse: true,
+//      simple: false,
     })
-      .done((response) => {
+      .done((response: any) => {
         return resolve(response);
       })
-      .fail(error => reject(error));
+      .fail((error: any) => reject(error));
   });
 
   function getDataParam() {

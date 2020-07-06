@@ -27,7 +27,7 @@ class Footer extends Component<Props> {
       <div
         className={cn(styles.footer, typeClass)}>
         <div className={styles.footerContainer}>
-          <div className={cn(styles.label)}>{name}</div>
+          <div className={cn(styles.label)}>{`Название \"${name}\"`}</div>
           <div className={cn(styles.label, styles.right)}>{version}</div>
         </div>
       </div>
