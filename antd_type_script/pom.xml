@@ -19,13 +19,13 @@
     <profiles>
         <!-- запускаем npm на создание node_js -->
         <profile>
-            <id>install_node_js</id>
+            <id>install-frontend-tools</id>
             <build>
                 <plugins>
                     <plugin>
                         <groupId>com.github.eirslett</groupId>
                         <artifactId>frontend-maven-plugin</artifactId>
-                        <version>${frontend-plugin.version}</version>
+                        <version>${frontend-maven-plugin.version}</version>
                         <configuration>
                             <workingDirectory>frontend</workingDirectory>
                             <nodeVersion>${node.version}</nodeVersion>
@@ -47,13 +47,13 @@
         </profile>
         <!-- запускаем npm install -->
         <profile>
-            <id>npm_install</id>
+            <id>yarn-install</id>
             <build>
                 <plugins>
                     <plugin>
                         <groupId>com.github.eirslett</groupId>
                         <artifactId>frontend-maven-plugin</artifactId>
-                        <version>${frontend-plugin.version}</version>
+                        <version>${frontend-maven-plugin.version}</version>
                         <configuration>
                             <workingDirectory>frontend</workingDirectory>
                             <nodeVersion>${node.version}</nodeVersion>
@@ -78,13 +78,13 @@
         </profile>
         <!-- запускаем npm на создание образа frontend -->
         <profile>
-            <id>node_js_build</id>
+            <id>build-frontend</id>
             <build>
                 <plugins>
                     <plugin>
                         <groupId>com.github.eirslett</groupId>
                         <artifactId>frontend-maven-plugin</artifactId>
-                        <version>${frontend-plugin.version}</version>
+                        <version>${frontend-maven-plugin.version}</version>
                         <configuration>
                             <workingDirectory>frontend</workingDirectory>
                             <nodeVersion>${node.version}</nodeVersion>

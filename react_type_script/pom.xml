@@ -17,58 +17,57 @@
     <description>React Redux TypeScript prototype frontend</description>
 
     <profiles>
-        <!-- запускаем npm на создание node_js -->
+        <!-- запускаем создание node_js -->
         <profile>
-            <id>install_node_js</id>
+            <id>install-frontend-tools</id>
             <build>
                 <plugins>
                     <plugin>
                         <groupId>com.github.eirslett</groupId>
                         <artifactId>frontend-maven-plugin</artifactId>
-                        <version>${frontend-plugin.version}</version>
+                        <version>${frontend-maven-plugin.version}</version>
                         <configuration>
-                            <workingDirectory>frontend</workingDirectory>
                             <nodeVersion>${node.version}</nodeVersion>
-                            <npmVersion>${npm.version}</npmVersion>
+                            <yarnVersion>${yarn.version}</yarnVersion>
+                            <workingDirectory>frontend</workingDirectory>
                             <installDirectory>${nodejs.install.directory}</installDirectory>
                         </configuration>
                         <executions>
                             <execution>
-                                <id>install node and npm</id>
+                                <id>install-node-and-yarn</id>
                                 <goals>
-                                    <goal>install-node-and-npm</goal>
+                                    <goal>install-node-and-yarn</goal>
                                 </goals>
-                                <phase>generate-resources</phase>
                             </execution>
                         </executions>
                     </plugin>
                 </plugins>
             </build>
         </profile>
-        <!-- запускаем npm install -->
+        <!-- запускаем yarn install -->
         <profile>
-            <id>npm_install</id>
+            <id>yarn-install</id>
             <build>
                 <plugins>
                     <plugin>
                         <groupId>com.github.eirslett</groupId>
                         <artifactId>frontend-maven-plugin</artifactId>
-                        <version>${frontend-plugin.version}</version>
+                        <version>${frontend-maven-plugin.version}</version>
                         <configuration>
-                            <workingDirectory>frontend</workingDirectory>
                             <nodeVersion>${node.version}</nodeVersion>
-                            <npmVersion>${npm.version}</npmVersion>
+                            <yarnVersion>${yarn.version}</yarnVersion>
+                            <workingDirectory>frontend</workingDirectory>
                             <installDirectory>${nodejs.install.directory}</installDirectory>
                         </configuration>
                         <executions>
                             <execution>
-                                <id>npm install</id>
+                                <id>yarn-install</id>
                                 <goals>
-                                    <goal>npm</goal>
+                                    <goal>yarn</goal>
                                 </goals>
                                 <configuration>
                                     <arguments>install</arguments>
-                                    <npmInheritsProxyConfigFromMaven>false</npmInheritsProxyConfigFromMaven>
+                                    <yarnInheritsProxyConfigFromMaven>false</yarnInheritsProxyConfigFromMaven>
                                 </configuration>
                             </execution>
                         </executions>
@@ -76,30 +75,30 @@
                 </plugins>
             </build>
         </profile>
-        <!-- запускаем npm на создание образа frontend -->
+        <!-- запускаем yarn на создание образа frontend -->
         <profile>
-            <id>node_js_build</id>
+            <id>build-frontend</id>
             <build>
                 <plugins>
                     <plugin>
                         <groupId>com.github.eirslett</groupId>
                         <artifactId>frontend-maven-plugin</artifactId>
-                        <version>${frontend-plugin.version}</version>
+                        <version>${frontend-maven-plugin.version}</version>
                         <configuration>
-                            <workingDirectory>frontend</workingDirectory>
                             <nodeVersion>${node.version}</nodeVersion>
-                            <npmVersion>${npm.version}</npmVersion>
+                            <yarnVersion>${yarn.version}</yarnVersion>
+                            <workingDirectory>frontend</workingDirectory>
                             <installDirectory>${nodejs.install.directory}</installDirectory>
                         </configuration>
                         <executions>
                             <execution>
                                 <id>webpack build</id>
                                 <goals>
-                                    <goal>webpack</goal>
+                                    <goal>yarn</goal>
                                 </goals>
                                 <phase>generate-resources</phase>
                                 <configuration>
-                                    <arguments>--config webpack.dev.js</arguments>
+                                    <arguments>prod</arguments>
                                 </configuration>
                             </execution>
                         </executions>
