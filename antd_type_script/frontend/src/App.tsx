@@ -24,7 +24,7 @@ function App() {
           Learn React
         </a>
       </header>
-      <Space align={56}>
+      <Space align='center'>
         <Button title='ttt' name='Button'/>
         <Button title='ttt' name='Button'/>
         <Button title='ttt' name='Button'/>
