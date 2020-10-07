@@ -1,6 +1,7 @@
 /*
  * Copyright (c) 2020. Prototype
  */
+@import '~antd/dist/antd.css';
 
 .App {
   text-align: center;

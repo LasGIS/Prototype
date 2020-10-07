@@ -24,11 +24,11 @@ function App() {
           Learn React
         </a>
       </header>
-      <Space align='center'>
-        <Button title='ttt' name='Button'/>
-        <Button title='ttt' name='Button'/>
-        <Button title='ttt' name='Button'/>
-        <Button title='ttt' name='Button'/>
+      <Space align='start'>
+        <Button title='ttt' name='Button1'>Button1</Button>
+        <Button title='ttt' name='Button2'>Button2</Button>
+        <Button title='ttt' name='Button3'>Button3</Button>
+        <Button title='ttt' name='Button4'>Button4</Button>
       </Space>
     </div>
   );
