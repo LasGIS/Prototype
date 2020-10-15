@@ -5,14 +5,23 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
+import App from './pages/Main/App';
 import * as serviceWorker from './serviceWorker';
+import { Provider } from "react-redux";
+import { BrowserRouter as Router } from "react-router-dom";
+import configureStore from "./redux/configureStore";
+
+const store = configureStore();
 
 ReactDOM.render(
 //  <React.StrictMode>
-    <App/>
+  <Provider store={store}>
+    <Router basename={process.env.PUBLIC_URL}>
+      <App/>
+    </Router>
+  </Provider>
 //  </React.StrictMode>
-    , document.getElementById('root')
+  , document.getElementById('root')
 );
 
 // If you want your app to work offline and load faster, you can change
