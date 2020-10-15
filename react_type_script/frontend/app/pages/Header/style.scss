@@ -1,0 +1,159 @@
+/*!
+ * Copyright (c) 2020. Prototype
+ */
+
+@import "../../constants/constants";
+
+/* голубая цветовая гамма */
+.blueHeader {
+  background-color: $blue_bg_color;
+  box-shadow: inset 0 -1px 0 0 $blue_bg_shadow;
+
+  .label {
+    color: $white;
+  }
+}
+
+/* белая цветовая гамма */
+.whiteHeader {
+  background-color: $white_bg_color;
+  box-shadow: inset 0 -1px 0 0 $white_bg_shadow;
+
+  .label {
+    color: $blue_bg_color;
+  }
+}
+
+.redHeader {
+  background-color: #C54D41;
+  box-shadow: inset 0 -1px 0 0 #CD7269;
+
+  .label {
+    color: $white;
+  }
+}
+
+.pageHeaderWrapper {
+  display: block;
+  position: sticky;
+  top: 0;
+  background-color: $body_bg_color;
+  padding-left: $left-menu-width;
+  z-index: $z-index-sticky;
+}
+
+.header {
+  width: $main-container-width;
+  min-height: $header-height;
+  padding: 0;
+  margin: 0;
+}
+
+.left {
+  float: left;
+  margin-right: 19px;
+}
+
+.right {
+  float: right;
+  margin-left: 19px;
+}
+
+.buttonHeader {
+  margin-top: 13px;
+}
+
+.topic {
+  font-size: 26px;
+  color: $topic-color;
+  font-weight: 400;
+  margin: 19px 10px 0px 30px;
+}
+
+.label {
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 24px;
+  text-align: right;
+  margin-top: 22px;
+}
+
+.label-big {
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 24px;
+}
+
+.label-header {
+  color: $black;
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.link-header {
+  margin-top: 25px;
+
+  &__printer {
+    background: url("../../components/icon/svg/printer_icon.svg") no-repeat;
+    background-size: 20px;
+    padding-left: 25px;
+  }
+}
+
+.spinner {
+  width: 30px;
+  margin-top: 17px;
+  margin-right: 5px;
+  float: right;
+}
+
+.container {
+  min-width: $main-container-width;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.bottomContentWrapper {
+  background-color: $white;
+  box-shadow: 0 2px 2px rgba(0, 0, 0, 0.15);
+}
+
+.bottomContent {
+  display: block;
+  min-width: $main-container-width;
+  margin: 0 auto;
+  padding: 0;
+}
+
+.error {
+  position: relative;
+  background-color: #FAE1DB;
+  box-shadow: 0 1px 1px 0 #AEB0B2;
+  width: $main-container-width;
+  min-height: 18px;
+  color: #A64F37;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 19px;
+  text-align: left;
+  padding: 0;
+  margin: 0;
+  z-index: 100;
+}
+
+.errorText {
+  min-height: 18px;
+  padding: 13px;
+  margin: 0 auto;
+}
+
+.errorClear {
+  float: right;
+  background: url("./svg/close-icon.svg") no-repeat;
+  height: 12px;
+  width: 12px;
+  margin-top: 3px;
+  cursor: pointer;
+}
+
+

@@ -1,0 +1,160 @@
+/*!
+ * Copyright (c) 2020. Prototype
+ */
+@import "../../constants/constants";
+
+.iconWidth20 {
+  width: 20px;
+  height: 20px;
+}
+
+.iconAccept {
+  background: url("./svg/accept_icon.svg") no-repeat;
+  background-size: 25px;
+  width: 30px;
+  height: 30px;
+}
+
+.iconPrinter {
+  background: url("./svg/printer_icon.svg") no-repeat;
+  background-size: 25px;
+  width: 30px;
+  height: 30px;
+}
+
+.iconPrinterGray {
+  background: url("./svg/printer_icon_gray.svg") no-repeat;
+  background-size: 100% 100%;
+  width: 30px;
+  height: 30px;
+}
+
+.iconQuestion {
+  background: url("./svg/question.svg") no-repeat;
+  background-size: 25px;
+  width: 30px;
+  height: 30px;
+}
+
+.iconTransparent {
+  opacity: 0.5;
+}
+
+.iconWarningRed {
+  width: 25px;
+  height: 23px;
+  background: url("./svg/warning-red.svg") no-repeat;
+}
+
+.iconWarningWhite {
+  composes: iconWidth20;
+  background: url("./svg/warning-white.svg") no-repeat;
+}
+
+.iconUp {
+  composes: iconWidth20;
+  background: url("./svg/up.svg") no-repeat center;
+}
+
+.iconUpBlue {
+  composes: iconWidth20;
+  background: url("./svg/arrow-up.svg") no-repeat center;
+}
+
+.iconCancel {
+  width: 15px;
+  height: 15px;
+  background-size: contain;
+  background: url("./svg/close-grey.svg") no-repeat center;
+}
+
+.iconCancelWhite {
+  width: 15px;
+  height: 15px;
+  background-size: contain;
+  background: url("./svg/close-white.svg") no-repeat center;
+}
+
+.iconDown {
+  composes: iconWidth20;
+  background: url("./svg/arrow-down.svg") no-repeat center;
+}
+
+.iconFilter {
+  composes: iconWidth20;
+
+  &Active {
+    composes: iconWidth20;
+    background: #0055A6 url("./svg/filter_active.svg") no-repeat center;
+    border-radius: 2px;
+  }
+
+  &GreyWithBorder {
+    composes: iconWidth20;
+    background: url("./svg/filter_grey_w_border.svg") no-repeat center;
+  }
+
+  &Grey {
+    width: 8.09px;
+    height: 9.26px;
+    background: #F7F7F7 url("./svg/filter_grey.svg") no-repeat center;
+  }
+}
+
+.iconSortAsc {
+  composes: iconWidth20;
+  background: url("./svg/sort_down.svg") no-repeat center;
+}
+
+.iconSortDesc {
+  composes: iconWidth20;
+  background: url("./svg/sort.svg") no-repeat center;
+}
+
+.iconGreenCheck {
+  composes: iconWidth20;
+  background: url("./svg/green-check.svg") no-repeat;
+}
+
+.iconOval {
+  background-color: $red;
+  border: 2px solid #FFFFFF;
+  border-radius: 100%;
+  width: 8px;
+  height: 8px;
+  color: #888A8C;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 17px;
+  text-align: right;
+}
+
+.iconLoupe {
+  background: url("./svg/loupe.svg") no-repeat;
+  width: 18px;
+  height: 18px;
+}
+
+.iconCross {
+  background: url("./svg/cross-thin.svg") no-repeat;
+  width: 16px;
+  height: 16px;
+}
+
+.iconCrossRed {
+  background: url("./svg/cross-thin-red.svg") no-repeat;
+  width: 16px;
+  height: 16px;
+}
+
+.ovalLabel {
+  display: flex;
+}
+
+.ovalLabelOval {
+  margin-top: 8px;
+}
+
+.ovalLabelGreen {
+  background-color: $green;
+}

@@ -1,0 +1,66 @@
+/*!
+ * Copyright (c) 2020. Prototype
+ */
+
+@import "../../constants/constants";
+
+.table {
+  font-family: $Roboto;
+}
+
+.row {
+  display: flex;
+  width: 100%;
+  min-height: 48px;
+  border-top: 1px solid #AEB0B2;
+  box-sizing: border-box;
+
+  &:first-child {
+    border: 0;
+  }
+}
+
+body .emptyRow {
+  color: #878787;
+}
+
+.cell {
+  display: flex;
+  align-items: center;
+  box-sizing: border-box;
+  min-height: 100%;
+  width: 100%;
+  text-align: left;
+  color: #343434;
+  font-size: 14px;
+  line-height: 18px;
+  padding: 8px 11px;
+
+  &:first-child {
+    padding-left: 30px;
+  }
+  &:last-child {
+    padding-right: 30px;
+  }
+}
+
+.headCell {
+  display: flex;
+  align-items: center;
+  box-sizing: border-box;
+  min-height: 100%;
+  width: 100%;
+  text-align: left;
+  color: #878787;
+  text-transform: uppercase;
+  font-size: 14px;
+  line-height: 18px;
+  padding: 8px 11px;
+
+  &:first-child {
+    padding-left: 30px;
+  }
+  &:last-child {
+    padding-right: 30px;
+  }
+}

@@ -1,0 +1,37 @@
+/*!
+ * Copyright (c) 2020. Prototype
+ */
+
+@import "../../constants/constants";
+
+.row {
+  display: flex;
+  padding: 20px;
+  margin: 0 2px 10px 2px;
+  font-size: 20px;
+  line-height: 24px;
+  text-align: left;
+}
+
+.white {
+  background-color: $white_bg_color;
+  box-shadow: 1px 1px 3px 1px $white_bg_shadow;
+  color: $black;
+}
+
+.grey {
+  background-color: $grey_bg_color;
+  box-shadow: 1px 1px 3px 1px $grey_shadow_color;
+  color: $black;
+}
+
+.blue {
+  background-color: $blue_bg_color;
+  box-shadow: 1px 1px 3px 1px $blue_bg_shadow;
+  color: $white;
+}
+
+.disabled {
+  opacity: 0.5;
+}
+

@@ -1,0 +1,46 @@
+/*!
+ * Copyright (c) 2020. Prototype
+ */
+
+@import "../../../constants/constants";
+
+$userIdWidth: 75px;
+$loginWidth: 175px;
+$fioWidth: 300px;
+$rolesWidth: 400px;
+$archivedWidth: 140px;
+
+.tablePage {
+//  background-color: #CD7269;
+}
+
+.table {
+  background: #FFFFFF;
+  box-shadow: 1px 1px 2px 2px $box_shadow_color;
+  margin: 4px;
+}
+
+.userId {
+  width: $userIdWidth;
+  min-width: $userIdWidth;
+}
+
+.login {
+  width: $loginWidth;
+  min-width: $loginWidth;
+}
+
+.fio {
+  width: $fioWidth;
+  min-width: $fioWidth;
+}
+
+.roles {
+  width: $rolesWidth;
+  min-width: $rolesWidth;
+}
+
+.archived {
+  width: $archivedWidth;
+  min-width: $archivedWidth;
+}

@@ -5,6 +5,7 @@
 package com.lasgis.kotlin.web.mybatis.mapper
 
 import com.lasgis.kotlin.web.dto.User
+import com.lasgis.kotlin.web.dto.table.DataTableOrder
 import org.apache.ibatis.annotations.Insert
 import org.apache.ibatis.annotations.Mapper
 import org.apache.ibatis.annotations.Options
@@ -40,4 +41,12 @@ interface UserMapper {
     fun findById(@Param("id") id: Long): User?
 
     fun findByLogin(@Param("login") login: String): User?
+
+    fun findAllUsers(): List<User>
+
+    fun findUsers(
+        @Param("login") login: String?,
+        @Param("name") name: String?,
+        @Param("orders") orders: List<DataTableOrder>?
+    ): List<User>
 }
