@@ -22,7 +22,7 @@ public class LoadContent {
             conn.setSSLSocketFactory(sslsocketfactory);
             final InputStream inputstream = conn.getInputStream();
             final byte[] buff = new byte[1024];
-            int count = 0;
+            int count;
             while ((count = inputstream.read(buff)) > 0) {
                 System.out.printf("%s", new String(buff, 0, count));
             }
