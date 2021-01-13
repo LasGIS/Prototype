@@ -21,7 +21,7 @@
     "ts-lint-fix": "tslint --fix \"app/**/*.ts?(x)\"",
     "analyse-webpack-bundle": "node analyse-webpack-bundle.js"
   },
-  "author": "",
+  "author": "Vladimir Laskin",
   "license": "ISC",
   "jest": {
     "verbose": true,
