@@ -2,8 +2,8 @@
  * Copyright (c) 2021. Prototype
  */
 
-import React from "react";
-import { Link } from "react-router-dom";
+import React from 'react';
+import { Link } from 'react-router-dom';
 
 const ArticleContentRu = () => (
   <>

@@ -2,11 +2,11 @@
  * Copyright (c) 2021. Prototype
  */
 
-import React, { Component } from "react";
-import _ from "underscore";
-import { withTranslation, WithTranslation } from "react-i18next";
-import { ArticleContentRu } from "./ArticleContentRu";
-import { ArticleContentEn } from "./ArticleContentEn";
+import React, { Component } from 'react';
+import _ from 'underscore';
+import { withTranslation, WithTranslation } from 'react-i18next';
+import ArticleContentRu from './ArticleContentRu';
+import ArticleContentEn from './ArticleContentEn';
 
 type Props = WithTranslation & {
   active: boolean;

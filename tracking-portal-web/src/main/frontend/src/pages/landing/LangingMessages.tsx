@@ -2,8 +2,8 @@
  * Copyright (c) 2021. Prototype
  */
 
-import React from "react";
-import { WithTranslation, withTranslation } from "react-i18next";
+import React from 'react';
+import { WithTranslation, withTranslation } from 'react-i18next';
 
 type Props = WithTranslation;
 

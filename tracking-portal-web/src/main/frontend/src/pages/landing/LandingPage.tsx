@@ -2,9 +2,9 @@
  * Copyright (c) 2021. Prototype
  */
 
-import React from "react";
-import BasePage from "../base/BasePage";
-import Landing from "./Landing";
+import React from 'react';
+import BasePage from '../base/BasePage';
+import Landing from './Landing';
 
 export const LandingPage = () => {
   return (

@@ -13,17 +13,21 @@ const scrollToHash = (hash: string) => {
   }
 };
 
-export function withHashLink<P>(OriginalComponent: ComponentType<RouteComponentProps<P>>) {
+function withHashLink<P>(OriginalComponent: ComponentType<RouteComponentProps<P>>) {
   const WithHashLink = (props: RouteComponentProps<P>) => {
+    const { location } = props;
+
     useEffect(() => {
-      const { hash } = props.location;
+      const { hash } = location;
       if (hash !== '') {
         scrollToHash(hash);
       }
-    }, [ props.location ]);
+    }, [location]);
 
     return <OriginalComponent {...props} />;
-  }
+  };
 
   return withRouter(WithHashLink);
 }
+
+export default withHashLink;
