@@ -1,0 +1,159 @@
+/*!
+ * Copyright (c) 2021. Prototype
+ */
+
+@import "src/css/variables";
+
+html.rpst-portal.aui .specification-page {
+  width: 960px;
+  background-color: $background-color-dark;
+  margin: 0 auto $footer-height + 10px;
+
+  &__left-menu {
+    padding-left: 0;
+    padding-right: 0;
+    margin-top: 35px;
+    width: 150px;
+    right: 0;
+    position: relative;
+
+    .tracking-left-menu__item {
+      margin-bottom: 7px;
+    }
+  }
+
+  &__content {
+    font-size: $text-size-normal;
+    font-weight: $regular;
+    // padding-bottom: 40px;
+    position: relative;
+    border-left: 1px solid darken($background-color-dark, 10%);
+    color: $text-color-middle;
+    padding-left: 49px;
+    margin-left: 10px;
+    right: -10px;
+
+    &::before {
+      content: '';
+      position: absolute;
+      width: 2px;
+      height: 30px;
+      background-color: $background-color-dark;
+      top: 0;
+      left: -1px;
+    }
+
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 35px;
+      margin-bottom: 8px;
+      font-weight: $text-weight-bold;
+      color: $text-color-middle;
+    }
+
+    h1 {
+      font-size: $text-size-huge;
+    }
+
+    h2 {
+      font-size: $text-size-large;
+    }
+
+    h3 {
+      font-size: $text-size-medium;
+    }
+
+    h4 {
+      font-size: $text-size-regular;
+    }
+
+    h5 {
+      font-size: $text-size-normal;
+    }
+
+    h6 {
+      font-size: $text-size-small;
+    }
+
+    table {
+      border-spacing: 7px 5px;
+      border: 1px solid $grey-dark;
+
+      &.table_500 {
+        width: 500px;
+      }
+
+      &.table_100 {
+        width: 100%;
+      }
+
+      td, th {
+        padding: 10px;
+        border: 1px solid $grey-medium;
+        span {
+          &.arial {
+            font-family: Arial, sans-serif;
+            font-size: 14px;
+            line-height: 22.2222px;
+
+            &-dark {
+              color: rgb(51, 51, 51);
+            }
+          }
+        }
+
+        a.external-link {
+          font-family: Arial, sans-serif;
+          font-size: 14px;
+          line-height: 22.2222px;
+          color: rgb(59, 115, 175);
+          text-decoration: none;
+        }
+      }
+    }
+
+    header {
+      margin-top: 35px;
+      margin-bottom: 20px;
+
+      p {
+        line-height: 18px;
+      }
+    }
+
+    article {
+      background-color: $background-color-white;
+    }
+
+    section {
+      padding: 1px 60px 40px 60px;
+
+      border-bottom: 2px solid $border-color-light;
+      margin-bottom: 0;
+      margin-top: 0;
+      // color: $text-color-light;
+      background-color: $background-color-white;
+
+      h1, h2, h3, h4, h5, h6, code, pre {
+        color: $text-color-middle;
+        font-weight: $text-weight-medium;
+        margin-top: 40px;
+      }
+
+      pre {
+        padding: 20px 26px;
+        line-height: 18px;
+      }
+
+      code, pre {
+        font-family: Roboto, Helvetica, sans-serif;
+        font-size: $text-size-normal;
+        font-weight: $text-weight-medium;
+        background-color: $background-color-white;
+        margin-top: 28px;
+        margin-bottom: 28px;
+      }
+
+    }
+  }
+}
+

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!--
+  - Copyright (c) 2021. Prototype
+  -->
+
+<svg width="94px" height="97px" viewBox="0 0 94 97" version="1.1" xmlns="http://www.w3.org/2000/svg"
+     xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
+  <!-- Generator: Sketch 3.3.2 (12043) - http://www.bohemiancoding.com/sketch -->
+  <title>Fill 1 + Group</title>
+  <desc>Created with Sketch.</desc>
+  <defs></defs>
+  <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
+    <g id="начало-письмо-copy-6" sketch:type="MSArtboardGroup" transform="translate(-274.000000, -3782.000000)">
+      <g id="Check-Label-21-+-Fill-1-+-Group" sketch:type="MSLayerGroup" transform="translate(66.000000, 3782.000000)">
+        <g id="Fill-1-+-Group" transform="translate(207.000000, 0.000000)" sketch:type="MSShapeGroup">
+          <path
+            d="M94.8484375,48.5109516 C94.8484375,22.1034839 73.840195,0.697774194 47.9280334,0.697774194 C22.0158718,0.697774194 1.00916474,22.1034839 1.00916474,48.5109516 C1.00916474,74.9152903 22.0158718,96.3194355 47.9280334,96.3194355 C55.291589,96.3194355 62.2559526,94.5875161 68.4572455,91.5069839 L68.3436294,91.6227581 L88.705488,97 L84.1132455,78.9470484 C90.8196698,70.6785806 94.8484375,60.0742903 94.8484375,48.5109516"
+            id="Fill-1" fill="#FFCD00"></path>
+          <g id="Group" transform="translate(14.827347, 28.412060)">
+            <path
+              d="M65.6535373,17.3745476 L65.6535373,40.8408492 L0.0365637015,40.8408492 L0.0365637015,0.085452381 L48.1349801,0.085452381 L65.6535373,17.3745476"
+              id="Fill-2" fill="#FFFFFF"></path>
+            <path d="M65.6535373,17.3745476 L48.1349801,17.3745476 L48.1349801,0.085452381 L65.6535373,17.3745476" id="Fill-3" fill="#EBEBEB"></path>
+            <path d="M4.66699185,6.38275397 L21.2510388,6.38275397 L21.2510388,9.89323016 L4.66699185,9.89323016 L4.66699185,6.38275397 Z" id="Fill-4"
+                  fill="#D7D7D7"></path>
+            <path d="M4.66699185,13.2836111 L37.8366458,13.2836111 L37.8366458,16.7940873 L4.66699185,16.7940873 L4.66699185,13.2836111 Z" id="Fill-5"
+                  fill="#D7D7D7"></path>
+            <path d="M4.66699185,20.1860079 L37.8366458,20.1860079 L37.8366458,23.6980238 L4.66699185,23.6980238 L4.66699185,20.1860079 Z" id="Fill-6"
+                  fill="#D7D7D7"></path>
+            <path d="M4.66699185,27.0868651 L37.8366458,27.0868651 L37.8366458,30.598881 L4.66699185,30.598881 L4.66699185,27.0868651 Z" id="Fill-7"
+                  fill="#D7D7D7"></path>
+          </g>
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>

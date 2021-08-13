@@ -1,0 +1,48 @@
+<!--
+  ~ Copyright (c) 2021. Prototype
+  -->
+
+<configuration scan="true">
+  <contextListener class="ch.qos.logback.classic.jul.LevelChangePropagator"/>
+  <include resource="org/springframework/boot/logging/logback/defaults.xml"/>
+  <include resource="org/springframework/boot/logging/logback/console-appender.xml"/>
+
+  <appender name="FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+    <file>./log/tracking-portal-web.log</file>
+
+    <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
+      <fileNamePattern>./log/previous/tracking-portal-web-%d{yyyy-MM-dd}.log.%i.gz</fileNamePattern>
+      <cleanHistoryOnStart>true</cleanHistoryOnStart>
+      <maxFileSize>100MB</maxFileSize>
+      <maxHistory>7</maxHistory>
+    </rollingPolicy>
+
+    <encoder>
+      <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [%t] %-5p %c{1} - %m%n</pattern>
+    </encoder>
+  </appender>
+
+  <appender name="ExternalCallsFileAppender" class="ch.qos.logback.core.rolling.RollingFileAppender">
+    <file>./log/tracking-portal-web-external-calls.log</file>
+
+    <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+      <fileNamePattern>./log/previous/tracking-portal-web-external-calls.%d{yyyy-MM-dd}.log.gz</fileNamePattern>
+      <cleanHistoryOnStart>true</cleanHistoryOnStart>
+      <maxHistory>7</maxHistory>
+    </rollingPolicy>
+
+    <encoder>
+      <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [%t] - %m%n</pattern>
+    </encoder>
+  </appender>
+
+  <logger name="ru.russianpost.tracking.portal.config.logging.LoggingInterceptor" additivity="false">
+    <level value="DEBUG"/>
+    <appender-ref ref="ExternalCallsFileAppender"/>
+  </logger>
+
+  <root level="INFO">
+    <appender-ref ref="CONSOLE"/>
+    <appender-ref ref="FILE"/>
+  </root>
+</configuration>

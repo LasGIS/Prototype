@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!--
+  - Copyright (c) 2021. Prototype
+  -->
+
+<svg width="243px" height="459px" viewBox="0 0 243 459" version="1.1" xmlns="http://www.w3.org/2000/svg"
+     xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
+  <!-- Generator: Sketch 3.3.2 (12043) - http://www.bohemiancoding.com/sketch -->
+  <title>Oval 31 + Oval 31 Copy</title>
+  <desc>Created with Sketch.</desc>
+  <defs>
+    <radialGradient cx="50%" cy="51.0259901%" fx="50%" fy="51.0259901%" r="45.1177873%" id="radialGradient-1">
+      <stop stop-color="#FFFFFF" offset="0%"></stop>
+      <stop stop-color="#E9E7E7" stop-opacity="0" offset="100%"></stop>
+    </radialGradient>
+  </defs>
+  <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
+    <g id="Оставить-отзыв-фокус-" sketch:type="MSArtboardGroup" transform="translate(-957.000000, 0.000000)" fill="url(#radialGradient-1)">
+      <g id="Oval-31-+-Oval-31-Copy" sketch:type="MSLayerGroup" transform="translate(933.000000, -36.000000)">
+        <ellipse id="Oval-31" sketch:type="MSShapeGroup" cx="256" cy="257.713867" rx="255.572266" ry="257.286133"></ellipse>
+        <ellipse id="Oval-31-Copy" sketch:type="MSShapeGroup" cx="256" cy="257.713867" rx="199.261692" ry="200.597941"></ellipse>
+      </g>
+    </g>
+  </g>
+</svg>

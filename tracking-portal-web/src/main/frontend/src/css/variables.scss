@@ -1,0 +1,222 @@
+/*!
+ * Copyright (c) 2021. Prototype
+ */
+
+@import "arrow.scss";
+@import "easings.scss";
+
+/*
+@mixin media-retina($rules) {
+    @media (-webkit-min-device-pixel-ratio: 1.5), (min--moz-device-pixel-ratio: 1.5), (-o-min-device-pixel-ratio: 3/2), (min-device-pixel-ratio: 1.5), (min-resolution: 192dpi) { $rules; }
+}
+@mixin media-mobile($rules) {
+    @media only screen and (max-width: 767px) { $rules; }
+}
+*/
+$pageWidth: 960px;
+
+$Roboto: Roboto, sans-serif;
+$light: 300;
+$regular: 400;
+$medium: 500;
+$bold: 700;
+
+$grey-black: black;
+$grey-dark: hsl(0, 0, 20%);
+$grey-dark-lighter: hsl(0, 0, 20%);
+$grey-medium: hsl(0, 0, 50%);
+$grey-dark-light: hsl(0, 0, 60%);
+$grey-light: hsl(0, 0, 60%);
+$grey-line: hsl(0, 0, 90%);
+$grey-line-dark: hsl(0, 0, 80%);
+$grey-very-light: hsl(0, 0, 80%);
+$grey-bg: hsl(0, 0, 97%);
+$grey-bg-mobile: hsl(0, 0, 92%);
+
+//$blue: #0060BA;
+$blue: #0055A6;
+$red: #E84132;
+$orange: #F78818;
+$green: #7ED321;
+
+$text-color-base: #424242;
+$text-color-dark: #202020;
+$text-color-middle: #606060;
+$text-color-middle-up: #727272;
+$text-color-light: #aaa;
+$text-color-pale: #ccc;
+$text-color-inverse: white;
+$text-color-selected: $blue;
+$text-color-ok: #7cbc32;
+$text-color-already-sent: #ea756b;
+$text-color-ok--light: #1ca600;
+$text-color-warning: #e94132;
+$text-color-error: #d0021b;
+
+$border-color-warning: #ea756b;
+$border-color-error: lighten($text-color-error, 5%);
+$border-color-base: #d4d4d4;
+$border-color-light: #f2f2f2;
+
+$text-size-small: 12px;
+$text-size-normal: 14px;
+$text-size-base: 15px;
+$text-size-regular: 16px;
+$text-size-medium: 18px;
+$text-size-large-2: 22px;
+$text-size-large: 24px;
+$text-size-huge: 32px;
+
+$text-weight-light: $light;
+$text-weight-regular: $regular;
+$text-weight-medium: $medium;
+$text-weight-bold: $bold;
+
+$background-color-input: #f7f7f7;
+$background-color-white: #fff;
+$background-color-body: #f7f7f7;
+$background-color-dark: #e5e5e5;
+
+
+$input-text-border: 1px solid #ccc;
+
+$hover-link: $blue;
+//$hover-link: #4C88C1;
+$hover-button: lighten($blue, 5%);
+//$hover-button: #3377B8;
+$hover-block: #EDF7FF;
+
+$button-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.50);
+$button-gradient: url('src/img/button-gradient.png');
+$button-gradient-hover: url('src/img/button-gradient-hover.png');
+$button-gradient-darkening: rgba(0, 0, 0, 0.11);
+$button-border: 1px solid #003160;
+$button-border-hover: 1px solid #005AB0;
+
+$footer-height: 90px;
+/*
+@mixin default-transition($value, $arguments) {
+    $value: "# {$arguments}".replace(/[\[\]]/g, '').split(',').join(' 0.1s ease-in-out,') + ' 0.1s ease-in-out';
+    transition: $value;
+}
+*/
+/*
+
+@function image-2x($image, $repeat: no-repeat, $dataURI: false) {
+    $filename  : ~`/(.*)\.(jpg|jpeg|png|gif)/.exec(# {$image})[1]`;
+    $extension : ~`/(.*)\.(jpg|jpeg|png|gif)/.exec(# {$image})[2]`;
+    background-image: url('# {$filename}.# {$extension}');
+    background-repeat: $repeat;
+
+    media-retina({
+        background-image: url('# {$filename}$2x.# {$extension}'),
+
+        $svgImage: '# {$filename}.svg',
+        $content: data-uri($svgImage),
+        & when not ("# {$content}" = "url('# {$svgImage}')") {
+            background-image: url('# {$svgImage}'), linear-gradient(transparent, transparent);
+        }
+        background-size: image-size($image);
+    });
+}
+
+@function image-2x($image, $repeat: no-repeat, $dataURI) @when ($dataURI = true) {
+    $filename  : ~`/(.*)\.(jpg|jpeg|png|gif)/.exec(# {$image})[1]`;
+    $extension : ~`/(.*)\.(jpg|jpeg|png|gif)/.exec(# {$image})[2]`;
+    background-image: data-uri('# {$filename}.# {$extension}');
+    background-repeat: $repeat;
+
+    media-retina({
+        background-image: data-uri('# {$filename}$2x.# {$extension}'),
+
+        $svgImage: '# {$filename}.svg',
+        $content: data-uri($svgImage),
+        & when not ("# {$content}" = "url('# {$svgImage}')") {
+            background-image: data-uri('# {$svgImage}'), linear-gradient(transparent, transparent);
+        }
+
+        background-size: image-size($image);
+    });
+}
+
+@mixin image-2x-block($image, $repeat: no-repeat, $dataURI: false) {
+    @include image-2x($image, $repeat, $dataURI);
+    width: image-width($image);
+    height: image-height($image);
+}
+
+@mixin image-icon($img) {
+  width: image-width($img);
+  height: image-height($img);
+  background-size: image-size($img);
+  background-image: url($img);
+}
+
+@mixin image-icon-scale($img, $scale) {
+  width: (image-width($img)/$scale);
+  height: (image-height($img)/$scale);
+  background-size: (image-width($img)/$scale) (image-height($img)/$scale);
+  background-image: url($img);
+}
+*/
+
+.clearfix {
+  &:after {
+    content: " "; /* Older browser do not support empty content */
+    visibility: hidden;
+    display: block;
+    height: 0;
+    clear: both;
+  }
+}
+
+/****
+@mixin paper() {
+    background: white;
+    box-shadow: 0 2px 2px 0 hsl(0, 0, 70%);
+    @include default-transition(box-shadow);
+}
+
+@mixin paper-focus() {
+    background: white;
+    box-shadow: 0px 3px 6px 0px hsl(0, 0, 70%);
+    @include default-transition(box-shadow);
+}
+****/
+html.rpst-portal.aui .my-tracking-page .portlet-borderless-container {
+  padding: 0;
+}
+
+@mixin scrollbar($color: rgba(0, 0, 0, 0.2), $width: 7px, $height: 9px, $radius: 4px) {
+  overflow: auto;
+
+  &::-webkit-scrollbar {
+    width: $width;
+    height: $height;
+  }
+
+  &::-webkit-scrollbar-button:start:decrement,
+  &::-webkit-scrollbar-button:end:increment {
+    display: block;
+    height: 0;
+    background-color: transparent;
+  }
+
+  &::-webkit-scrollbar-track-piece {
+    border-radius: 0;
+    border-bottom-right-radius: $radius;
+    border-bottom-left-radius: $radius;
+  }
+
+  &::-webkit-scrollbar-thumb:vertical {
+    height: 50px;
+    background-color: $color;
+    border-radius: $radius;
+  }
+
+  &::-webkit-scrollbar-thumb:horizontal {
+    width: 50px;
+    background-color: $color;
+    border-radius: $radius;
+  }
+}

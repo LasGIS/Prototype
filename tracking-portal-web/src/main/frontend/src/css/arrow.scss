@@ -1,0 +1,66 @@
+/*!
+ * Copyright (c) 2021. Prototype
+ */
+
+@mixin arrow_create($size, $color, $border-width, $border-color, $position1, $value1, $position2, $value2) {
+  position: relative;
+  background: $color;
+  border: $border-width solid $border-color;
+
+  &:after, &:before {
+    @include arrow-position($position1, $value1);
+    border: solid transparent;
+    content: " ";
+    height: 0;
+    width: 0;
+    position: absolute;
+    pointer-events: none;
+  }
+
+  &:after {
+    @include arrow-border-color($position1, $color);
+    border-width: $size+1;
+    @include arrow-offset($position1);
+    @include arrow-position($position2, $value2);
+    @include arrow-margin($position2, -1px - $size);
+  }
+
+  &:before {
+    @include arrow-border-color($position1, $border-color);
+    border-width: $size + round(1.41421px);
+    @include arrow-position($position2, $value2);
+    @include arrow-margin($position2, 0px - ($size + round(1.41421)));
+  }
+}
+
+@mixin arrow-offset($name) {
+  margin-#{$name}: -1px;
+}
+
+@mixin arrow-position($name, $value) {
+  $name: $value;
+}
+
+@mixin arrow-border-color($name, $value) {
+  border-#{$name}-color: $value;
+}
+
+@mixin arrow-margin($name, $value) {
+  margin-#{$name}: $value;
+}
+
+@mixin arrow_top($size, $color, $border-width, $border-color) {
+  @include arrow_create($size, $color, $border-width, $border-color, bottom, 100%, left, 50%);
+}
+
+@mixin arrow_left($size, $color, $border-width, $border-color) {
+  @include arrow_create($size, $color, $border-width, $border-color, right, 100%, top, 50%);
+}
+
+@mixin arrow_right($size, $color, $border-width, $border-color) {
+  @include arrow_create($size, $color, $border-width, $border-color, left, 100%, top, 50%);
+}
+
+@mixin arrow_bottom($size, $color, $border-width, $border-color) {
+  @include arrow_create($size, $color, $border-width, $border-color, top, 100%, left, 50%);
+}

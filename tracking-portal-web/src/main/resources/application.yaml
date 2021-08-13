@@ -1,0 +1,104 @@
+server:
+  port: 8080
+
+spring:
+  messages:
+    basename: messages/Language
+    encoding: UTF-8
+  security:
+    oauth2:
+      client:
+        registration:
+          postId:
+            clientId: ${post-id.client-id}
+            clientSecret: ${post-id.client-secret}
+            authorization-grant-type: authorization_code
+            scope: openid+email
+            redirect-uri: ${post-id.base-home-url}/c/login/post_id_callback
+        provider:
+          postId:
+            authorization-uri: ${post-id.base-url}/oauth2/authorize
+            token-uri: ${post-id.base-url}/oauth2/token
+            user-info-uri: ${post-id.base-url}/pochtaid-sso/api/v2.2/session/info.profile
+            user-name-attribute: email
+
+post-id:
+  client-id: CtKsEFI2tB1nlPWzMGRfTeRmsU8a
+  client-secret: FnwQd4GvYGwMFW06aD8lDrzZfmAa
+  base-home-url: http://tracking-local.dev.russianpost.ru:8080
+  base-url: https://passport.test.russianpost.ru
+  logout-url: ${post-id.base-url}/pochtaid-sso/logout.jsp
+  user-account-url: ${post-id.base-url}/pm?helpUrl={0}&comebackUrl={1}&menu={2}
+  api-url: ${post-id.base-url}/pochtaid-sso/api/
+  ping-url: ${post-id.base-url}/pochtaid-sso/monitoring/ping
+
+portal.backend:
+  root-url: http://tracking-portal-backend-dev.test.russianpost.ru
+  dictionary-url: ${portal.backend.root-url}/api/v2.0/dictionary/
+  api-url: ${portal.backend.root-url}/portal/api/v1.0/user/{hid}
+  ping-url: ${portal.backend.root-url}/monitoring/ping
+  dictionary:
+    operations:
+      hidden: [
+        { "id": -1, "attributes": [ ] },
+        { "id": 8, "attributes": [ 170, 171, 172, 173, 174, 175, 176, 177, 178, 179, 180, 181, 182, 183, 184 ] },
+        { "id": 104, "attributes": [ ] },
+        { "id": 105, "attributes": [ ] },
+        { "id": 108, "attributes": [ ] },
+        { "id": 111, "attributes": [ ] },
+        { "id": 114, "attributes": [ ] },
+        { "id": 116, "attributes": [ ] },
+        { "id": 117, "attributes": [ ] },
+        { "id": 124, "attributes": [ ] },
+        { "id": 125, "attributes": [ ] },
+        { "id": 128, "attributes": [ ] },
+        { "id": 129, "attributes": [ ] },
+        { "id": 130, "attributes": [ ] },
+        { "id": 131, "attributes": [ ] },
+        { "id": 132, "attributes": [ ] },
+        { "id": 133, "attributes": [ ] },
+        { "id": 134, "attributes": [ ] },
+        { "id": 135, "attributes": [ ] },
+        { "id": 136, "attributes": [ ] },
+        { "id": 140, "attributes": [ ] },
+        { "id": 143, "attributes": [ ] },
+        { "id": 144, "attributes": [ ] },
+        { "id": 145, "attributes": [ ] },
+        { "id": 146, "attributes": [ ] },
+        { "id": 147, "attributes": [ ] },
+        { "id": 149, "attributes": [ ] },
+        { "id": 150, "attributes": [ ] },
+        { "id": 152, "attributes": [ ] },
+        { "id": 153, "attributes": [ ] },
+        { "id": 154, "attributes": [ ] },
+        { "id": 155, "attributes": [ ] },
+        { "id": 156, "attributes": [ ] },
+        { "id": 157, "attributes": [ ] },
+        { "id": 162, "attributes": [ ] },
+        { "id": 163, "attributes": [ ] },
+        { "id": 164, "attributes": [ ] },
+        { "id": 165, "attributes": [ ] },
+        { "id": 166, "attributes": [ ] },
+        { "id": 167, "attributes": [ ] },
+        { "id": 179, "attributes": [ ] },
+        { "id": 182, "attributes": [ ] },
+        { "id": 183, "attributes": [ ] },
+        { "id": 184, "attributes": [ ] },
+        { "id": 185, "attributes": [ ] },
+        { "id": 187, "attributes": [ ] },
+        { "id": 192, "attributes": [ ] },
+        { "id": 193, "attributes": [ ] },
+      ]
+      terminal: [
+        { "id": 2, "attributes": [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18 ] },
+        { "id": 5, "attributes": [ 1, 2 ] },
+        { "id": 15, "attributes": [ ] },
+        { "id": 16, "attributes": [ ] },
+        { "id": 17, "attributes": [ ] },
+        { "id": 18, "attributes": [ ] },
+      ]
+
+technical-terms.path: technical-terms.json
+event-type-descriptions.path: event-type-descriptions.json
+
+selftest.parallelism: 2

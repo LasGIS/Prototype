@@ -1,0 +1,289 @@
+/*!
+ * Copyright (c) 2021. Prototype
+ */
+
+html.rpst-portal.aui .contract-state {
+  position: fixed;
+  bottom: 0;
+  width: 720px;
+  font-size: 18px;
+  font-weight: 400;
+  z-index: 10;
+  transition: bottom 0.5s ease-in;
+
+  &__band {
+    background-color: #fff;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 116px;
+    z-index: 11;
+    box-shadow: 0px -7px 3px -5px rgba(218, 218, 218, 0.99);
+    padding-top: 0px;
+    transition: bottom 0.5s ease-in;
+  }
+
+  &--invisible {
+    display: none;
+  }
+
+  &--hide {
+    bottom: -120px;
+    transition: bottom 0.5s ease-in;
+  }
+
+  &--hide .contract-state__band {
+    bottom: -120px;
+    transition: bottom 0.5s ease-in;
+  }
+
+  &__close {
+    width: 16px;
+    height: 16px;
+    background-size: 16px 16px;
+    background-image: url(../../img/ico-close-small.png);
+    position: absolute;
+    top: 28px;
+    right: 28px;
+    cursor: pointer;
+  }
+
+  .contract-state__icon {
+    display: inline-block;
+    z-index: 15;
+    margin-left: -3px;
+    position: relative;
+    width: 102px;
+    height: 109px;
+    background-size: 102px 109px;
+
+    &--grey {
+      background-image: url(../../img/Dogovor_ne_podpisan.png);
+    }
+
+    &--green {
+      background-image: url(../../img/Dogovor_podpisan.png);
+    }
+
+    &--red {
+      background-image: url(../../img/Dogovor_rejected.png);
+    }
+  }
+
+  &__paper {
+    z-index: 12;
+    position: relative;
+    top: 1px;
+    left: 4px;
+    width: 97%;
+  }
+
+  &--bottom {
+    position: relative;
+    margin-top: 70px;
+    z-index: none;
+
+    .contract-state {
+      &__close {
+        top: -15px;
+        right: 12px;
+        cursor: pointer;
+      }
+
+      &__band {
+        position: absolute;
+        height: calc(100% + 50px);
+        min-height: 120px;
+        box-shadow: none;
+      }
+
+      &__paper {
+        top: -20px;
+        left: 20px;
+      }
+
+      &__icon {
+        vertical-align: middle;
+        width: 68px;
+        height: 72.66666667px;
+        background-size: 68px 72.66666667px;
+
+        &--grey {
+          background-image: url(../../img/Dogovor_ne_podpisan.png);
+        }
+
+        &--green {
+          background-image: url(../../img/Dogovor_podpisan.png);
+        }
+
+        &--red {
+          background-image: url(../../img/Dogovor_rejected.png);
+        }
+      }
+
+      &__text {
+        vertical-align: middle;
+        max-height: inherit;
+      }
+    }
+  }
+
+  &__text {
+    z-index: 15;
+    background-color: #fff;
+    max-width: 80%;
+    max-height: 70px;
+    text-overflow: ellipsis;
+    display: inline-block;
+    vertical-align: bottom;
+    padding: 14px 10px;
+    margin-left: 20px;
+    color: #7a7a7a;
+
+    &--link {
+      color: #0055A6;
+      cursor: pointer;
+
+      &:hover {
+        text-decoration: underline;
+      }
+
+      &--float {
+        color: #0055A6;
+        cursor: pointer;
+        white-space: nowrap;
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+    }
+  }
+}
+
+html.rpst-portal.aui .statistics-form {
+  font-weight: 400;
+  font-size: 14px;
+  color: #424242;
+  margin-top: 20px;
+  position: relative;
+  width: 720px;
+
+  &__setting {
+    margin: 30px 0 0 0;
+  }
+
+  &__setting--long {
+    width: 600px;
+  }
+
+  &__setting .checkbox__text {
+    font-size: 16px;
+    color: #7a7a7a;
+  }
+
+  &__setting .checkbox__text span {
+    white-space: pre;
+  }
+
+  &__setting input {
+    font-weight: 500;
+  }
+
+  &__setting--dropdown {
+    margin-top: 15px;
+    margin-bottom: 35px;
+    margin-left: 30px;
+    width: 250px;
+  }
+
+  &__status {
+    color: #606060;
+    font-size: 14px;
+  }
+
+  &__queries-handled {
+    color: #0055A6;
+  }
+
+  &__queries-total {
+    color: #d0021b;
+  }
+
+  &__warning {
+    color: #d0021b;
+  }
+
+  &__queries {
+    margin: 15px 15px 15px 0;
+    display: inline-block;
+  }
+
+  &__queries .checkbox__text {
+    font-size: 16px;
+    color: #003b73;
+  }
+
+  &__answers {
+    margin: 15px 15px 15px 0;
+    display: inline-block;
+  }
+
+  &__answers .checkbox__text {
+    font-size: 16px;
+    color: #1ca600;
+  }
+
+  &__answers.checkbox--checked .checkbox__icon:after {
+    background-image: url(../../img/checkbox-checked-green.png);
+  }
+
+  &__empty-data-notification {
+    position: absolute;
+    margin: auto;
+    left: 0;
+    right: 0;
+    top: 140px;
+    text-align: center;
+    width: 276px;
+    padding: 20px 30px 22px 30px;
+    background-color: #fff;
+    box-shadow: 1px 2px 3px 1px #999999;
+    font-size: 15px;
+    color: #727272;
+    z-index: 20;
+  }
+
+  &__paper {
+    background-color: #fff;
+    padding: 20px 20px 36px 30px;
+    margin-bottom: 20px;
+  }
+
+  &__delimiter {
+    border-top: 1px solid #d4d4d4;
+    border-bottom: none;
+    position: relative;
+
+    &:before {
+      content: "";
+      position: absolute;
+      border-top: 1px solid #d4d4d4;
+      border-bottom: none;
+      left: -30px;
+      width: 30px;
+      top: -1px;
+    }
+
+    &:after {
+      content: "";
+      position: absolute;
+      border-top: 1px solid #d4d4d4;
+      border-bottom: none;
+      right: -20px;
+      width: 20px;
+      top: -1px;
+    }
+  }
+}
+

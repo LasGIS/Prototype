@@ -1,0 +1,84 @@
+{
+  "name": "tracking-web-static",
+  "version": "1.0.0-SNAPSHOT",
+  "private": true,
+  "dependencies": {
+    "@types/d3-shape": "^2.0.0",
+    "@types/js-cookie": "^2.2.6",
+    "@types/react-router": "^5.1.13",
+    "@types/react-router-dom": "^5.1.7",
+    "@types/react-transition-group": "^4.4.1",
+    "@types/recharts": "^1.8.19",
+    "@types/underscore": "^1.11.0",
+    "classnames": "^2.3.1",
+    "device": "^0.3.3",
+    "history": "^5.0.0",
+    "http-proxy-middleware": "^2.0.0",
+    "i18next": "^20.2.1",
+    "jquery": "^3.6.0",
+    "js-cookie": "^2.2.1",
+    "mOxie": "^1.5.7",
+    "node-sass": "^5.0.0",
+    "react": "^17.0.2",
+    "react-app-polyfill": "^2.0.0",
+    "react-dom": "^17.0.2",
+    "react-i18next": "^11.8.13",
+    "react-router": "^5.2.0",
+    "react-router-dom": "^5.2.0",
+    "react-scripts": "4.0.3",
+    "react-transition-group": "^4.4.1",
+    "recharts": "^2.0.9",
+    "sanitizer": "^0.1.3",
+    "typescript": "^4.2.3",
+    "underscore": "^1.12.1",
+    "web-vitals": "^1.0.1"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "buildDev": "set BUILD_PATH=../resources/static&& react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject",
+    "postbuild": "react-snap"
+  },
+  "reactSnap": {
+    "viewport": {
+      "width": 1680,
+      "height": 1050
+    },
+    "puppeteerArgs": [
+      "--lang=ru_RU",
+      "--no-sandbox",
+      "--disable-setuid-sandbox"
+    ],
+    "skipThirdPartyRequests": true
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "devDependencies": {
+    "@testing-library/jest-dom": "^5.11.4",
+    "@testing-library/react": "^11.1.0",
+    "@testing-library/user-event": "^12.1.10",
+    "@types/jquery": "^3.5.5",
+    "@types/react": "^17.0.3",
+    "@types/react-dom": "^17.0.7",
+    "expect": "^27.0.6",
+    "react-snap": "^1.23.0"
+  }
+}

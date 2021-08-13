@@ -1,0 +1,51 @@
+[
+  {
+    "id": 1,
+    "description": {
+      "ru": "Перевод наложенного платежа принят на пункте обслуживания.",
+      "en": "COD payment received at service point."
+    }
+  },
+  {
+    "id": 2,
+    "description": {
+      "ru": "Перевод наложенного платежа повторно отправлен пунктом приёма после внесения исправлений.",
+      "en": "After correction, COD payment was resent by collection point."
+    }
+  },
+  {
+    "id": 3,
+    "description": {
+      "ru": "Денежные средства выданы получателю наложенного платежа.",
+      "en": "Money issued to the consignee."
+    }
+  },
+  {
+    "id": 4,
+    "description": {
+      "ru": "Перевод наложенного платежа переадресован пунктом обслуживания другому пункту, более подходящему для выдачи средств получателю.",
+      "en": "COD payment was transferred to another service point, more convinient for the addressee."
+    }
+  },
+  {
+    "id": 5,
+    "description": {
+      "ru": "Перевод наложенного платежа направлен обратно в пункт приема.",
+      "en": "COD payment was resent to the collection point."
+    }
+  },
+  {
+    "id": 6,
+    "description": {
+      "ru": "Для перевода наложенного платежа операция не предусмотрена, но в отдельных случаях может использоваться для корректировки.",
+      "en": "This operation is not set fpr COD payment, but may be used for correction in some cases."
+    }
+  },
+  {
+    "id": 7,
+    "description": {
+      "ru": "Для перевода наложенного платежа операция не предусмотрена, но в отдельных случаях может использоваться для корректировки.",
+      "en": "This operation is not set fpr COD payment, but may be used for correction in some cases."
+    }
+  }
+]

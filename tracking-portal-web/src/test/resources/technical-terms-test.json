@@ -1,0 +1,14 @@
+{
+  "ru": [
+    {
+      "name": "Тест",
+      "description": "Тестовое описание"
+    }
+  ],
+  "en": [
+    {
+      "name": "Test",
+      "description": "Test description"
+    }
+  ]
+}

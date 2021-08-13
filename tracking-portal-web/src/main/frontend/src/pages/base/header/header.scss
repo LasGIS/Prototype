@@ -1,0 +1,145 @@
+/*!
+ * Copyright (c) 2021. Prototype
+ */
+
+@import "src/css/variables";
+
+.header {
+  width: $pageWidth;
+  height: 95px;
+  position: relative;
+  margin: 0 auto;
+
+  &-container {
+    width: 100%;
+    background: white;
+    position: relative;
+    opacity: 1;
+    transition: opacity 500ms ease-out;
+    border-bottom: 1px solid $grey-line;
+    z-index: 2;
+
+    &:empty {
+      border-bottom-color: transparent;
+    }
+
+    &--hidden {
+      opacity: 0;
+      transition: none;
+    }
+  }
+
+  &__logo {
+    &:hover {
+      text-decoration: none;
+    }
+
+    &__image {
+      position: relative;
+      display: block;
+      /*@include image-2x-block('img/logo-rp.png');*/
+      background-image: url(../../../img/logo-rp.png);
+      background-repeat: no-repeat;
+      width: 120px;
+      height: 60px;
+      top: 18px;
+    }
+
+    @media (-webkit-min-device-pixel-ratio: 1.5), (min--moz-device-pixel-ratio: 1.5), (min-device-pixel-ratio: 1.5), (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+      &__image {
+        background-image: url(../../../img/logo-rp@2x.png);
+        background-size: 120px 60px;
+      }
+    }
+
+    &__label {
+      font-size: 18px;
+      position: relative;
+      left: 138px;
+      bottom: 22px;
+      /*.media-mobile ({ display: none; });*/
+      @media only screen and (max-width: 767px) {
+        .header__logo__label {
+          display: none;
+        }
+      }
+    }
+  }
+
+  &__menu {
+    position: absolute;
+    right: 0;
+    top: 34px;
+    font-size: 18px;
+    line-height: 24px;
+  }
+
+  &__btn-all-services {
+    margin-right: 38px;
+    display: inline-block;
+    cursor: pointer;
+
+    &:before {
+      content: '';
+      display: inline-block;
+      /*@include image-2x('img/ico-help.png', no-repeat, true);*/
+      background-image: url(../../../img/ico-help.png);
+      background-repeat: no-repeat;
+      width: 17px;
+      height: 16px;
+      margin-right: 8px;
+      position: relative;
+      top: 4px;
+      vertical-align: top;
+    }
+
+    @media (-webkit-min-device-pixel-ratio: 1.5), (min--moz-device-pixel-ratio: 1.5), (min-device-pixel-ratio: 1.5), (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+      .header__btn-all-services:before {
+        background-image: url(../../../img/ico-help@2x.png);
+        background-size: 17px 16px;
+      }
+    }
+
+    &.text-button--disabled {
+      &:before {
+        background-color: $grey-medium;
+      }
+    }
+  }
+
+  &__btn-user-menu {
+    display: inline-block;
+  }
+
+  &__btn-user-arrow {
+    display: inline-block;
+    /*@include image-2x-block('img/arrow-down.png');*/
+    background-image: url(../../../img/arrow-down.png);
+    background-repeat: no-repeat;
+    width: 10px;
+    height: 7px;
+    margin: 0 5px;
+  }
+
+  &__btn-login {
+    display: inline-block;
+  }
+
+  @media (-webkit-min-device-pixel-ratio: 1.5), (min--moz-device-pixel-ratio: 1.5), (min-device-pixel-ratio: 1.5), (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+    .header__btn-user-arrow {
+      background-image: url(../../../img/arrow-down@2x.png);
+      background-size: 10px 7px;
+    }
+  }
+
+  &__pending-count {
+    display: inline-block;
+    margin-right: 10px;
+    font-size: 14px;
+    line-height: 24px;
+    background: $orange;
+    padding: 0 6px;
+    color: white !important;
+    font-weight: $medium;
+  }
+}

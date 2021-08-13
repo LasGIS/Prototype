@@ -1,0 +1,49 @@
+spring:
+  messages:
+    basename: messages/Language
+    encoding: UTF-8
+  security:
+    oauth2:
+      client:
+        registration:
+          postId:
+            clientId: ${post-id.client-id}
+            clientSecret: ${post-id.client-secret}
+            authorization-grant-type: authorization_code
+            scope: openid+email
+            redirect-uri: "{baseUrl}/c/login/post_id_callback"
+        provider:
+          postId:
+            authorization-uri: ${post-id.base-url}/oauth2/authorize
+            token-uri: ${post-id.base-url}/oauth2/token
+            user-info-uri: ${post-id.base-url}/pochtaid-sso/api/v2.2/session/info.profile
+            user-name-attribute: email
+
+post-id:
+  client-id: CtKsEFI2tB1nlPWzMGRfTeRmsU8a
+  client-secret: FnwQd4GvYGwMFW06aD8lDrzZfmAa
+  base-home-url: http://tracking-local.dev.russianpost.ru:8080
+  base-url: https://passport.test.russianpost.ru
+  logout-url: ${post-id.base-url}/pochtaid-sso/logout.jsp
+  user-account-url: ${post-id.base-url}/pm?helpUrl={0}&comebackUrl={1}&menu={2}
+  api-url: ${post-id.base-url}/pochtaid-sso/api/
+  ping-url: ${post-id.base-url}/pochtaid-sso/monitoring/ping
+
+portal.backend:
+  root-url: http://tracking-portal-backend-dev.test.russianpost.ru
+  dictionary-url: ${portal.backend.root-url}/api/v2.0/dictionary/
+  api-url: ${portal.backend.root-url}/portal/api/v1.0/user/{hid}
+  ping-url: ${portal.backend.root-url}/monitoring/ping
+  dictionary:
+    operations:
+      hidden: [
+        { "id": 2, "attributes": [ ] },
+      ]
+      terminal: [
+        { "id": 1, "attributes": [ 1, 2 ] }
+      ]
+
+technical-terms.path: technical-terms-test.json
+event-type-descriptions.path: event-type-descriptions-test.json
+
+selftest.parallelism: 2
