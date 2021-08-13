@@ -9,11 +9,10 @@
   <modelVersion>4.0.0</modelVersion>
 
   <parent>
-    <groupId>ru.russianpost.tracking</groupId>
-    <artifactId>tracking-base</artifactId>
-    <version>1.6</version>
+    <groupId>com.lasgis.prototype</groupId>
+    <artifactId>prototype-parent</artifactId>
+    <version>0.1.1-SNAPSHOT</version>
   </parent>
-
 
   <artifactId>tracking-portal-web</artifactId>
   <version>0.0.1-SNAPSHOT</version>
@@ -25,6 +24,8 @@
     <java.version>1.8</java.version>
     <maven-enforcer-plugin.version>3.0.0-M3</maven-enforcer-plugin.version>
     <spring.boot.version>2.4.4</spring.boot.version>
+    <maven.compiler.source>11</maven.compiler.source>
+    <maven.compiler.target>11</maven.compiler.target>
   </properties>
 
   <dependencyManagement>
@@ -265,6 +266,7 @@
       <plugin>
         <groupId>org.jacoco</groupId>
         <artifactId>jacoco-maven-plugin</artifactId>
+        <version>0.8.7</version>
         <configuration>
           <excludes>
             <exclude>**/static/documents/**</exclude>
