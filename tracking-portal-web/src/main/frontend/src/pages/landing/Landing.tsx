@@ -7,14 +7,14 @@ import { Link } from 'react-router-dom';
 import cn from 'classnames';
 import { WithTranslation, withTranslation } from 'react-i18next';
 import { RouteComponentProps, withRouter } from 'react-router';
-import { services } from '../../service/services';
+import services from '../../service/services';
 import { getUrlParams, GetUrlParamsResponse } from '../../common/utils';
 import AgreementNotification from './AgreementNotification';
 import LandingMessages from './LangingMessages';
 import { ErrorDto } from '../../service/api-dtos';
 import withCommonContext from '../../hoc/withCommonContext';
 import { CommonContextProps } from '../../hoc/CommonContext';
-import { urls } from '../../service/constants';
+import urls from '../../service/constants';
 
 type Props = WithTranslation & RouteComponentProps & CommonContextProps;
 

@@ -6,15 +6,15 @@ import 'react-app-polyfill/ie9';
 import 'react-app-polyfill/stable';
 import React from 'react';
 import { hydrate, render } from 'react-dom';
+import { I18nextProvider } from 'react-i18next';
 import reportWebVitals from './reportWebVitals';
 import App from './pages/App';
-import { I18nextProvider } from 'react-i18next';
 import i18n from './service/i18n';
 
 const app = (
   <React.StrictMode>
     <I18nextProvider i18n={i18n}>
-      <App/>
+      <App />
     </I18nextProvider>
   </React.StrictMode>
 );

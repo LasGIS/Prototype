@@ -5,7 +5,7 @@
 import { Component } from 'react';
 import ReactDOM from 'react-dom';
 import _ from 'underscore';
-import { services } from '../../service/services';
+import services from '../../service/services';
 import { Notification } from '../Notification';
 import Spinner from '../Spinner';
 import { isObject } from '../../common/utils';

@@ -3,40 +3,38 @@
  */
 
 export type GetUrlParamsResponse = {
-  [key: string]: string | string[]
+  [key: string]: string | string[];
 };
 
 let idCounter = 0;
 
-export const uniqueId = (prefix: string) => {
-  let id = ++idCounter + '';
+export const uniqueId = (prefix: string): string => {
+  const id = `${++idCounter}`;
   return prefix ? prefix + id : id;
-}
+};
 
 export const isObject = (obj: any) => {
   const type = typeof obj;
   return Boolean(obj) && (type === 'function' || type === 'object');
-}
+};
 
 export const getUrlParams = (search: string): GetUrlParamsResponse => {
   const params: GetUrlParamsResponse = {};
 
-  search.replace(/[?&]+([^=&]+)=([^&]*)/gi,
-    (str: string, key, value): string => {
-      const decodedKey: string = decodeURIComponent(key);
-      const decodedValue: string = decodeURIComponent(value.replace(/\+/g, " "));
+  search.replace(/[?&]+([^=&]+)=([^&]*)/gi, (str: string, key, value): string => {
+    const decodedKey: string = decodeURIComponent(key);
+    const decodedValue: string = decodeURIComponent(value.replace(/\+/g, ' '));
 
-      if (Boolean(params[decodedKey])) {
-        if (Array.isArray(params[decodedKey])) {
-          (params[decodedKey] as string[]).push(decodedValue);
-        } else {
-          params[decodedKey] = [ params[decodedKey] as string, decodedValue ];
-        }
+    if (params[decodedKey]) {
+      if (Array.isArray(params[decodedKey])) {
+        (params[decodedKey] as string[]).push(decodedValue);
       } else {
-        params[decodedKey] = decodeURIComponent(decodedValue);
+        params[decodedKey] = [params[decodedKey] as string, decodedValue];
       }
-      return decodedKey;
+    } else {
+      params[decodedKey] = decodeURIComponent(decodedValue);
     }
-  );
+    return decodedKey;
+  });
   return params;
-}
+};

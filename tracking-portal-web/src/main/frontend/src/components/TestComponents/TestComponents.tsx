@@ -11,7 +11,7 @@ import _ from 'underscore';
 import $ from 'jquery';
 import { DropElement, RegionType } from '../ui/Dropdown/types';
 import InputCell from '../ui/InputCell';
-import { services } from '../../service/services';
+import services from '../../service/services';
 import ReactDOM from 'react-dom';
 import InputElement from '../ui/Input/InputElement';
 

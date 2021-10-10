@@ -6,7 +6,7 @@ import React from 'react';
 import BasePage from '../base/BasePage';
 import Landing from './Landing';
 
-export const LandingPage = () => {
+const LandingPage = () => {
   return (
     <BasePage theme="white" showTabNavigation={false}>
       <Landing />

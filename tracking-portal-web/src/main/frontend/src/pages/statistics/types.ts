@@ -3,10 +3,10 @@
  */
 
 export type StatisticsDataChart = {
-  time: number,
-  request: number,
-  response?: number,
-  limit?: number
+  time: number;
+  request: number;
+  response?: number;
+  limit?: number;
 };
 
 export type SelectionReport = {

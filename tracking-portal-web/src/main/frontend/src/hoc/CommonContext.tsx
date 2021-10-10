@@ -2,7 +2,7 @@
  * Copyright (c) 2021. Prototype
  */
 
-import React, { useContext } from 'react';
+import React from 'react';
 import { defaultUserInfo, ErrorDto, ErrorDtoType, UserInfo } from '../service/api-dtos';
 
 export interface CommonContextProps {
@@ -12,7 +12,7 @@ export interface CommonContextProps {
   hideNotification: () => void;
 }
 
-const commonContext = React.createContext<CommonContextProps>({
+export const commonContext = React.createContext<CommonContextProps>({
   userInfo: defaultUserInfo,
   showErrorNotification: () => {},
   showNotification: () => {},
@@ -22,7 +22,3 @@ const commonContext = React.createContext<CommonContextProps>({
 export const CommonContextProvider = commonContext.Provider;
 
 export const CommonContextConsumer = commonContext.Consumer;
-
-export const useCommonContext = (): CommonContextProps => {
-  return useContext(commonContext);
-};

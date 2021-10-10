@@ -7,7 +7,7 @@ import './error.scss';
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 
-export const NotFoundPage = () => {
+const NotFoundPage = () => {
   const { t } = useTranslation<string>();
 
   return (
@@ -18,12 +18,8 @@ export const NotFoundPage = () => {
           <div className="journal-content-article">
             <div className="error-page-container">
               <div className="error-page error-404-page">
-                <div className="error-page__title">
-                  {t('error.page_not_found.title')}
-                </div>
-                <div className="error-page__description">
-                  {t('error.page_not_found.description')}
-                </div>
+                <div className="error-page__title">{t('error.page_not_found.title')}</div>
+                <div className="error-page__description">{t('error.page_not_found.description')}</div>
               </div>
             </div>
           </div>
@@ -32,4 +28,6 @@ export const NotFoundPage = () => {
       </div>
     </div>
   );
-}
+};
+
+export default NotFoundPage;

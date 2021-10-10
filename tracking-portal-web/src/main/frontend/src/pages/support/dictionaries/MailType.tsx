@@ -4,87 +4,62 @@
 
 import './dictionaries.scss';
 
-import React, { Component } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import { DictionaryDto, ErrorDto } from '../../../service/api-dtos';
-import { services } from '../../../service/services';
-import { WithTranslation, withTranslation } from 'react-i18next';
+import services from '../../../service/services';
 import { Language } from '../../../common/types';
-import { withCommonContext } from '../../../hoc/withCommonContext';
-import { CommonContextProps } from '../../../hoc/CommonContext';
+import useCommonContext from '../../../hoc/useCommonContext';
 
-type Props = WithTranslation & CommonContextProps;
+const MailType = () => {
+  const { t, i18n } = useTranslation<string>();
+  const { showErrorNotification } = useCommonContext();
+  const [mailTypes, setMailTypes] = useState<DictionaryDto[]>([]);
 
-type State = {
-  language: Language;
-  mailTypes: DictionaryDto[];
-};
-
-class MailType extends Component<Props, State> {
-
-  constructor(props: Props) {
-    super(props);
-    this.state = {
-      language: props.i18n.language as Language,
-      mailTypes: []
-    };
-  }
-
-  componentDidMount() {
-    this.getAttributes(this.state.language);
-  }
-
-  componentDidUpdate(prevProps: Props, prevState: State, snapshot: any) {
-    const language: Language = prevProps.i18n.language as Language;
-    if (this.state.language !== language) {
-      this.setState({ language });
-      this.getAttributes(language);
-    }
-  }
-
-  private getAttributes(language: Language) {
-    const { showErrorNotification } = this.props;
-    services.apiControl.getMailTypes(language)
+  useEffect(() => {
+    services.apiControl
+      .getMailTypes(i18n.language as Language)
       .then((result: DictionaryDto[]) => {
-        this.setState({ mailTypes: result })
+        setMailTypes(result);
       })
       .catch((error: ErrorDto) => {
-        showErrorNotification(error, "getMailTypes");
+        showErrorNotification(error, 'getMailTypes');
       });
-  }
+  }, [i18n.language, showErrorNotification]);
 
-  render() {
-    const { t } = this.props;
-    const { mailTypes } = this.state;
-    return <div className="help-page">
+  return (
+    <div className="help-page">
       <div className="help-article">
         <Link to="/support#dictionaries">{t('dictionary.title')}</Link>
         <h3>{t('dictionary.mailTypes.title')}</h3>
         <article className="page-help-article__content">
-          <p>{t('dictionary.identification')}: <strong>MailType</strong></p>
+          <p>
+            {t('dictionary.identification')}: <strong>MailType</strong>
+          </p>
           <p>&nbsp;</p>
           <table>
             <thead>
-            <tr>
-              <th style={{ width: "20.26%" }}>{t('dictionary.mailTypes.column1.title')}</th>
-              <th style={{ width: "79.74%" }}>{t('dictionary.mailTypes.column2.title')}</th>
-            </tr>
+              <tr>
+                <th style={{ width: '20.26%' }}>{t('dictionary.mailTypes.column1.title')}</th>
+                <th style={{ width: '79.74%' }}>{t('dictionary.mailTypes.column2.title')}</th>
+              </tr>
             </thead>
             <tbody>
-            {mailTypes.map((type: DictionaryDto, index: number) =>
-              <tr key={index}>
-                <td style={{ width: "20.26%" }}>{type.code}</td>
-                <td style={{ width: "79.74%" }}>{type.name}</td>
-              </tr>
-            )}
+              {mailTypes.map((type: DictionaryDto) => (
+                <tr key={type.code}>
+                  <td style={{ width: '20.26%' }}>{type.code}</td>
+                  <td style={{ width: '79.74%' }}>{type.name}</td>
+                </tr>
+              ))}
             </tbody>
           </table>
           <p>&nbsp;</p>
           <p>&nbsp;</p>
         </article>
       </div>
-    </div>;
-  }
-}
+    </div>
+  );
+};
 
-export default withTranslation()(withCommonContext(MailType));
+export default MailType;

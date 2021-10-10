@@ -14,4 +14,4 @@ class Services {
   }
 }
 
-export const services: Services = new Services({ useMock: true });
+export default new Services({ useMock: true });

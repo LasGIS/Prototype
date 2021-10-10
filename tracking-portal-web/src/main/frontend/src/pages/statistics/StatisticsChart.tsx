@@ -4,19 +4,9 @@
 
 import './statistics.scss';
 import React, { Component } from 'react';
+import { Bar, BarChart, Brush, CartesianGrid, ComposedChart, Line, ReferenceLine, Tooltip, XAxis, YAxis } from 'recharts';
+import { WithTranslation, withTranslation } from 'react-i18next';
 import Checkbox from '../../components/ui/Checkbox';
-import {
-  Bar,
-  BarChart,
-  Brush,
-  CartesianGrid,
-  ComposedChart,
-  Line,
-  ReferenceLine,
-  Tooltip,
-  XAxis,
-  YAxis,
-} from 'recharts';
 import {
   checkStartEndIndex,
   DefaultMaxYAxisValue,
@@ -35,8 +25,7 @@ import {
   ZoomChangeTimeoutDelay,
 } from './utils';
 import { DataCollection, SelectionReport, StatisticsDataChart, ZoomIndexes } from './types';
-import { ShowQueriesProcessed } from './ShowQueriesProcessed';
-import { WithTranslation, withTranslation } from 'react-i18next';
+import ShowQueriesProcessed from './ShowQueriesProcessed';
 import { ModeType, StatisticsDataItem } from '../../service/api-dtos';
 
 type Props = WithTranslation & {
@@ -47,9 +36,9 @@ type Props = WithTranslation & {
 };
 
 type State = {
-  language: string,
-  months: string[],
-  formatMonths: string[],
+  language: string;
+  months: string[];
+  formatMonths: string[];
   useQueries: boolean;
   useAnswers: boolean;
   single: DataCollection;
@@ -60,8 +49,8 @@ type State = {
 };
 
 class StatisticsChart extends Component<Props, State> {
-
   private timeout?: NodeJS.Timeout;
+
   private readonly chartRef: React.RefObject<any>;
 
   constructor(props: Props) {
@@ -78,7 +67,7 @@ class StatisticsChart extends Component<Props, State> {
         end: 0,
       },
       selectionReport: {
-        isEmpty: true
+        isEmpty: true,
       },
       batch: {
         data: [],
@@ -86,8 +75,8 @@ class StatisticsChart extends Component<Props, State> {
         end: 0,
       },
       emptyReport: true,
-      bandSize: 20
-    }
+      bandSize: 20,
+    };
     this.onToggleAnswers = this.onToggleAnswers.bind(this);
     this.onToggleQueries = this.onToggleQueries.bind(this);
     this.chartRef = React.createRef();
@@ -98,64 +87,72 @@ class StatisticsChart extends Component<Props, State> {
     this.updateData();
   }
 
-  componentDidUpdate(prevProps: Readonly<Props>, prevState: Readonly<State>, snapshot?: any) {
-    if (prevProps.mode !== this.props.mode) {
+  componentDidUpdate(prevProps: Readonly<Props>) {
+    const { mode, i18n, data, dataBatch } = this.props;
+    const { language } = this.state;
+    if (prevProps.mode !== mode) {
       this.updateBandSize();
     }
-    if (this.props.i18n.language !== this.state.language) {
+    if (i18n.language !== language) {
       this.updateLanguage();
     }
-    if ((this.props.data.length && prevProps.data.length !== this.props.data.length) ||
-      (prevProps.dataBatch.length && prevProps.dataBatch.length !== this.props.dataBatch.length)) {
+    if ((data.length && prevProps.data.length !== data.length) || (prevProps.dataBatch.length && prevProps.dataBatch.length !== dataBatch.length)) {
       this.updateData();
     }
   }
 
-  updateLanguage = () => {
-    const { t, i18n } = this.props;
-    this.setState({
-      language: i18n.language,
-      months: getMonths(t),
-      formatMonths: getFormatMonths(t),
-    });
+  onToggleQueries(checked: boolean) {
+    this.setState({ useQueries: checked });
+  }
+
+  onToggleAnswers(checked: boolean) {
+    this.setState({ useAnswers: checked });
   }
 
   updateData = () => {
     const { mode, data, dataBatch } = this.props;
     const { formatMonths } = this.state;
-    const dataSingleState: StatisticsDataChart[] = fillGapsWithZeros(data, (prevData) => {
-      return {
-        x: getToday(),
-        y: 0,
-        limit: prevData.limit
-      }
-    }, (timestamp) => {
-      return {
-        time: timestamp,
-        request: 0,
-        limit: 0
-      }
-    });
-    const dataBatchState: StatisticsDataChart[] = fillGapsWithZeros(dataBatch, () => {
-      return {
-        x: getToday(),
-        y: 0,
-        r: 0
-      }
-    }, (timestamp) => {
-      return {
-        time: timestamp,
-        request: 0,
-        response: 0
-      }
-    });
-    const emptyReport = (mode === "single") ? (!data || data.length === 0) : (!dataBatch || dataBatch.length === 0);
+    const dataSingleState: StatisticsDataChart[] = fillGapsWithZeros(
+      data,
+      (prevData) => {
+        return {
+          x: getToday(),
+          y: 0,
+          limit: prevData.limit,
+        };
+      },
+      (timestamp) => {
+        return {
+          time: timestamp,
+          request: 0,
+          limit: 0,
+        };
+      },
+    );
+    const dataBatchState: StatisticsDataChart[] = fillGapsWithZeros(
+      dataBatch,
+      () => {
+        return {
+          x: getToday(),
+          y: 0,
+          r: 0,
+        };
+      },
+      (timestamp) => {
+        return {
+          time: timestamp,
+          request: 0,
+          response: 0,
+        };
+      },
+    );
+    const emptyReport = mode === 'single' ? !data || data.length === 0 : !dataBatch || dataBatch.length === 0;
     let state: any;
     if (emptyReport) {
       state = {
         single: { data: dataSingleState, start: 0, end: 0 },
         batch: { data: dataBatchState, start: 0, end: 0 },
-        emptyReport: true
+        emptyReport: true,
       };
     } else {
       const indexSingle: ZoomIndexes = getStartZoomSelection(dataSingleState);
@@ -168,90 +165,102 @@ class StatisticsChart extends Component<Props, State> {
       };
     }
     this.setState(state, () => this.updateBandSize());
-  }
+  };
 
-  onToggleQueries(checked: boolean) {
-    this.setState({ useQueries: checked });
-  }
-
-  onToggleAnswers(checked: boolean) {
-    this.setState({ useAnswers: checked });
-  }
+  updateLanguage = () => {
+    const { t, i18n } = this.props;
+    this.setState({
+      language: i18n.language,
+      months: getMonths(t),
+      formatMonths: getFormatMonths(t),
+    });
+  };
 
   onZoomSelectionChanged = ({ startIndex, endIndex }: any) => {
     const { mode } = this.props;
-    const { single, formatMonths } = this.state;
+    const { single, batch, formatMonths } = this.state;
 
-    if (mode === "single") {
+    if (mode === 'single') {
       const selectionReport = getSelectionReport(single.data, { start: startIndex, end: endIndex }, formatMonths);
       if (this.timeout) {
         clearTimeout(this.timeout);
       }
       this.timeout = setTimeout(() => {
-        this.setState({
-          single: {
-            ...this.state.single,
-            start: startIndex,
-            end: endIndex
+        this.setState(
+          {
+            single: {
+              ...single,
+              start: startIndex,
+              end: endIndex,
+            },
+            selectionReport,
           },
-          selectionReport: selectionReport
-        }, () => this.updateBandSize());
+          () => this.updateBandSize(),
+        );
       }, ZoomChangeTimeoutDelay);
-
-    } else if (mode === "batch") {
+    } else if (mode === 'batch') {
       if (this.timeout) {
         clearTimeout(this.timeout);
       }
       this.timeout = setTimeout(() => {
-        this.setState({
-          batch: {
-            ...this.state.batch,
-            start: startIndex,
-            end: endIndex
-          }
-        }, () => this.updateBandSize());
+        this.setState(
+          {
+            batch: {
+              ...batch,
+              start: startIndex,
+              end: endIndex,
+            },
+          },
+          () => this.updateBandSize(),
+        );
       }, ZoomChangeTimeoutDelay);
     }
-  }
+  };
 
   updateBandSize = () => {
     const chart = this.chartRef.current;
     const bandSize: number = chart?.state?.xAxisMap[0].bandSize || 20;
-    this.setState({ bandSize: bandSize })
-  }
+    this.setState({ bandSize });
+  };
 
   dataFormatter = (date: number | any): string => {
     const { months } = this.state;
     if (typeof date === 'number' && date > 0) {
       const dateObj = new Date(date);
       return `${dateObj.getDate()} ${months[dateObj.getMonth()]}`;
-    } else {
-      return '';
     }
-  }
+    return '';
+  };
 
   barShape = (props: { fill: string; x: number; y: number; width: number; height: number; payload: StatisticsDataChart }) => {
     const { fill, x, y, width, height, payload } = props;
 
-    const getPath = (x: number, y: number, width: number, height: number, isLimit: boolean) => {
-      return (`M ${x},${y} h ${width} v ${isLimit ? 2 : height} h -${width} Z`);
+    const getPath = (isLimit: boolean) => {
+      return `M ${x},${y} h ${width} v ${isLimit ? 2 : height} h -${width} Z`;
     };
 
     const isLimit: boolean = Boolean(payload.limit);
     const isOverflow: boolean = Boolean(payload.limit && payload.request > payload.limit);
 
     return (
-      <path fill={isOverflow ? RequestLimitColor : fill}
-            width={width} height={height} x={x} y={y} radius="0"
-            className="recharts-rectangle" d={getPath(x, y, width, height, isLimit)}/>
+      <path
+        fill={isOverflow ? RequestLimitColor : fill}
+        width={width}
+        height={height}
+        x={x}
+        y={y}
+        radius="0"
+        className="recharts-rectangle"
+        d={getPath(isLimit)}
+      />
     );
-  }
+  };
 
   render() {
     const { t, mode, unlimitedAccessAvailable } = this.props;
     const { single, batch, useQueries, useAnswers, selectionReport, emptyReport, bandSize } = this.state;
-    const isSingle = mode === "single";
-    const isBatch = mode === "batch";
+    const isSingle = mode === 'single';
+    const isBatch = mode === 'batch';
     let data: StatisticsDataChart[];
     let normIndexes: ZoomIndexes;
     if (isSingle) {
@@ -263,57 +272,68 @@ class StatisticsChart extends Component<Props, State> {
     }
     return (
       <div>
-        {emptyReport &&
-        <div className="statistics-form__empty-data-notification">
-          {t('stat.no-data.0')}
-          <br/>
-          {t('stat.no-data.1')}
-        </div>
-        }
+        {emptyReport && (
+          <div className="statistics-form__empty-data-notification">
+            {t('stat.no-data.0')}
+            <br />
+            {t('stat.no-data.1')}
+          </div>
+        )}
         <div className="statistics-form__chart">
-          <ComposedChart
-            ref={this.chartRef}
-            width={670}
-            height={400}
-            data={data}
-            margin={{ top: 20, right: 0, left: 20, bottom: 20 }}
-          >
-            <CartesianGrid horizontal={false}/>
-            <XAxis dataKey="time" tickLine={false} stroke={TimeColor} tickFormatter={this.dataFormatter}/>
-            <YAxis orientation='right' axisLine={false} tickLine={false} stroke={RequestColor}
-                   allowDataOverflow={true} domain={[ 0, DefaultMaxYAxisValue * YAxisMaxValueMultiplier ]}/>
-            <Tooltip cursor={{ strokeWidth: bandSize }} labelFormatter={this.dataFormatter}/>
-            <ReferenceLine y={0} stroke={RequestColor}/>
-            <Brush dataKey="time" height={40} stroke="rgb(128, 179, 236)" tickFormatter={this.dataFormatter}
-                   onChange={this.onZoomSelectionChanged}
-                   startIndex={normIndexes.start} endIndex={normIndexes.end} travellerWidth={3}>
+          <ComposedChart ref={this.chartRef} width={670} height={400} data={data} margin={{ top: 20, right: 0, left: 20, bottom: 20 }}>
+            <CartesianGrid horizontal={false} />
+            <XAxis dataKey="time" tickLine={false} stroke={TimeColor} tickFormatter={this.dataFormatter} />
+            <YAxis
+              orientation="right"
+              axisLine={false}
+              tickLine={false}
+              stroke={RequestColor}
+              allowDataOverflow
+              domain={[0, DefaultMaxYAxisValue * YAxisMaxValueMultiplier]}
+            />
+            <Tooltip cursor={{ strokeWidth: bandSize }} labelFormatter={this.dataFormatter} />
+            <ReferenceLine y={0} stroke={RequestColor} />
+            <Brush
+              dataKey="time"
+              height={40}
+              stroke="rgb(128, 179, 236)"
+              tickFormatter={this.dataFormatter}
+              onChange={this.onZoomSelectionChanged}
+              startIndex={normIndexes.start}
+              endIndex={normIndexes.end}
+              travellerWidth={3}
+            >
               <BarChart data={data}>
-                {(isSingle || isBatch) && <Bar dataKey="request" fill={RequestColor} stroke={RequestColor}/>}
-                {isBatch && <Bar dataKey="response" fill={ResponseColor} stroke={ResponseColor}/>}
+                {(isSingle || isBatch) && <Bar dataKey="request" fill={RequestColor} stroke={RequestColor} />}
+                {isBatch && <Bar dataKey="response" fill={ResponseColor} stroke={ResponseColor} />}
               </BarChart>
             </Brush>
-            {(isSingle || (isBatch && useQueries)) &&
-            <Bar dataKey="request" name={t('stat.batch.queries')} fill={RequestColor} shape={this.barShape}/>}
-            {isBatch && useAnswers &&
-            <Bar dataKey="response" name={t('stat.batch.responses')} fill={ResponseColor} shape={this.barShape}/>}
-            {isSingle &&
-            <Line dataKey="limit" type="step" tooltipType="none" dot={false} stroke={LimitColorLine} strokeWidth={2}/>}
+            {(isSingle || (isBatch && useQueries)) && (
+              <Bar dataKey="request" name={t('stat.batch.queries')} fill={RequestColor} shape={this.barShape} />
+            )}
+            {isBatch && useAnswers && <Bar dataKey="response" name={t('stat.batch.responses')} fill={ResponseColor} shape={this.barShape} />}
+            {isSingle && <Line dataKey="limit" type="step" tooltipType="none" dot={false} stroke={LimitColorLine} strokeWidth={2} />}
           </ComposedChart>
         </div>
         {isBatch ? (
           <div className="statistics-form__series-selection">
-            <Checkbox id="useQueries" className="statistics-form__queries"
-                      label={t('stat.get-ticket')}
-                      checked={useQueries} onChange={this.onToggleQueries}/>
-            <Checkbox id="useAnswers" className="statistics-form__answers"
-                      label={ t('stat.get-response-by-ticket')}
-                      checked={useAnswers} onChange={this.onToggleAnswers}/>
+            <Checkbox
+              id="useQueries"
+              className="statistics-form__queries"
+              label={t('stat.get-ticket')}
+              checked={useQueries}
+              onChange={this.onToggleQueries}
+            />
+            <Checkbox
+              id="useAnswers"
+              className="statistics-form__answers"
+              label={t('stat.get-response-by-ticket')}
+              checked={useAnswers}
+              onChange={this.onToggleAnswers}
+            />
           </div>
         ) : (
-          <ShowQueriesProcessed
-            unlimitedAccessAvailable={unlimitedAccessAvailable}
-            selectionReport={selectionReport}
-          />
+          <ShowQueriesProcessed unlimitedAccessAvailable={unlimitedAccessAvailable} selectionReport={selectionReport} />
         )}
       </div>
     );

@@ -8,15 +8,17 @@ import BasePage from '../base/BasePage';
 import { ModeType } from '../../service/api-dtos';
 import StatisticsForm from './StatisticsForm';
 
-export const StatisticsPage = () => {
+const StatisticsPage = () => {
   const { search } = useLocation();
   const getMode = (): ModeType => {
     const params = new URLSearchParams(search);
     return params.get('mode') as ModeType;
-  }
+  };
   return (
     <BasePage showTabNavigation selected="statistics" theme="gray">
-      <StatisticsForm mode={getMode()}/>
+      <StatisticsForm mode={getMode()} />
     </BasePage>
   );
-}
+};
+
+export default StatisticsPage;
