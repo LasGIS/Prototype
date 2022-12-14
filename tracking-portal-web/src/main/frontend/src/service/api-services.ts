@@ -18,7 +18,6 @@ import {
 import { Language } from '../common/types';
 
 export interface ApiServices {
-
   getAccess(): Promise<any>;
 
   /** @deprecated */

@@ -4,88 +4,63 @@
 
 import './dictionaries.scss';
 
-import React, { Component } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import { DictionaryDto, ErrorDto } from '../../../service/api-dtos';
-import { services } from '../../../service/services';
-import { WithTranslation, withTranslation } from 'react-i18next';
+import services from '../../../service/services';
 import { Language } from '../../../common/types';
-import { withCommonContext } from '../../../hoc/withCommonContext';
-import { CommonContextProps } from '../../../hoc/CommonContext';
+import useCommonContext from '../../../hoc/useCommonContext';
 
-type Props = WithTranslation & CommonContextProps;
+const Postmark = () => {
+  const { t, i18n } = useTranslation<string>();
+  const { showErrorNotification } = useCommonContext();
+  const [postmarks, setPostmarks] = useState<DictionaryDto[]>([]);
 
-type State = {
-  language: Language;
-  postmarks: DictionaryDto[];
-};
-
-export class Postmark extends Component<Props, State> {
-
-  constructor(props: Props) {
-    super(props);
-    this.state = {
-      language: props.i18n.language as Language,
-      postmarks: []
-    };
-  }
-
-  componentDidMount() {
-    this.getAttributes(this.state.language);
-  }
-
-  componentDidUpdate(prevProps: Props, prevState: State, snapshot: any) {
-    const language: Language = prevProps.i18n.language as Language;
-    if (this.state.language !== language) {
-      this.setState({ language });
-      this.getAttributes(language);
-    }
-  }
-
-  private getAttributes(language: Language) {
-    const { showErrorNotification } = this.props;
-    services.apiControl.getPostmarks(language)
+  useEffect(() => {
+    services.apiControl
+      .getPostmarks(i18n.language as Language)
       .then((result: DictionaryDto[]) => {
-        this.setState({ postmarks: result })
+        setPostmarks(result);
       })
       .catch((error: ErrorDto) => {
-        showErrorNotification(error, "getPostmarks");
+        showErrorNotification(error, 'getPostmarks');
       });
-  }
+  }, [i18n.language, showErrorNotification]);
 
-  render() {
-    const { t } = this.props;
-    const { postmarks } = this.state;
-    return <div className="help-page">
+  return (
+    <div className="help-page">
       <div className="help-article">
-        <Link to="/support#dictionaries">{t("dictionary.title")}</Link>
+        <Link to="/support#dictionaries">{t('dictionary.title')}</Link>
         <h3>{t('dictionary.postmark.title')}</h3>
         <article className="page-help-article__content">
-          <p>{t("dictionary.identification")}: <strong>PostMark</strong></p>
+          <p>
+            {t('dictionary.identification')}: <strong>PostMark</strong>
+          </p>
           <p>&nbsp;</p>
           <p>{t('dictionary.postmark.note')}</p>
           <p>&nbsp;</p>
           <table>
             <thead>
-            <tr>
-              <th style={{ width: "20.26%" }}>{t('dictionary.postmark.column1.title')}</th>
-              <th style={{ width: "79.74%" }}>{t('dictionary.postmark.column2.title')}</th>
-            </tr>
+              <tr>
+                <th style={{ width: '20.26%' }}>{t('dictionary.postmark.column1.title')}</th>
+                <th style={{ width: '79.74%' }}>{t('dictionary.postmark.column2.title')}</th>
+              </tr>
             </thead>
             <tbody>
-            {postmarks.map((postmark: DictionaryDto, index: number) =>
-              <tr key={index}>
-                <td style={{ width: "20.26%" }}>{postmark.code}</td>
-                <td style={{ width: "79.74%" }}>{postmark.name}</td>
-              </tr>
-            )}
+              {postmarks.map((postmark: DictionaryDto) => (
+                <tr key={postmark.code}>
+                  <td style={{ width: '20.26%' }}>{postmark.code}</td>
+                  <td style={{ width: '79.74%' }}>{postmark.name}</td>
+                </tr>
+              ))}
             </tbody>
           </table>
           <p>&nbsp;</p>
         </article>
       </div>
-    </div>;
-  }
-}
+    </div>
+  );
+};
 
-export default withTranslation()(withCommonContext(Postmark));
+export default Postmark;

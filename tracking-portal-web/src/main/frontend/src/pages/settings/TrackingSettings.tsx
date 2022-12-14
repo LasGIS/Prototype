@@ -3,12 +3,12 @@
  */
 
 import React, { Component } from 'react';
-import { services } from '../../service/services';
 import { WithTranslation, withTranslation } from 'react-i18next';
-import { Info } from './Info';
-import { AccessSettingsDto, ErrorDto } from '../../service/api-dtos';
 import { RouteComponentProps, withRouter } from 'react-router';
-import { withCommonContext } from '../../hoc/withCommonContext';
+import services from '../../service/services';
+import Info from './Info';
+import { AccessSettingsDto, ErrorDto } from '../../service/api-dtos';
+import withCommonContext from '../../hoc/withCommonContext';
 import { CommonContextProps } from '../../hoc/CommonContext';
 import { getUrlParams } from '../../common/utils';
 
@@ -19,15 +19,14 @@ type State = {
 };
 
 class TrackingSettings extends Component<Props, State> {
-
   constructor(props: Props) {
     super(props);
     this.state = {
       accessSettings: {
         userEmail: '',
         backendUserLogin: '',
-        isBatchAccessAllowed: false
-      }
+        isBatchAccessAllowed: false,
+      },
     };
     this.showPasswordSentNotification = this.showPasswordSentNotification.bind(this);
     this.showSentSettingsNotification = this.showSentSettingsNotification.bind(this);
@@ -37,24 +36,27 @@ class TrackingSettings extends Component<Props, State> {
 
   componentDidMount() {
     const { history, showErrorNotification, location } = this.props;
-    services.apiControl.getAccessSettings()
+    services.apiControl
+      .getAccessSettings()
       .then((result: AccessSettingsDto) => {
-        console.log("getAccessSettings = ", result);
+        console.log('getAccessSettings = ', result);
         this.setState({ accessSettings: result });
       })
       .catch((error: ErrorDto) => {
-        showErrorNotification(error, "getAccessSettings", (errorType) => {
+        showErrorNotification(error, 'getAccessSettings', (errorType) => {
           switch (errorType) {
-            case "USER_UNAUTHORIZED":
-            case "PORTAL_BACKEND_USER_NOT_FOUND":
-              history.push("/");
+            case 'USER_UNAUTHORIZED':
+            case 'PORTAL_BACKEND_USER_NOT_FOUND':
+              history.push('/');
+              break;
+            default:
               break;
           }
         });
       });
 
     const urlParams = getUrlParams(location.search);
-    if (urlParams['showNotification'] === 'true') {
+    if (urlParams.showNotification === 'true') {
       this.showSentSettingsNotification();
     }
   }
@@ -79,23 +81,25 @@ class TrackingSettings extends Component<Props, State> {
 
   sendSettings() {
     const { showErrorNotification } = this.props;
-    services.apiControl.sendSettings()
+    services.apiControl
+      .sendSettings()
       .then(() => {
         this.showSentSettingsNotification();
       })
       .catch((error: ErrorDto) => {
-        showErrorNotification(error, "sendSettings");
+        showErrorNotification(error, 'sendSettings');
       });
   }
 
   resetPassword() {
     const { showErrorNotification } = this.props;
-    services.apiControl.resetPassword()
+    services.apiControl
+      .resetPassword()
       .then(() => {
         this.showPasswordSentNotification();
       })
       .catch((error: ErrorDto) => {
-        showErrorNotification(error, "resetPassword");
+        showErrorNotification(error, 'resetPassword');
       });
   }
 
@@ -103,7 +107,7 @@ class TrackingSettings extends Component<Props, State> {
     const { accessSettings } = this.state;
     return (
       <div className="my-tracking-page__main row-fluid">
-        <div className="span1"/>
+        <div className="span1" />
         <div className="span10">
           <div className="my-tracking-content-item my-tracking-setting">
             <Info

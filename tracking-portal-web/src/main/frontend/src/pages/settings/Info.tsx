@@ -12,7 +12,7 @@ type Props = {
   onResetPassword: () => void;
 };
 
-export const Info = ({ login, isBatchAccessAllowed, onSendSettings, onResetPassword }: Props) => {
+const Info = ({ login, isBatchAccessAllowed, onSendSettings, onResetPassword }: Props) => {
   const { t } = useTranslation<string>();
   return (
     <div>
@@ -21,22 +21,24 @@ export const Info = ({ login, isBatchAccessAllowed, onSendSettings, onResetPassw
         <div className="my-tracking-setting__label">{t('settings.tracking.info.single.address')}</div>
         <div className="my-tracking-setting__value">https://tracking.russianpost.ru/rtm34?wsdl</div>
 
-        {isBatchAccessAllowed ?
+        {isBatchAccessAllowed ? (
           <div>
             <div className="my-tracking-setting__label">{t('settings.tracking.info.packet.address')}</div>
             <div className="my-tracking-setting__value">https://tracking.russianpost.ru/fc?wsdl</div>
           </div>
-          : null}
+        ) : null}
         <div className="my-tracking-setting__label">{t('settings.tracking.info.login.label')}</div>
         <div className="my-tracking-setting__value">{login}</div>
 
-        <div className="button my-tracking-setting__send" onClick={onSendSettings}>
+        <div className="button my-tracking-setting__send" role="button" tabIndex={-1} onClick={onSendSettings}>
           <span>{t('settings.tracking.send-options')}</span>
         </div>
 
-        <span className="my-tracking-setting__reset-password" onClick={onResetPassword}>
-          {t('settings.tracking.reset-password')}</span>
+        <span className="my-tracking-setting__reset-password" role="button" tabIndex={-1} onClick={onResetPassword}>
+          {t('settings.tracking.reset-password')}
+        </span>
       </div>
     </div>
   );
-}
+};
+export default Info;
