@@ -158,7 +158,7 @@
     "less-loader": "^4.0.5",
     "lint-staged": "^9.2.1",
     "mini-css-extract-plugin": "^0.8.0",
-    "node-sass": "^7.0.0",
+    "sass": "^1.62.1",
     "nodemon": "^1.18.9",
     "normalize-css": "^2.3.1",
     "numeralize-ru": "^1.0.1",

@@ -36,6 +36,7 @@
         <module>react_type_script</module>
 <!--        <module>antd_type_script</module>-->
         <module>kotlin_spring_mybatis</module>
+        <module>vue_type_script</module>
     </modules>
     <dependencyManagement>
         <dependencies>
